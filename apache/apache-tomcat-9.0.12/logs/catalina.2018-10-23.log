@@ -1,0 +1,105 @@
+23-Oct-2018 12:22:46.859 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+23-Oct-2018 12:22:46.934 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+23-Oct-2018 12:22:46.935 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+23-Oct-2018 12:22:46.935 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+23-Oct-2018 12:22:46.935 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+23-Oct-2018 12:22:46.935 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+23-Oct-2018 12:22:46.935 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+23-Oct-2018 12:22:46.936 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+23-Oct-2018 12:22:46.936 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+23-Oct-2018 12:22:46.936 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:22:46.936 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:22:46.937 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12/conf/logging.properties
+23-Oct-2018 12:22:46.937 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+23-Oct-2018 12:22:46.937 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+23-Oct-2018 12:22:46.937 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+23-Oct-2018 12:22:46.937 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+23-Oct-2018 12:22:46.938 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+23-Oct-2018 12:22:46.938 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:22:46.938 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:22:46.938 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12/temp
+23-Oct-2018 12:22:46.939 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+23-Oct-2018 12:22:47.797 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:22:47.901 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+23-Oct-2018 12:22:47.938 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:22:47.940 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+23-Oct-2018 12:22:47.940 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2826 ms
+23-Oct-2018 12:22:48.046 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+23-Oct-2018 12:22:48.046 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+23-Oct-2018 12:22:48.086 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+23-Oct-2018 12:22:49.540 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [1.439] ms
+23-Oct-2018 12:22:49.541 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+23-Oct-2018 12:22:49.603 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [62] ms
+23-Oct-2018 12:22:49.604 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+23-Oct-2018 12:22:52.473 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [2.869] ms
+23-Oct-2018 12:22:52.474 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+23-Oct-2018 12:22:52.601 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [126] ms
+23-Oct-2018 12:22:52.602 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+23-Oct-2018 12:22:52.770 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [168] ms
+23-Oct-2018 12:22:52.771 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+23-Oct-2018 12:22:52.905 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [134] ms
+23-Oct-2018 12:22:52.910 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:22:52.920 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:22:52.924 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 4983 ms
+23-Oct-2018 12:30:23.282 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/holamundo]
+23-Oct-2018 12:30:23.354 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+23-Oct-2018 12:30:23.461 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [107] ms
+23-Oct-2018 12:57:32.970 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+23-Oct-2018 12:57:32.985 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:57:32.990 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:57:33.041 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+23-Oct-2018 12:57:33.104 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:57:33.107 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:57:33.109 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:57:33.114 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:57:34.028 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+23-Oct-2018 12:57:34.033 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+23-Oct-2018 12:57:34.033 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+23-Oct-2018 12:57:34.033 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+23-Oct-2018 12:57:34.034 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+23-Oct-2018 12:57:34.034 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+23-Oct-2018 12:57:34.035 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+23-Oct-2018 12:57:34.035 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+23-Oct-2018 12:57:34.035 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+23-Oct-2018 12:57:34.036 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:57:34.036 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:57:34.037 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12/conf/logging.properties
+23-Oct-2018 12:57:34.037 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+23-Oct-2018 12:57:34.038 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+23-Oct-2018 12:57:34.038 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+23-Oct-2018 12:57:34.039 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+23-Oct-2018 12:57:34.039 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+23-Oct-2018 12:57:34.040 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:57:34.041 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12
+23-Oct-2018 12:57:34.042 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/apache/apache-tomcat-9.0.12/temp
+23-Oct-2018 12:57:34.042 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+23-Oct-2018 12:57:34.262 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:57:34.282 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+23-Oct-2018 12:57:34.292 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:57:34.294 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+23-Oct-2018 12:57:34.296 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 868 ms
+23-Oct-2018 12:57:34.332 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+23-Oct-2018 12:57:34.333 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+23-Oct-2018 12:57:34.347 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+23-Oct-2018 12:57:34.915 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [565] ms
+23-Oct-2018 12:57:34.915 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+23-Oct-2018 12:57:34.965 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [49] ms
+23-Oct-2018 12:57:34.966 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+23-Oct-2018 12:57:35.743 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [777] ms
+23-Oct-2018 12:57:35.744 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+23-Oct-2018 12:57:35.800 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [56] ms
+23-Oct-2018 12:57:35.800 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+23-Oct-2018 12:57:35.853 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [53] ms
+23-Oct-2018 12:57:35.854 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+23-Oct-2018 12:57:35.952 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [98] ms
+23-Oct-2018 12:57:35.956 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:57:35.967 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:57:35.978 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1682 ms
+23-Oct-2018 12:58:39.362 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+23-Oct-2018 12:58:39.365 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:58:39.370 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:58:39.422 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+23-Oct-2018 12:58:39.454 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:58:39.456 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+23-Oct-2018 12:58:39.458 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+23-Oct-2018 12:58:39.458 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
