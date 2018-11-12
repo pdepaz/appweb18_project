@@ -1,4 +1,4 @@
-package bookshop;
+package proyecto;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,10 +26,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         // TODO: program this method
         Context initCtx = new InitialContext();
         Context envCtx = (Context) initCtx.lookup("java:comp/env");
-        DataSource ds = (DataSource) envCtx.lookup("jdbc/Libros");
+        DataSource ds = (DataSource) envCtx.lookup("jdbc/proyecto");
         connection = ds.getConnection();
     }
 
+    
     /**
      * Close the connection to the database if it is still open.
      *
@@ -41,18 +42,8 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         connection = null;
     }
 
-    /**
-     * Return the number of units in stock of the given book.
-     *
-     * @param book The book object.
-     * @return The number of units in stock, or 0 if the book does not
-     *         exist in the database.
-     * @throws SQLException If somthing fails with the DB.
-     */
-    public int getStock(Book book) throws SQLException {
-        return getStock(book.getId());
-    }
 
+    
     /**
      * Return the number of units in stock of the given book.
      *
@@ -60,7 +51,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return The number of units in stock, or 0 if the book does not
      *         exist in the database.
      */
-    public int getStock(int bookId) throws SQLException {
+    public int iniciarSesion(int bookId) throws SQLException {
         // TODO: program this method
 	int unidades = 0;
 
