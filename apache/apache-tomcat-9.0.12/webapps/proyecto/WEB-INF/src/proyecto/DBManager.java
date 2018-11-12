@@ -1,10 +1,11 @@
-package bookshop;
+package proyecto;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +27,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         // TODO: program this method
         Context initCtx = new InitialContext();
         Context envCtx = (Context) initCtx.lookup("java:comp/env");
-        DataSource ds = (DataSource) envCtx.lookup("jdbc/Libros");
+        DataSource ds = (DataSource) envCtx.lookup("jdbc/proyecto");
         connection = ds.getConnection();
     }
 
+    
     /**
      * Close the connection to the database if it is still open.
      *
@@ -41,42 +43,40 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         connection = null;
     }
 
+
+    
     /**
-     * Return the number of units in stock of the given book.
+     * Check in the database if the user and password given by arguments exist in the DB
      *
-     * @param book The book object.
-     * @return The number of units in stock, or 0 if the book does not
-     *         exist in the database.
-     * @throws SQLException If somthing fails with the DB.
+     * @param usuario username.
+     * @return 1 if correct, 0 if it doesn't exist, -1 if error (nothing introduced...)
      */
-    public int getStock(Book book) throws SQLException {
-        return getStock(book.getId());
-    }
+    public int iniciarSesion(String usuario, String contrasenya) throws SQLException {
+        
+        if (usuario = "" || contrasenya = ""){
+            return -1;
+        }
+        
+        String query = "SELECT Usuarios.usuario FROM Usuarios WHERE Usuario.usuario=? AND Usuario.contrasenya=?";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, usuario);
+            st.setString(2, contrasenya);
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+        }
+        
+    
+        if (rs != NULL) {
+            return 1;
+        } else {
+            return 0;
+        }
 
-    /**
-     * Return the number of units in stock of the given book.
-     *
-     * @param bookId The book identifier in the database.
-     * @return The number of units in stock, or 0 if the book does not
-     *         exist in the database.
-     */
-    public int getStock(int bookId) throws SQLException {
-        // TODO: program this method
-	int unidades = 0;
-
-	String query = "SELECT Existencias.unidades FROM Existencias INNER JOIN Libros ON Libros.id=Existencias.libro WHERE Libros.id=" + Integer.toString(bookId);
-	Statement stmt = connection.createStatement();
-	ResultSet rs = stmt.executeQuery(query);
-
-	while (rs.next()){
-	    unidades = rs.getInt("unidades");
-	}
-
-	rs.close();
-	stmt.close();
-	
-        return unidades;
-    }
+    } 
+        
+        
 
     /**
      * Search book by ISBN.
