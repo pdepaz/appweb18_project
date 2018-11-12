@@ -105,10 +105,7 @@ public class Comentario {
 	
 	 @Override
 	public String toString() {
-		return "Comentario [id=" + id + ", comentario_text=" + comentario_text + ", tipo_tema=" + tipo_tema
-				+ ", pelicula=" + pelicula + ", serie=" + serie + ", libro=" + libro + ", usuario=" + usuario
-				+ ", fecha_creacion=" + fecha_creacion + ", comentario_padre=" + comentario_padre + ", tipo_usuario="
-				+ tipo_usuario + ", bloqueado=" + bloqueado + "]";
+		return "Comentario [comentario_text=" + comentario_text + ", tipo_tema=" + tipo_tema +"]";
 	}
 
 }
