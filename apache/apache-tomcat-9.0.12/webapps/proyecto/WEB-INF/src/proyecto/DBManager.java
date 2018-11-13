@@ -48,12 +48,13 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     /**
      * Check in the database if the user and password given by arguments exist in the DB
      *
-     * @param usuario username.
+     * @param usuario username
+     * @param contrasenya password of the user
      * @return 1 if correct, 0 if it doesn't exist, -1 if error (nothing introduced...)
      */
     public int iniciarSesion(String usuario, String contrasenya) throws SQLException {
         
-        if (usuario = "" || contrasenya = ""){
+        if (usuario.equals("")  || contrasenya.equals("")){
             return -1;
         }
         
@@ -65,18 +66,110 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(2, contrasenya);
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
-        }
-        
-    
-        if (rs != NULL) {
-            return 1;
-        } else {
-            return 0;
+            
+            if (rs != null) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
 
     } 
         
+
+    /**
+     * Check if the username already exists in database. To check: email and/or usuario.
+     *
+     * @param email   
+     * @param usuario nombre de usuario   
+     * @return true if error (already exists), false if OK (doesn't exists)
+     */
+    public boolean verificarExistenciaUsuario(String email, String usuario) throws SQLException {
+    
+        //Verificar que los datos que me llegan están bien (de los obligatorios)
         
+       String query = "SELECT Usuarios.usuario FROM Usuarios WHERE Usuario.email=? OR Usuario.usuario=?";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, email);
+            st.setString(2, usuario);
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            if (rs != null) {
+                return false; //Doesn't exists
+            } else { 
+                return true; //User exists
+            }
+        }
+    }         
+        
+        
+       
+    /**
+     * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
+     *
+     * @param nombre compulsory
+     * @param apellido1 compulsory
+     * @param apellido2
+     * @param email compulsory
+     * @param foto
+     * @param telefono
+     * @param contrasenya compulsory
+     * @param usuario compulsory
+     * @param tipo_usuario (if nothing clicked by the user, normal user by default)    
+     * @return 1 if correct, -1 if error (somefields not introduced)
+     */
+    public int crearUsuario(String nombre, String apellido1, String apellido2, String email, String foto, int telefono, String contrasenya, String usuario, String tipo_usuario) throws SQLException {
+    
+        //Verificar que los datos que me llegan están bien (de los obligatorios)
+        
+        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
+            return -1;
+        }
+        
+        if (verificarExistenciaUsuario(email, usuario)){
+            return -1; //Usuario ya existe
+        }
+        
+        //A partir de aqui, ya sabemos que el usuario NO existe en nuestra base de datos
+        if(apellido2.equals("")){
+            apellido1 = null;
+        }
+        if(foto.equals("")){
+            foto = null;
+        }
+        if(telefono.equals("")){
+            telefono = null;
+        }
+        if(tipo_usuario.equals("")){
+            tipo_usuario = null;
+        }
+        
+        
+
+        String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, foto, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, nombre);
+            st.setString(2, apellido1);
+            st.setString(3, apellido2);
+            st.setString(4, email);
+            st.setString(5, foto);
+            st.setInt(6, telefono);
+            st.setString(7, contrasenya);
+            st.setString(8, usuario);
+            st.setString(9, tipo_usuario);
+            st.setString(10, 0);
+
+            // execute select SQL stetement
+            st.executeUpdate();
+            
+        }
+
+    } 
 
     /**
      * Search book by ISBN.
