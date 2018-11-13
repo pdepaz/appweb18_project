@@ -172,6 +172,148 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     } 
 
 
+/**
+     * Create Comment
+     *
+     * @param TODO
+     * @return 1 if correct, 0 if not created, -1 if error
+     */
+    public int creaComentario(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
+        //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
+        //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
+         if(comentario_text.equals("")){
+            return -1;
+        }
+        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+           
+            
+            switch(tipo_tema){
+            
+            case pelicula 
+            st.setString(1, comentario_text);
+            st.setString(2, pelicula);
+            st.setString(3, idTema);
+            st.setString(4, null);
+            st.setString(5, null);
+            st.setInt(6, usuario);
+            st.SetString(7,NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            
+            
+            break;
+            case serie
+            st.setString(1, comentario_text);
+            st.setString(2, serie);
+            st.setString(3, null);
+            st.setString(4, idTema);
+            st.setString(5, null);
+            st.setInt(6, usuario);
+            st.SetString(7, NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            break;
+            
+            case Libro             
+            st.setString(1, comentario_text);
+            st.setString(2, libro);
+            st.setString(3, null);
+            st.setString(4, null);
+            st.setString(5, idTema);
+            st.setInt(6, usuario);
+            st.SetString(7,NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            break;
+            
+            case Default
+            return -1;
+            break;
+            }
+            
+          st.executeUpdate();
+          return 1; 
+        }
+        
+
+    } 
+     /**
+     * Create Comment
+     *
+     * @param TODO
+     * @return 1 if correct, 0 if not created, -1 if error
+     */
+    public int creaTema(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
+        //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
+        //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
+         if(comentario_text.equals("")){
+            return -1;
+        }
+        String query = "INSERT INTO ? (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+           
+            
+            switch(tipo_tema){
+            
+            case pelicula 
+            
+            st.setString(1, comentario_text);
+            st.setString(2, pelicula);
+            st.setString(3, idTema);
+            st.setString(4, null);
+            st.setString(5, null);
+            st.setInt(6, usuario);
+            st.SetString(7,NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            
+            
+            break;
+            case serie
+            st.setString(1, comentario_text);
+            st.setString(2, serie);
+            st.setString(3, null);
+            st.setString(4, idTema);
+            st.setString(5, null);
+            st.setInt(6, usuario);
+            st.SetString(7, NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            break;
+            
+            case Libro             
+            st.setString(1, comentario_text);
+            st.setString(2, libro);
+            st.setString(3, null);
+            st.setString(4, null);
+            st.setString(5, idTema);
+            st.setInt(6, usuario);
+            st.SetString(7,NOW());
+            st.setInt(8, comentario_padre);
+            st.setInt(9, 0);
+            break;
+            
+            case Default
+            return -1;
+            break;
+            }
+            
+          st.executeUpdate();
+          return 1; 
+        }
+        
+
+    } 
+
+
+
+
+
 
     /**
      * Lock a comment (done by moderators)
