@@ -1,6 +1,6 @@
 package proyecto;
 
-public class Serie {
+public class Libro {
 	private int id;
 	private String titulo;
 	private int anyo;
@@ -10,10 +10,7 @@ public class Serie {
     private String genero;
     //private String portada;
     private int creador;
-    private int bloqueado;
-    
-    
-    
+    private int bloqueado; 
     
     
 	@Override

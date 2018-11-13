@@ -171,6 +171,163 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
     } 
 
+
+
+    /**
+     * Lock a comment (done by moderators)
+     *
+     * @param id id del comentario que queremos bloquear
+     * @return true = bloqueado
+     */
+    public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
+        String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_bloquear_comentario)){
+            st.setInt(1, 1);
+        }
+
+        st.executeUpdate();
+        return true;
+    }
+
+
+     /**
+     * Unlock a comment (done by moderators)
+     *
+     * @param id id del comentario que queremos bloquear
+     * @return true = desbloqueado
+     */       
+    public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
+        String query_bloquear_película = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
+            st.setInt(1, 0);
+        }
+
+        st.executeUpdate();
+        return true;
+    }
+
+
+
+    /**
+     * Lock a theme (done by moderators)
+     *
+     * @param tipo tipo de tema que queremos bloquear
+     * @param id id del tema
+     * @return true = bloqueado
+     */
+    public boolean bloquear_tema(String tipo, int id){
+        switch(tipo){
+            case 'Peliculas':
+                String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+            case 'Series':
+                String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+            case 'Libros':
+                String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+        }
+
+        return true;
+    }
+
+
+   /**
+     * Unlock a theme (done by moderators)
+     *
+     * @param tipo tipo de tema que queremos bloquear
+     * @param id id del tema
+     * @return true = desbloqueado
+     */   
+    public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
+        
+        switch(tipo){
+            case 'Peliculas':
+                String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+            case 'Series':
+                String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+            case 'Libros':
+                String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+        }
+
+        return true;
+    }
+
+
+
+    /**
+     * Lock a user (done by moderators)
+     *
+     * @param id id del usuario
+     * @return true = bloqueado
+     */   
+    public boolean bloquear_usuario(int id){
+        String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_bloquea_usuario)){
+            st.setInt(1, 1);
+        }
+
+        st.executeUpdate();
+        return true;
+    }
+
+
+
+
+ 
+    /**
+     * Unlock a user (done by moderators)
+     *
+     * @param id id del usuario
+     * @return true = bloqueado
+     */   
+    public boolean desbloquear_usuario(int id){
+        String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
+            st.setInt(1, 0);
+        }
+
+        st.executeUpdate();
+        return true;
+    }
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+
     /**
      * Search book by ISBN.
      *
