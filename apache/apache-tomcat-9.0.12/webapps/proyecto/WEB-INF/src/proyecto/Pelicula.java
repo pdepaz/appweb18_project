@@ -8,7 +8,7 @@ public class Pelicula {
     private int pais;
     private String director;    
     private String genero;
-    //private String portada;
+    //Array de bytes String portada;
     private String trailer;
     private int creador;
     private int bloqueado;

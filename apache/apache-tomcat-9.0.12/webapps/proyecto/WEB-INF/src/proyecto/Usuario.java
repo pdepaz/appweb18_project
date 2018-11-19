@@ -6,7 +6,7 @@ public class Usuario {
 	private String apellido1;
 	private String apellido2;
     private String email;
-	//private String foto;
+	//Array de bytes String foto;
 	private int telefono;
     private String usuario;
     private String contrasenya;

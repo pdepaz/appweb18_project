@@ -4,6 +4,18 @@ public class Libro {
 	private int id;
 	private String titulo;
 	private int anyo;
+<<<<<<< HEAD
+    	private int paginas;
+    	private String escritor;
+    	private String editorial;
+    	private String genero;
+    	//Array de bytes String portada;
+    	private int creador;
+    	private int bloqueado;
+    
+    
+    
+=======
     private int paginas;
     private String escritor;
     private String editorial;
@@ -11,6 +23,7 @@ public class Libro {
     //private String portada;
     private int creador;
     private int bloqueado; 
+>>>>>>> 2b74dfaa40482d3bd5a59e7b625147eb96cda8cf
     
     
 	@Override

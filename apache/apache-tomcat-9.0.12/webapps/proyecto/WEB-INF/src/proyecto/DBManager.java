@@ -32,6 +32,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         DataSource ds = (DataSource) envCtx.lookup("jdbc/proyecto");
         connection = ds.getConnection();
     }
+    
 
     
     /**
@@ -106,8 +107,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
     }         
         
-        
-       
+        if (rs != NULL) {
+            return 1;
+        } else {
+            return 0;
+
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
      *
@@ -171,6 +175,31 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
 
     } 
+/********
+isBloqueado checkea si usuario está bloqueado
+devuelve bloqueado dentro de usuarios 
+1 si bloqueado 0 si no está bloqueado.
+@param id de usuario
+
+*******/
+public int isBloqueado(int id){
+
+String query = "SELECT bloqueado From Usuarios WHERE Usuarios.id = ?;"
+
+ try (PreparedStatement st = connection.prepareStatement(query)) {
+ 
+        st.setInt(1, id);
+        ResultSet rs =  st.executeQuery();
+        
+        int bloqueado = rs.getInt("bloqueado");
+    }
+    // 1 si bloqueado 0 si no
+return bloqueado;
+
+
+
+}
+
 
 
 /**
@@ -182,6 +211,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     public int creaComentario(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre, int es_respuesta) throws SQLException {
         //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
+<<<<<<< HEAD
         
         
         if(comentario_text.equals("")){
@@ -194,6 +224,23 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         
         
         String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?,?,?,?);
+=======
+        //comprobamos si el usuario esta bloqueado
+        if(isBloqueado(usuario)==1){
+        return -1;
+        }
+        //comprobamos si la cadena introducida es espacio vacio
+         if(comentario_text.equals("") || ){
+            return -1;
+        }
+        
+        //CHECK SECURITY
+        if(comentario_text.contains("<") ||comentario_text.contains(">") || comentario_text.contains("SELECT")){
+        return -1
+        }
+        
+        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
+>>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -255,11 +302,14 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      */
     public int creaTema(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
         //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
+       if(isBloqueado(usuario)==1){
+        return -1;
+        }
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
          if(comentario_text.equals("")){
             return -1;
         }
-        String query = "INSERT INTO ? (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
+        String query = "INSERT INTO ? () VALUES (?,?,?,?,?,?)";
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -267,20 +317,30 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             
             switch(tipo_tema){
             
+<<<<<<< HEAD
             case "Pelicula": 
             
             st.setString(1, comentario_text);
             st.setString(2, pelicula);
             st.setString(3, idTema);
             st.setString(4, null);
+=======
+            case pelicula 
+            st.setString(1, "Peliculas");
+            st.setString(2, comentario_text);
+            st.setString(3, "pelicula");
+            st.setString(4, idTema);
+>>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
             st.setString(5, null);
-            st.setInt(6, usuario);
-            st.SetString(7,NOW());
-            st.setInt(8, comentario_padre);
-            st.setInt(9, 0);
+            st.setString(6, null);
+            st.setInt(7, usuario);
+            st.SetString(8,"2018-19-11");
+            st.setInt(9, comentario_padre);
+            st.setInt(10, 0);
             
             
             break;
+<<<<<<< HEAD
             
             case "Serie":
             st.setString(1, comentario_text);
@@ -298,12 +358,32 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(1, comentario_text);
             st.setString(2, libro);
             st.setString(3, null);
+=======
+            case serie
+            st.setString(1,"Series");
+            st.setString(2, comentario_text);
+            st.setString(3, "serie");
             st.setString(4, null);
             st.setString(5, idTema);
-            st.setInt(6, usuario);
-            st.SetString(7,NOW());
-            st.setInt(8, comentario_padre);
-            st.setInt(9, 0);
+            st.setString(6, null);
+            st.setInt(7, usuario);
+            st.SetString(8, NOW());
+            st.setInt(9, comentario_padre);
+            st.setInt(10, 0);
+            break;
+            
+            case Libro
+            st.setString(1,"Libro");
+            st.setString(2, comentario_text);
+            st.setString(3, "libro");
+>>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
+            st.setString(4, null);
+            st.setString(5, null);
+            st.setString(6, idTema);
+            st.setInt(7, usuario);
+            st.SetString(8,"2018-19-11");
+            st.setInt(9, comentario_padre);
+            st.setInt(10, 0);
             break;
             
             case Default
@@ -317,12 +397,105 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         
 
     } 
-
-
-
-
-
-
+<<<<<<< HEAD
+    
+    public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
+        String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        try(PreparedStatement st = connection.prepareStatement(query_bloquear_comentario)){
+            st.setInt(1, 1);
+        }
+        st.executeUpdate();
+        return true;
+    }
+    public boolean bloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos bloquear
+        switch(tipo){
+            case 'Peliculas':
+                String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+            case 'Series':
+                String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+            case 'Libros':
+                String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
+                    st.setInt(1, 1);
+                }
+                st.executeUpdate();
+                break;
+        }
+        return true;
+    }
+    public boolean bloquear_usuario(int id){//Pasamos el id del usuario que queremos bloquear
+        String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
+        try(PreparedStatement st = connection.prepareStatement(query_bloquea_usuario)){
+            st.setInt(1, 1);
+        }
+        st.executeUpdate();
+        return true;
+    }
+    public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
+        switch(tipo){
+            case 'Peliculas':
+                String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+            case 'Series':
+                String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+            case 'Libros':
+                String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
+                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
+                    st.setInt(1, 0);
+                }
+                st.executeUpdate();
+                break;
+        }
+        return true;
+    }
+    public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
+        String query_bloquear_película = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
+            st.setInt(1, 0);
+        }
+        st.executeUpdate();
+        return true;
+    }
+    public boolean desbloquear_usuario(int id){//Pasamos el id del usuario que queremos desbloquear
+        String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
+        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
+            st.setInt(1, 0);
+=======
+    public boolean isModerador(int id){
+        
+        String query_is = "SELECT tipo_usuario FROM Usuarios WHERE id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_is)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            if (!rs.equals("MODERADOR"){
+                return false;
+            }
+            return true;
+>>>>>>> 2e1981cf11b0d3c57aedd4b04744bba44ccec499
+        }
+    }
+    
     /**
      * Bloquear un comentario (hecho por moderadores)
      *
@@ -330,17 +503,18 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = bloqueado
      */
     public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_bloquear_comentario)){
-            st.setInt(1, 1);
-            
+            st.setInt(1, id);            
             st.executeUpdate();
         }
-
         return true;
     }
-
 
      /**
      * Desbloquear un comentario (hecho por moderadores)
@@ -349,18 +523,15 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = desbloqueado
      */       
     public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
-        String query_desbloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        isModerador(id);
+        String query_desbloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=0 WHERE Comentarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
-            st.setInt(1, 0);
-            
+            st.setInt(1, id);
             st.executeUpdate();
         }
-
         return true;
     }
-
-
 
     /**
      * Bloquear un tema (hecho por moderadores)
@@ -370,12 +541,16 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = bloqueado
      */
     public boolean bloquear_tema(String tipo, int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         switch(tipo){
             case "Peliculas":
                 
                 String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -384,7 +559,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
                 
                 String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 
@@ -394,16 +569,13 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
                 
                 String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
-                break;
-                
+                break;                
         }
-
         return true;
     }
-
 
    /**
      * Desbloquear un tema (hecho por moderadores)
@@ -413,13 +585,16 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = desbloqueado
      */   
     public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
+        if(!isModerador(id)){
+            return false;
+        }
         
         switch(tipo){
             case "Peliculas":
                 
                 String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -428,7 +603,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
                 
                 String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -437,17 +612,13 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             
                 String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
-                
         }
-
         return true;
     }
-
-
 
     /**
      * Bloquear un usuario (hecho por moderadores)
@@ -456,21 +627,21 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = bloqueado
      */   
     public boolean bloquear_usuario(int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_bloquear_usuario)){
-            st.setInt(1, 1);
+            st.setInt(1, id);
             
             st.executeUpdate();
         }
 
         return true;
     }
-
-
-
-
- 
+    
     /**
      * Desbloquear un usuario (hecho por moderadores)
      *
@@ -478,10 +649,14 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return true = bloqueado
      */   
     public boolean desbloquear_usuario(int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=0 WHERE Usuarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
-            st.setInt(1, 0);
+            st.setInt(1, id);
             
             st.executeUpdate();
         }
