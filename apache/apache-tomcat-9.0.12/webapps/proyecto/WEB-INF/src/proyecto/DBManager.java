@@ -500,8 +500,27 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         return true;
     }
 
-
-
+    //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
+    public Usuario cargar_usuario(int id){ 
+        Usuario user = new Usuario(); //Objeto de la clase Usuario
+        String query_usuario = "SELECT * FROM Usuarios WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_usuario)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setNombre(rs.getString("nombre"));
+            user.setApellido1(rs.getString("apellido1"));
+            user.setApellido2(rs.getString("apellido2"));
+            user.setEmail(rs.getString("email"));
+            user.setTelefono(rs.getInt("telefono"));
+            user.setContraseña(rs.getString("contrasenya"));
+            user.setUsuario(rs.getString("usuario"));
+            user.setTipoUsuario(rs.getString("tipo_usuario"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return user;
+    }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
