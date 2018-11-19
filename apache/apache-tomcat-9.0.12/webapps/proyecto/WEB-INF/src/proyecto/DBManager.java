@@ -355,6 +355,7 @@ return bloqueado;
         
 
     } 
+<<<<<<< HEAD
     
     public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
@@ -436,17 +437,23 @@ return bloqueado;
         String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
             st.setInt(1, 0);
-        }
-        st.executeUpdate();
-        return true;
-    }
 =======
-
-
-
-
-
-
+    public boolean isModerador(int id){
+        
+        String query_is = "SELECT tipo_usuario FROM Usuarios WHERE id=?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query_is)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            if (!rs.equals("MODERADOR"){
+                return false;
+            }
+            return true;
+>>>>>>> 2e1981cf11b0d3c57aedd4b04744bba44ccec499
+        }
+    }
+    
     /**
      * Bloquear un comentario (hecho por moderadores)
      *
@@ -454,17 +461,18 @@ return bloqueado;
      * @return true = bloqueado
      */
     public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_bloquear_comentario)){
-            st.setInt(1, 1);
-            
+            st.setInt(1, id);            
             st.executeUpdate();
         }
-
         return true;
     }
-
 
      /**
      * Desbloquear un comentario (hecho por moderadores)
@@ -473,18 +481,15 @@ return bloqueado;
      * @return true = desbloqueado
      */       
     public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
-        String query_desbloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
+        isModerador(id);
+        String query_desbloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=0 WHERE Comentarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
-            st.setInt(1, 0);
-            
+            st.setInt(1, id);
             st.executeUpdate();
         }
-
         return true;
     }
-
-
 
     /**
      * Bloquear un tema (hecho por moderadores)
@@ -494,12 +499,16 @@ return bloqueado;
      * @return true = bloqueado
      */
     public boolean bloquear_tema(String tipo, int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         switch(tipo){
             case 'Peliculas':
                 
                 String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -508,7 +517,7 @@ return bloqueado;
                 
                 String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 
@@ -518,16 +527,13 @@ return bloqueado;
                 
                 String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
-                    st.setInt(1, 1);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
-                break;
-                
+                break;                
         }
-
         return true;
     }
-
 
    /**
      * Desbloquear un tema (hecho por moderadores)
@@ -537,13 +543,16 @@ return bloqueado;
      * @return true = desbloqueado
      */   
     public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
+        if(!isModerador(id)){
+            return false;
+        }
         
         switch(tipo){
             case 'Peliculas':
                 
                 String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -552,7 +561,7 @@ return bloqueado;
                 
                 String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
@@ -561,17 +570,13 @@ return bloqueado;
             
                 String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
-                    st.setInt(1, 0);
+                    st.setInt(1, id);
                     st.executeUpdate();
                 }
                 break;
-                
         }
-
         return true;
     }
-
-
 
     /**
      * Bloquear un usuario (hecho por moderadores)
@@ -580,21 +585,21 @@ return bloqueado;
      * @return true = bloqueado
      */   
     public boolean bloquear_usuario(int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_bloquear_usuario)){
-            st.setInt(1, 1);
+            st.setInt(1, id);
             
             st.executeUpdate();
         }
 
         return true;
     }
-
-
-
-
- 
+    
     /**
      * Desbloquear un usuario (hecho por moderadores)
      *
@@ -602,10 +607,14 @@ return bloqueado;
      * @return true = bloqueado
      */   
     public boolean desbloquear_usuario(int id){
+        if(!isModerador(id)){
+            return false;
+        }
+        
         String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=0 WHERE Usuarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
-            st.setInt(1, 0);
+            st.setInt(1, id);
             
             st.executeUpdate();
         }
