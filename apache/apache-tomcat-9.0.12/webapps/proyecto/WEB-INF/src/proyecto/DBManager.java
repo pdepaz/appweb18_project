@@ -688,6 +688,28 @@ return bloqueado;
         }
         return user;
     }
+    
+    public Comentario cargar_comentario(int id){
+        Comentario comment = new Comentario();
+        String query_comentario = "SELECT * FROM Comentarios WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_comentario)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            comment.setId(id);
+            comment.setComentario_text(rs.getString("comentario_text"));
+            comment.setTipo_tema(rs.getString("tipo_tema"));
+            comment.setPelicula(rs.getInt("pelicula"));
+            comment.setSerie(rs.getInt("serie"));
+            comment.setLibro(rs.getInt("libro"));
+            comment.setUsuario(rs.getInt("usuario"));
+            comment.setFecha_creacion(rs.getString("fecha_creacion"));
+            comment.setComentario_padre(rs.getInt("comentario_padre"));
+            comment.setTipo_usuario(rs.getString("tipo_usuario"));
+            comment.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return comment;
+    }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
