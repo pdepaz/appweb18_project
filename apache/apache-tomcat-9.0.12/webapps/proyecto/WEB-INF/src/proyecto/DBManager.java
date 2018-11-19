@@ -378,7 +378,6 @@ return bloqueado;
         return true;
     }
     
-    
     public boolean bloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos bloquear
         switch(tipo){
             case 'Peliculas':
@@ -451,11 +450,15 @@ return bloqueado;
         st.executeUpdate();
         return true;
     }
+    
     public boolean desbloquear_usuario(int id){//Pasamos el id del usuario que queremos desbloquear
         String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
             st.setInt(1, 0);
-=======
+        }
+    }
+    
+    
     public boolean isModerador(int id){
         
         String query_is = "SELECT tipo_usuario FROM Usuarios WHERE id=?";
@@ -468,7 +471,6 @@ return bloqueado;
                 return false;
             }
             return true;
->>>>>>> 2e1981cf11b0d3c57aedd4b04744bba44ccec499
         }
     }
     
@@ -640,8 +642,49 @@ return bloqueado;
         return true;
     }
 
-
-
+    //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
+    public Usuario cargar_usuario(int id){ 
+        Usuario user = new Usuario(); //Objeto de la clase Usuario
+        String query_usuario = "SELECT * FROM Usuarios WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_usuario)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setNombre(rs.getString("nombre"));
+            user.setApellido1(rs.getString("apellido1"));
+            user.setApellido2(rs.getString("apellido2"));
+            user.setEmail(rs.getString("email"));
+            user.setTelefono(rs.getInt("telefono"));
+            user.setContraseña(rs.getString("contrasenya"));
+            user.setUsuario(rs.getString("usuario"));
+            user.setTipoUsuario(rs.getString("tipo_usuario"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return user;
+    }
+    
+    public Comentario cargar_comentario(int id){
+        Comentario comment = new Comentario();
+        String query_comentario = "SELECT * FROM Comentarios WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_comentario)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            comment.setId(id);
+            comment.setComentario_text(rs.getString("comentario_text"));
+            comment.setTipo_tema(rs.getString("tipo_tema"));
+            comment.setPelicula(rs.getInt("pelicula"));
+            comment.setSerie(rs.getInt("serie"));
+            comment.setLibro(rs.getInt("libro"));
+            comment.setUsuario(rs.getInt("usuario"));
+            comment.setFecha_creacion(rs.getString("fecha_creacion"));
+            comment.setComentario_padre(rs.getInt("comentario_padre"));
+            comment.setTipo_usuario(rs.getString("tipo_usuario"));
+            comment.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return comment;
+    }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
