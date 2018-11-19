@@ -22,9 +22,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     public DBManager() throws NamingException, SQLException {
         connect();
     }
-
+    
+    /**
+     * Inicia la conexión de la DataBase
+     */
     private void connect() throws NamingException, SQLException {
-        // TODO: program this method
         Context initCtx = new InitialContext();
         Context envCtx = (Context) initCtx.lookup("java:comp/env");
         DataSource ds = (DataSource) envCtx.lookup("jdbc/proyecto");
@@ -33,8 +35,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
     
     /**
-     * Close the connection to the database if it is still open.
-     *
+     * Cierra la conexión (si sigue abierta)
      */
     public void close() throws SQLException{ //Se va a llamar automaticamente por el hecho de usar un servlet como se ha explicado en clase...
         if (connection != null) {
@@ -46,7 +47,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
     
     /**
-     * Check in the database if the user and password given by arguments exist in the DB
+     * Checkea en la DB si el usuario y la contraseña dados por argumentos existen
      *
      * @param usuario username
      * @param contrasenya password of the user
@@ -78,7 +79,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         
 
     /**
-     * Check if the username already exists in database. To check: email and/or usuario.
+     * Checkea si el usuario existe en la DB. Para checkear: email y/o usuario.
      *
      * @param email   
      * @param usuario nombre de usuario   
@@ -173,9 +174,9 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
 /**
-     * Create Comment
+     * Crear Comentario
      *
-     * @param TODO
+     * @param TO-DO
      * @return 1 if correct, 0 if not created, -1 if error
      */
     public int creaComentario(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
@@ -241,9 +242,9 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
     } 
      /**
-     * Create Comment
+     * Crear Tema
      *
-     * @param TODO
+     * @param TO-DO
      * @return 1 if correct, 0 if not created, -1 if error
      */
     public int creaTema(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
@@ -316,7 +317,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
     /**
-     * Lock a comment (done by moderators)
+     * Bloquear un comentario (hecho por moderadores)
      *
      * @param id id del comentario que queremos bloquear
      * @return true = bloqueado
@@ -335,7 +336,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
      /**
-     * Unlock a comment (done by moderators)
+     * Desbloquear un comentario (hecho por moderadores)
      *
      * @param id id del comentario que queremos bloquear
      * @return true = desbloqueado
@@ -355,7 +356,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
     /**
-     * Lock a theme (done by moderators)
+     * Bloquear un tema (hecho por moderadores)
      *
      * @param tipo tipo de tema que queremos bloquear
      * @param id id del tema
@@ -398,7 +399,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
    /**
-     * Unlock a theme (done by moderators)
+     * Desbloquear un tema (hecho por moderadores)
      *
      * @param tipo tipo de tema que queremos bloquear
      * @param id id del tema
@@ -442,7 +443,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
 
     /**
-     * Lock a user (done by moderators)
+     * Bloquear un usuario (hecho por moderadores)
      *
      * @param id id del usuario
      * @return true = bloqueado
@@ -464,7 +465,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
  
     /**
-     * Unlock a user (done by moderators)
+     * Desbloquear un usuario (hecho por moderadores)
      *
      * @param id id del usuario
      * @return true = bloqueado
