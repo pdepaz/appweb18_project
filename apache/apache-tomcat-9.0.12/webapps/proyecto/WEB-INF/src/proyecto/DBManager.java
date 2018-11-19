@@ -690,6 +690,74 @@ return bloqueado;
     }
 
 
+
+    //Carga pelicula para la vista
+    public Pelicula cargarPelicula(int id){ 
+        Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
+        String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setDuracion(rs.getInt("duracion"));
+            user.setPais(rs.getInt("pais"));
+            user.setDirector(rs.getInt("director"));
+            user.setGenero(rs.getString("genero"));
+            user.setTrailer(rs.getString("trailer"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return movie;
+    }
+
+
+    //Carga serie para la vista
+    public Serie cargarSerie(int id){ 
+        Serie serie = new Serie(); //Objeto de la clase Pelicula
+        String query_serie = "SELECT * FROM Series WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_serie)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setTemporadas(rs.getInt("duracion"));
+            user.setCapitulos(rs.getInt("pais"));
+            user.setPais(rs.getInt("director"));
+            user.setGenero(rs.getString("genero"));
+            user.setTrailer(rs.getString("trailer"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return serie;
+    }
+
+
+        //Carga libro para la vista
+    public Libro cargarLibro(int id){ 
+        Libro book = new Libro(); //Objeto de la clase Libro
+        String query_libro = "SELECT * FROM Libros WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_libro)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setPaginas(rs.getInt("paginas"));
+            user.setEscritor(rs.getString("escritor"));
+            user.setEditorial(rs.getString("editorial"));
+            user.setGenero(rs.getString("genero"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return book;
+    }
+
 //-----------------------------------------------------------------------------------------------------------------------------
 
     /**
