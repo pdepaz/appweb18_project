@@ -4,14 +4,14 @@ public class Serie {
 	private int id;
 	private String titulo;
 	private int anyo;
-    private int temporadas;
-    private int capitulos;
-    private int pais;
-    private String genero;
-    //private String portada;
-    private String trailer;
-    private int creador;
-    private int bloqueado;
+    	private int temporadas;
+    	private int capitulos;
+    	private int pais;
+    	private String genero;
+    	//Array de bytes String portada;    	
+    	private String trailer;
+    	private int creador;
+    	private int bloqueado;
     
     
     

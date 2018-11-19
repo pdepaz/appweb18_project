@@ -1,16 +1,16 @@
 package proyecto;
 
-public class Serie {
+public class Libro {
 	private int id;
 	private String titulo;
 	private int anyo;
-    private int paginas;
-    private String escritor;
-    private String editorial;
-    private String genero;
-    //private String portada;
-    private int creador;
-    private int bloqueado;
+    	private int paginas;
+    	private String escritor;
+    	private String editorial;
+    	private String genero;
+    	//Array de bytes String portada;
+    	private int creador;
+    	private int bloqueado;
     
     
     
