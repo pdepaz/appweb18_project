@@ -311,9 +311,11 @@ return bloqueado;
                     st.setInt(3, pelicula.getDuracion());
                     st.setInt(4, pelicula.getPais());
                     st.setString(5,pelicula.getDirector());
-                    st.setString(6,pelicula.getGenero());                    st.setString(6,pelicula.getportada());
-                    st.setString(7,pelicula.getTrailer());
-                    st.setint(8,pelicula.getCreador()); st.setInt(9,pelicula.getBloqueado());
+                    st.setString(6,pelicula.getGenero());                    
+                    st.setString(7,pelicula.getportada());
+                    st.setString(8,pelicula.getTrailer());
+                    st.setint(9,pelicula.getCreador()); 
+                    st.setInt(10,pelicula.getBloqueado());
                     
                     st.executeUpdate();
                 }
@@ -332,8 +334,9 @@ return bloqueado;
                     st.setInt(5,serie.getPais());
                     st.setString(6,serie.getGenero());
                     st.setString(7,serie.getPortada());
-                    st.setString(6,pelicula.getTrailer());
-                    st.setint(8,serie.getCreador()); st.setInt(9,serie.getBloqueado());
+                    st.setString(8,pelicula.getTrailer());
+                    st.setint(9,serie.getCreador()); 
+                    st.setInt(10,serie.getBloqueado());
                     
                     st.executeUpdate();
                 }
@@ -349,10 +352,11 @@ return bloqueado;
                     st.setInt(2, libro.getAnyo());
                     st.setInt(3, libro.getPaginas());
                     st.setString(4, libro.getEscritor());
-                    st.setString(4, libro.getEditorial());
+                    st.setString(5, libro.getEditorial());
                     st.setString(6,libro.getGenero());
                     st.setString(7,libro.getPortada());
-                    st.setint(8,libro.getCreador()); st.setInt(9,libro.getBloqueado());
+                    st.setint(8,libro.getCreador()); 
+                    st.setInt(9,libro.getBloqueado());
                     st.executeUpdate();
                 
                 }
@@ -366,8 +370,75 @@ return bloqueado;
           return 1; 
         }
         
-
     } 
+
+    //Carga pelicula para la vista
+    public Pelicula cargarPelicula(int id){ 
+        Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
+        String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setDuracion(rs.getInt("duracion"));
+            user.setPais(rs.getInt("pais"));
+            user.setDirector(rs.getInt("director"));
+            user.setGenero(rs.getString("genero"));
+            user.setTrailer(rs.getString("trailer"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return movie;
+    }
+
+
+    //Carga serie para la vista
+    public Serie cargarSerie(int id){ 
+        Serie serie = new Serie(); //Objeto de la clase Pelicula
+        String query_serie = "SELECT * FROM Series WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_serie)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setTemporadas(rs.getInt("duracion"));
+            user.setCapitulos(rs.getInt("pais"));
+            user.setPais(rs.getInt("director"));
+            user.setGenero(rs.getString("genero"));
+            user.setTrailer(rs.getString("trailer"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return serie;
+    }
+
+
+        //Carga libro para la vista
+    public Libro cargarLibro(int id){ 
+        Libro book = new Libro(); //Objeto de la clase Libro
+        String query_libro = "SELECT * FROM Libros WHERE id =?";
+        try(PreparedStatement st = connection.prepareStatement(query_libro)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            user.setId(id);
+            user.setTitulo(rs.getString("titulo"));
+            user.setAnyo(rs.getInt("anyo"));
+            user.setPaginas(rs.getInt("paginas"));
+            user.setEscritor(rs.getString("escritor"));
+            user.setEditorial(rs.getString("editorial"));
+            user.setGenero(rs.getString("genero"));
+            user.setCreador(rs.getInt("creador"));
+            user.setBloqueado(rs.getInt("bloqueado"));
+        }
+        return book;
+    }
+    
     
     public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
