@@ -211,10 +211,11 @@ return bloqueado;
     public int creaComentario(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre, int es_respuesta) throws SQLException {
         //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
-<<<<<<< HEAD
+
+       
         
-        
-        if(comentario_text.equals("")){
+        //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
+        if(comentario_text.equals("") || isBloqueado(usuario)==1){
             return -1;
         }
         
@@ -223,24 +224,12 @@ return bloqueado;
         }
         
         
-        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?,?,?,?);
-=======
-        //comprobamos si el usuario esta bloqueado
-        if(isBloqueado(usuario)==1){
-        return -1;
-        }
-        //comprobamos si la cadena introducida es espacio vacio
-         if(comentario_text.equals("") || ){
-            return -1;
-        }
-        
         //CHECK SECURITY
         if(comentario_text.contains("<") ||comentario_text.contains(">") || comentario_text.contains("SELECT")){
         return -1
         }
         
         String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
->>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -296,108 +285,89 @@ return bloqueado;
     } 
      /**
      * Crear Tema
-     *
-     * @param TO-DO
+     *  
+                Añadimos un tema a la base de datos 
+     * @param Tipo_tema
+     * @param objeto
+     *                     
      * @return 1 if correct, 0 if not created, -1 if error
      */
-    public int creaTema(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre) throws SQLException {
-        //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
-       if(isBloqueado(usuario)==1){
-        return -1;
-        }
-        //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
-         if(comentario_text.equals("")){
+    public int creaTema(String tipo_tema, Object objeto) throws SQLException {
+    
+         if(comentario_text.equals("") || isBloqueado(usuario)==1){
             return -1;
         }
-        String query = "INSERT INTO ? () VALUES (?,?,?,?,?,?)";
-        
-        try (PreparedStatement st = connection.prepareStatement(query)) {
-        // Se insertan los valores en la consulta :
-           
-            
-            switch(tipo_tema){
-            
-<<<<<<< HEAD
-            case "Pelicula": 
-            
-            st.setString(1, comentario_text);
-            st.setString(2, pelicula);
-            st.setString(3, idTema);
-            st.setString(4, null);
-=======
-            case pelicula 
-            st.setString(1, "Peliculas");
-            st.setString(2, comentario_text);
-            st.setString(3, "pelicula");
-            st.setString(4, idTema);
->>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
-            st.setString(5, null);
-            st.setString(6, null);
-            st.setInt(7, usuario);
-            st.SetString(8,"2018-19-11");
-            st.setInt(9, comentario_padre);
-            st.setInt(10, 0);
-            
-            
-            break;
-<<<<<<< HEAD
-            
-            case "Serie":
-            st.setString(1, comentario_text);
-            st.setString(2, serie);
-            st.setString(3, null);
-            st.setString(4, idTema);
-            st.setString(5, null);
-            st.setInt(6, usuario);
-            st.SetString(7, NOW());
-            st.setInt(8, comentario_padre);
-            st.setInt(9, 0);
-            break;
-            
-            case "Libro":             
-            st.setString(1, comentario_text);
-            st.setString(2, libro);
-            st.setString(3, null);
-=======
-            case serie
-            st.setString(1,"Series");
-            st.setString(2, comentario_text);
-            st.setString(3, "serie");
-            st.setString(4, null);
-            st.setString(5, idTema);
-            st.setString(6, null);
-            st.setInt(7, usuario);
-            st.SetString(8, NOW());
-            st.setInt(9, comentario_padre);
-            st.setInt(10, 0);
-            break;
-            
-            case Libro
-            st.setString(1,"Libro");
-            st.setString(2, comentario_text);
-            st.setString(3, "libro");
->>>>>>> b242ae214bfe40bb8d8ff1d62712a5188894c8f2
-            st.setString(4, null);
-            st.setString(5, null);
-            st.setString(6, idTema);
-            st.setInt(7, usuario);
-            st.SetString(8,"2018-19-11");
-            st.setInt(9, comentario_padre);
-            st.setInt(10, 0);
-            break;
-            
+                
+        switch(tipo_tema){
+            case "Peliculas":
+                
+                Pelicula pelicula = (Pelicula) objeto;
+                
+                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                
+                try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+                    st.setString(1, pelicula.getTitulo());
+                    st.setInt(2, pelicula.getAnyo());
+                    st.setInt(3, pelicula.getDuracion());
+                    st.setInt(4, pelicula.getPais());
+                    st.setString(5,pelicula.getDirector());
+                    st.setString(6,pelicula.getGenero());                    st.setString(6,pelicula.getportada());
+                    st.setString(7,pelicula.getTrailer());
+                    st.setint(8,pelicula.getCreador()); st.setInt(9,pelicula.getBloqueado());
+                    
+                    st.executeUpdate();
+                }
+                break;
+                
+            case "Series":
+
+                Serie serie = (Serie) objeto;
+
+                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                try(PreparedStatement st = connection.prepareStatement(query_serie)){
+                    st.setString(1, serie.getTitulo());
+                    st.setInt(2, serie.getAnyo());
+                    st.setInt(3, serie.getTemporadas());
+                    st.setInt(4, serie.getCapitulos());
+                    st.setInt(5,serie.getPais());
+                    st.setString(6,serie.getGenero());
+                    st.setString(7,serie.getPortada());
+                    st.setString(6,pelicula.getTrailer());
+                    st.setint(8,serie.getCreador()); st.setInt(9,serie.getBloqueado());
+                    
+                    st.executeUpdate();
+                }
+                
+                break;
+                
+            case "Libros":
+                Libro libro= (Libro) objeto;
+                
+                String query_libro = "INSERT INTO Libros (titulo, anyo, paginas, escritor, editorial, genero, portada, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                try(PreparedStatement st = connection.prepareStatement(query_libro)){
+                    st.setString(1, libro.getTitulo());
+                    st.setInt(2, libro.getAnyo());
+                    st.setInt(3, libro.getPaginas());
+                    st.setString(4, libro.getEscritor());
+                    st.setString(4, libro.getEditorial());
+                    st.setString(6,libro.getGenero());
+                    st.setString(7,libro.getPortada());
+                    st.setint(8,libro.getCreador()); st.setInt(9,libro.getBloqueado());
+                    st.executeUpdate();
+                
+                }
+                break;      
+                
             case Default
-            return -1;
-            break;
-            }
-            
-          st.executeUpdate();
+                return -1;
+                break;   
+        }
+        
           return 1; 
         }
         
 
     } 
-<<<<<<< HEAD
     
     public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
@@ -407,6 +377,8 @@ return bloqueado;
         st.executeUpdate();
         return true;
     }
+    
+    
     public boolean bloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos bloquear
         switch(tipo){
             case 'Peliculas':
@@ -433,6 +405,8 @@ return bloqueado;
         }
         return true;
     }
+    
+    
     public boolean bloquear_usuario(int id){//Pasamos el id del usuario que queremos bloquear
         String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
         try(PreparedStatement st = connection.prepareStatement(query_bloquea_usuario)){
@@ -441,6 +415,8 @@ return bloqueado;
         st.executeUpdate();
         return true;
     }
+    
+    
     public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
         switch(tipo){
             case 'Peliculas':
