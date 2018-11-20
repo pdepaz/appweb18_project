@@ -826,6 +826,118 @@ return bloqueado;
         return book;
     }
 
+
+
+    /**
+     * En la Home, carga las películas más nuevas
+     *
+     * @param NONE
+     * @return lista de películas más nuevas (hasta 10)
+     */   
+    public List<Pelicula> cargar_pelis_mas_nuevas(){
+        
+        String query = "SELECT * FROM Peliculas ORDER BY anyo DESC LIMIT 10";
+        List<Pelicula> movies = new ArrayList<>();
+
+        try(PreparedStatement st = connection.prepareStatement(query)){
+            
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){ //OK, SQL return something
+                Pelicula pelicula = new Pelicula();
+                pelicula.setId(rs.getInt("id"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setAnyo(rs.getInt("anyo"));
+                pelicula.setDuracion(rs.getInt("duracion"));
+                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDirector(rs.getString("director"));
+                pelicula.setGenero(rs.getString("genero"));
+                pelicula.setTrailer(rs.getString("trailer"));
+                pelicula.setCreador(rs.getInt("creador"));
+                pelicula.setBloqueado(rs.getInt("bloqueado"));
+
+                movies.add(pelicula);
+            }
+
+        }
+        return movies;
+    }
+
+
+    /**
+     * En la Home, carga las películas recomendadas para el usuario (solo si login)
+     *
+     * @param NONE
+     * @return lista de películas recomendadas (max 10)
+     */  
+    public List<Pelicula> cargar_pelis_recomendadas(){
+        
+        String query_recommended = "SELECT * FROM Peliculas ORDER BY RAND() LIMIT 10";
+        List<Pelicula> movies_recommended = new ArrayList<>();
+
+        try(PreparedStatement st = connection.prepareStatement(query_recommended)){
+            
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){
+                Pelicula pelicula = new Pelicula();
+                pelicula.setId(rs.getInt("id"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setAnyo(rs.getInt("anyo"));
+                pelicula.setDuracion(rs.getInt("duracion"));
+                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDirector(rs.getString("director"));
+                pelicula.setGenero(rs.getString("genero"));
+                pelicula.setTrailer(rs.getString("trailer"));
+                pelicula.setCreador(rs.getInt("creador"));
+                pelicula.setBloqueado(rs.getInt("bloqueado"));
+
+                movies_recommended.add(pelicula);
+            }
+
+        }
+        return movies;
+    }
+
+
+    /**
+     * En la Home, carga las películas más comentadas
+     *
+     * @param NONE
+     * @return lista de películas más comentadas (max 10)
+     */  
+    public List<Pelicula> cargar_pelis_mas_comentadas(){
+        
+        String query_commented = "SELECT Peliculas.titulo FROM Peliculas INNER JOIN Comentarios ON Peliculas.id=Comentarios.pelicula GROUP BY Comentarios.pelicula ORDER BY COUNT(Comentarios.pelicula) DESC LIMIT 10;";
+        List<Pelicula> movies_commented = new ArrayList<>();
+
+        try(PreparedStatement st = connection.prepareStatement(query_commented)){
+            
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){
+                Pelicula pelicula = new Pelicula();
+                pelicula.setId(rs.getInt("id"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setAnyo(rs.getInt("anyo"));
+                pelicula.setDuracion(rs.getInt("duracion"));
+                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDirector(rs.getString("director"));
+                pelicula.setGenero(rs.getString("genero"));
+                pelicula.setTrailer(rs.getString("trailer"));
+                pelicula.setCreador(rs.getInt("creador"));
+                pelicula.setBloqueado(rs.getInt("bloqueado"));
+
+                movies_commented.add(pelicula);
+            }
+
+        }
+        return movies;
+    }
+
 //-----------------------------------------------------------------------------------------------------------------------------
 
     /**
