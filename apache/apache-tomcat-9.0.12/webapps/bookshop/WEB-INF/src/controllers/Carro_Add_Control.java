@@ -51,28 +51,8 @@ public class Carro_Add_Control extends HttpServlet {
             List<Book> carro = (List<Book>) session.getAttribute("carro");
             
             List<Book> catalogo = (List<Book>) request.getAttribute("catalogo");
-
-            
-            //Si no se marca niguno en los "checklist", se recibirá "NULL"
-            //Solo recibe los ISBNs de los libros
-            //List<Book> aux_carro = new ArrayList<Book>();
             
             String[] isbn_recibidos = request.getParameterValues("catalogo_form");
-            
-            //Convert ISBN array (String) to integers!
-            //AHORA YA SON STRING QUE VIENEN DE INT (sin XXX.0)
-            /*int[] array_isbn = new int[isbn_recibidos.length];
-            
-            for (int i = 0 ; i < array_isbn.length; i++){
-                array_isbn[i]= Integer.parseInt(isbn_recibidos[i]);// Parsing from string to int
-            }
-            
-            //Convert ISBN int array to String!
-            int[] array_isbn_final = new int[array_isbn.length];
-            
-            for (int i = 0 ; i < array_isbn_final.length; i++){
-                array_isbn_final[i]= Integer.parseInt(array_isbn[i]);
-            }  */
 
             //Acceder a SQL para coger los libros que tengan como ISBN los de "array_isbn"
             for (int i = 0 ; i < isbn_recibidos.length; i++){

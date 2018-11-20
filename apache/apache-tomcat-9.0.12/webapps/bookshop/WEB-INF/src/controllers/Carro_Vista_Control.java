@@ -46,7 +46,7 @@ public class Carro_Vista_Control extends HttpServlet {
     
     
         try (DBManager db = new DBManager()){
-            List<Book> carro = (List<Book>) session.getAttribute("carro_actual");
+            List<Book> carro = (List<Book>) session.getAttribute("carro");
                         
             //Envia una respuesta de redirección hacia el controlador de visualización del carro de la compra
             //request.setAttribute("carro_actual", carro);

@@ -23,7 +23,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     }
 
     private void connect() throws NamingException, SQLException {
-        // TODO: program this method
         Context initCtx = new InitialContext();
         Context envCtx = (Context) initCtx.lookup("java:comp/env");
         DataSource ds = (DataSource) envCtx.lookup("jdbc/Libros");
