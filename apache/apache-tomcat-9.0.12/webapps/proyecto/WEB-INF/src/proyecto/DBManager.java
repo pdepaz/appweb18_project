@@ -780,7 +780,7 @@ return bloqueado;
         }
         return movie;
     }
-
+    
 
     //Carga serie para la vista
     public Serie cargarSerie(int id){ 
