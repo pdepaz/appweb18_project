@@ -52,18 +52,24 @@ public class Controlador_Tema extends HttpServlet {
             if(tema.equals("Pelicula"){
                 pelicula = db.cargarPelicula(id);
                 request.setAttribute(pelicula, "pelicula");
+                
+                RequestDispatcher rd = request.getRequestDispatcher("pelicula.jsp");
+                rd.forward(request, response);
             }
             else if(tema.equals("Serie"){
                 serie = db.cargarSerie(id);
                 request.setAttribute(serie, "serie");
+                
+                RequestDispatcher rd = request.getRequestDispatcher("serie.jsp");
+                rd.forward(request, response);
             }
             else if(tema.equals("Libro"){
                 libro = db.cargarLibro(id);
                 request.setAttribute(libro, "libro");
+                
+                RequestDispatcher rd = request.getRequestDispatcher("libro.jsp");
+                rd.forward(request, response);
             }
-                        
-            RequestDispatcher rd = request.getRequestDispatcher("tema.jsp");
-            rd.forward(request, response);
                                     
         } catch (NamingException|SQLException e){
             e.printStackTrace();

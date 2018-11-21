@@ -38,11 +38,24 @@ public class Controlador_Tema extends HttpServlet {
     
     
         try (DBManager db = new DBManager()){
+        
+            Comentario comentario = ; //coger comentario del jsp
             
-            int conseguido = db.creaComentario();
+            int conseguido = db.creaComentario(); //devuelve -1 si no se ha conseguido crear
             
-            RequestDispatcher rd = request.getRequestDispatcher("tema.jsp");
-            rd.forward(request, response);
+            if(comentario.pelicula = 1){
+                RequestDispatcher rd = request.getRequestDispatcher("pelicula.jsp");
+                rd.forward(request, response);
+            }
+            if(comentario.serie = 1){
+                RequestDispatcher rd = request.getRequestDispatcher("serie.jsp");
+                rd.forward(request, response);
+            }
+            if(comentario.libro = 1){
+                RequestDispatcher rd = request.getRequestDispatcher("libro.jsp");
+                rd.forward(request, response);
+            }
+            
                                     
         } catch (NamingException|SQLException e){
             e.printStackTrace();
