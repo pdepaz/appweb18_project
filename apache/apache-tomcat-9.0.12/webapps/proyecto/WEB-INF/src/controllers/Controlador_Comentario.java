@@ -38,8 +38,36 @@ public class Controlador_Tema extends HttpServlet {
     
     
         try (DBManager db = new DBManager()){
+            
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
         
-            Comentario comentario = ; //coger comentario del jsp
+            String comentario = request.getParametersValues("comentario"); //coger comentario del jsp
+            
+            Comentario comentario = new Comentario();
+            comentario.setComentario_text(comentario);
+            if(){
+                comentario.setPelicula(1);
+            }
+            else{
+                comentario.setPelicula(0);
+            }
+            if(){
+                comentario.setSerie(1);
+            }
+            else{
+                comentario.serSerie(0);
+            }
+            if(){
+                comentario.setLibro(1);
+            }
+            else{
+                comentario.setLibro(0);
+            }
+            comentario.setUsuario(usuario.getId());
+            comentario.setFecha_creacion("22/11/21018");
+            comentario.setComentario_padre(0);
+            comentario.setTipo_usuario(usuario.getTipo_Usuario());
+            comentario.setBloqueado(0);
             
             int conseguido = db.creaComentario(); //devuelve -1 si no se ha conseguido crear
             

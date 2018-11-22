@@ -6,6 +6,10 @@
 <%
 
         Serie serie = (Serie) request.getAttribute("serie");
+        String tema = (String) request.getAttribute("tema");
+        int id = (Integer) request.getAttribute("id");
+        
+        List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios");
         
 %>
 
@@ -27,6 +31,19 @@
 
 <p>Su comentario va a ser respuesta a algun comentario, marque respuesta de ser así</p>
 <input type="checkbox" name="respuesta" value="Respuesta">
+
+<table>
+    <thead>
+        Comentarios:
+    </thead>
+    <tbody>
+        <% for(Comentario tmp: comentarios)%>
+            <% if (tmp.getBloqueado() = 0){ %>
+                <tr> info del  tmp(comentario) </tr>
+            <% } %>
+        <% } %>
+    </tbody>
+</table>
 
 <form id ="creacion_comentario" action = "/añadir_comentario">
     <textarea name="comentario" rows="10" cols="40">Escribe aquí tu comentario</textarea>
