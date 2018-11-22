@@ -23,8 +23,8 @@ import javax.sql.DataSource;
  * Controlador de ejemplo
  *
  */
-@WebServlet("/añadir_comentario")
-public class Controlador_Tema extends HttpServlet {
+@WebServlet("/anyadir_comentario")
+public class Controlador_Comentario extends HttpServlet {
 
     /**
      * Método del servlet que responde a una petición POST.
@@ -39,7 +39,7 @@ public class Controlador_Tema extends HttpServlet {
     
         try (DBManager db = new DBManager()){
         
-            Comentario comentario = ; //coger comentario del jsp
+            Comentario comentario = new Comentario(); //coger comentario del jsp
             
             int conseguido = db.creaComentario(); //devuelve -1 si no se ha conseguido crear
             

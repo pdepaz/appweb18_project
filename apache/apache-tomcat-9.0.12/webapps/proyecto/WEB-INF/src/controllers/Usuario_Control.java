@@ -20,15 +20,14 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Usuario control se dedicará a guardar los datos del nuevo usuario una vez se edite el perfil
- *
+ * Usuario control se dedicara a guardar los datos del nuevo usuario una vez se edite el perfil
  *
  */
 @WebServlet("/usuario")
 public class Usuario_Control extends HttpServlet {
 
     /**
-     * Método del servlet que responde a una petición POST.
+     * Metodo del servlet que responde a una peticion POST.
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)

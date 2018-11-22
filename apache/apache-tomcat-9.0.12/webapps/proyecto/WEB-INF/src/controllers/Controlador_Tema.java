@@ -49,21 +49,21 @@ public class Controlador_Tema extends HttpServlet {
             String tema = (String) request.getParameters("tema");
             Integer id = (Integer) request.getParameters("id");
             
-            if(tema.equals("Pelicula"){
+            if(tema.equals("Pelicula")){
                 pelicula = db.cargarPelicula(id);
                 request.setAttribute(pelicula, "pelicula");
                 
                 RequestDispatcher rd = request.getRequestDispatcher("pelicula.jsp");
                 rd.forward(request, response);
             }
-            else if(tema.equals("Serie"){
+            else if(tema.equals("Serie")){
                 serie = db.cargarSerie(id);
                 request.setAttribute(serie, "serie");
                 
                 RequestDispatcher rd = request.getRequestDispatcher("serie.jsp");
                 rd.forward(request, response);
             }
-            else if(tema.equals("Libro"){
+            else if(tema.equals("Libro")){
                 libro = db.cargarLibro(id);
                 request.setAttribute(libro, "libro");
                 
