@@ -40,36 +40,39 @@ public class Controlador_Tema extends HttpServlet {
         try (DBManager db = new DBManager()){
             
             Usuario usuario = (Usuario) session.getAttribute("usuario");
-        
+            
+            String tema = (String) request.getParametersValues("tema");
+            int id = (Integer) request.getParameterValues("id");
             String comentario = request.getParametersValues("comentario"); //coger comentario del jsp
             
-            Comentario comentario = new Comentario();
-            comentario.setComentario_text(comentario);
-            if(){
-                comentario.setPelicula(1);
-            }
-            else{
-                comentario.setPelicula(0);
-            }
-            if(){
-                comentario.setSerie(1);
-            }
-            else{
-                comentario.serSerie(0);
-            }
-            if(){
-                comentario.setLibro(1);
-            }
-            else{
-                comentario.setLibro(0);
-            }
-            comentario.setUsuario(usuario.getId());
-            comentario.setFecha_creacion("22/11/21018");
-            comentario.setComentario_padre(0);
-            comentario.setTipo_usuario(usuario.getTipo_Usuario());
-            comentario.setBloqueado(0);
+            Comentario comment = new Comentario();
+            comment.setComentario_text(comentario);
             
-            int conseguido = db.creaComentario(); //devuelve -1 si no se ha conseguido crear
+            if(tema.equals("pelicula")){
+                comment.setTipo_tema("Pelicula");
+                comment.setPelicula(id);
+            }
+            if(tema.equals("serie")){
+                comment.setTipo_tema("Serie");
+                comment.setSerie(id);
+            }
+            if(tema.equals("libro")){
+                comment.setTipo_tema("Libro");
+                comment.setLibro(id);
+            }
+            
+            comment.setUsuario(usuario.getId());
+            comment.setFecha_creacion("22/11/21018");
+            comment.setComentario_padre(0);
+            comment.setTipo_usuario(usuario.getTipo_Usuario());
+            if(usuario.getBloqueado() = 0){
+                comment.setBloqueado(0);
+            }
+            else{
+                comment.setBloqueado(1);
+            }
+            
+            int conseguido = db.creaComentario(comentario, comment.getTipo_tema(), id, comment.getUsuario(), comment.getComentario_padre, 0); //devuelve -1 si no se ha conseguido crear
             
             if(comentario.pelicula = 1){
                 RequestDispatcher rd = request.getRequestDispatcher("pelicula.jsp");

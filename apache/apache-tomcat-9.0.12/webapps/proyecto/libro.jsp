@@ -47,7 +47,8 @@
 
 <form id = "creacion_comentario" action = "/añadir_comentario">
     <textarea name="comentario" rows="10" cols="40" placeholder = "Escribe aquí tu comentario"></textarea>
-    <input type="hidden" name="id del tema">
+    <input type="hidden" name="id" value="<% id %>">
+    <input type="hidden" name="tema"="<% tema %>">
     <div class = "boton">
         <input type = "submit" value = "Publicar">
     </div>
