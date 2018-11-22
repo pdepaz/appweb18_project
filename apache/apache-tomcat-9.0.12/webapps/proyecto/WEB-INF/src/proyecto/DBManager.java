@@ -175,6 +175,48 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
 
     } 
+
+     /**
+            Actualiza los datos de un usuario     *
+     * @param nombre compulsory
+     * @param apellido1 compulsory
+     * @param apellido2
+     * @param email compulsory
+     * @param foto
+     * @param telefono
+     * @param contrasenya compulsory
+     * @param usuario compulsory
+     * @param tipo_usuario (if nothing clicked by the user, normal user by default)    
+     * @return 1 if correct, -1 if error (somefields not introduced)
+     */
+    public int actualizaUsuario(Usuario usuario) throws SQLException {
+    
+        //Verificar que los datos que me llegan están bien (de los obligatorios)
+        
+        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
+            return -1;
+        }
+    
+        
+        UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE usuario.id = Usuarios.id;
+
+        //HABRÁ QUE AÑADIR LA FOTO
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, usuario.nombre);
+            st.setString(2, usuario.apellido1);
+            st.setString(3, usuario.apellido2);
+            st.setString(4, usuario.email);
+            st.setInt(5, usuario.telefono);
+            st.setString(6, usuario.contrasenya);
+            
+
+            // execute select SQL stetement
+            st.executeUpdate();
+            
+        }
+
+    } 
 /********
 isBloqueado checkea si usuario está bloqueado
 devuelve bloqueado dentro de usuarios 
