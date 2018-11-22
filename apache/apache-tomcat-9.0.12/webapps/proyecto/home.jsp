@@ -20,56 +20,58 @@
 </tr>
 </table>
 
+
 <%--Aqui, meter peliculas destacadas (carrousel) --%>
 
+<h2>Peliculas más nuevas</h2>
+<% List<Pelicula> pelis_nuevas = (List<Pelicula>) request.getAttribute("pelis_nuevas");%>
 <div class=peliculas_lo_mas_nuevo">
-<table name="t_peliculas_nuevo">
-
-<tbody>
-<tr>
-<td></td>
-<td><%= carro_actual.size()%></td>
-</tr>
-</tbody>
-</table>
+	<table name="t_peliculas_nuevo">
+		<tbody>
+			<%for(Pelicula movie: pelis_nuevas){%>
+				<tr>
+						<td><%= movie.getTitulo()%></td>
+						<td><%= movie.getAnyo()%></td>
+				</tr>
+			<%}%>
+		</tbody>
+	</table>
+</div>
 
 <br/>
 
-<form action="catalogo">
-    <input type="submit" value="Ver el Catálogo" />
-</form>
-
-
-<table>
-
-<thead>
-<tr>
-<th>Titulo</th>
-<th>Año</th>
-<th>ISBN</th>
-</tr>
-</thead>
-
-<tbody>
-<%for(Book book: carro_actual){%>
-<tr>
-<td><%= book.getTitle()%></td>
-<td><%= book.getYear()%></td>
-<td><%= book.getIsbn()%></td>
-</tr>
-<%}%>
-</tbody>
-
-</table>
+<h2>Peliculas recomendadas</h2>
+<% List<Pelicula> pelis_recomendadas = (List<Pelicula>) request.getAttribute("pelis_recomendadas");%>
+<div class=pelis_recomendadas">
+	<table name="t_peliculas_recomen">
+		<tbody>
+			<%for(Pelicula movie: pelis_recomendadas){%>
+				<tr>
+						<td><%= movie.getTitulo()%></td>
+						<td><%= movie.getAnyo()%></td>
+				</tr>
+			<%}%>
+		</tbody>
+	</table>
 </div>
 
 
-<%if(carro_actual.size() > 0){%>
-<form method="POST" action="carro_vaciado_control">
-    <input type="submit" value="Vaciar Carro" />
-</form>
-<%}%>
 
+
+<h2>Peliculas más comentadas</h2>
+<% List<Pelicula> pelis_mas_comentadas = (List<Pelicula>) request.getAttribute("pelis_mas_comentadas");%>
+<div class=pelis_comentadas">
+	<table name="t_peliculas_comentadas">
+		<tbody>
+			<%for(Pelicula movie: pelis_mas_comentadas){%>
+				<tr>
+						<td><%= movie.getTitulo()%></td>
+						<td><%= movie.getAnyo()%></td>
+				</tr>
+			<%}%>
+		</tbody>
+	</table>
+</div>
 
 </body>
 </html>

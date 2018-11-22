@@ -734,29 +734,45 @@ return bloqueado;
         }
         return user;
     }
-    
-    public Comentario cargar_comentario(int id){
-        Comentario comment = new Comentario();
-        String query_comentario = "SELECT * FROM Comentarios WHERE id =?";
+
+
+    /**
+     * Carga los comentarios de un tema
+     *
+     * @param id id del comentario
+     * @param tipo_tema string que define el tema (pelicula, serie, libro)     
+     * @return Lista de Comentarios de un mismo tema
+     */   
+    public List<Comentario> cargar_comentarios_list(int id, String tipo_tema){
+        
+        String query_comentario = "SELECT * FROM Comentarios WHERE tipo_tema=? AND id=?";
+        List<Comentario> lista_comentarios = new ArrayList<>();
+
         try(PreparedStatement st = connection.prepareStatement(query_comentario)){
-            st.setInt(1, id);            
+            st.setInt(1, id);
+            st.setString(2, tipo_tema);
+
+            // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            comment.setId(id);
-            comment.setComentario_text(rs.getString("comentario_text"));
-            comment.setTipo_tema(rs.getString("tipo_tema"));
-            comment.setPelicula(rs.getInt("pelicula"));
-            comment.setSerie(rs.getInt("serie"));
-            comment.setLibro(rs.getInt("libro"));
-            comment.setUsuario(rs.getInt("usuario"));
-            comment.setFecha_creacion(rs.getString("fecha_creacion"));
-            comment.setComentario_padre(rs.getInt("comentario_padre"));
-            comment.setTipo_usuario(rs.getString("tipo_usuario"));
-            comment.setBloqueado(rs.getInt("bloqueado"));
-        }
-        return comment;
-    }
+            while (rs.next()){ //OK, SQL return something
+                Comentario comment = new Comentario();
+                comment.setId(id);
+                comment.setComentario_text(rs.getString("comentario_text"));
+                comment.setTipo_tema(rs.getString("tipo_tema"));
+                comment.setPelicula(rs.getInt("pelicula"));
+                comment.setSerie(rs.getInt("serie"));
+                comment.setLibro(rs.getInt("libro"));
+                comment.setUsuario(rs.getInt("usuario"));
+                comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                comment.setComentario_padre(rs.getInt("comentario_padre"));
+                comment.setTipo_usuario(rs.getString("tipo_usuario"));
+                comment.setBloqueado(rs.getInt("bloqueado"));
 
+                lista_comentarios.add(comment);
+            }
+            return lista_comentarios;
+        }
 
 
     //Carga pelicula para la vista
