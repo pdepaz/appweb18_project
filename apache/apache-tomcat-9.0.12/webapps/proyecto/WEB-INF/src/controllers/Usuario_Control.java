@@ -20,15 +20,14 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Usuario control se dedicará a guardar los datos del nuevo usuario una vez se edite el perfil
- *
+ * Usuario control se dedicara a guardar los datos del nuevo usuario una vez se edite el perfil
  *
  */
 @WebServlet("/usuario")
 public class Usuario_Control extends HttpServlet {
 
     /**
-     * Método del servlet que responde a una petición POST.
+     * Metodo del servlet que responde a una peticion POST.
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,21 +38,23 @@ public class Usuario_Control extends HttpServlet {
                 //hacerlo para todos y entonces hacer update a Base de Datos
                 Usuario user = new Usuario();
                 user.setNombre(request.getParameter("nombre"));
-
-                //Acordarnos de asociar el usuario a la session una vez se haga iniciar session en "miusuario"
-
-               //    Usuario user = (Usuario)session.getAtribute("user",user);
+                user.setApellido1(request.getParameter("apellido1"));
+                user.setApellido2(request.getParameter("apellido2"));
+                user.setEmail(request.getParameter("email"));
+                user.setTelefono(request.getParameter("telefono"));
+                user.setContrasenya(request.getParameter("contrasenya"));
 
 
         try (DBManager db = new DBManager()){
-            
-    
-                /*
-                De momento no se usa.
-                request.setAtribute("user",user);    
-                RequestDispatcher rd = getRequestDispatcher("Usuario.jsp");
-                rd.forward(request,response);*/
 
+            //actualiza los datos del usuario manteniendo el id
+                int actualizado = db.actualizaUsuario(user); 
+                if (actualizado =1){
+                    session.setAttribute("miusuario",user);
+
+
+                response.sendRedirect(MiUsuario.jsp);
+                }  
                                     
         } catch (NamingException|SQLException e){
             e.printStackTrace();

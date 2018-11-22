@@ -106,11 +106,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             }
         }
     }         
-        
-        if (rs != NULL) {
-            return 1;
-        } else {
-            return 0;
 
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
@@ -175,6 +170,48 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
 
     } 
+
+     /**
+            Actualiza los datos de un usuario     *
+     * @param nombre compulsory
+     * @param apellido1 compulsory
+     * @param apellido2
+     * @param email compulsory
+     * @param foto
+     * @param telefono
+     * @param contrasenya compulsory
+     * @param usuario compulsory
+     * @param tipo_usuario (if nothing clicked by the user, normal user by default)    
+     * @return 1 if correct, -1 if error (somefields not introduced)
+     */
+    public int actualizaUsuario(Usuario usuario) throws SQLException {
+    
+        //Verificar que los datos que me llegan están bien (de los obligatorios)
+        
+        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
+            return -1;
+        }
+    
+        
+        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE usuario.id = Usuarios.id";
+
+        //HABRÁ QUE AÑADIR LA FOTO
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, usuario.nombre);
+            st.setString(2, usuario.apellido1);
+            st.setString(3, usuario.apellido2);
+            st.setString(4, usuario.email);
+            st.setInt(5, usuario.telefono);
+            st.setString(6, usuario.contrasenya);
+            
+
+            // execute select SQL stetement
+            st.executeUpdate();
+            
+        }
+
+    } 
 /********
 isBloqueado checkea si usuario está bloqueado
 devuelve bloqueado dentro de usuarios 
@@ -184,7 +221,7 @@ devuelve bloqueado dentro de usuarios
 *******/
 public int isBloqueado(int id){
 
-String query = "SELECT bloqueado From Usuarios WHERE Usuarios.id = ?;"
+String query = "SELECT bloqueado From Usuarios WHERE Usuarios.id = ?";
 
  try (PreparedStatement st = connection.prepareStatement(query)) {
  
@@ -226,7 +263,7 @@ return bloqueado;
         
         //CHECK SECURITY
         if(comentario_text.contains("<") ||comentario_text.contains(">") || comentario_text.contains("SELECT")){
-        return -1
+            return -1;
         }
         
         String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
@@ -272,7 +309,7 @@ return bloqueado;
                 st.setInt(9, 0);
                 break;
             
-            case Default
+            case Default:
                 return -1;
                 break;
             }
@@ -362,15 +399,14 @@ return bloqueado;
                 }
                 break;      
                 
-            case Default
+            case Default:
                 return -1;
                 break;   
         }
         
           return 1; 
-        }
-        
-    } 
+    }
+     
 
     //Carga pelicula para la vista
     public Pelicula cargarPelicula(int id){ 
@@ -439,33 +475,25 @@ return bloqueado;
         return book;
     }
     
-    
-    public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
-        String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
-        try(PreparedStatement st = connection.prepareStatement(query_bloquear_comentario)){
-            st.setInt(1, 1);
-        }
-        st.executeUpdate();
-        return true;
-    }
+
     
     public boolean bloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos bloquear
         switch(tipo){
-            case 'Peliculas':
+            case "Peliculas":
                 String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
                     st.setInt(1, 1);
                 }
                 st.executeUpdate();
                 break;
-            case 'Series':
+            case "Series":
                 String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
                     st.setInt(1, 1);
                 }
                 st.executeUpdate();
                 break;
-            case 'Libros':
+            case "Libros":
                 String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
                     st.setInt(1, 1);
@@ -489,21 +517,21 @@ return bloqueado;
     
     public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
         switch(tipo){
-            case 'Peliculas':
+            case "Peliculas":
                 String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
                     st.setInt(1, 0);
                 }
                 st.executeUpdate();
                 break;
-            case 'Series':
+            case "Series":
                 String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
                     st.setInt(1, 0);
                 }
                 st.executeUpdate();
                 break;
-            case 'Libros':
+            case "Libros":
                 String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
                     st.setInt(1, 0);
@@ -538,7 +566,7 @@ return bloqueado;
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            if (!rs.equals("MODERADOR"){
+            if (!rs.equals("MODERADOR")){
                 return false;
             }
             return true;
@@ -564,6 +592,7 @@ return bloqueado;
         }
         return true;
     }
+
 
      /**
      * Desbloquear un comentario (hecho por moderadores)
@@ -734,29 +763,46 @@ return bloqueado;
         }
         return user;
     }
-    
-    public Comentario cargar_comentario(int id){
-        Comentario comment = new Comentario();
-        String query_comentario = "SELECT * FROM Comentarios WHERE id =?";
+
+
+    /**
+     * Carga los comentarios de un tema
+     *
+     * @param id id del comentario
+     * @param tipo_tema string que define el tema (pelicula, serie, libro)     
+     * @return Lista de Comentarios de un mismo tema
+     */   
+    public List<Comentario> cargar_comentarios_list(int id, String tipo_tema){
+        
+        String query_comentario = "SELECT * FROM Comentarios WHERE tipo_tema=? AND id=?";
+        List<Comentario> lista_comentarios = new ArrayList<>();
+
         try(PreparedStatement st = connection.prepareStatement(query_comentario)){
-            st.setInt(1, id);            
+            st.setInt(1, id);
+            st.setString(2, tipo_tema);
+
+            // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            comment.setId(id);
-            comment.setComentario_text(rs.getString("comentario_text"));
-            comment.setTipo_tema(rs.getString("tipo_tema"));
-            comment.setPelicula(rs.getInt("pelicula"));
-            comment.setSerie(rs.getInt("serie"));
-            comment.setLibro(rs.getInt("libro"));
-            comment.setUsuario(rs.getInt("usuario"));
-            comment.setFecha_creacion(rs.getString("fecha_creacion"));
-            comment.setComentario_padre(rs.getInt("comentario_padre"));
-            comment.setTipo_usuario(rs.getString("tipo_usuario"));
-            comment.setBloqueado(rs.getInt("bloqueado"));
-        }
-        return comment;
-    }
+            while (rs.next()){ //OK, SQL return something
+                Comentario comment = new Comentario();
+                comment.setId(id);
+                comment.setComentario_text(rs.getString("comentario_text"));
+                comment.setTipo_tema(rs.getString("tipo_tema"));
+                comment.setPelicula(rs.getInt("pelicula"));
+                comment.setSerie(rs.getInt("serie"));
+                comment.setLibro(rs.getInt("libro"));
+                comment.setUsuario(rs.getInt("usuario"));
+                comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                comment.setComentario_padre(rs.getInt("comentario_padre"));
+                comment.setTipo_usuario(rs.getString("tipo_usuario"));
+                comment.setBloqueado(rs.getInt("bloqueado"));
 
+                lista_comentarios.add(comment);
+            }
+            return lista_comentarios;
+        }
+    }
 
 
     //Carga pelicula para la vista

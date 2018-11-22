@@ -23,8 +23,8 @@ import javax.sql.DataSource;
  * Controlador de ejemplo
  *
  */
-@WebServlet("/añadir_comentario")
-public class Controlador_Tema extends HttpServlet {
+@WebServlet("/anyadir_comentario")
+public class Controlador_Comentario extends HttpServlet {
 
     /**
      * Método del servlet que responde a una petición POST.
@@ -38,6 +38,11 @@ public class Controlador_Tema extends HttpServlet {
     
     
         try (DBManager db = new DBManager()){
+<<<<<<< HEAD
+=======
+        
+            Comentario comentario = new Comentario(); //coger comentario del jsp
+>>>>>>> 689047bca276ae1aa56cb5f82d9f80b747b12fdb
             
             Usuario usuario = (Usuario) session.getAttribute("usuario");
             

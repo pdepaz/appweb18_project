@@ -35,8 +35,6 @@ public class Home_Control extends HttpServlet {
     throws IOException, ServletException
     {
             
-        
-
         HttpSession session = request.getSession();
         
         //Crear Carro de la compra si no hay uno todavia en la Session
@@ -47,18 +45,21 @@ public class Home_Control extends HttpServlet {
 
         
         try (DBManager db = new DBManager()){
-            List<Book> lista_catalogo = db.listBooks();
-            
-            request.setAttribute("catalogo", lista_catalogo);
-            RequestDispatcher rd = request.getRequestDispatcher("catalogo.jsp");
+
+            List<Pelicula> pelis_nuevas = db.cargar_pelis_mas_nuevas();
+            List<Pelicula> pelis_recomendadas = db.cargar_pelis_recomendadas();
+            List<Pelicula> pelis_mas_comentadas = db.cargar_pelis_mas_comentadas();
+
+            request.setAttribute("pelis_nuevas", pelis_nuevas);
+            request.setAttribute("pelis_recomendadas", pelis_recomendadas);
+            request.setAttribute("pelis_mas_comentadas", pelis_mas_comentadas);
+
+            RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
             rd.forward(request, response);
             
-        } catch (NamingException e){
-            e.printStackTrace(); //Almacena en CATALINA_HOME/logs archivos para ver los errores
-            response.sendError(500); //Para ver si es un error del servidor!
-        } catch (SQLException e){
-            e.printStackTrace(); //Almacena en CATALINA_HOME/logs archivos para ver los errores
-            response.sendError(500); //Para ver si es un error del servidor!
+        } catch (NamingException|SQLException e){
+            e.printStackTrace(); 
+            response.sendError(500);
         }
     }
 }
