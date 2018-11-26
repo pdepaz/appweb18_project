@@ -9,8 +9,8 @@
 
     <!-- General description of your web application -->
 
-    <display-name>Práctica 7</display-name>
-    <description>Práctica 7 de Aplicaciones Web
+    <display-name>Proyecto</display-name>
+    <description>Proyecto de Aplicaciones Web
     </description>
 
    <resource-ref>
@@ -21,7 +21,7 @@
       configurartion for the web application.
     </description>
     <res-ref-name>
-      jdbc/Libros
+      jdbc/proyecto
     </res-ref-name>
     <res-type>
       javax.sql.DataSource
