@@ -42,7 +42,7 @@ public class Usuario_Guardar extends HttpServlet {
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
             user.setEmail(request.getParameter("email"));
-            user.setTelefono(request.getParameter("telefono"));
+            user.setTelefono(Integer.parseInt((request.getParameter("telefono"))));
             user.setContrasenya(request.getParameter("contrasenya"));
             
             int actualizado = db.actualizaUsuario(user); 

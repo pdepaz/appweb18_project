@@ -191,12 +191,12 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
 
-            st.setString(1, usuario.nombre);
-            st.setString(2, usuario.apellido1);
-            st.setString(3, usuario.apellido2);
-            st.setString(4, usuario.email);
-            st.setInt(5, usuario.telefono);
-            st.setString(6, usuario.contrasenya);
+            st.setString(1, usuario.getNombre());
+            st.setString(2, usuario.getApellido1());
+            st.setString(3, usuario.getApellido2());
+            st.setString(4, usuario.getEmail());
+            st.setInt(5, usuario.getTelefono());
+            st.setString(6, usuario.getContrasenya());
             // execute select SQL stetement
             st.executeUpdate();
             
@@ -244,13 +244,13 @@ devuelve bloqueado dentro de usuarios
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
         
         //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
-        if(comment.getComentario_text().equals("") || isBloqueado(usuario)==1){
+        if(comment.getComentario_text().equals("") || isBloqueado(comment.getUsuario()) == 1){
             return -1;
         }
         
-        if(es_respuesta == 0){
-            comentario_padre = 0;
-        }
+        /*if(comment.getComentario_padre() == 0){
+            comment.setComentario_padre(0);
+        }*/
         
         
         //CHECK SECURITY
@@ -285,7 +285,7 @@ devuelve bloqueado dentro de usuarios
                 st.setInt(5, 0);
                 st.setInt(6, comment.getUsuario());
                 st.setString(7, "2010-10-10 10:10:10");
-                st.setInt(8, comentario_padre);
+                st.setInt(8, comment.getComentario_padre());
                 st.setInt(9, 0);
                 break;
             
@@ -318,9 +318,9 @@ devuelve bloqueado dentro de usuarios
 
     */
 
-        public void creaPelicula(Pelicula pelicula){
+        public void creaPelicula(Pelicula pelicula) throws SQLException {
 
-                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
                 
                 try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
                     st.setString(1, pelicula.getTitulo());
@@ -329,10 +329,10 @@ devuelve bloqueado dentro de usuarios
                     st.setInt(4, pelicula.getPais());
                     st.setString(5,pelicula.getDirector());
                     st.setString(6,pelicula.getGenero());                    
-                    st.setString(7,pelicula.getportada());
-                    st.setString(8,pelicula.getTrailer());
-                    st.setint(9,pelicula.getCreador()); 
-                    st.setInt(10,pelicula.getBloqueado());
+                    //st.setString(7,pelicula.getportada());
+                    st.setString(7,pelicula.getTrailer());
+                    st.setInt(8,pelicula.getCreador()); 
+                    st.setInt(9,pelicula.getBloqueado());
                     
                     st.executeUpdate();
                 }
@@ -348,10 +348,11 @@ devuelve bloqueado dentro de usuarios
 
     */
 
-        public void creaSerie(Serie serie){
+        public void creaSerie(Serie serie) throws SQLException {
 
 
-                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
+                
                 try(PreparedStatement st = connection.prepareStatement(query_serie)){
                     st.setString(1, serie.getTitulo());
                     st.setInt(2, serie.getAnyo());
@@ -359,10 +360,10 @@ devuelve bloqueado dentro de usuarios
                     st.setInt(4, serie.getCapitulos());
                     st.setInt(5,serie.getPais());
                     st.setString(6,serie.getGenero());
-                    st.setString(7,serie.getPortada());
-                    st.setString(8,serie.getTrailer());
-                    st.setint(9,serie.getCreador()); 
-                    st.setInt(10,serie.getBloqueado());
+                    //st.setString(7,serie.getPortada());
+                    st.setString(7,serie.getTrailer());
+                    st.setInt(8,serie.getCreador()); 
+                    st.setInt(9,serie.getBloqueado());
     
                     st.executeUpdate();
                 }
@@ -376,129 +377,27 @@ devuelve bloqueado dentro de usuarios
 
     */
 
-        public void creaLibro(Libro libro){
-
+        public void creaLibro(Libro libro) throws SQLException {
                 
-                String query_libro = "INSERT INTO Libros (titulo, anyo, paginas, escritor, editorial, genero, portada, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String query_libro = "INSERT INTO Libros (titulo, anyo, paginas, escritor, editorial, genero, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?)";
                 try(PreparedStatement st = connection.prepareStatement(query_libro)){
+                    
                     st.setString(1, libro.getTitulo());
                     st.setInt(2, libro.getAnyo());
                     st.setInt(3, libro.getPaginas());
                     st.setString(4, libro.getEscritor());
                     st.setString(5, libro.getEditorial());
                     st.setString(6,libro.getGenero());
-                    st.setString(7,libro.getPortada());
-                    st.setint(8,libro.getCreador()); 
-                    st.setInt(9,libro.getBloqueado());
-                    st.executeUpdate();
-                
-                }
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     /**
-     * Crear Tema
-     *  
-                Añadimos un tema a la base de datos 
-     * @param Tipo_tema
-     * @param objeto
-     *                     
-     * @return 1 if correct, 0 if not created, -1 if error
-     */            
-    public int creaTema(String tipo_tema, Object objeto) throws SQLException {
-    
-        /*if(isBloqueado(usuario)==1){
-            return -1;
-        }
-                
-        switch(tipo_tema){
-            case "Peliculas":
-                
-                Pelicula pelicula = (Pelicula) objeto;
-                
-                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
-                
-                try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
-                    st.setString(1, pelicula.getTitulo());
-                    st.setInt(2, pelicula.getAnyo());
-                    st.setInt(3, pelicula.getDuracion());
-                    st.setInt(4, pelicula.getPais());
-                    st.setString(5,pelicula.getDirector());
-                    st.setString(6,pelicula.getGenero());                    
-                    st.setString(7,pelicula.getportada());
-                    st.setString(8,pelicula.getTrailer());
-                    st.setint(9,pelicula.getCreador()); 
-                    st.setInt(10,pelicula.getBloqueado());
+                    //st.setString(7,libro.getPortada());
+                    st.setInt(7,libro.getCreador()); 
+                    st.setInt(8,libro.getBloqueado());
                     
                     st.executeUpdate();
-                }
-                break;
                 
-            case "Series":
+                }
 
-                Serie serie = (Serie) objeto;
-
-                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
-                try(PreparedStatement st = connection.prepareStatement(query_serie)){
-                    st.setString(1, serie.getTitulo());
-                    st.setInt(2, serie.getAnyo());
-                    st.setInt(3, serie.getTemporadas());
-                    st.setInt(4, serie.getCapitulos());
-                    st.setInt(5,serie.getPais());
-                    st.setString(6,serie.getGenero());
-                    st.setString(7,serie.getPortada());
-                    st.setString(8,pelicula.getTrailer());
-                    st.setint(9,serie.getCreador()); 
-                    st.setInt(10,serie.getBloqueado());
-                    
-                    st.executeUpdate();
-                }
-                
-                break;
-                
-            case "Libros":
-                Libro libro= (Libro) objeto;
-                
-                String query_libro = "INSERT INTO Libros (titulo, anyo, paginas, escritor, editorial, genero, portada, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
-                try(PreparedStatement st = connection.prepareStatement(query_libro)){
-                    st.setString(1, libro.getTitulo());
-                    st.setInt(2, libro.getAnyo());
-                    st.setInt(3, libro.getPaginas());
-                    st.setString(4, libro.getEscritor());
-                    st.setString(5, libro.getEditorial());
-                    st.setString(6,libro.getGenero());
-                    st.setString(7,libro.getPortada());
-                    st.setint(8,libro.getCreador()); 
-                    st.setInt(9,libro.getBloqueado());
-                    st.executeUpdate();
-                
-                }
-                break;      
-                
-            case Default:
-                return -1;
-                break;   
         }
-        */
-          return 1; 
-    } 
+
 
     
     

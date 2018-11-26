@@ -37,15 +37,16 @@ public class Comentario_Peli_Guardar extends HttpServlet {
 
         try (DBManager db = new DBManager()){
             
-            User usuario = db.cargar_usuario(session.getAttribute(session_id));
+            int session_id = (int) session.getAttribute("session_id");
+            
+            Usuario usuario = db.cargar_usuario(session_id);
 
             Comentario nuevo_comentario = new Comentario();
             nuevo_comentario.setComentario_text(request.getParameter("comentario_text"));
             nuevo_comentario.setTipo_tema("Pelicula");
-            nuevo_comentario.setPelicula(request.getParameter(id_pelicula));
-            nuevo_comentario.
+            nuevo_comentario.setPelicula(Integer.parseInt(request.getParameter("id_pelicula")));
             //Ver si en la funcion para añadir comentarios en DBManager trata correctamente que sea una pelicula
-            nuevo_comentario.setUsuario(session.getAttribute(session_id));
+            nuevo_comentario.setUsuario(session_id);
             //nuevo_comentario.setFecha_creacion("");
             nuevo_comentario.setComentario_padre(0);
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());

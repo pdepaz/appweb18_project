@@ -37,20 +37,19 @@ public class Pelicula_Guardar extends HttpServlet {
         
 
         try (DBManager db = new DBManager()){
-
             
             Pelicula pelicula = new Pelicula();
             pelicula.setTitulo(request.getParameter("titulo"));
-            pelicula.setAnyo(request.getParameter("anyo"));
-            pelicula.setDuracion(request.getParameter("duracion"));
-            pelicula.setPais(request.getParameter("pais"));
+            pelicula.setAnyo(Integer.parseInt((request.getParameter("anyo"))));
+            pelicula.setDuracion(Integer.parseInt((request.getParameter("duracion"))));
+            pelicula.setPais(Integer.parseInt((request.getParameter("pais"))));
             pelicula.setDirector(request.getParameter("director"));
             pelicula.setGenero(request.getParameter("genero"));
            //Portada pelicula.setPortada(request.getParameter("portada"));
             pelicula.setTrailer(request.getParameter("trailer"));
             //Creador de la pelicula
             //Realmente el creador es el id del usuario creador(el de la sesion)
-            pelicula.setCreador(session.getAttribute("session_id"));
+            pelicula.setCreador((int) session.getAttribute("session_id"));
             //de primeras no estará bloqueada
             pelicula.setBloqueado(0);
 
@@ -58,7 +57,7 @@ public class Pelicula_Guardar extends HttpServlet {
 
             //EN UNA PELICULA RECIEN CREADA, NO HAY COMENTARIOS!
             List<Comentario> comentarios = new ArrayList<Comentario>();
-            request.setAttribute("comentarios", comentarios)
+            request.setAttribute("comentarios", comentarios);
 
             request.setAttribute("pelicula", pelicula);
 
