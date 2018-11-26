@@ -174,43 +174,33 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
      /**
             Actualiza los datos de un usuario     *
-     * @param nombre compulsory
-     * @param apellido1 compulsory
-     * @param apellido2
-     * @param email compulsory
-     * @param foto
-     * @param telefono
-     * @param contrasenya compulsory
-     * @param usuario compulsory
-     * @param tipo_usuario (if nothing clicked by the user, normal user by default)    
+     * @param nombre actualizable
+     * @param apellido1 actualizable
+     * @param apellido2 actualizable
+     * @param email actualizable
+     * @param foto actualizable (de momento nada)
+     * @param telefono actualizable
+     * @param contrasenya actualizable
+     * @param usuario 
+     * @param tipo_usuario   
      * @return 1 if correct, -1 if error (somefields not introduced)
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
         
-        //Verificar si existe el usuario
-
-        /*if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("")){
-            return -1;
-        }
-    
-        
         String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE usuario.id = Usuarios.id";
 
-        //HABRÁ QUE AÑADIR LA FOTO
         try (PreparedStatement st = connection.prepareStatement(query)) {
-        // Se insertan los valores en la consulta :
+
             st.setString(1, usuario.nombre);
             st.setString(2, usuario.apellido1);
             st.setString(3, usuario.apellido2);
             st.setString(4, usuario.email);
             st.setInt(5, usuario.telefono);
             st.setString(6, usuario.contrasenya);
-            
-
             // execute select SQL stetement
             st.executeUpdate();
             
-        }*/
+        }
         return 1;
     } 
 
@@ -321,6 +311,108 @@ devuelve bloqueado dentro de usuarios
         
 
     } 
+
+    /*
+    Crear Pelicula: Anade una pelicula a la base de datos.
+    @param un objeto pelicula
+
+    */
+
+        public void creaPelicula(Pelicula pelicula){
+
+                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                
+                try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+                    st.setString(1, pelicula.getTitulo());
+                    st.setInt(2, pelicula.getAnyo());
+                    st.setInt(3, pelicula.getDuracion());
+                    st.setInt(4, pelicula.getPais());
+                    st.setString(5,pelicula.getDirector());
+                    st.setString(6,pelicula.getGenero());                    
+                    st.setString(7,pelicula.getportada());
+                    st.setString(8,pelicula.getTrailer());
+                    st.setint(9,pelicula.getCreador()); 
+                    st.setInt(10,pelicula.getBloqueado());
+                    
+                    st.executeUpdate();
+                }
+
+
+        }
+
+
+
+    /*
+    Crear Serie: Anade una serie a la base de datos
+    @param un objeto serie
+
+    */
+
+        public void creaSerie(Serie serie){
+
+
+                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                try(PreparedStatement st = connection.prepareStatement(query_serie)){
+                    st.setString(1, serie.getTitulo());
+                    st.setInt(2, serie.getAnyo());
+                    st.setInt(3, serie.getTemporadas());
+                    st.setInt(4, serie.getCapitulos());
+                    st.setInt(5,serie.getPais());
+                    st.setString(6,serie.getGenero());
+                    st.setString(7,serie.getPortada());
+                    st.setString(8,serie.getTrailer());
+                    st.setint(9,serie.getCreador()); 
+                    st.setInt(10,serie.getBloqueado());
+    
+                    st.executeUpdate();
+                }
+
+        }
+
+
+    /*
+    Crear Serie: Anade una serie a la base de datos
+    @param un objeto serie
+
+    */
+
+        public void creaLibro(Libro libro){
+
+                
+                String query_libro = "INSERT INTO Libros (titulo, anyo, paginas, escritor, editorial, genero, portada, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                try(PreparedStatement st = connection.prepareStatement(query_libro)){
+                    st.setString(1, libro.getTitulo());
+                    st.setInt(2, libro.getAnyo());
+                    st.setInt(3, libro.getPaginas());
+                    st.setString(4, libro.getEscritor());
+                    st.setString(5, libro.getEditorial());
+                    st.setString(6,libro.getGenero());
+                    st.setString(7,libro.getPortada());
+                    st.setint(8,libro.getCreador()); 
+                    st.setInt(9,libro.getBloqueado());
+                    st.executeUpdate();
+                
+                }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      /**
      * Crear Tema
      *  
@@ -329,7 +421,7 @@ devuelve bloqueado dentro de usuarios
      * @param objeto
      *                     
      * @return 1 if correct, 0 if not created, -1 if error
-     */
+     */            
     public int creaTema(String tipo_tema, Object objeto) throws SQLException {
     
         /*if(isBloqueado(usuario)==1){
@@ -406,7 +498,8 @@ devuelve bloqueado dentro de usuarios
         }
         */
           return 1; 
-    }
+    } 
+
     
     
     public boolean isModerador(int id) throws SQLException {
@@ -641,7 +734,7 @@ devuelve bloqueado dentro de usuarios
         try(PreparedStatement st = connection.prepareStatement(query_comentario)){
             st.setInt(1, id);
             st.setString(2, tipo_tema);
-
+            
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
