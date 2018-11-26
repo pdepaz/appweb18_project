@@ -38,7 +38,7 @@ public class Controlador_Tema extends HttpServlet {
     
         try (DBManager db = new DBManager()){
         
-            /*Es necesario hacer casting??*/
+            /*Es necesario hacer casting?? SI QUIERES ENTRAR A OT SI*/
             
             Pelicula pelicula = new Pelicula();
             Serie serie = new Serie();
