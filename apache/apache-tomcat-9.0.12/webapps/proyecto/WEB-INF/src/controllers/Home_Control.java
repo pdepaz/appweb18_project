@@ -37,13 +37,6 @@ public class Home_Control extends HttpServlet {
             
         HttpSession session = request.getSession();
         
-        //Crear Carro de la compra si no hay uno todavia en la Session
-        if (session.getAttribute("carro") == null){ //No hay carro
-            List<Book> carro = new ArrayList<Book>();
-            session.setAttribute("carro", carro);
-        }
-
-        
         try (DBManager db = new DBManager()){
 
             List<Pelicula> pelis_nuevas = db.cargar_pelis_mas_nuevas();

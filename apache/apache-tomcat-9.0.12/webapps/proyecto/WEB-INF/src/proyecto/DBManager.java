@@ -140,9 +140,9 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         if(foto.equals("")){
             foto = null;
         }
-        if(telefono.equals("")){
+        /*if(telefono == null){
             telefono = null;
-        }
+        }*/
         if(tipo_usuario.equals("")){
             tipo_usuario = null;
         }
@@ -162,13 +162,13 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(7, contrasenya);
             st.setString(8, usuario);
             st.setString(9, tipo_usuario);
-            st.setString(10, 0);
+            st.setInt(10, 0);
 
             // execute select SQL stetement
             st.executeUpdate();
             
         }
-
+        return 1;
     } 
 
      /**
@@ -185,10 +185,10 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * @return 1 if correct, -1 if error (somefields not introduced)
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
-    
-        //Verificar que los datos que me llegan están bien (de los obligatorios)
         
-        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
+        //Verificar si existe el usuario
+
+        /*if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("")){
             return -1;
         }
     
@@ -209,9 +209,12 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             // execute select SQL stetement
             st.executeUpdate();
             
-        }
-
+        }*/
+        return 1;
     } 
+
+
+
 /********
 isBloqueado checkea si usuario está bloqueado
 devuelve bloqueado dentro de usuarios 
@@ -219,23 +222,23 @@ devuelve bloqueado dentro de usuarios
 @param id de usuario
 
 *******/
-public int isBloqueado(int id){
+    public int isBloqueado(int id) throws SQLException {
 
-String query = "SELECT bloqueado From Usuarios WHERE Usuarios.id = ?";
+        int bloqueado = 0;
 
- try (PreparedStatement st = connection.prepareStatement(query)) {
- 
-        st.setInt(1, id);
-        ResultSet rs =  st.executeQuery();
-        
-        int bloqueado = rs.getInt("bloqueado");
+        String query = "SELECT bloqueado From Usuarios WHERE Usuarios.id = ?";
+
+         try (PreparedStatement st = connection.prepareStatement(query)) {
+         
+                st.setInt(1, id);
+                ResultSet rs =  st.executeQuery();
+                
+                bloqueado = rs.getInt("bloqueado");
+        }
+        // 1 si bloqueado 0 si no
+        return bloqueado;
+
     }
-    // 1 si bloqueado 0 si no
-return bloqueado;
-
-
-
-}
 
 
 
@@ -276,11 +279,11 @@ return bloqueado;
             case "Pelicula":
                 st.setString(1, comentario_text);
                 st.setString(2, "Pelicula");
-                st.setString(3, idTema);
-                st.setString(4, null);
-                st.setString(5, null);
+                st.setInt(3, idTema);
+                st.setInt(4, 0);
+                st.setInt(5, 0);
                 st.setInt(6, usuario);
-                st.SetString(7,"2010-10-10 10:10:10");
+                st.setString(7,"2010-10-10 10:10:10");
                 st.setInt(8, comentario_padre);
                 st.setInt(9, 0);
                 break;
@@ -288,11 +291,11 @@ return bloqueado;
             case "Serie":
                 st.setString(1, comentario_text);
                 st.setString(2, "Serie");
-                st.setString(3, null);
-                st.setString(4, idTema);
-                st.setString(5, null);
+                st.setInt(3, 0);
+                st.setInt(4, idTema);
+                st.setInt(5, 0);
                 st.setInt(6, usuario);
-                st.SetString(7, "2010-10-10 10:10:10");
+                st.setString(7, "2010-10-10 10:10:10");
                 st.setInt(8, comentario_padre);
                 st.setInt(9, 0);
                 break;
@@ -300,18 +303,17 @@ return bloqueado;
             case "Libro":             
                 st.setString(1, comentario_text);
                 st.setString(2, "Libro");
-                st.setString(3, null);
-                st.setString(4, null);
-                st.setString(5, idTema);
+                st.setInt(3, 0);
+                st.setInt(4, 0);
+                st.setInt(5, idTema);
                 st.setInt(6, usuario);
-                st.SetString(7,"2010-10-10 10:10:10");
+                st.setString(7,"2010-10-10 10:10:10");
                 st.setInt(8, comentario_padre);
                 st.setInt(9, 0);
                 break;
             
-            case Default:
+            case "default":
                 return -1;
-                break;
             }
             
           st.executeUpdate();
@@ -331,7 +333,7 @@ return bloqueado;
      */
     public int creaTema(String tipo_tema, Object objeto) throws SQLException {
     
-         if(comentario_text.equals("") || isBloqueado(usuario)==1){
+        /*if(isBloqueado(usuario)==1){
             return -1;
         }
                 
@@ -403,162 +405,12 @@ return bloqueado;
                 return -1;
                 break;   
         }
-        
+        */
           return 1; 
     }
-     
-
-    //Carga pelicula para la vista
-    public Pelicula cargarPelicula(int id){ 
-        Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
-        String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
-        try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
-            st.setInt(1, id);            
-            ResultSet rs = st.executeQuery();
-            
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setDuracion(rs.getInt("duracion"));
-            user.setPais(rs.getInt("pais"));
-            user.setDirector(rs.getInt("director"));
-            user.setGenero(rs.getString("genero"));
-            user.setTrailer(rs.getString("trailer"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
-        }
-        return movie;
-    }
-
-
-    //Carga serie para la vista
-    public Serie cargarSerie(int id){ 
-        Serie serie = new Serie(); //Objeto de la clase Pelicula
-        String query_serie = "SELECT * FROM Series WHERE id =?";
-        try(PreparedStatement st = connection.prepareStatement(query_serie)){
-            st.setInt(1, id);            
-            ResultSet rs = st.executeQuery();
-            
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setTemporadas(rs.getInt("duracion"));
-            user.setCapitulos(rs.getInt("pais"));
-            user.setPais(rs.getInt("director"));
-            user.setGenero(rs.getString("genero"));
-            user.setTrailer(rs.getString("trailer"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
-        }
-        return serie;
-    }
-
-
-        //Carga libro para la vista
-    public Libro cargarLibro(int id){ 
-        Libro book = new Libro(); //Objeto de la clase Libro
-        String query_libro = "SELECT * FROM Libros WHERE id =?";
-        try(PreparedStatement st = connection.prepareStatement(query_libro)){
-            st.setInt(1, id);            
-            ResultSet rs = st.executeQuery();
-            
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setPaginas(rs.getInt("paginas"));
-            user.setEscritor(rs.getString("escritor"));
-            user.setEditorial(rs.getString("editorial"));
-            user.setGenero(rs.getString("genero"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
-        }
-        return book;
-    }
-    
-
-    
-    public boolean bloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos bloquear
-        switch(tipo){
-            case "Peliculas":
-                String query_bloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=1 WHERE Peliculas.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula)){
-                    st.setInt(1, 1);
-                }
-                st.executeUpdate();
-                break;
-            case "Series":
-                String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
-                    st.setInt(1, 1);
-                }
-                st.executeUpdate();
-                break;
-            case "Libros":
-                String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
-                    st.setInt(1, 1);
-                }
-                st.executeUpdate();
-                break;
-        }
-        return true;
-    }
     
     
-    public boolean bloquear_usuario(int id){//Pasamos el id del usuario que queremos bloquear
-        String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
-        try(PreparedStatement st = connection.prepareStatement(query_bloquea_usuario)){
-            st.setInt(1, 1);
-        }
-        st.executeUpdate();
-        return true;
-    }
-    
-    
-    public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
-        switch(tipo){
-            case "Peliculas":
-                String query_desbloquear_pelicula = "UPDATE Peliculas SET Peliculas.bloqueado=0 WHERE Peliculas.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_pelicula)){
-                    st.setInt(1, 0);
-                }
-                st.executeUpdate();
-                break;
-            case "Series":
-                String query_desbloquear_serie = "UPDATE Series SET Series.bloqueado=0 WHERE Series.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_serie)){
-                    st.setInt(1, 0);
-                }
-                st.executeUpdate();
-                break;
-            case "Libros":
-                String query_desbloquear_libro = "UPDATE Libros SET Libros.bloqueado=0 WHERE Libros.id=?";
-                try(PreparedStatement st = connection.prepareStatement(query_desbloquear_libro)){
-                    st.setInt(1, 0);
-                }
-                st.executeUpdate();
-                break;
-        }
-        return true;
-    }
-    public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
-        String query_bloquear_película = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
-        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
-            st.setInt(1, 0);
-        }
-        st.executeUpdate();
-        return true;
-    }
-    
-    public boolean desbloquear_usuario(int id){//Pasamos el id del usuario que queremos desbloquear
-        String query_desbloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
-        try(PreparedStatement st = connection.prepareStatement(query_desbloquear_usuario)){
-            st.setInt(1, 0);
-        }
-    }
-    
-    
-    public boolean isModerador(int id){
+    public boolean isModerador(int id) throws SQLException {
         
         String query_is = "SELECT tipo_usuario FROM Usuarios WHERE id=?";
         
@@ -579,7 +431,7 @@ return bloqueado;
      * @param id id del comentario que queremos bloquear
      * @return true = bloqueado
      */
-    public boolean bloquear_comentario(int id){ //Pasamos el id del comentario que queremos bloquear
+    public boolean bloquear_comentario(int id) throws SQLException { //Pasamos el id del comentario que queremos bloquear
         if(!isModerador(id)){
             return false;
         }
@@ -600,8 +452,11 @@ return bloqueado;
      * @param id id del comentario que queremos bloquear
      * @return true = desbloqueado
      */       
-    public boolean desbloquear_comentario(int id){//Pasamos el id del comentario que queremos desbloquear
-        isModerador(id);
+    public boolean desbloquear_comentario(int id) throws SQLException {//Pasamos el id del comentario que queremos desbloquear
+        if(!isModerador(id)){
+            return false;
+        }        
+
         String query_desbloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=0 WHERE Comentarios.id=?";
         
         try(PreparedStatement st = connection.prepareStatement(query_desbloquear_comentario)){
@@ -618,7 +473,7 @@ return bloqueado;
      * @param id id del tema
      * @return true = bloqueado
      */
-    public boolean bloquear_tema(String tipo, int id){
+    public boolean bloquear_tema(String tipo, int id) throws SQLException {
         if(!isModerador(id)){
             return false;
         }
@@ -655,6 +510,7 @@ return bloqueado;
         return true;
     }
 
+
    /**
      * Desbloquear un tema (hecho por moderadores)
      *
@@ -662,7 +518,7 @@ return bloqueado;
      * @param id id del tema
      * @return true = desbloqueado
      */   
-    public boolean desbloquear_tema(String tipo, int id){//Pasamos el id del tema y el tema que queremos desbloquear
+    public boolean desbloquear_tema(String tipo, int id) throws SQLException {//Pasamos el id del tema y el tema que queremos desbloquear
         if(!isModerador(id)){
             return false;
         }
@@ -698,13 +554,14 @@ return bloqueado;
         return true;
     }
 
+
     /**
      * Bloquear un usuario (hecho por moderadores)
      *
      * @param id id del usuario
      * @return true = bloqueado
      */   
-    public boolean bloquear_usuario(int id){
+    public boolean bloquear_usuario(int id) throws SQLException {
         if(!isModerador(id)){
             return false;
         }
@@ -719,6 +576,7 @@ return bloqueado;
 
         return true;
     }
+
     
     /**
      * Desbloquear un usuario (hecho por moderadores)
@@ -726,7 +584,7 @@ return bloqueado;
      * @param id id del usuario
      * @return true = bloqueado
      */   
-    public boolean desbloquear_usuario(int id){
+    public boolean desbloquear_usuario(int id) throws SQLException {
         if(!isModerador(id)){
             return false;
         }
@@ -742,8 +600,9 @@ return bloqueado;
         return true;
     }
 
+
     //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
-    public Usuario cargar_usuario(int id){ 
+    public Usuario cargar_usuario(int id) throws SQLException { 
         Usuario user = new Usuario(); //Objeto de la clase Usuario
         String query_usuario = "SELECT * FROM Usuarios WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_usuario)){
@@ -756,9 +615,9 @@ return bloqueado;
             user.setApellido2(rs.getString("apellido2"));
             user.setEmail(rs.getString("email"));
             user.setTelefono(rs.getInt("telefono"));
-            user.setContraseña(rs.getString("contrasenya"));
+            user.setContrasenya(rs.getString("contrasenya"));
             user.setUsuario(rs.getString("usuario"));
-            user.setTipoUsuario(rs.getString("tipo_usuario"));
+            user.setTipo_usuario(rs.getString("tipo_usuario"));
             user.setBloqueado(rs.getInt("bloqueado"));
         }
         return user;
@@ -772,7 +631,7 @@ return bloqueado;
      * @param tipo_tema string que define el tema (pelicula, serie, libro)     
      * @return Lista de Comentarios de un mismo tema
      */   
-    public List<Comentario> cargar_comentarios_list(int id, String tipo_tema){
+    public List<Comentario> cargar_comentarios_list(int id, String tipo_tema) throws SQLException {
         
         String query_comentario = "SELECT * FROM Comentarios WHERE tipo_tema=? AND id=?";
         List<Comentario> lista_comentarios = new ArrayList<>();
@@ -806,68 +665,68 @@ return bloqueado;
 
 
     //Carga pelicula para la vista
-    public Pelicula cargarPelicula(int id){ 
+    public Pelicula cargarPelicula(int id) throws SQLException { 
         Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
         String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setDuracion(rs.getInt("duracion"));
-            user.setPais(rs.getInt("pais"));
-            user.setDirector(rs.getInt("director"));
-            user.setGenero(rs.getString("genero"));
-            user.setTrailer(rs.getString("trailer"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
+            movie.setId(rs.getInt("id"));
+            movie.setTitulo(rs.getString("titulo"));
+            movie.setAnyo(rs.getInt("anyo"));
+            movie.setDuracion(rs.getInt("duracion"));
+            movie.setPais(rs.getInt("pais"));
+            movie.setDirector(rs.getString("director"));
+            movie.setGenero(rs.getString("genero"));
+            movie.setTrailer(rs.getString("trailer"));
+            movie.setCreador(rs.getInt("creador"));
+            movie.setBloqueado(rs.getInt("bloqueado"));
         }
         return movie;
     }
-    
+
 
     //Carga serie para la vista
-    public Serie cargarSerie(int id){ 
+    public Serie cargarSerie(int id) throws SQLException { 
         Serie serie = new Serie(); //Objeto de la clase Pelicula
         String query_serie = "SELECT * FROM Series WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_serie)){
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setTemporadas(rs.getInt("duracion"));
-            user.setCapitulos(rs.getInt("pais"));
-            user.setPais(rs.getInt("director"));
-            user.setGenero(rs.getString("genero"));
-            user.setTrailer(rs.getString("trailer"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
+            serie.setId(id);
+            serie.setTitulo(rs.getString("titulo"));
+            serie.setAnyo(rs.getInt("anyo"));
+            serie.setTemporadas(rs.getInt("duracion"));
+            serie.setCapitulos(rs.getInt("pais"));
+            serie.setPais(rs.getInt("director"));
+            serie.setGenero(rs.getString("genero"));
+            serie.setTrailer(rs.getString("trailer"));
+            serie.setCreador(rs.getInt("creador"));
+            serie.setBloqueado(rs.getInt("bloqueado"));
         }
         return serie;
     }
 
 
         //Carga libro para la vista
-    public Libro cargarLibro(int id){ 
+    public Libro cargarLibro(int id) throws SQLException { 
         Libro book = new Libro(); //Objeto de la clase Libro
         String query_libro = "SELECT * FROM Libros WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_libro)){
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            user.setId(id);
-            user.setTitulo(rs.getString("titulo"));
-            user.setAnyo(rs.getInt("anyo"));
-            user.setPaginas(rs.getInt("paginas"));
-            user.setEscritor(rs.getString("escritor"));
-            user.setEditorial(rs.getString("editorial"));
-            user.setGenero(rs.getString("genero"));
-            user.setCreador(rs.getInt("creador"));
-            user.setBloqueado(rs.getInt("bloqueado"));
+            book.setId(id);
+            book.setTitulo(rs.getString("titulo"));
+            book.setAnyo(rs.getInt("anyo"));
+            book.setPaginas(rs.getInt("paginas"));
+            book.setEscritor(rs.getString("escritor"));
+            book.setEditorial(rs.getString("editorial"));
+            book.setGenero(rs.getString("genero"));
+            book.setCreador(rs.getInt("creador"));
+            book.setBloqueado(rs.getInt("bloqueado"));
         }
         return book;
     }
@@ -880,7 +739,7 @@ return bloqueado;
      * @param NONE
      * @return lista de películas más nuevas (hasta 10)
      */   
-    public List<Pelicula> cargar_pelis_mas_nuevas(){
+    public List<Pelicula> cargar_pelis_mas_nuevas() throws SQLException {
         
         String query = "SELECT * FROM Peliculas ORDER BY anyo DESC LIMIT 10";
         List<Pelicula> movies = new ArrayList<>();
@@ -917,7 +776,7 @@ return bloqueado;
      * @param NONE
      * @return lista de películas recomendadas (max 10)
      */  
-    public List<Pelicula> cargar_pelis_recomendadas(){
+    public List<Pelicula> cargar_pelis_recomendadas() throws SQLException {
         
         String query_recommended = "SELECT * FROM Peliculas ORDER BY RAND() LIMIT 10";
         List<Pelicula> movies_recommended = new ArrayList<>();
@@ -944,7 +803,7 @@ return bloqueado;
             }
 
         }
-        return movies;
+        return movies_recommended;
     }
 
 
@@ -954,7 +813,7 @@ return bloqueado;
      * @param NONE
      * @return lista de películas más comentadas (max 10)
      */  
-    public List<Pelicula> cargar_pelis_mas_comentadas(){
+    public List<Pelicula> cargar_pelis_mas_comentadas() throws SQLException {
         
         String query_commented = "SELECT Peliculas.titulo FROM Peliculas INNER JOIN Comentarios ON Peliculas.id=Comentarios.pelicula GROUP BY Comentarios.pelicula ORDER BY COUNT(Comentarios.pelicula) DESC LIMIT 10;";
         List<Pelicula> movies_commented = new ArrayList<>();
@@ -981,131 +840,6 @@ return bloqueado;
             }
 
         }
-        return movies;
-    }
-
-//-----------------------------------------------------------------------------------------------------------------------------
-
-    /**
-     * Search book by ISBN.
-     *
-     * @param isbn The ISBN of the book.
-     * @return The Book object, or null if not found.
-     * @throws SQLException If somthing fails with the DB.
-     */
-    public Book searchBook(String isbn) throws SQLException {
-        // TODO: program this method
-
-	String query = "SELECT Libros.titulo, Libros.isbn, Libros.anyo, Libros.id FROM Libros WHERE Libros.isbn = " + isbn;
-	Statement stmt = connection.createStatement();
-	ResultSet rs = stmt.executeQuery(query);
-
-	Book libro = new Book();
-	while(rs.next()){
-	    libro.setTitle(rs.getString("titulo"));
-	    libro.setIsbn(Integer.toString(rs.getInt("isbn")));
-	    libro.setYear(rs.getInt("anyo"));
-	    libro.setId(rs.getInt("id"));
-	    System.out.println("Nuevo libro: " + libro.getTitle() + ", (" + libro.getIsbn() + "), " + libro.getYear() + ".");
-	}
-
-	rs.close();
-	stmt.close();
-    return libro;
-    }
-
-    /**
-     * Sell a book.
-     *
-     * @param book The book.
-     * @param units Number of units that are being sold.
-     * @return True if the operation succeeds, or false otherwise
-     *         (e.g. when the stock of the book is not big enough).
-     * @throws SQLException If somthing fails with the DB.
-     */
-    public boolean sellBook(Book book, int units) throws SQLException {
-        return sellBook(book.getId(), units);
-    }
-
-    /**
-     * Sell a book.
-     *
-     * @param book The book's identifier.
-     * @param units Number of units that are being sold.
-     * @return True if the operation succeeds, or false otherwise
-     *         (e.g. when the stock of the book is not big enough).
-     * @throws SQLException If something fails with the DB.
-     */
-    public boolean sellBook(int book, int units) throws SQLException {
-        // TODO: program this method
-        //boolean success = false;
-        //connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
-        //connection.setAutoCommit(false);
-        
-        String query_insertar = "INSERT INTO Ventas (fecha, libro, unidad_vend) VALUES (NOW(), " + book + ", " + units + ")";
-        
-            int stock_libro = getStock(book);
-            if (stock_libro != 0){ //Si hay existencias
-                System.out.println("Hay " + stock_libro + " existencias del libro con ID " + book + ".");
-                //stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-                try(Statement stmt = connection.createStatement()){
-                    stmt.executeUpdate(query_insertar);
-                    
-                    stmt.close();
-                };
-                
-                //ResultSet rs = stmt.getGeneratedKeys();
-                System.out.println("Venta del ibro con ID " + book + ", OK!");
-            
-                
-                
-                //Quitar de las existencias
-                                
-                int nuevo_valor_existencias = stock_libro - units;
-                String query_quitar_existencia = "UPDATE Existencias SET Existencias.unidades=" + nuevo_valor_existencias + " WHERE Existencias.libro=" + book;
-                
-                try(Statement stmt = connection.createStatement()){
-                    int rowCount2 = stmt.executeUpdate(query_quitar_existencia);
-                    
-                    stmt.close();
-                };
-                               
-                            
-                return true;
-                
-            } else { //No hay existencias del libro
-                System.out.println("No hay suficientes existencias del libro con ID " + book + ".");
-                return false;
-            }
-    }
-
-    /**
-     * Return a list with all the books in the database.
-     *
-     * @return List with all the books.
-     * @throws SQLException If something fails with the DB.
-     */
-    public List<Book> listBooks() throws SQLException {
-        // TODO: program this method
-	List<Book> lista = new ArrayList<>(); //Since Java 7, we can remove the right handside parameter.
-
-	String query = "SELECT Libros.titulo, Libros.isbn, Libros.anyo, Libros.id FROM Libros";
-	Statement stmt = connection.createStatement();
-	ResultSet rs = stmt.executeQuery(query);
-
-	while (rs.next()){
-        Book libro = new Book();
-	    libro.setTitle(rs.getString("titulo"));
-	    libro.setIsbn(Integer.toString(rs.getInt("isbn")));
-	    libro.setYear(rs.getInt("anyo"));
-	    libro.setId(rs.getInt("id"));
-	    System.out.println("Nuevo libro: " + libro.getTitle() + ", (" + libro.getIsbn() + "), " + libro.getYear() + ".");
-	    lista.add(libro);
-	}
-
-	rs.close();
-	stmt.close();
-
-	return lista;
+        return movies_commented;
     }
 }

@@ -42,47 +42,43 @@ public class Controlador_Tema extends HttpServlet {
             
             Pelicula pelicula = new Pelicula();
             Serie serie = new Serie();
-            Libro libro= new Libro();
+            Libro libro = new Libro();
             
             
             //Comentario comentario = (Comentario) request.getAtribute("comentario");
             Usuario usuario = (Usuario) session.getAttribute("usuario");
-            String tema = (String) request.getParameters("tema");
-            int id = (Integer) request.getParameters("id");
+            String tema = (String) request.getParameter("tema");
+            int id = Integer.parseInt(request.getParameter("id"));
             
-<<<<<<< HEAD
-            List<Comentario> comentarios = cargar_comentarios_list(id, tema);
-
+            List<Comentario> comentarios = db.cargar_comentarios_list(id, tema);
                
-            if(tema.equals("Pelicula"){
-=======
             if(tema.equals("Pelicula")){
->>>>>>> 689047bca276ae1aa56cb5f82d9f80b747b12fdb
+
                 pelicula = db.cargarPelicula(id);
-                request.setAttribute(pelicula, "pelicula");
-                request.setAttribute(tema, "tema");
-                request.setAttribute(id, "id");
-                request.setAttribute(comentarios, "comentarios");
+                request.setAttribute("pelicula", pelicula);
+                request.setAttribute("tema", tema);
+                request.setAttribute("id", id);
+                request.setAttribute("comentarios", comentarios);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("pelicula.jsp");
                 rd.forward(request, response);
             }
             else if(tema.equals("Serie")){
                 serie = db.cargarSerie(id);
-                request.setAttribute(serie, "serie");
-                request.setAttribute(tema, "tema");
-                request.setAttribute(id, "id");
-                request.setAttribute(comentarios, "comentarios");
+                request.setAttribute("serie", serie);
+                request.setAttribute("tema", tema);
+                request.setAttribute("id", id);
+                request.setAttribute("comentarios", comentarios);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("serie.jsp");
                 rd.forward(request, response);
             }
             else if(tema.equals("Libro")){
                 libro = db.cargarLibro(id);
-                request.setAttribute(libro, "libro");
-                request.setAttribute(tema, "tema");
-                request.setAttribute(id, "id");
-                request.setAttribute(comentarios, "comentarios");
+                request.setAttribute("libro", libro);
+                request.setAttribute("tema", tema);
+                request.setAttribute("id", id);
+                request.setAttribute("comentarios", comentarios);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("libro.jsp");
                 rd.forward(request, response);

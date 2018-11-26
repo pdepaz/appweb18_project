@@ -39,7 +39,7 @@
     <tbody>
         <% for(Comentario tmp: comentarios)%>
             <% if (tmp.getBloqueado() = 0){ %>
-                <tr> info del  tmp(comentario) </tr>
+                <tr><td>AQUI INFO DEL COMENTARIO</td> </tr>
             <% } %>
         <% } %>
     </tbody>
@@ -48,7 +48,7 @@
 <form id = "creacion_comentario" action = "/añadir_comentario">
     <textarea name="comentario" rows="10" cols="40" placeholder = "Escribe aquí tu comentario"></textarea>
     <input type="hidden" name="id" value="<% id %>">
-    <input type="hidden" name="tema"="<% tema %>">
+    <input type="hidden" name="tema" value="<% tema %>">
     <div class = "boton">
         <input type = "submit" value = "Publicar">
     </div>
