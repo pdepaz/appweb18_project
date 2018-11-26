@@ -20,7 +20,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Servlet para el controlador de la Home (página de bienvenida)
+ * Muestra la vista de la Home (página de bienvenida)
  *
  */
 @WebServlet("/home")

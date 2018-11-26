@@ -20,42 +20,33 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Usuario control se dedicara a guardar los datos del nuevo usuario una vez se edite el perfil
+ * Muestra la vista de mi usuario de acuerdo con su "id"
  *
  */
 @WebServlet("/usuario")
 public class Usuario_Control extends HttpServlet {
 
     /**
-     * Metodo del servlet que responde a una peticion POST.
+     * Metodo del servlet que responde a una peticion GET.
      *
      */
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
 
-                //hacerlo para todos y entonces hacer update a Base de Datos
-                Usuario user = new Usuario();
-                user.setNombre(request.getParameter("nombre"));
-                user.setApellido1(request.getParameter("apellido1"));
-                user.setApellido2(request.getParameter("apellido2"));
-                user.setEmail(request.getParameter("email"));
-                user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
-                user.setContrasenya(request.getParameter("contrasenya"));
-
+        //int mi_usuario_id = (int) session.getAttribute("id_usuario_logeado");
+        int mi_usuario_id = 2;
 
         try (DBManager db = new DBManager()){
 
-            //actualiza los datos del usuario manteniendo el id
-                int actualizado = db.actualizaUsuario(user); 
-                if (actualizado == 1){
-                    session.setAttribute("miusuario", user);
+            //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
+            
+            Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
 
-
-                response.sendRedirect("MiUsuario.jsp");
-                }  
-                                    
+            session.setAttribute("mi_usuario", mi_usuario);
+            response.sendRedirect("miUsuario.jsp");
+          
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

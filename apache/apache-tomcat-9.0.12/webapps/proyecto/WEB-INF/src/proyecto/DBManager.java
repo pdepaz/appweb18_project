@@ -604,21 +604,24 @@ devuelve bloqueado dentro de usuarios
     //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
     public Usuario cargar_usuario(int id) throws SQLException { 
         Usuario user = new Usuario(); //Objeto de la clase Usuario
-        String query_usuario = "SELECT * FROM Usuarios WHERE id =?";
+        String query_usuario = "SELECT * FROM Usuarios WHERE Usuarios.id = ?";
         try(PreparedStatement st = connection.prepareStatement(query_usuario)){
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            user.setId(id);
-            user.setNombre(rs.getString("nombre"));
-            user.setApellido1(rs.getString("apellido1"));
-            user.setApellido2(rs.getString("apellido2"));
-            user.setEmail(rs.getString("email"));
-            user.setTelefono(rs.getInt("telefono"));
-            user.setContrasenya(rs.getString("contrasenya"));
-            user.setUsuario(rs.getString("usuario"));
-            user.setTipo_usuario(rs.getString("tipo_usuario"));
-            user.setBloqueado(rs.getInt("bloqueado"));
+            while (rs.next()){ //OK, SQL return something
+                user.setId(rs.getInt("id"));
+                user.setNombre(rs.getString("nombre"));
+                user.setApellido1(rs.getString("apellido1"));
+                user.setApellido2(rs.getString("apellido2"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefono(rs.getInt("telefono"));
+                user.setContrasenya(rs.getString("contrasenya"));
+                user.setUsuario(rs.getString("usuario"));
+                user.setTipo_usuario(rs.getString("tipo_usuario"));
+                user.setBloqueado(rs.getInt("bloqueado"));
+            }
+            
         }
         return user;
     }
@@ -815,7 +818,7 @@ devuelve bloqueado dentro de usuarios
      */  
     public List<Pelicula> cargar_pelis_mas_comentadas() throws SQLException {
         
-        String query_commented = "SELECT Peliculas.titulo FROM Peliculas INNER JOIN Comentarios ON Peliculas.id=Comentarios.pelicula GROUP BY Comentarios.pelicula ORDER BY COUNT(Comentarios.pelicula) DESC LIMIT 10;";
+        String query_commented = "SELECT * FROM Peliculas INNER JOIN Comentarios ON Peliculas.id=Comentarios.pelicula GROUP BY Comentarios.pelicula ORDER BY COUNT(Comentarios.pelicula) DESC LIMIT 10;";
         List<Pelicula> movies_commented = new ArrayList<>();
 
         try(PreparedStatement st = connection.prepareStatement(query_commented)){

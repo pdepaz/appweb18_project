@@ -4,7 +4,7 @@
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
 <% 
-		Usuario miusuario = (Usuario) session.getAttribute("miusuario")
+		Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario");
 
 %>
 
@@ -14,23 +14,24 @@
 <head>
 
 	
-<title>Mi Perfil</title>
+<title><%= mi_usuario.getNombre()%></title>
 </head>
 
 <body>
 
 	<div class="InfoPersonal">
-		name = <%= user.getName() %>
-		appellidos = <%= user.getApellido1() %> <%= user.getApellido2()%>
-		email = <%= getEmail()%>
-		<br></br>
+		<p>Nombre: <%= mi_usuario.getNombre() %></p>
+		<p>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></p>
+		<p>Email: <%= mi_usuario.getEmail() %></p>
 	
 	</div>
 
+<%-- <%if(mi_usuario.getId() == SESSION ID){ %> --%>
+<%--	<button onclick="editPerfil()">Editar Perfil</button>
 
-	<button onclick="editPerfil()">Editar Perfil</button>
+ <% boolean mostrar = false; %>
 
-<% boolean mostrar = false; %>
+
 <%
 public void editPerfil() {
   mostrar = true;
@@ -59,9 +60,7 @@ public void editPerfil() {
   <input type="submit" value="Guardar Cambios">
 </form> 
 </div>
-<% } %>
-
-
+<% } %> --%>
 
 </body>
 </html>
