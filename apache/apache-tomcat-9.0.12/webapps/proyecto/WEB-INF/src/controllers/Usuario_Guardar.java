@@ -20,35 +20,22 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Guarda en SQL los datos de un usuario
+ * Actualiza en SQL los datos de un usuario
  *
  */
 @WebServlet("/usuario_guardar")
 public class Usuario_Guardar extends HttpServlet {
 
     /**
-     * Metodo del servlet que responde a una peticion POST+.
+     * Metodo del servlet que responde a una peticion POST.
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
-        
 
         try (DBManager db = new DBManager()){
-            
-            String[] isbn_recibidos = request.getParameterValues("catalogo_form");
-
-            //Acceder a SQL para coger los libros que tengan como ISBN los de "array_isbn"
-            for (int i = 0 ; i < isbn_recibidos.length; i++){
-                Book libro = db.searchBook(isbn_recibidos[i]);
-                carro.add(libro);
-            } 
-                        
-            //Envia una respuesta de redirección hacia el controlador de visualización del carro de la compra
-            //request.setAttribute("carro_actual", carro);
-            response.sendRedirect("carro_vista_control");
             
             Usuario user = new Usuario();
             user.setNombre(request.getParameter("nombre"));
@@ -63,8 +50,8 @@ public class Usuario_Guardar extends HttpServlet {
             if (actualizado == 1){
                 session.setAttribute("mi_usuario", user);
             }
-            
-            //session.setAttribute("mi_usuario", mi_usuario);
+
+            //LA SIGUIENTE LINEA ESTA BIEN PERO NO SE A QUE .jsp MANDARLO (TODAVIA)
             //response.sendRedirect("miUsuario.jsp");
           
         } catch (NamingException|SQLException e){

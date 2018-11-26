@@ -105,7 +105,8 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
                 return true; //User exists
             }
         }
-    }         
+    }   
+
 
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
@@ -248,14 +249,12 @@ devuelve bloqueado dentro de usuarios
      * @param TO-DO
      * @return 1 if correct, 0 if not created, -1 if error
      */
-    public int creaComentario(String comentario_text, String tipo_tema, int idTema,int usuario, int comentario_padre, int es_respuesta) throws SQLException {
+    public int creaComentario(Comentario comment) throws SQLException {
         //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
-
-       
         
         //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
-        if(comentario_text.equals("") || isBloqueado(usuario)==1){
+        if(comment.getComentario_text().equals("") || isBloqueado(usuario)==1){
             return -1;
         }
         
@@ -265,7 +264,7 @@ devuelve bloqueado dentro de usuarios
         
         
         //CHECK SECURITY
-        if(comentario_text.contains("<") ||comentario_text.contains(">") || comentario_text.contains("SELECT")){
+        if(comment.getComentario_text().contains("<") || comment.getComentario_text().contains(">") || comment.getComentario_text().contains("SELECT")){
             return -1;
         }
         
@@ -274,41 +273,41 @@ devuelve bloqueado dentro de usuarios
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
             
-            switch(tipo_tema){
+            switch(comment.getTipo_tema()){
             
             case "Pelicula":
-                st.setString(1, comentario_text);
+                st.setString(1, comment.getComentario_text());
                 st.setString(2, "Pelicula");
-                st.setInt(3, idTema);
+                st.setInt(3, comment.getPelicula());
                 st.setInt(4, 0);
                 st.setInt(5, 0);
-                st.setInt(6, usuario);
+                st.setInt(6, comment.getUsuario());
                 st.setString(7,"2010-10-10 10:10:10");
-                st.setInt(8, comentario_padre);
+                st.setInt(8, comment.getComentario_padre());
                 st.setInt(9, 0);
                 break;
             
             case "Serie":
-                st.setString(1, comentario_text);
+                st.setString(1, comment.getComentario_text());
                 st.setString(2, "Serie");
                 st.setInt(3, 0);
-                st.setInt(4, idTema);
+                st.setInt(4, comment.getSerie());
                 st.setInt(5, 0);
-                st.setInt(6, usuario);
+                st.setInt(6, comment.getUsuario());
                 st.setString(7, "2010-10-10 10:10:10");
                 st.setInt(8, comentario_padre);
                 st.setInt(9, 0);
                 break;
             
             case "Libro":             
-                st.setString(1, comentario_text);
+                st.setString(1, comment.getComentario_text());
                 st.setString(2, "Libro");
                 st.setInt(3, 0);
                 st.setInt(4, 0);
-                st.setInt(5, idTema);
-                st.setInt(6, usuario);
+                st.setInt(5, comment.getLibro());
+                st.setInt(6, comment.getUsuario());
                 st.setString(7,"2010-10-10 10:10:10");
-                st.setInt(8, comentario_padre);
+                st.setInt(8, comment.getComentario_padre());
                 st.setInt(9, 0);
                 break;
             
