@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.*;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,16 +48,19 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             nuevo_comentario.setPelicula(Integer.parseInt(request.getParameter("id_pelicula")));
             //Ver si en la funcion para añadir comentarios en DBManager trata correctamente que sea una pelicula
             nuevo_comentario.setUsuario(session_id);
-            //nuevo_comentario.setFecha_creacion("");
+            java.util.Date dt = new java.util.Date();
+            java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String currentTime = fecha.format(dt);
+            nuevo_comentario.setFecha_creacion(currentTime);
             nuevo_comentario.setComentario_padre(0);
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());
             nuevo_comentario.setBloqueado(0);
 
             db.creaComentario(nuevo_comentario); 
+            
+            String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
+            response.sendRedirect(atributo);
 
-            //LA SIGUIENTE LINEA ESTA BIEN PERO NO SE A QUE .jsp MANDARLO (TODAVIA)
-            //response.sendRedirect("pelicula.jsp");
-          
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

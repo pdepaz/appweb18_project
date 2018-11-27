@@ -6,14 +6,12 @@
 <%
         //recoge la pelicula y la muestra por pantalla
         Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");
-        /*
-        String tema = (String) request.getAttribute("tema");
-        int id = (Integer) request.getAttribute("id");
-        */
         //recoge comentarios asociados a esa pelicula
         List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios");
+      
+        
 
-%>
+%>  
 
 <!DOCTYPE html>
 <html>
@@ -29,6 +27,8 @@
 <p> Duracion: <%= pelicula.getDuracion()%> </p>
 <p> Director: <%= pelicula.getDirector()%> </p>
 <p> Genero: <%= pelicula.getGenero()%> </p>
+<p> Trailer: <%= pelicula.getTrailer()%> </p>
+<p> Usuario creador: <%= pelicula.getCreador()%> </p>
 
 
 <% if (comentarios.size() > 0){ %>
