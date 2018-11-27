@@ -37,10 +37,10 @@ public class Usuario_Control extends HttpServlet {
 
         int mi_usuario_id = 0;
 
-        if((int) session.getAttribute("session_id") == null)){
+        if(session.getAttribute("session_id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
             response.sendRedirect("home");            
-        } else {
+        }else {
             mi_usuario_id = (int) session.getAttribute("session_id");
         }
 

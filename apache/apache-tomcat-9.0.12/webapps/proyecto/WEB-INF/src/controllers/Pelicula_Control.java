@@ -37,10 +37,10 @@ public class Pelicula_Control extends HttpServlet {
 
         int pelicula_id = 0;
 
-        if(Integer.parseInt(request.getParameter("id") == null)){
+        if(request.getParameter("id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
             response.sendRedirect("home_peliculas");            
-        } else {
+        }else {
             pelicula_id = Integer.parseInt(request.getParameter("id"));
         }
 
