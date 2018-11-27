@@ -57,13 +57,15 @@ public class Pelicula_Guardar extends HttpServlet {
 
             //EN UNA PELICULA RECIEN CREADA, NO HAY COMENTARIOS!
             List<Comentario> comentarios = new ArrayList<Comentario>();
-            request.setAttribute("comentarios", comentarios);
 
+            request.setAttribute("comentarios", comentarios);
             request.setAttribute("pelicula", pelicula);
 
-            //Que redirija a donde? A la pagina de la peli creada?
+            //Enviamos los atributos a través de un request al jsp
 
-            //response.sendRedirect("Pelicula.jsp");
+            request.getRequestDispatcher("pelicula.jsp").forward(request, response);
+
+
 
           
         } catch (NamingException|SQLException e){
