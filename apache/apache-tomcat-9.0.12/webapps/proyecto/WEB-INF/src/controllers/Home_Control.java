@@ -39,14 +39,6 @@ public class Home_Control extends HttpServlet {
         
         try (DBManager db = new DBManager()){
 
-            List<Pelicula> pelis_nuevas = db.cargar_pelis_mas_nuevas();
-            List<Pelicula> pelis_recomendadas = db.cargar_pelis_recomendadas();
-            List<Pelicula> pelis_mas_comentadas = db.cargar_pelis_mas_comentadas();
-
-            request.setAttribute("pelis_nuevas", pelis_nuevas);
-            request.setAttribute("pelis_recomendadas", pelis_recomendadas);
-            request.setAttribute("pelis_mas_comentadas", pelis_mas_comentadas);
-
             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
             rd.forward(request, response);
             

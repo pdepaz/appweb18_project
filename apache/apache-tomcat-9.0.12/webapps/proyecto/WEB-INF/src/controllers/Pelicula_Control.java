@@ -35,10 +35,15 @@ public class Pelicula_Control extends HttpServlet {
     {
         HttpSession session = request.getSession();
 
-        //COGER EL ID DE LA PELICULA DE pelicula?id=00
-        //Como!?
-        //int pelicula_id = (int) session.getAttribute("id_usuario_logeado");
-        int pelicula_id = 2;
+        int pelicula_id = 0;
+
+        if(Integer.parseInt(request.getParameter("id") == null)){
+            //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
+            response.sendRedirect("home_peliculas");            
+        } else {
+            pelicula_id = Integer.parseInt(request.getParameter("id"));
+        }
+
 
         try (DBManager db = new DBManager()){
 
@@ -51,7 +56,7 @@ public class Pelicula_Control extends HttpServlet {
             request.setAttribute("comentarios", comentarios);
             request.setAttribute("pelicula", mi_pelicula);
 
-            //response.sendRedirect("pelicula.jsp");
+            request.getRequestDispatcher("pelicula.jsp").forward(request, response);
           
         } catch (NamingException|SQLException e){
             e.printStackTrace();

@@ -20,11 +20,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Muestra MI PERFIL (el perfil del usuario en session)
+ * Muestra la Home de las Peliculas
  *
  */
-@WebServlet("/usuario")
-public class Usuario_Control extends HttpServlet {
+@WebServlet("/home_peliculas")
+public class Home_Peliculas_Control extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion GET.
@@ -33,29 +33,24 @@ public class Usuario_Control extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
+            
         HttpSession session = request.getSession();
-
-        int mi_usuario_id = 0;
-
-        if((int) session.getAttribute("session_id") == null)){
-            //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            response.sendRedirect("home");            
-        } else {
-            mi_usuario_id = (int) session.getAttribute("session_id");
-        }
-
-
+        
         try (DBManager db = new DBManager()){
 
-            //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-            
-            Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
+            List<Pelicula> pelis_nuevas = db.cargar_pelis_mas_nuevas();
+            List<Pelicula> pelis_recomendadas = db.cargar_pelis_recomendadas();
+            List<Pelicula> pelis_mas_comentadas = db.cargar_pelis_mas_comentadas();
 
-            session.setAttribute("mi_usuario", mi_usuario);
-            response.sendRedirect("miUsuario.jsp");
-          
+            request.setAttribute("pelis_nuevas", pelis_nuevas);
+            request.setAttribute("pelis_recomendadas", pelis_recomendadas);
+            request.setAttribute("pelis_mas_comentadas", pelis_mas_comentadas);
+
+            RequestDispatcher rd = request.getRequestDispatcher("home_peliculas.jsp");
+            rd.forward(request, response);
+            
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
+            e.printStackTrace(); 
             response.sendError(500);
         }
     }

@@ -48,12 +48,11 @@ public class Usuario_Guardar extends HttpServlet {
             int actualizado = db.actualizaUsuario(user); 
             
             if (actualizado == 1){
-                session.setAttribute("mi_usuario", user);
+                session.setAttribute("session_id", user);
             }
 
-            //LA SIGUIENTE LINEA ESTA BIEN PERO NO SE A QUE .jsp MANDARLO (TODAVIA)
-            //response.sendRedirect("miUsuario.jsp");
-          
+            response.sendRedirect("miUsuario.jsp");
+
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

@@ -12,7 +12,7 @@
 
 
 <body>
-<table name="html_header">
+<table name="html_header" border="1">
 <tr>
 	<td><h1>Temas de Debate</h1></td>
 	<td>BUSCADOR</td>
