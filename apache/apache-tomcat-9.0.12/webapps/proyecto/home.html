@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>NOMBRE DE EMPRESA</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+
+
+	</head>
+
+	<body class="landing is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="home.html">NOMBRE DE EMPRESA</a></h1>
+					<!- BUSCADOR ->
+					<nav id="nav">
+						<ul>
+							<li><a href="home_peliculas">Peliculas</a></li>
+							<li><a href="home.html">Series</a></li>
+							<li><a href="home.html">Libros</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Nuevo tema</a>
+								<ul>
+									<li><a href="generic.html">Pelicula</a></li>
+									<li><a href="contact.html">Serie</a></li>
+									<li><a href="elements.html">Libro</a></li>
+								</ul>
+							</li>
+							<li><button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesión</button></li>
+						</ul>
+					</nav>
+					<div id="id01" class="modal">
+					  <form class="modal-content animate" action="/action_page.php">
+					    <div class="imgcontainer">
+					      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+					    </div>
+
+					    <div class="container">
+					      <label for="uname"><b>Username</b></label>
+					      <input type="text" placeholder="Enter Username" name="uname" required>
+
+					      <label for="psw"><b>Password</b></label>
+					      <input type="password" placeholder="Enter Password" name="psw" required>
+					        
+					      <button type="submit">Login</button>
+					      <label>
+					        <input type="checkbox" checked="checked" name="remember"> Remember me
+					      </label>
+					    </div>
+
+					    <div class="container" style="background-color:#f1f1f1">
+					      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					      <span class="psw">Forgot <a href="#">password?</a></span>
+					    </div>
+					  </form>
+					</div>
+
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Alpha</h2>
+					<p>Another fine responsive site template freebie by HTML5 UP.</p>
+					<ul class="actions special">
+						<li><a href="#" class="button primary">Sign Up</a></li>
+						<li><a href="#" class="button">Learn More</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Introducing the ultimate mobile app
+							<br />
+							for doing stuff with your phone</h2>
+							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
+							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+						</header>
+						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+					</section>
+
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-bolt accent2"></span>
+								<h3>Magna etiam</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+							<section>
+								<span class="icon major fa-area-chart accent3"></span>
+								<h3>Ipsum dolor</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-cloud accent4"></span>
+								<h3>Sed feugiat</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+							<section>
+								<span class="icon major fa-lock accent5"></span>
+								<h3>Enim phasellus</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+							</section>
+						</div>
+					</section>
+
+					<div class="row">
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+								<h3>Sed lorem adipiscing</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<ul class="actions special">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+								<h3>Accumsan integer</h3>
+								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<ul class="actions special">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
+					</div>
+
+				</section>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<h2>Sign up for beta access</h2>
+					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+
+					<form>
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-8 col-12-mobilep">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="col-4 col-12-mobilep">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/pdepaz/appweb18_project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Alfonso Albacete, Gonzalo Puy y Pablo de Paz.</li><li>2018</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			    if (event.target == modal) {
+			        modal.style.display = "none";
+			    }
+			}
+			</script>
+
+	</body>
+</html>
