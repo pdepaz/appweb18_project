@@ -1,0 +1,49 @@
+
+<form action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Crear Pelicula</h1>
+    <p>Rellene el formulario para crear un tema de debate.</p>
+    <hr>
+
+    <p> Genero de la pelicula </p>
+    <label for="genero"><b>Genero</b></label>
+    <select name="genero">
+        <option value="Comedia">Comedia</option>
+        <option value="Accion">Accion</option>
+        <option value="Animacion">Animacion</option>
+        <option value="Documental">Documental</option>
+        <option value="Drama">Drama</option>
+        <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+        <option value="Erotico">Erotico</option>
+        <option value="Terror">Terror</option>
+    </select>
+    
+    <p> Introduzca el nombre del Tema </p>
+    <label for="tema"><b>Nombre del Tema</b></label>
+    <input type="tema" placeholder="El Jefe de los Enanos" name="tema" required>
+    
+    <p> Duracion de la pelicula </p>
+    <label for="duracion"><b>Duracion</b></label>
+    <input type="duracion" placeholder="...en minutos" name="duracion" required>
+    
+    <p> Fecha de publicacion </p>
+    <label for="fecha"><b>Fecha</b></label>
+    <input type="fecha" placeholder="Solo el anyo" name="fecha" required>
+    
+    <p> Pais de produccion </p>
+    <label for="pais"><b>Pais</b></label>
+    <input type="pais" placeholder="Hungria" name="pais" required>
+    
+    <p> Director de la pelicula </p>
+    <label for="director"><b>Director</b></label>
+    <input type="director" placeholder="Pepe Gomez" name="director" required>
+    
+    <p> Descripcion de la pelicula</p>
+    <textarea name="descripcion" rows="10" cols="40" placeholder="Escriba qui la descipcion"> </textarea>
+    
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancelar</button>
+      <button type="submit" class="signupbtn">Publicar</button>
+    </div>
+  </div>
+</form>

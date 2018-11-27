@@ -1,0 +1,54 @@
+
+<form class = "cuenta" action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Registrarse</h1>
+    <p>Rellene el formulario para crear su cuenta.</p>
+    <hr>
+
+    <p> *Introduzca sus datos </p>
+    <label for="nombre"><b>Nombre</b></label>
+    <input type="name" placeholder="Pepe" name="name" required>
+    
+    <label for="apellido1"><b>Primer Apelido</b></label>
+    <input type="apellido1" placeholder="Gomez" name="apellido1" required>
+    
+    <label for="apellido2"><b>Segundo Apellido</b></label>
+    <input type="apellido2" placeholder="Perez" name="apellido2" required>
+    
+    <p> *Introduzca su email </p>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="pepe@gmail.com" name="email" required>
+
+    <p> *Introduzca su clave </p>
+    <label for="psw"><b>Clave</b></label>
+    <input type="password" placeholder="*******" name="psw" required>
+
+    <p> *Repita su clave </p>
+    <label for="psw-repeat"><b>Repita Clave</b></label>
+    <input type="password" placeholder="******" name="psw-repeat" required>
+    
+    <p> *Introduzca su nombre de usuario </p>
+    <label for="user"><b>Nombre Usuario Clave</b></label>
+    <input type="user" placeholder="pepe97" name="user" required>
+    
+    <p> *Introduzca su numero de telefono </p>
+    <label for="phone"><b>Numero de telefono</b></label>
+    <input type="phone" placeholder="661635467" name="phone" required>
+
+    <p></p>
+    <label>
+      <input type="checkbox" name="notificaciones" style="margin-bottom:15px"> Desea recibir notificaciones via email para informarle de nuevas ofertas y debates.
+    </label>
+    
+    <p></p>
+    <label>
+      <input type="checkbox" name="terminos" style="margin-bottom:15px"> Acepta los Terminos&Condiciones
+    </label>
+
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancelar</button>
+      <button type="submit" class="signupbtn">Registrar</button>
+    </div>
+
+</form>
