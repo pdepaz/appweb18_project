@@ -23,7 +23,7 @@
 
 <body>
 
-<p> Anyo: <%= pelicula.getAnyo()%> </p>
+<p> Año: <%= pelicula.getAnyo()%> </p>
 <p> Duracion: <%= pelicula.getDuracion()%> </p>
 <p> Director: <%= pelicula.getDirector()%> </p>
 <p> Director: <%= pelicula.getDirector()%> </p>
