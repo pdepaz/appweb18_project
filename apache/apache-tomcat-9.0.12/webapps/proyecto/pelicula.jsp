@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <section id="main" class="container">
     <header>
         <h2>Pelicula</h2>
@@ -64,6 +65,32 @@
                         <% } %>
                     </tbody>
                 </table>
+=======
+<title>Debate sobre la pelicula </title>
+
+<head>
+    <h1><%= pelicula.getTitulo() %></h1>
+</head>
+
+<body>
+
+<p> Año: <%= pelicula.getAnyo()%> </p>
+<p> Duracion: <%= pelicula.getDuracion()%> </p>
+<p> Director: <%= pelicula.getDirector()%> </p>
+<p> Director: <%= pelicula.getDirector()%> </p>
+<p> Descripcion: <%= pelicula.getDescripcion()%> </p>
+<p> Trailer: <%= pelicula.getTrailer()%> </p>
+<p> Usuario creador: <%= pelicula.getCreador()%> </p>
+
+
+<% if (comentarios.size() > 0){ %>
+<p>Comentarios</p>
+<table>
+    <tbody>
+        <% for(Comentario tmp: comentarios)%>
+            <% if (tmp.getBloqueado() == 0){ %>
+                <tr>info del comentario: <%= tmp.getText()%> creador: <%= tmp.getUsuario() %></tr>
+>>>>>>> f36407d37976d9bb0359755fa8dea04c4e9b4f24
             <% } %>
         
         <form id = "creacion_comentario" action = "/comentario_peli_guardar">

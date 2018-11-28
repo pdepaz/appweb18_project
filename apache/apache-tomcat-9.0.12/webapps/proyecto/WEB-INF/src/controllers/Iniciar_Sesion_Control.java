@@ -24,7 +24,7 @@ import javax.sql.DataSource;
  *
  */
 @WebServlet("/iniciar_sesion")
-public class Usuario_Control extends HttpServlet {
+public class Iniciar_Sesion_Control extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion POST.
