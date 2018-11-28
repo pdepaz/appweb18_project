@@ -1,49 +1,53 @@
+<link rel="stylesheet" href="assets/css/main.css" />
 
-<form action="action_page.php" style="border:1px solid #ccc">
-  <div class="container">
-    <h1>Crear Pelicula</h1>
-    <p>Rellene el formulario para crear un tema de debate.</p>
-    <hr>
-
-    <p> Genero de la pelicula </p>
-    <label for="genero"><b>Genero</b></label>
-    <select name="genero">
-        <option value="Comedia">Comedia</option>
-        <option value="Accion">Accion</option>
-        <option value="Animacion">Animacion</option>
-        <option value="Documental">Documental</option>
-        <option value="Drama">Drama</option>
-        <option value="Ciencia Ficcion">Ciencia Ficcion</option>
-        <option value="Erotico">Erotico</option>
-        <option value="Terror">Terror</option>
-    </select>
+<div class="row">
+    <div class="col-12">
+        <section class="box">
+        <b><h3>Pelicula</h3></b>
+            <form method="post" action="#">
+                <div class="row gtr-uniform gtr-50">
+                    <div class="col-6 col-12-mobilep">
+                        <select name="genero">
+                            <option value="Genero">Genero<selected></option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Accion">Accion</option>
+                            <option value="Animacion">Animacion</option>
+                            <option value="Documental">Documental</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                            <option value="Erotico">Erotico</option>
+                            <option value="Terror">Terror</option>
+                        </select>
+                    </div>
     
-    <p> Introduzca el nombre del Tema </p>
-    <label for="tema"><b>Nombre del Tema</b></label>
-    <input type="tema" placeholder="El Jefe de los Enanos" name="tema" required>
+                    <div class="col-6 col-12-mobilep">
+                        <input type="text" placeholder="Titulo" name="titulo" required>
+                    </div>
     
-    <p> Duracion de la pelicula </p>
-    <label for="duracion"><b>Duracion</b></label>
-    <input type="duracion" placeholder="...en minutos" name="duracion" required>
+                    <div class="col-6 col-12-mobilep">
+                        <input type="text" placeholder="Duracion" name="duracion" required>
+                    </div>
     
-    <p> Fecha de publicacion </p>
-    <label for="fecha"><b>Fecha</b></label>
-    <input type="fecha" placeholder="Solo el anyo" name="fecha" required>
+                    <div class="col-6 col-12-mobilep">
+                        <input type="text" placeholder="Anyo" name="anyo" required>
+                    </div>
     
-    <p> Pais de produccion </p>
-    <label for="pais"><b>Pais</b></label>
-    <input type="pais" placeholder="Hungria" name="pais" required>
+                    <div class="col-6 col-12-mobilep">
+                        <input type="text" placeholder="Director" name="director" required>
+                    </div>
     
-    <p> Director de la pelicula </p>
-    <label for="director"><b>Director</b></label>
-    <input type="director" placeholder="Pepe Gomez" name="director" required>
+                    <div class="col-6 col-12-mobilep">
+                        <textarea name="descripcion" rows="10" cols="40" placeholder="Escriba qui la descipcion"> </textarea>
+                    </div>
     
-    <p> Descripcion de la pelicula</p>
-    <textarea name="descripcion" rows="10" cols="40" placeholder="Escriba qui la descipcion"> </textarea>
-    
-    <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancelar</button>
-      <button type="submit" class="signupbtn">Publicar</button>
-    </div>
-  </div>
-</form>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Enviar"></li>
+                        <li><input type="reset" value="Cancelar" class="alt"></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>       
+</div>

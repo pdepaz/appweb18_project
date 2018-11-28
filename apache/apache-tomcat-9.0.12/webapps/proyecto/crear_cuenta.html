@@ -1,54 +1,43 @@
+<link rel="stylesheet" href="assets/css/main.css" />
 
-<form class = "cuenta" action="action_page.php" style="border:1px solid #ccc">
-  <div class="container">
-    <h1>Registrarse</h1>
-    <p>Rellene el formulario para crear su cuenta.</p>
-    <hr>
-
-    <p> *Introduzca sus datos </p>
-    <label for="nombre"><b>Nombre</b></label>
-    <input type="name" placeholder="Pepe" name="name" required>
-    
-    <label for="apellido1"><b>Primer Apelido</b></label>
-    <input type="apellido1" placeholder="Gomez" name="apellido1" required>
-    
-    <label for="apellido2"><b>Segundo Apellido</b></label>
-    <input type="apellido2" placeholder="Perez" name="apellido2" required>
-    
-    <p> *Introduzca su email </p>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="pepe@gmail.com" name="email" required>
-
-    <p> *Introduzca su clave </p>
-    <label for="psw"><b>Clave</b></label>
-    <input type="password" placeholder="*******" name="psw" required>
-
-    <p> *Repita su clave </p>
-    <label for="psw-repeat"><b>Repita Clave</b></label>
-    <input type="password" placeholder="******" name="psw-repeat" required>
-    
-    <p> *Introduzca su nombre de usuario </p>
-    <label for="user"><b>Nombre Usuario Clave</b></label>
-    <input type="user" placeholder="pepe97" name="user" required>
-    
-    <p> *Introduzca su numero de telefono </p>
-    <label for="phone"><b>Numero de telefono</b></label>
-    <input type="phone" placeholder="661635467" name="phone" required>
-
-    <p></p>
-    <label>
-      <input type="checkbox" name="notificaciones" style="margin-bottom:15px"> Desea recibir notificaciones via email para informarle de nuevas ofertas y debates.
-    </label>
-    
-    <p></p>
-    <label>
-      <input type="checkbox" name="terminos" style="margin-bottom:15px"> Acepta los Terminos&Condiciones
-    </label>
-
-
-    <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancelar</button>
-      <button type="submit" class="signupbtn">Registrar</button>
+<div class="row">
+    <div class="col-12">
+        <section class="box">
+           <b><h3>Formulario</h3></b>
+                <form method="post" action="#">
+                    <div class="row gtr-uniform gtr-50">
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="name" id="name" value="" placeholder="Name">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="apellido1" id="apellido1" value="" placeholder="Primer Apellido">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="apellido2" id="apellido2" value="" placeholder="Segundo Apellido">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                                <input type="email" name="email" id="email" value="" placeholder="Email">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Clave">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita clave">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="usuario" id="usuario" value="" placeholder="Usuario">
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Enviar"></li>
+                                <li><input type="reset" value="Cancelar" class="alt"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+        </section>
     </div>
-
-</form>
+</div>
