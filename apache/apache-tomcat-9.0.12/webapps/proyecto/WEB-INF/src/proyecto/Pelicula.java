@@ -5,7 +5,7 @@ public class Pelicula {
 	private String titulo;
 	private int anyo;
     private int duracion;
-    private int pais;
+    private String descripcion;
     private String director;    
     private String genero;
     //Array de bytes String portada;
@@ -42,11 +42,11 @@ public class Pelicula {
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
-	public int getPais() {
-		return pais;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setPais(int pais) {
-		this.pais = pais;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public String getDirector() {
 		return director;

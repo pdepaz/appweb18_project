@@ -26,7 +26,8 @@
 <p> Anyo: <%= pelicula.getAnyo()%> </p>
 <p> Duracion: <%= pelicula.getDuracion()%> </p>
 <p> Director: <%= pelicula.getDirector()%> </p>
-<p> Genero: <%= pelicula.getGenero()%> </p>
+<p> Director: <%= pelicula.getDirector()%> </p>
+<p> Descripcion: <%= pelicula.getDescripcion()%> </p>
 <p> Trailer: <%= pelicula.getTrailer()%> </p>
 <p> Usuario creador: <%= pelicula.getCreador()%> </p>
 
