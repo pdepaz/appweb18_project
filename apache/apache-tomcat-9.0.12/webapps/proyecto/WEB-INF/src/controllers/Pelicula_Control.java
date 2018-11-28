@@ -30,9 +30,8 @@ public class Pelicula_Control extends HttpServlet {
      * Metodo del servlet que responde a una peticion GET.
      *
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws IOException, ServletException
-    {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        
         HttpSession session = request.getSession();
 
         int pelicula_id = 0;

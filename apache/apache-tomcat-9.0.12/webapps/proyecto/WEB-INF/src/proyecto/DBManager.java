@@ -52,13 +52,15 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      *
      * @param usuario username
      * @param contrasenya password of the user
-     * @return 1 if correct, 0 if it doesn't exist, -1 if error (nothing introduced...)
+     * @return devuelve el ID del usuario (si existe). Si no, -1.
      */
     public int iniciarSesion(String usuario, String contrasenya) throws SQLException {
         
         if (usuario.equals("")  || contrasenya.equals("")){
             return -1;
         }
+
+        int id_user = -1;
         
         String query = "SELECT Usuarios.usuario FROM Usuarios WHERE Usuario.usuario=? AND Usuario.contrasenya=?";
         
@@ -69,14 +71,41 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            if (rs != null) { //Existe usuario
-                return 1;
-            } else { //No existe
-                return 0;
+            if (rs.next()){ //OK, SQL return something
+                id_user = rs.getInt("id");
+                return id_user;
+            } else {
+                return -1;
             }
         }
-
     } 
+
+
+
+    //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
+    public Usuario cargar_usuario(int id) throws SQLException { 
+        Usuario user = new Usuario(); //Objeto de la clase Usuario
+        String query_usuario = "SELECT * FROM Usuarios WHERE Usuarios.id = ?";
+        try(PreparedStatement st = connection.prepareStatement(query_usuario)){
+            st.setInt(1, id);            
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){ //OK, SQL return something
+                user.setId(rs.getInt("id"));
+                user.setNombre(rs.getString("nombre"));
+                user.setApellido1(rs.getString("apellido1"));
+                user.setApellido2(rs.getString("apellido2"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefono(rs.getInt("telefono"));
+                user.setContrasenya(rs.getString("contrasenya"));
+                user.setUsuario(rs.getString("usuario"));
+                user.setTipo_usuario(rs.getString("tipo_usuario"));
+                user.setBloqueado(rs.getInt("bloqueado"));
+            }
+            
+        }
+        return user;
+    }
         
 
     /**
