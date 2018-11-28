@@ -111,20 +111,22 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
      *
-     * @param nombre compulsory
-     * @param apellido1 compulsory
-     * @param apellido2
-     * @param email compulsory
-     * @param foto
-     * @param telefono
-     * @param contrasenya compulsory
-     * @param usuario compulsory
-     * @param tipo_usuario (if nothing clicked by the user, normal user by default)    
+     * @param usuario 
      * @return 1 if correct, -1 if error (somefields not introduced)
      */
-    public int crearUsuario(String nombre, String apellido1, String apellido2, String email, String foto, int telefono, String contrasenya, String usuario, String tipo_usuario) throws SQLException {
+    public int crearUsuario(Usuario usuario) throws SQLException {
     
         //Verificar que los datos que me llegan están bien (de los obligatorios)
+         int id = usuario.getId();
+         String nombre = usuario.getNombre();
+         String apellido1 = usuario.getApellido1();
+         String apellido2= usuario.getApellido2();
+         String email = usuario.getEmail(); 
+         int telefono = usuario.getTelefono();
+         String usuario = usuario.getUsuario();
+         String contrasenya = usuario.getContrasenya();
+         String tipo_usuario = usuario.getTipo_usuario();
+         int bloqueado = usuario.getBloqueado();
         
         if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
             return -1;
@@ -174,15 +176,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
      /**
             Actualiza los datos de un usuario     *
-     * @param nombre actualizable
-     * @param apellido1 actualizable
-     * @param apellido2 actualizable
-     * @param email actualizable
-     * @param foto actualizable (de momento nada)
-     * @param telefono actualizable
-     * @param contrasenya actualizable
      * @param usuario 
-     * @param tipo_usuario   
      * @return 1 if correct, -1 if error (somefields not introduced)
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
@@ -236,7 +230,7 @@ devuelve bloqueado dentro de usuarios
 /**
      * Crear Comentario
      *
-     * @param TO-DO
+     * @param comentario
      * @return 1 if correct, 0 if not created, -1 if error
      */
     public int creaComentario(Comentario comment) throws SQLException {
@@ -320,13 +314,13 @@ devuelve bloqueado dentro de usuarios
 
         public void creaPelicula(Pelicula pelicula) throws SQLException {
 
-                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, pais, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
+                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
                 
                 try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
                     st.setString(1, pelicula.getTitulo());
                     st.setInt(2, pelicula.getAnyo());
                     st.setInt(3, pelicula.getDuracion());
-                    st.setInt(4, pelicula.getPais());
+                    st.setString(4, pelicula.getDescripcion());
                     st.setString(5,pelicula.getDirector());
                     st.setString(6,pelicula.getGenero());                    
                     //st.setString(7,pelicula.getportada());
@@ -351,14 +345,14 @@ devuelve bloqueado dentro de usuarios
         public void creaSerie(Serie serie) throws SQLException {
 
 
-                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, pais, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
+                String query_serie = "INSERT INTO Series (titulo, anyo, temporadas, capitulos, descripcion, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
                 
                 try(PreparedStatement st = connection.prepareStatement(query_serie)){
                     st.setString(1, serie.getTitulo());
                     st.setInt(2, serie.getAnyo());
                     st.setInt(3, serie.getTemporadas());
                     st.setInt(4, serie.getCapitulos());
-                    st.setInt(5,serie.getPais());
+                    st.setDescripcion(5,serie.getDescripcion());
                     st.setString(6,serie.getGenero());
                     //st.setString(7,serie.getPortada());
                     st.setString(7,serie.getTrailer());
@@ -670,7 +664,7 @@ devuelve bloqueado dentro de usuarios
             movie.setTitulo(rs.getString("titulo"));
             movie.setAnyo(rs.getInt("anyo"));
             movie.setDuracion(rs.getInt("duracion"));
-            movie.setPais(rs.getInt("pais"));
+            movie.setDescripcion(rs.getString("descripcion"));
             movie.setDirector(rs.getString("director"));
             movie.setGenero(rs.getString("genero"));
             movie.setTrailer(rs.getString("trailer"));
@@ -692,9 +686,9 @@ devuelve bloqueado dentro de usuarios
             serie.setId(id);
             serie.setTitulo(rs.getString("titulo"));
             serie.setAnyo(rs.getInt("anyo"));
-            serie.setTemporadas(rs.getInt("duracion"));
-            serie.setCapitulos(rs.getInt("pais"));
-            serie.setPais(rs.getInt("director"));
+            serie.setTemporadas(rs.getInt("temporadas"));
+            serie.setCapitulos(rs.getInt("capitulos"));
+            serie.setDescripcion(rs.getString("descripcion"));
             serie.setGenero(rs.getString("genero"));
             serie.setTrailer(rs.getString("trailer"));
             serie.setCreador(rs.getInt("creador"));
@@ -749,7 +743,7 @@ devuelve bloqueado dentro de usuarios
                 pelicula.setTitulo(rs.getString("titulo"));
                 pelicula.setAnyo(rs.getInt("anyo"));
                 pelicula.setDuracion(rs.getInt("duracion"));
-                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDescripcion(rs.getString("descripcion"));
                 pelicula.setDirector(rs.getString("director"));
                 pelicula.setGenero(rs.getString("genero"));
                 pelicula.setTrailer(rs.getString("trailer"));
@@ -786,7 +780,7 @@ devuelve bloqueado dentro de usuarios
                 pelicula.setTitulo(rs.getString("titulo"));
                 pelicula.setAnyo(rs.getInt("anyo"));
                 pelicula.setDuracion(rs.getInt("duracion"));
-                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDescripcion(rs.getString("descripcion"));
                 pelicula.setDirector(rs.getString("director"));
                 pelicula.setGenero(rs.getString("genero"));
                 pelicula.setTrailer(rs.getString("trailer"));
@@ -823,7 +817,7 @@ devuelve bloqueado dentro de usuarios
                 pelicula.setTitulo(rs.getString("titulo"));
                 pelicula.setAnyo(rs.getInt("anyo"));
                 pelicula.setDuracion(rs.getInt("duracion"));
-                pelicula.setPais(rs.getInt("pais"));
+                pelicula.setDescripcion(rs.getString("descripcion"));
                 pelicula.setDirector(rs.getString("director"));
                 pelicula.setGenero(rs.getString("genero"));
                 pelicula.setTrailer(rs.getString("trailer"));

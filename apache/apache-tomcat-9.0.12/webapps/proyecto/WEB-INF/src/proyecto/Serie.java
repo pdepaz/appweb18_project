@@ -6,7 +6,7 @@ public class Serie {
 	private int anyo;
     	private int temporadas;
     	private int capitulos;
-    	private int pais;
+    	private String descripcion;
     	private String genero;
     	//Array de bytes String portada;    	
     	private String trailer;
@@ -49,11 +49,11 @@ public class Serie {
 	public void setCapitulos(int capitulos) {
 		this.capitulos = capitulos;
 	}
-	public int getPais() {
-		return pais;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setPais(int pais) {
-		this.pais = pais;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public String getGenero() {
 		return genero;

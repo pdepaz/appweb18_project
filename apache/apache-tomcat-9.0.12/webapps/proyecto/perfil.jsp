@@ -41,7 +41,7 @@ public void editPerfil() {
 <div class="EditarPerfil">
 <% if (mostrar){ %>
 //Fomrulario para editar el perfil
-<form action="/usuario_guardar" method="post" >
+<form action="/perfil_actualizar" method="post" >
 
   Nombre:  
   <input type="text" name="nombre" value="Pablo">

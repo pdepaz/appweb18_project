@@ -27,7 +27,7 @@ import javax.sql.DataSource;
 public class Pelicula_Guardar extends HttpServlet {
 
     /**
-     * Metodo del servlet que responde a una peticion POST+.
+     * Metodo del servlet que responde a una peticion POST.
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +42,7 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setTitulo(request.getParameter("titulo"));
             pelicula.setAnyo(Integer.parseInt((request.getParameter("anyo"))));
             pelicula.setDuracion(Integer.parseInt((request.getParameter("duracion"))));
-            pelicula.setPais(Integer.parseInt((request.getParameter("pais"))));
+            pelicula.setDescripcion(request.getParameter("descripcion"));
             pelicula.setDirector(request.getParameter("director"));
             pelicula.setGenero(request.getParameter("genero"));
            //Portada pelicula.setPortada(request.getParameter("portada"));
