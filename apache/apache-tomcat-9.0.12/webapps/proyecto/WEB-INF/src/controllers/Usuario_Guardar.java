@@ -20,7 +20,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Actualiza en SQL los datos de un usuario
+ * Guardara los datos del nuevo usuario generado 
  *
  */
 @WebServlet("/usuario_guardar")
@@ -38,16 +38,18 @@ public class Usuario_Guardar extends HttpServlet {
         try (DBManager db = new DBManager()){
             
             Usuario user = new Usuario();
+
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
             user.setEmail(request.getParameter("email"));
-            user.setTelefono(Integer.parseInt((request.getParameter("telefono"))));
+            user.setTipo_usuario("USUARIO");
+            user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
             user.setContrasenya(request.getParameter("contrasenya"));
             
-            int actualizado = db.actualizaUsuario(user); 
+            int nuevo = db.crearUsuario(user); 
             
-            if (actualizado == 1){
+            if (nuevo == 1){
                 session.setAttribute("session_id", user);
             }
 

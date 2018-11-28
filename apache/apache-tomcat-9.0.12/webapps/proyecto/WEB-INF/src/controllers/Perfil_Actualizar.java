@@ -23,8 +23,8 @@ import javax.sql.DataSource;
  * Actualiza en SQL los datos de un usuario
  *
  */
-@WebServlet("/usuario_actualizar")
-public class Usuario_Actualizar extends HttpServlet {
+@WebServlet("/perfil_actualizar")
+public class Perfil_Actualizar extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion POST.
@@ -51,7 +51,7 @@ public class Usuario_Actualizar extends HttpServlet {
                 session.setAttribute("session_id", user);
             }
 
-            response.sendRedirect("miUsuario.jsp");
+            response.sendRedirect("perfil.jsp");
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();
