@@ -32,15 +32,15 @@ public class Iniciar_Sesion_Control extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
 		
-		if (session == null) {
+		if (session != null) {
 		    // Not created yet. Now do so yourself.
 			
 			try (DBManager db = new DBManager()){
             	
             	String username = request.getParameter("username");
-            	String password = request.getParameter("password")
+            	String password = request.getParameter("password");
 
             	int id_usuario = db.iniciarSesion(username, password);
 

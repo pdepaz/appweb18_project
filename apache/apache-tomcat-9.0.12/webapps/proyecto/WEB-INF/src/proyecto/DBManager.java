@@ -56,7 +56,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      */
     public int iniciarSesion(String usuario, String contrasenya) throws SQLException {
         
-        if (usuario.equals("")  || contrasenya.equals("")){
+        if (usuario.equals("") || contrasenya.equals("")){
             return -1;
         }
 
@@ -80,32 +80,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
     } 
 
-
-
-    //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
-    public Usuario cargar_usuario(int id) throws SQLException { 
-        Usuario user = new Usuario(); //Objeto de la clase Usuario
-        String query_usuario = "SELECT * FROM Usuarios WHERE Usuarios.id = ?";
-        try(PreparedStatement st = connection.prepareStatement(query_usuario)){
-            st.setInt(1, id);            
-            ResultSet rs = st.executeQuery();
-            
-            while (rs.next()){ //OK, SQL return something
-                user.setId(rs.getInt("id"));
-                user.setNombre(rs.getString("nombre"));
-                user.setApellido1(rs.getString("apellido1"));
-                user.setApellido2(rs.getString("apellido2"));
-                user.setEmail(rs.getString("email"));
-                user.setTelefono(rs.getInt("telefono"));
-                user.setContrasenya(rs.getString("contrasenya"));
-                user.setUsuario(rs.getString("usuario"));
-                user.setTipo_usuario(rs.getString("tipo_usuario"));
-                user.setBloqueado(rs.getInt("bloqueado"));
-            }
-            
-        }
-        return user;
-    }
         
 
     /**
@@ -152,16 +126,16 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
          String apellido2= usuario.getApellido2();
          String email = usuario.getEmail(); 
          int telefono = usuario.getTelefono();
-         String usuario = usuario.getUsuario();
+         String nombre_usuario = usuario.getUsuario();
          String contrasenya = usuario.getContrasenya();
          String tipo_usuario = usuario.getTipo_usuario();
          int bloqueado = usuario.getBloqueado();
         
-        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || usuario.equals("")){
+        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || nombre_usuario.equals("")){
             return -1;
         }
         
-        if (verificarExistenciaUsuario(email, usuario)){
+        if (verificarExistenciaUsuario(email, nombre_usuario)){
             return -1; //Usuario ya existe
         }
         
@@ -169,10 +143,10 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         if(apellido2.equals("")){
             apellido1 = null;
         }
-        if(foto.equals("")){
+        /*if(foto.equals("")){
             foto = null;
         }
-        /*if(telefono == null){
+        if(telefono == null){
             telefono = null;
         }*/
         if(tipo_usuario.equals("")){
@@ -181,7 +155,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         
         
 
-        String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, foto, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+        String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -189,12 +163,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(2, apellido1);
             st.setString(3, apellido2);
             st.setString(4, email);
-            st.setString(5, foto);
-            st.setInt(6, telefono);
-            st.setString(7, contrasenya);
-            st.setString(8, usuario);
-            st.setString(9, tipo_usuario);
-            st.setInt(10, 0);
+            //st.setString(5, foto);
+            st.setInt(5, telefono);
+            st.setString(6, contrasenya);
+            st.setString(7, nombre_usuario);
+            st.setString(8, tipo_usuario);
 
             // execute select SQL stetement
             st.executeUpdate();
@@ -381,8 +354,8 @@ devuelve bloqueado dentro de usuarios
                     st.setInt(2, serie.getAnyo());
                     st.setInt(3, serie.getTemporadas());
                     st.setInt(4, serie.getCapitulos());
-                    st.setDescripcion(5,serie.getDescripcion());
-                    st.setString(6,serie.getGenero());
+                    st.setString(5, serie.getDescripcion());
+                    st.setString(6, serie.getGenero());
                     //st.setString(7,serie.getPortada());
                     st.setString(7,serie.getTrailer());
                     st.setInt(8,serie.getCreador()); 
@@ -614,7 +587,8 @@ devuelve bloqueado dentro de usuarios
         return true;
     }
 
-
+    
+    
     //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
     public Usuario cargar_usuario(int id) throws SQLException { 
         Usuario user = new Usuario(); //Objeto de la clase Usuario

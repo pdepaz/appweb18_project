@@ -20,7 +20,7 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1><a href="home">Manloo/a></h1>
+					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">
 						<ul>
@@ -35,7 +35,7 @@
 									<li><a href="home">Libro</a></li>
 								</ul>
 							</li>
-							<% if(session.getAttribute("session_id") != null){ %>
+							<% if(session.getAttribute("session_id") == null){ %>
 								<li><button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesión</button></li>
 							<% } else { %>
 								<li><button class="button" href="cerrar_sesion">Cerrar Sesión</button></li>
@@ -45,7 +45,7 @@
 
 					<%--FORMULARIO de INICIAR SESION --%>
 					<div id="id01" class="modal">
-					  <form class="modal-content animate" action="iniciar_sesion"> <!--Mandar a nuestro servlet-->
+					  <form class="modal-content animate" method="post" action="iniciar_sesion"> <!--Mandar a nuestro servlet-->
 					    <!--Aspa de cerrar y avatar usuario-->
 					    <div class="imgcontainer">
 					      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar">&times;</span>
@@ -240,7 +240,7 @@
 </table>
 
 
-<%--Aqui, meter peliculas destacadas (carrousel) --%>
+<%--Aqui, meter peliculas destacadas (carrousel)
 
 <h2>Peliculas más nuevas</h2>
 <% List<Pelicula> pelis_nuevas = (List<Pelicula>) request.getAttribute("pelis_nuevas");%>
@@ -294,4 +294,4 @@
 
 </body>
 </html>
--->
+ --%>

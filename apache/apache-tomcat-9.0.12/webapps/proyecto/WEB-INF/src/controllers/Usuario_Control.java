@@ -43,7 +43,7 @@ public class Usuario_Control extends HttpServlet {
             Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
 
             //MANDAMOS EL USUARIO QUE QUEREMOS VER POR PARAMETRO
-            request.setAttribute("usuario", usuario);
+            request.setAttribute("usuario", mi_usuario);
             request.getRequestDispatcher("usuario.jsp").forward(request, response);            
           
         } catch (NamingException|SQLException e){

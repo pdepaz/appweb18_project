@@ -23,8 +23,8 @@ import javax.sql.DataSource;
  * 
  *
  */
-@WebServlet("/usuario")
-public class Usuario_Control extends HttpServlet {
+@WebServlet("/perfil")
+public class Perfil_Control extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion GET.
