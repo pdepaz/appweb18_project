@@ -48,10 +48,10 @@ public class Perfil_Actualizar extends HttpServlet {
             int actualizado = db.actualizaUsuario(user); 
             
             if (actualizado == 1){
-                session.setAttribute("session_id", user);
+                session.setAttribute("session_id", user.getId());
             }
 
-            response.sendRedirect("perfil.jsp");
+            response.sendRedirect("perfil");
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();

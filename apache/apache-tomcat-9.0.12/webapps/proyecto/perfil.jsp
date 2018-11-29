@@ -16,54 +16,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/assets/css/main.css" />
 	
-<title><%= mi_usuario.getNombre()%></title>
+<title>Mi Perfil</title>
 </head>
 <body class="is-preload">
   <section id="main" class="container">
           <header>
-            <h2>Este es el perfil de: <%= mi_usuario.getNombre()%></h2>
+            <h2>Bienvenido <%= mi_usuario.getNombre()%>, </h2>
+            <h3>estos son tus datos: </h3>
           </header>
 
 
-<div class="col-6 col-12-mobilep">
+<div class="col-6 col-12-mobilep" class="alt">
                       <ul>
                         <li>Nombre: <%= mi_usuario.getNombre() %></li>
                         <li>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></li>
                         <li>Email: <%= mi_usuario.getEmail() %></li>
+                        <li>Número de Telefono: <%= mi_usuario.getTelefono() %> </li>
+                        <li>Tipo de Usuario: <%= mi_usuario.getTipo_usuario() %> </li>
                       </ul>
 	</div>
 
- <%if(mi_usuario.getId() == session_id){ %>
-<button class="button special small" onclick="editPerfil()">Editar Perfil</button>
- <% boolean mostrar = false; %>
-<%
-public void editPerfil() {
-  mostrar = true;
-} %>
+ <button class="button special small" onclick="location.href='actualizar_usuario.html">Editar Perfil</button>
 
-<div class="EditarPerfil">
-<% if (mostrar){ %>
-//Fomrulario para editar el perfil
-<form action="/perfil_actualizar" method="post" >
 
-  Nombre:  
-  <input type="text" name="nombre" value="Pablo">
-  <br> primer apellido: 
-  <input type="text" name="apellido1" value="dpz">
-  <br> segundo apellido: 
-  <input type="text" name="apellido2" value="De Paz">
-  <br> Correo electrónico: 
-  <input type="email" name="email">
-  <br> Número de teléfono: 
-  <input type="tel" name="telefono">
-  <br> Contraseña: 
-  <input type="password" name="contrasenya">
-  <br><br>
 
-  <input type="submit" value="Guardar Cambios">
-</form> 
-</div>
-<% } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <footer id="footer">
