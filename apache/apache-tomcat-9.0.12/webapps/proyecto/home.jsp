@@ -38,7 +38,7 @@
 							<% if(session.getAttribute("session_id") == null){ %>
 								<li><button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesión</button></li>
 							<% } else { %>
-								<li><button class="button" href="cerrar_sesion">Cerrar Sesión</button></li>
+								<li><form action="cerrar_sesion"><button class="button">Cerrar Sesión</button></form></li>
 							<% } %>							
 						</ul>
 					</nav>
@@ -54,11 +54,11 @@
 
 					    <!--Form propiamente dicho-->					    
 					    <div class="container">
-					      <label for="uname"><b>Email</b></label>
-					      <input type="text" placeholder="Introduzca su email" name="uname" required>
+					      <label for="uname"><b>Usuario</b></label>
+					      <input type="text" placeholder="Introduzca su usuario" name="username" required>
 
 					      <label for="psw"><b>Contraseña</b></label>
-					      <input type="password" placeholder="Introduzca su contraseña" name="psw" required>
+					      <input type="password" placeholder="Introduzca su contraseña" name="password" required>
 					        
 					      <button type="submit" class="submitbutton">Iniciar Sesión</button>
 					      <label>
@@ -69,7 +69,6 @@
 					    <!--Cancelar y olvidar contrasenya-->
 					    <div class="container">
 					      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
-					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      <button type="button" class="olvidarcontrasenya" onclick="location.href='#'">Olvidé mi contraseña</button>

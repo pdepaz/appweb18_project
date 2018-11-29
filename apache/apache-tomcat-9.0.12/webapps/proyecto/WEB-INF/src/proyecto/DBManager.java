@@ -56,13 +56,17 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      */
     public int iniciarSesion(String usuario, String contrasenya) throws SQLException {
         
-        if (usuario.equals("") || contrasenya.equals("")){
+        /*if (usuario.equals("")){
             return -1;
         }
-
+        
+        if (contrasenya.equals("")){
+            return -1;
+        }*/
+        
         int id_user = -1;
         
-        String query = "SELECT Usuarios.usuario FROM Usuarios WHERE Usuario.usuario=? AND Usuario.contrasenya=?";
+        String query = "SELECT * FROM Usuarios WHERE Usuarios.usuario=? AND Usuarios.contrasenya=?";
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -71,13 +75,12 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            if (rs.next()){ //OK, SQL return something
+            if (rs.next()) {
                 id_user = rs.getInt("id");
-                return id_user;
-            } else {
-                return -1;
-            }
+			}
         }
+        
+        return id_user;
     } 
 
         

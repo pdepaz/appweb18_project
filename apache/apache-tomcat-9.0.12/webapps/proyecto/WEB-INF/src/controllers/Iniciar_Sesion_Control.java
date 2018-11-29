@@ -45,23 +45,23 @@ public class Iniciar_Sesion_Control extends HttpServlet {
             	int id_usuario = db.iniciarSesion(username, password);
 
             	if (id_usuario == -1){
-            		response.sendRedirect("error_inicio_sesion"); 
+            		response.sendRedirect("error"); 
             	} else {
             		//Tenemos ya el ID del usuario
-   	            	session = request.getSession();
    	            	session.setAttribute("session_id", id_usuario);
+                    
+                    response.sendRedirect("home");
             	}
-
-	            response.sendRedirect("home");
           
 	        } catch (NamingException|SQLException e){
 	            e.printStackTrace();
 	            response.sendError(500);
 	        }
-
+            
+            
 		} else {
 		    // Sesion already created.
-            response.sendRedirect("error_inicio_sesion"); 
+            response.sendRedirect("error"); 
 		}
         
     }

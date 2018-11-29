@@ -20,23 +20,21 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Gestiona el cierre de sesion
+ * Gestiona los errores
  *
  */
-@WebServlet("/cerrar_sesion")
-public class Cerrar_Sesion_Control extends HttpServlet {
+@WebServlet("/error")
+public class Error_Control extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion GET.
      *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
+        
         HttpSession session = request.getSession();
-
-        session.invalidate();
-
-        response.sendRedirect("home");
+		
+		request.getRequestDispatcher("error.jsp").forward(request, response);
         
     }
 }
