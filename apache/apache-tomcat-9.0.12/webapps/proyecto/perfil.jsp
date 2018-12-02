@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 	
 <title>Mi Perfil</title>
 </head>
@@ -22,12 +22,12 @@
   <section id="main" class="container">
           <header>
             <h2>Bienvenido <%= mi_usuario.getNombre()%>, </h2>
-            <h3>estos son tus datos: </h3>
+            <p>Aquí están tus datos: </p>
           </header>
 
 
-<div class="col-6 col-12-mobilep" class="alt">
-                      <ul>
+<div class="col-6 col-12-mobilep" >
+                      <ul class="alt">
                         <li>Nombre: <%= mi_usuario.getNombre() %></li>
                         <li>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></li>
                         <li>Email: <%= mi_usuario.getEmail() %></li>
@@ -36,7 +36,8 @@
                       </ul>
 	</div>
 
- <button class="button special small" onclick="location.href='actualizar_usuario.html">Editar Perfil</button>
+  <p>¿No te gustan tus datos? Estás a un click de cambiarlos.<p>
+ <button class="button special small" onclick="location.href='actualizar_usuario.html'">Editar Perfil</button>
 
 
 
