@@ -41,6 +41,7 @@ public class Iniciar_Sesion_Control extends HttpServlet {
             	
             	String username = request.getParameter("username");
             	String password = request.getParameter("password");
+                //request.getParameter("g-recaptcha-response");
 
             	int id_usuario = db.iniciarSesion(username, password);
 

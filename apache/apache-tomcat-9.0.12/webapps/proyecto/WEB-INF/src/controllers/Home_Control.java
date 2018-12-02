@@ -36,6 +36,7 @@ public class Home_Control extends HttpServlet {
     {
             
         HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(60*60); //1 hora de sesion maxima
         
         try (DBManager db = new DBManager()){
 

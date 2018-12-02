@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 
 /**
  *  Muestra el perfil de un usuario en el que hemos pinchado
- *Pasaremos el id del usuario con el ? y entonces cargaremos sus datos
+ * Pasaremos el id del usuario con el ? y entonces cargaremos sus datos
  *
  */
 @WebServlet("/usuario")
@@ -33,7 +33,8 @@ public class Usuario_Control extends HttpServlet {
     {
         HttpSession session = request.getSession();
 
-        int usuario_id = request.getParameter("usuarioid");
+        int usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
+
         try (DBManager db = new DBManager()){
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
