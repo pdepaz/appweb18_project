@@ -840,4 +840,38 @@ devuelve bloqueado dentro de usuarios
         }
         return movies_commented;
     }
+
+
+
+
+    
+    /**
+     * Checkea en la DB si el usuario y la contraseña coinciden en la base de datos
+     *
+     * @param id de usuario userid
+     * @param contrasenya OLD password of the user
+     * @return devuelve true si existe, false si no
+     */
+    public boolean check_cambio_password(int userid, String contrasenya) throws SQLException {
+        
+            
+        String query = "SELECT * FROM Usuarios WHERE Usuarios.id=? AND Usuarios.contrasenya=?";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, userid);
+            st.setString(2, contrasenya);
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            if (rs.next()) {
+                
+                return true;
+            }else{
+                return false
+            }
+        }
+        
+        
+    } 
 }
