@@ -418,3 +418,17 @@
 0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:48:09 +0100] "GET /proyecto/Titanic.jpg HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:48:16 +0100] "GET /proyecto/pelicula?id=1 HTTP/1.1" 200 4235
 0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:48:16 +0100] "GET /proyecto/El%20Se%C3%B1or%20de%20los%20Anillos:%20La%20comunidad%20del%20Anillo.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:47 +0100] "GET /proyecto/home HTTP/1.1" 200 6056
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:47 +0100] "GET /proyecto/images/pic01.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:47 +0100] "GET /proyecto/assets/js/jquery.scrollex.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:47 +0100] "GET /proyecto/assets/js/jquery.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:47 +0100] "GET /proyecto/assets/js/jquery.dropotron.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/js/browser.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/js/breakpoints.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/js/util.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/js/main.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/js/login.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/images/pic03.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/images/explosion.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:51:48 +0100] "GET /proyecto/assets/css/images/overlay.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:53:02 +0100] "GET /proyecto/home HTTP/1.1" 200 6056
