@@ -38,10 +38,9 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>AAA 
-							<br />
-							AAA</h2>
-							<p>Párrafo</p>
+							<h2>La red social de la que todo el mundo está hablando.</h2>
+							<br/>
+							<p>¿Te la vas a perder?</p>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>
