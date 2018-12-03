@@ -2,7 +2,7 @@
 
 
 <!-- Header -->
-				<header id="header" class="alt">
+				<header id="header" class="reveal">
 					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">

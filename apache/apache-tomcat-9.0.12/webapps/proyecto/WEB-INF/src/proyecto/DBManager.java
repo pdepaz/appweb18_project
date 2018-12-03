@@ -621,7 +621,7 @@ devuelve bloqueado dentro de usuarios
     /**
      * Carga los comentarios de un tema
      *
-     * @param id id del comentario
+     * @param id id del tema
      * @param tipo_tema string que define el tema (pelicula, serie, libro)     
      * @return Lista de Comentarios de un mismo tema
      */   
@@ -639,7 +639,7 @@ devuelve bloqueado dentro de usuarios
             
             while (rs.next()){ //OK, SQL return something
                 Comentario comment = new Comentario();
-                comment.setId(id);
+                comment.setId(rs.getInt("id"));
                 comment.setComentario_text(rs.getString("comentario_text"));
                 comment.setTipo_tema(rs.getString("tipo_tema"));
                 comment.setPelicula(rs.getInt("pelicula"));
@@ -653,8 +653,8 @@ devuelve bloqueado dentro de usuarios
 
                 lista_comentarios.add(comment);
             }
-            return lista_comentarios;
         }
+        return lista_comentarios;
     }
 
 
