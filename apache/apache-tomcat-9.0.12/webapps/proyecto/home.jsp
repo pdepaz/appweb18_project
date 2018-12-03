@@ -63,7 +63,8 @@
 							<section class="box special">
 								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
 								<h3>¿Cómo lo hemos logrado?</h3>
-								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros. Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.</p>
+								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros.<br></br> 
+								Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.</p>
 								
 							</section>
 
