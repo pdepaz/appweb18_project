@@ -23,7 +23,7 @@
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Manloo</h2>
-					<p>Descubra las nuevas maneras de comentar películas, series y libros</p>
+					<p>Descubra las nueva manera de comentar películas, series y libros</p>
 					
 					<% if(session.getAttribute("session_id") == null){ %>
 					<ul class="actions special">
@@ -38,10 +38,10 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>AAA 
+							<h2>La red social de la que todo el mundo está hablando.
 							<br />
-							AAA</h2>
-							<p>Párrafo</p>
+							</h2>
+							<p>¿Te la vas a perder?</p>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>
@@ -51,8 +51,8 @@
 
 							<section class="box special">
 								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Sed lorem adipiscing</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<h3>¿Por qué Manloo?</h3>
+								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, la unificadora</p>
 								<ul class="actions special">
 									<li><a href="#" class="button alt">Learn More</a></li>
 								</ul>
@@ -63,8 +63,8 @@
 
 							<section class="box special">
 								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Accumsan integer</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<h3>¿Cómo lo hemos logrado?</h3>
+								<p>Con la colaoracion de los ingenieros más selectos, de vosotros para vosotros. usando el conocimiento más exclusivo de la sociedad</p>
 								<ul class="actions special">
 									<li><a href="#" class="button alt">Learn More</a></li>
 								</ul>
@@ -79,6 +79,7 @@
 				<section id="cta">
 
 					<h2>Crear cuenta</h2>
+					<p>¿A qué estás esperando?</p>
 
 					<form>
 						<div class="row gtr-50 gtr-uniform">
