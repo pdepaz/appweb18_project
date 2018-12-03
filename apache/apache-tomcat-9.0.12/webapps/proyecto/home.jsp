@@ -24,7 +24,7 @@
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Manloo</h2>
-					<p>Descubra las nuevas maneras de comentar películas, series y libros</p>
+					<p>Descubra las nueva manera de comentar películas, series y libros</p>
 					
 					<% if(session.getAttribute("session_id") == null){ %>
 					<ul class="actions special">
@@ -39,36 +39,36 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>AAA 
+							<h2>La red social de la que todo el mundo está hablando.
 							<br />
-							AAA</h2>
-							<p>Párrafo</p>
+							</h2>
+							<p>¿Te la vas a perder?</p>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image featured"><img src="images/serie.jpg" alt="" /></span>
 					</section>
 
 					<div class="row">
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Sed lorem adipiscing</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions special">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
+								<span class="image featured"><img src="images/book.jpg" alt="" /></span>
+								<h3>¿Por qué Manloo?</h3>
+								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, esa que unificase todos tus contenidos en uno. Nosotros lo hemos conseguido.<br></br>
+								Gracias a una idea innovadora, hemos conseguido simplificarte la vida, para que tengas todo en un solo click. Sin cuotas de alta, sin mentiras, sin publicidad, para gente exclusiva como tú.</p>
+								
 							</section>
 
 						</div>
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Accumsan integer</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions special">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
+								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
+								<h3>¿Cómo lo hemos logrado?</h3>
+								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros.<br></br> 
+								Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.
+								<br></br>
+								No te preocupes por la seguridad, ya nos encargamos nosotros. Tus datos pasan por un control exhaustivo y minucioso para que nadie pueda acceder a ellos. Ni nosotros mismos. Gracias a ello estarás totalmente seguro.</p>
+								
 							</section>
 
 						</div>
@@ -80,6 +80,7 @@
 				<section id="cta">
 
 					<h2>Crear cuenta</h2>
+					<p>¿A qué estás esperando?</p>
 
 					<form>
 						<div class="row gtr-50 gtr-uniform">

@@ -34,16 +34,22 @@ public class Usuario_Control extends HttpServlet {
         HttpSession session = request.getSession();
 
         int usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
-
+        int session_id = (int) session.getAttribute("session_id");
+        
         try (DBManager db = new DBManager()){
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-            //ID PASADO POR URL
             Usuario usuario = db.cargar_usuario(usuario_id);
 
             //MANDAMOS EL USUARIO QUE QUEREMOS VER POR PARAMETRO ?
             request.setAttribute("usuario", usuario);
-            request.getRequestDispatcher("usuario.jsp").forward(request, response);            
+            
+            if (usuario_id == session_id){
+                response.sendRedirect("perfil");
+            } else {
+                request.getRequestDispatcher("usuario.jsp").forward(request, response); 
+            }
+                       
           
         } catch (NamingException|SQLException e){
             e.printStackTrace();

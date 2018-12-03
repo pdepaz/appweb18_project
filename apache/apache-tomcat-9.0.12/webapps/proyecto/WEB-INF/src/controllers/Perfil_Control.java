@@ -38,7 +38,7 @@ public class Perfil_Control extends HttpServlet {
         int mi_usuario_id = 0;
 
         if(session.getAttribute("session_id") == null){
-            //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
+            //SI NO HAY SESION INCIADA, TE REDIRIGE A LA HOME DE PELICULAS
             response.sendRedirect("home");            
         }else {
             mi_usuario_id = (int) session.getAttribute("session_id");

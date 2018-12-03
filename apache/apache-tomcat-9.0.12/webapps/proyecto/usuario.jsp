@@ -3,12 +3,9 @@
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
-<% 
-	Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario");
-//CARGAMOS LOS DATOS DEL USUARIO RECIBIDO POR PARAMETRO
-    Usuario usuario = (Usuario) request.getParameter("usuario");
-    //Arriba hay que mostrar el banner con los diferentes menus
-%>
+<% Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario"); %>
+<% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
+
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +17,8 @@
 </head>
 
 <body class="is-preload">
+    
+    <%@ include file='header.jsp' %>
 
   	<section id="main" class="container">
 		<header>
@@ -28,13 +27,14 @@
         </header>
 
 	
-<div class="col-6 col-12-mobilep" >
-                      <ul class="alt">
-                        <li>Nombre: <%= usuario.getNombre() %></li>
-                        <li>Apellidos: <%= usuario.getApellido1() %> <%= usuario.getApellido2() %></li>
-                        <li>Email: <%= usuario.getEmail() %></li>
-                      </ul>
-	</div>
+        <div class="col-6 col-12-mobilep" >
+            <ul class="alt">
+                <li>Nombre: <%= usuario.getNombre() %></li>
+                <li>Apellidos: <%= usuario.getApellido1() %> <%= usuario.getApellido2() %></li>
+                <li>Email: <%= usuario.getEmail() %></li>
+            </ul>
+        </div>
+	</section>
 
 </body>
 </html>

@@ -2179,8 +2179,8 @@
 		appearance: none;
 		background-color: #f8f8f8;
 		border-radius: 6px;
-		border: solid 1px #e5e5e5;
-		color: inherit;
+		border: solid 1px #303030;
+		color: black;
 		display: block;
 		outline: 0;
 		padding: 0 1em;

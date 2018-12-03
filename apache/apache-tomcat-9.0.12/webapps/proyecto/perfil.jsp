@@ -3,10 +3,9 @@
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
-<% 
-		Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario");
-    int session_id = session.getAttribute("session_id");
-%>
+<%Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario");%>
+<%int session_id = (int) session.getAttribute("session_id");%>
+
 
 
 <!DOCTYPE html>
@@ -18,58 +17,32 @@
 	
 <title>Mi Perfil</title>
 </head>
+
+
 <body class="is-preload">
-  <section id="main" class="container">
+
+    <%@ include file='header.jsp' %>
+
+    <section id="main" class="container">
           <header>
             <h2>Bienvenido <%= mi_usuario.getNombre()%>, </h2>
-            <p>Aquí están tus datos: </p>
+            <p>Estos son tus datos: </p>
           </header>
 
 
-<div class="col-6 col-12-mobilep" >
-                      <ul class="alt">
+        <div class="col-6 col-12-mobilep" >
+                <ul class="alt">
                         <li>Nombre: <%= mi_usuario.getNombre() %></li>
                         <li>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></li>
                         <li>Email: <%= mi_usuario.getEmail() %></li>
                         <li>Número de Telefono: <%= mi_usuario.getTelefono() %> </li>
                         <li>Tipo de Usuario: <%= mi_usuario.getTipo_usuario() %> </li>
                       </ul>
-	</div>
+        </div>
 
-  <p>¿No te gustan tus datos? Estás a un click de cambiarlos.<p>
- <button class="button special small" onclick="location.href='actualizar_usuario.html'">Editar Perfil</button>
+        <p>¿No te gustan tus datos? Estás a un click de cambiarlos.<p>
+        <button class="button special small" onclick="location.href='actualizar_usuario.html'">Editar Perfil</button>
+    </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer id="footer">
-          <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-          </ul>
-          <ul class="copyright">
-            <li>All rights reserved.</li>
-          </ul>
-        </footer>
 </body>
 </html>
