@@ -621,7 +621,7 @@ devuelve bloqueado dentro de usuarios
     /**
      * Carga los comentarios de un tema
      *
-     * @param id id del comentario
+     * @param id id del tema
      * @param tipo_tema string que define el tema (pelicula, serie, libro)     
      * @return Lista de Comentarios de un mismo tema
      */   
@@ -639,7 +639,7 @@ devuelve bloqueado dentro de usuarios
             
             while (rs.next()){ //OK, SQL return something
                 Comentario comment = new Comentario();
-                comment.setId(id);
+                comment.setId(rs.getInt("id"));
                 comment.setComentario_text(rs.getString("comentario_text"));
                 comment.setTipo_tema(rs.getString("tipo_tema"));
                 comment.setPelicula(rs.getInt("pelicula"));
@@ -653,8 +653,8 @@ devuelve bloqueado dentro de usuarios
 
                 lista_comentarios.add(comment);
             }
-            return lista_comentarios;
         }
+        return lista_comentarios;
     }
 
 
@@ -840,4 +840,38 @@ devuelve bloqueado dentro de usuarios
         }
         return movies_commented;
     }
+
+
+
+
+    
+    /**
+     * Checkea en la DB si el usuario y la contraseña coinciden en la base de datos
+     *
+     * @param id de usuario userid
+     * @param contrasenya OLD password of the user
+     * @return devuelve true si existe, false si no
+     */
+    public boolean check_cambio_password(int userid, String contrasenya) throws SQLException {
+        
+            
+        String query = "SELECT * FROM Usuarios WHERE Usuarios.id=? AND Usuarios.contrasenya=?";
+        
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setInt(1, userid);
+            st.setString(2, contrasenya);
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+            
+            if (rs.next()) {
+                
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        
+    } 
 }

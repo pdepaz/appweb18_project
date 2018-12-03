@@ -3,75 +3,86 @@
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
+<link rel="stylesheet" href="assets/css/main.css" /> 
 
 <!DOCTYPE html>
 <html>
-<head>
-<title>Home</title>
-</head>
+    <section id="main" class="container">
+        <head>
+            <title>Home</title>
+        </head>
 
+        <body>
 
-<body>
-<table name="html_header" border="1">
-<tr>
-	<td><h1>Temas de Debate</h1></td>
-	<td>BUSCADOR</td>
-	<td>Otras cosas por aqui...</td>
-</tr>
-</table>
+            <%@ include file='header.jsp' %>
 
-
-<%--Aqui, meter peliculas destacadas (carrousel) --%>
-
-<h2>Peliculas más nuevas</h2>
-<% List<Pelicula> pelis_nuevas = (List<Pelicula>) request.getAttribute("pelis_nuevas");%>
-<div class=peliculas_lo_mas_nuevo">
-	<table name="t_peliculas_nuevo">
-		<tbody>
-			<%for(Pelicula movie: pelis_nuevas){%>
-				<tr>
-						<td><%= movie.getTitulo()%></td>
-						<td><%= movie.getAnyo()%></td>
-				</tr>
-			<%}%>
-		</tbody>
-	</table>
-</div>
-
-<br/>
-
-<h2>Peliculas recomendadas</h2>
-<% List<Pelicula> pelis_recomendadas = (List<Pelicula>) request.getAttribute("pelis_recomendadas");%>
-<div class=pelis_recomendadas">
-	<table name="t_peliculas_recomen">
-		<tbody>
-			<%for(Pelicula movie: pelis_recomendadas){%>
-				<tr>
-						<td><%= movie.getTitulo()%></td>
-						<td><%= movie.getAnyo()%></td>
-				</tr>
-			<%}%>
-		</tbody>
-	</table>
-</div>
-
-
-
-
-<h2>Peliculas más comentadas</h2>
-<% List<Pelicula> pelis_mas_comentadas = (List<Pelicula>) request.getAttribute("pelis_mas_comentadas");%>
-<div class=pelis_comentadas">
-	<table name="t_peliculas_comentadas">
-		<tbody>
-			<%for(Pelicula movie: pelis_mas_comentadas){%>
-				<tr>
-						<td><%= movie.getTitulo()%></td>
-						<td><%= movie.getAnyo()%></td>
-				</tr>
-			<%}%>
-		</tbody>
-	</table>
-</div>
-
-</body>
+        <table name="html_header" border="1">
+            <tr>
+                <td><h1>Temas de Debate</h1></td>
+                <td>BUSCADOR</td>
+                <td>Otras cosas por aqui...</td>
+            </tr>
+        </table>
+    
+        <section id="main" class="container">
+            <h2><b>Peliculas más nuevas</b></h2>
+            <% List<Pelicula> pelis_nuevas = (List<Pelicula>) request.getAttribute("pelis_nuevas");%>
+        </section>
+        
+            <div class="row">
+                <%for(Pelicula movie: pelis_nuevas){%>
+                    <div class="col-6 col-12-narrower">
+                        <section class="box special">
+                            <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                <h3><b><%= movie.getTitulo()%></b></h3>
+                                    <p><%= movie.getDescripcion()%></p>
+                                <ul class="actions special">
+                                    <li><a href="#" class="button alt">+Info</a></li>
+                                </ul>  
+                        </section>
+                    </div>
+                <%}%>
+            </div>
+            
+        <section id="main" class="container">
+        <h2><b>Peliculas Recomendadas</b></h2>
+        <% List<Pelicula> pelis_recomendadas = (List<Pelicula>) request.getAttribute("pelis_recomendadas");%>
+        </section>
+        
+            <div class="row">
+                <%for(Pelicula movie: pelis_recomendadas){%>
+                    <div class="col-6 col-12-narrower">
+                        <section class="box special">
+                            <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                <h3><b><%= movie.getTitulo()%></b></h3>
+                                    <p><%= movie.getDescripcion()%></p>
+                                <ul class="actions special">
+                                    <li><a href="#" class="button alt">+Info</a></li>
+                                </ul>  
+                        </section>
+                    </div>
+                <%}%>
+            </div>
+            
+        <section id="main" class="container">
+        <h2><b>Peliculas más comentadas</b></h2>
+        <% List<Pelicula> pelis_mas_comentadas = (List<Pelicula>) request.getAttribute("pelis_mas_comentadas");%>
+        </section>
+        
+            <div class="row">
+                <%for(Pelicula movie: pelis_mas_comentadas){%>
+                    <div class="col-6 col-12-narrower">
+                        <section class="box special">
+                            <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                <h3><b><%= movie.getTitulo()%></b></h3>
+                                    <p><%= movie.getDescripcion()%></p>
+                                <ul class="actions special">
+                                    <li><a href="#" class="button alt">+Info</a></li>
+                                </ul>  
+                        </section>
+                    </div>
+                <%}%>
+            </div>
+        </body>
+    </section>
 </html>
