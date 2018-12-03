@@ -15,7 +15,7 @@
 								<a href="#" class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
 									<li><a href="nueva_pelicula">Pelicula</a></li>
-									<li><a href="home">Serie</a></li>
+									<li><a href="pelicula?id=2">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
 							</li>

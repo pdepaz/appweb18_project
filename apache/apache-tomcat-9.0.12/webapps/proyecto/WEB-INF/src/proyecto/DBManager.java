@@ -666,16 +666,20 @@ devuelve bloqueado dentro de usuarios
             st.setInt(1, id);            
             ResultSet rs = st.executeQuery();
             
-            movie.setId(rs.getInt("id"));
-            movie.setTitulo(rs.getString("titulo"));
-            movie.setAnyo(rs.getInt("anyo"));
-            movie.setDuracion(rs.getInt("duracion"));
-            movie.setDescripcion(rs.getString("descripcion"));
-            movie.setDirector(rs.getString("director"));
-            movie.setGenero(rs.getString("genero"));
-            movie.setTrailer(rs.getString("trailer"));
-            movie.setCreador(rs.getInt("creador"));
-            movie.setBloqueado(rs.getInt("bloqueado"));
+            while (rs.next()){ //OK, SQL return something
+                movie.setId(rs.getInt("id"));
+                movie.setTitulo(rs.getString("titulo"));
+                movie.setAnyo(rs.getInt("anyo"));
+                movie.setDuracion(rs.getInt("duracion"));
+                movie.setDescripcion(rs.getString("descripcion"));
+                movie.setDirector(rs.getString("director"));
+                movie.setGenero(rs.getString("genero"));
+                movie.setTrailer(rs.getString("trailer"));
+                movie.setCreador(rs.getInt("creador"));
+                movie.setBloqueado(rs.getInt("bloqueado"));
+            }
+            
+            
         }
         return movie;
     }
