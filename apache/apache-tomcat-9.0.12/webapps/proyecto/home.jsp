@@ -52,10 +52,9 @@
 							<section class="box special">
 								<span class="image featured"><img src="images/book.jpg" alt="" /></span>
 								<h3>¿Por qué Manloo?</h3>
-								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, la unificadora</p>
-								<ul class="actions special">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
+								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, esa que unificase todos tus contenidos en uno. Nosotros lo hemos conseguido.<br></br>
+								Gracias a una idea innovadora, hemos conseguido simplificarte la vida, para que tengas todo en un solo click. Sin cuotas de alta, sin mentiras, sin publicidad, para gente exclusiva como tú.</p>
+								
 							</section>
 
 						</div>
@@ -64,10 +63,8 @@
 							<section class="box special">
 								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
 								<h3>¿Cómo lo hemos logrado?</h3>
-								<p>Con la colaboracion de los ingenieros más selectos, de vosotros para vosotros. usando el conocimiento más exclusivo de la sociedad</p>
-								<ul class="actions special">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
+								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros. Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.</p>
+								
 							</section>
 
 						</div>
