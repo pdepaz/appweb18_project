@@ -34,7 +34,6 @@ public class Pelicula_Guardar extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
-        
 
         try (DBManager db = new DBManager()){
             

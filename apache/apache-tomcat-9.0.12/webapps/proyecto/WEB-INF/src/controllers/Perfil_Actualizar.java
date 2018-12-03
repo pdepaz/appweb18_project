@@ -38,20 +38,33 @@ public class Perfil_Actualizar extends HttpServlet {
         try (DBManager db = new DBManager()){
             
             Usuario user = new Usuario();
+            //DE AQUI HASTA TELEFONO (INCLUIDO), SE AUTORELLENA (asumimos que se mete algo)
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
             user.setEmail(request.getParameter("email"));
             user.setTelefono(Integer.parseInt((request.getParameter("telefono"))));
-            user.setContrasenya(request.getParameter("contrasenya"));
             
-            int actualizado = db.actualizaUsuario(user); 
             
-            if (actualizado == 1){
-                session.setAttribute("session_id", user.getId());
+            String old_password = request.getParameter("old_contrasenya");
+            
+            int id_de_sesion = (int) session.getAttribute("session_id");
+            
+            boolean result_check = db.check_cambio_password(id_de_sesion, old_password);
+            
+            if(result_check){ //old_contrasenya es igual a la de la Base de Datos
+                user.setContrasenya(request.getParameter("new_contrasenya"));
+                
+                int actualizado = db.actualizaUsuario(user);
+                
+                if (actualizado == 1){
+                    session.setAttribute("session_id", user.getId());
+                }
+                
+                response.sendRedirect("perfil");
+            } else {
+                response.sendRedirect("error");
             }
-
-            response.sendRedirect("perfil");
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();

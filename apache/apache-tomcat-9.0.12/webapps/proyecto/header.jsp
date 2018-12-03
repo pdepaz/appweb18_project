@@ -39,11 +39,11 @@
 
 					    <!--Form propiamente dicho-->					    
 					    <div class="container">
-					      <label for="uname"><b>Usuario</b></label>
-					      <input type="text" placeholder="Introduzca su usuario" name="username" required>
+					      <label for="username"><b>Usuario</b></label>
+					      <input type="text" placeholder="Introduzca su usuario" id="username" name="username" required>
 
-					      <label for="psw"><b>Contraseña</b></label>
-					      <input type="password" placeholder="Introduzca su contraseña" name="password" required>
+					      <label for="password"><b>Contraseña</b></label>
+					      <input type="password" placeholder="Introduzca su contraseña" id="password" name="password" required>
 
 					      <div class="g-recaptcha" data-sitekey="6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR"></div>
 					        
