@@ -43,14 +43,14 @@
 							</h2>
 							<p>¿Te la vas a perder?</p>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image featured"><img src="images/serie.jpg" alt="" /></span>
 					</section>
 
 					<div class="row">
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/book.jpg" alt="" /></span>
 								<h3>¿Por qué Manloo?</h3>
 								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, la unificadora</p>
 								<ul class="actions special">
@@ -62,9 +62,9 @@
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
 								<h3>¿Cómo lo hemos logrado?</h3>
-								<p>Con la colaoracion de los ingenieros más selectos, de vosotros para vosotros. usando el conocimiento más exclusivo de la sociedad</p>
+								<p>Con la colaboracion de los ingenieros más selectos, de vosotros para vosotros. usando el conocimiento más exclusivo de la sociedad</p>
 								<ul class="actions special">
 									<li><a href="#" class="button alt">Learn More</a></li>
 								</ul>
