@@ -64,7 +64,8 @@
 								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
 								<h3>¿Cómo lo hemos logrado?</h3>
 								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros.<br></br> 
-								Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.</p>
+								Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.
+								No te preocupes por la seguridad, ya nos encargamos nosotros. Tus datos pasan por un control exhaustivo y minucioso para que nadie pueda acceder a ella. Ni nosotros mismos. Gracias a ello estarás totalmente seguro.</p>
 								
 							</section>
 
