@@ -2,7 +2,11 @@
 
 
 <!-- Header -->
+<<<<<<< HEAD
+				<header id="header" class="reveal">
+=======
 				<header id="header" class="alt"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
+>>>>>>> c43c81c7e6bb161a386db80a967f5e196a2f56e6
 					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">

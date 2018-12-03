@@ -50,9 +50,9 @@ public class Pelicula_Control extends HttpServlet {
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
             //Ahora, cogemos los comentarios asociados a esta pelicula
-            List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id, "Pelicula");
+            List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id,"Pelicula");
 
-            request.setAttribute("comentarios", comentarios);
+            request.setAttribute("comentarios_pelicula", comentarios);
             request.setAttribute("pelicula", mi_pelicula);
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);

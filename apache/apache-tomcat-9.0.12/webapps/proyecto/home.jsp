@@ -7,6 +7,7 @@
 <!DOCTYPE HTML>
 
 <html>
+<section id="main" class="container">
 	<head>
 		<title>Manloo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -120,4 +121,5 @@
 			<script src="assets/js/login.js"></script>
 
 	</body>
+
 </html>
