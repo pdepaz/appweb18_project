@@ -2,7 +2,7 @@
 
 
 <!-- Header -->
-				<header id="header" class="alt">
+				<header id="header" class="alt"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
 					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">
@@ -15,7 +15,7 @@
 								<a href="#" class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
 									<li><a href="nueva_pelicula">Pelicula</a></li>
-									<li><a href="pelicula?id=2">Serie</a></li>
+									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
 							</li>
@@ -48,10 +48,12 @@
 					      <div class="g-recaptcha" data-sitekey="6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR"></div>
 					        
 					      <button type="submit" class="submitbutton">Iniciar Sesion</button>
-					      <label>
-					        <input type="checkbox" checked="checked" name="remember"> Remember me
-					      </label>
-					    </div>
+                        </div> 
+                        
+                        <div class="container">
+							<input type="checkbox" id="remember" name="remember">
+							<label for="remember">Recuérdame</label>
+						</div>
 
 					    <!--Cancelar y olvidar contrasenya-->
 					    <div class="container">
