@@ -12,6 +12,9 @@
 							<li><a href="home">Libros</a></li>
 							<% if(session.getAttribute("session_id") != null){ %>
 							<li>
+								<a href="perfil">Mi perfil</a>
+							</li>
+							<li>
 								<a href="#" class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
 									<li><a href="crear_pelicula.html">Pelicula</a></li>
