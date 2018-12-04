@@ -627,7 +627,7 @@ devuelve bloqueado dentro de usuarios
      */   
     public List<Comentario> cargar_comentarios_list(int id, String tipo_tema) throws SQLException {
         
-        String query_comentario = "SELECT * FROM Comentarios WHERE tipo_tema=? AND id=?";
+        String query_comentario = "SELECT * FROM Comentarios WHERE id=? AND tipo_tema=?";
         List<Comentario> lista_comentarios = new ArrayList<>();
 
         try(PreparedStatement st = connection.prepareStatement(query_comentario)){
@@ -648,7 +648,6 @@ devuelve bloqueado dentro de usuarios
                 comment.setUsuario(rs.getInt("usuario"));
                 comment.setFecha_creacion(rs.getString("fecha_creacion"));
                 comment.setComentario_padre(rs.getInt("comentario_padre"));
-                comment.setTipo_usuario(rs.getString("tipo_usuario"));
                 comment.setBloqueado(rs.getInt("bloqueado"));
 
                 lista_comentarios.add(comment);
