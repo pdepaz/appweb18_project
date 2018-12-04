@@ -57,7 +57,7 @@
                                 <h3><b><%= movie.getTitulo()%></b></h3>
                                     <p><%= movie.getDescripcion()%></p>
                                 <ul class="actions special">
-                                    <li><a href="#" class="button alt">+Info</a></li>
+                                    <li><a href="pelicula?id=<%= movie.getId()%>" class="button alt">+Info</a></li>
                                 </ul>  
                         </section>
                     </div>
@@ -77,7 +77,7 @@
                                 <h3><b><%= movie.getTitulo()%></b></h3>
                                     <p><%= movie.getDescripcion()%></p>
                                 <ul class="actions special">
-                                    <li><a href="#" class="button alt">+Info</a></li>
+                                    <li><a href="pelicula?id=<%= movie.getId()%>" class="button alt">+Info</a></li>
                                 </ul>  
                         </section>
                     </div>
