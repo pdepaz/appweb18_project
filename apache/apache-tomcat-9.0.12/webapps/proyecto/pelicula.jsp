@@ -46,7 +46,7 @@
             <% for(Comentario tmp: comentarios) {%>
                 <% if (tmp.getBloqueado() == 0){ %>
                     <div class="row-6 row-12-mobilep">
-                        <%--Cargar usuario por  --%>                                
+                        <%--Cargar usuario por id --%>                                
                         <a href="usuario?usuarioid=<%=tmp.getUsuario()%>"><%= tmp.getUsuario() %></a>:<%= tmp.getComentario_text()%>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>

@@ -50,10 +50,11 @@ public class Usuario_Guardar extends HttpServlet {
             int nuevo = db.crearUsuario(user); 
             
             if (nuevo == 1){
+                //USER NO TIENE ID
                 session.setAttribute("session_id", user);
             }
 
-            response.sendRedirect("miUsuario.jsp");
+            response.sendRedirect("perfil");
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();
