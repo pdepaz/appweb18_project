@@ -35,13 +35,14 @@ public class Pelicula_Control extends HttpServlet {
         HttpSession session = request.getSession();
 
         int pelicula_id = 0;
-
+        
         if(request.getParameter("id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
             response.sendRedirect("home_peliculas");            
         } else {
             pelicula_id = Integer.parseInt(request.getParameter("id"));
         }
+        
 
 
         try (DBManager db = new DBManager()){
