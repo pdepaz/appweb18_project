@@ -627,33 +627,94 @@ devuelve bloqueado dentro de usuarios
      */   
     public List<Comentario> cargar_comentarios_list(int id, String tipo_tema) throws SQLException {
         
-        String query_comentario = "SELECT * FROM Comentarios WHERE id=? AND tipo_tema=?";
-        List<Comentario> lista_comentarios = new ArrayList<>();
+        if(tipo_tema.equals("Pelicula")){
+            String query_comentario = "SELECT * FROM Comentarios WHERE pelicula=? AND tipo_tema=?";
+            List<Comentario> lista_comentarios = new ArrayList<>();
 
-        try(PreparedStatement st = connection.prepareStatement(query_comentario)){
-            st.setInt(1, id);
-            st.setString(2, tipo_tema);
-            
-            // execute select SQL stetement
-            ResultSet rs = st.executeQuery();
-            
-            while (rs.next()){ //OK, SQL return something
-                Comentario comment = new Comentario();
-                comment.setId(rs.getInt("id"));
-                comment.setComentario_text(rs.getString("comentario_text"));
-                comment.setTipo_tema(rs.getString("tipo_tema"));
-                comment.setPelicula(rs.getInt("pelicula"));
-                comment.setSerie(rs.getInt("serie"));
-                comment.setLibro(rs.getInt("libro"));
-                comment.setUsuario(rs.getInt("usuario"));
-                comment.setFecha_creacion(rs.getString("fecha_creacion"));
-                comment.setComentario_padre(rs.getInt("comentario_padre"));
-                comment.setBloqueado(rs.getInt("bloqueado"));
+            try(PreparedStatement st = connection.prepareStatement(query_comentario)){
+                st.setInt(1, id);
+                st.setString(2, tipo_tema);
+                
+                // execute select SQL stetement
+                ResultSet rs = st.executeQuery();
+                
+                while (rs.next()){ //OK, SQL return something
+                    Comentario comment = new Comentario();
+                    comment.setId(rs.getInt("id"));
+                    comment.setComentario_text(rs.getString("comentario_text"));
+                    comment.setTipo_tema(rs.getString("tipo_tema"));
+                    comment.setPelicula(rs.getInt("pelicula"));
+                    comment.setSerie(rs.getInt("serie"));
+                    comment.setLibro(rs.getInt("libro"));
+                    comment.setUsuario(rs.getInt("usuario"));
+                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setComentario_padre(rs.getInt("comentario_padre"));
+                    comment.setBloqueado(rs.getInt("bloqueado"));
 
-                lista_comentarios.add(comment);
+                    lista_comentarios.add(comment);
+                }
             }
+            return lista_comentarios;
         }
-        return lista_comentarios;
+        if(tipo_tema.equals("Libro")){
+            String query_comentario = "SELECT * FROM Comentarios WHERE libro=? AND tipo_tema=?";
+            List<Comentario> lista_comentarios = new ArrayList<>();
+
+            try(PreparedStatement st = connection.prepareStatement(query_comentario)){
+                st.setInt(1, id);
+                st.setString(2, tipo_tema);
+                
+                // execute select SQL stetement
+                ResultSet rs = st.executeQuery();
+                
+                while (rs.next()){ //OK, SQL return something
+                    Comentario comment = new Comentario();
+                    comment.setId(rs.getInt("id"));
+                    comment.setComentario_text(rs.getString("comentario_text"));
+                    comment.setTipo_tema(rs.getString("tipo_tema"));
+                    comment.setPelicula(rs.getInt("pelicula"));
+                    comment.setSerie(rs.getInt("serie"));
+                    comment.setLibro(rs.getInt("libro"));
+                    comment.setUsuario(rs.getInt("usuario"));
+                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setComentario_padre(rs.getInt("comentario_padre"));
+                    comment.setBloqueado(rs.getInt("bloqueado"));
+
+                    lista_comentarios.add(comment);
+                }
+            }
+            return lista_comentarios;
+        }
+        if(tipo_tema.equals("Serie")){
+            String query_comentario = "SELECT * FROM Comentarios WHERE serie=? AND tipo_tema=?";
+            List<Comentario> lista_comentarios = new ArrayList<>();
+
+            try(PreparedStatement st = connection.prepareStatement(query_comentario)){
+                st.setInt(1, id);
+                st.setString(2, tipo_tema);
+                
+                // execute select SQL stetement
+                ResultSet rs = st.executeQuery();
+                
+                while (rs.next()){ //OK, SQL return something
+                    Comentario comment = new Comentario();
+                    comment.setId(rs.getInt("id"));
+                    comment.setComentario_text(rs.getString("comentario_text"));
+                    comment.setTipo_tema(rs.getString("tipo_tema"));
+                    comment.setPelicula(rs.getInt("pelicula"));
+                    comment.setSerie(rs.getInt("serie"));
+                    comment.setLibro(rs.getInt("libro"));
+                    comment.setUsuario(rs.getInt("usuario"));
+                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setComentario_padre(rs.getInt("comentario_padre"));
+                    comment.setBloqueado(rs.getInt("bloqueado"));
+
+                    lista_comentarios.add(comment);
+                }
+            }
+            return lista_comentarios;
+        }
+        return null;
     }
 
 
