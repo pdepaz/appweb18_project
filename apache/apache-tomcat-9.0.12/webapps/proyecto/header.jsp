@@ -17,7 +17,7 @@
 							<li>
 								<a href="#" class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
-									<li><a href="crear_pelicula.html">Pelicula</a></li>
+									<li><a href="crear_pelicula.jsp">Pelicula</a></li>
 									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>

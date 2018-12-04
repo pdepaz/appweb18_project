@@ -41,6 +41,9 @@
 							<h2>La red social de la que todo el mundo está hablando.</h2>
 							<br/>
 							<p>¿Te la vas a perder?</p>
+							<ul class="actions special">
+									<li><a href="crear_cuenta.jsp" class="button alt">Crea tu cuenta</a></li>
+								</ul>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>
@@ -49,7 +52,7 @@
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/book.jpg" alt="" /></span>
 								<h3>¿Por qué Manloo?</h3>
 								<p>Desde el nacimiento de las primeras redes sociales ya se buscaba la definitiva, esa que unificase todos tus contenidos en uno. Nosotros lo hemos conseguido.<br/>
 								Gracias a una idea innovadora, hemos conseguido simplificarte la vida, para que tengas todo en un solo click. Sin cuotas de alta, sin mentiras, sin publicidad, para gente exclusiva como tú.</p>
@@ -62,7 +65,7 @@
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/fondo.jpg" alt="" /></span>
 								<h3>¿Cómo lo hemos logrado?</h3>
 								<p>Con la colaboracion de los ingenieros más selectos, de nosotros para vosotros.</br> 
 								Usando el conocimiento más exclusivo de la sociedad, las ideas más creativas e innovadoras y las soluciones más ingeniosas jamás conocidas, hemos alcanzado el mejor producto hasta la fecha.
@@ -83,7 +86,7 @@
 
 					<h2>Crear cuenta</h2>
 					<p>¿A qué estás esperando?</p>
-					<form>
+					<form >
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
 								<input type="email" name="email" id="email" placeholder="Email" />
