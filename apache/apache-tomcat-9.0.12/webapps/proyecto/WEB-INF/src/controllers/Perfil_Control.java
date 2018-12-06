@@ -20,7 +20,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * 
+ * Este servlet cargará el perfil de usuario conectado
  *
  */
 @WebServlet("/perfil")

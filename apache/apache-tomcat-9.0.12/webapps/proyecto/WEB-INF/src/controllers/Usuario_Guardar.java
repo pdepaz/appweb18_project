@@ -44,14 +44,23 @@ public class Usuario_Guardar extends HttpServlet {
             user.setApellido2(request.getParameter("apellido2"));
             user.setEmail(request.getParameter("email"));
             user.setTipo_usuario("USUARIO");
+            user.setUsuario(request.getParameter("usuario"));
             user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
             user.setContrasenya(request.getParameter("contrasenya"));
+            user.setBloqueado(0);
             
             int nuevo = db.crearUsuario(user); 
-            
+            //Al introducirlo en la base de datos se le genera el id
+            //Aqui el problema está en que no sabemos cual es el id del usuario....
+            //Creo una solucion provisional que nos ayuda a determinar el id del usuario
+            //almacenado en la base de datos gracias a saber el nombredeusuario
+            //
+            Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());
+
             if (nuevo == 1){
                 //USER NO TIENE ID
-                session.setAttribute("session_id", user);
+                //Almacenamos el id del usuario a través de uno auxiliar
+                session.setAttribute("session_id", aux.getId());
             }
 
             response.sendRedirect("perfil");

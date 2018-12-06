@@ -123,7 +123,8 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     public int crearUsuario(Usuario usuario) throws SQLException {
     
         //Verificar que los datos que me llegan están bien (de los obligatorios)
-         int id = usuario.getId();
+        //No va a tener id todavía... el id se le asignará en la base de datos... 
+        // int id = usuario.getId();
          String nombre = usuario.getNombre();
          String apellido1 = usuario.getApellido1();
          String apellido2= usuario.getApellido2();
@@ -166,6 +167,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(2, apellido1);
             st.setString(3, apellido2);
             st.setString(4, email);
+            //está dando error porque la foto es un not null... Hay que meterle alguna foto....
             //st.setString(5, foto);
             st.setInt(5, telefono);
             st.setString(6, contrasenya);
@@ -186,7 +188,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
         
-        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE usuario.id = Usuarios.id";
+        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE  Usuarios.id = ?";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
 
@@ -196,6 +198,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(4, usuario.getEmail());
             st.setInt(5, usuario.getTelefono());
             st.setString(6, usuario.getContrasenya());
+            st.setInt(7,usuario.getId());
             // execute select SQL stetement
             st.executeUpdate();
             
@@ -616,6 +619,39 @@ devuelve bloqueado dentro de usuarios
         }
         return user;
     }
+/*
+*     
+*       Creo una funcion que obtiene el usuario gracias al nombre de usuario
+*       Copio la de arriba pero modifico la secuencia sql 
+*       Puede no funcionar
+*
+*/
+
+    //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
+    public Usuario cargar_usuario_nombreusuario(String nombreusuario) throws SQLException { 
+        Usuario user = new Usuario(); //Objeto de la clase Usuario
+        String query_usuario = "SELECT * FROM Usuarios WHERE Usuarios.usuario = ?";
+        try(PreparedStatement st = connection.prepareStatement(query_usuario)){
+            st.setString(1, nombreusuario);            
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){ //OK, SQL return something
+                user.setId(rs.getInt("id"));
+                user.setNombre(rs.getString("nombre"));
+                user.setApellido1(rs.getString("apellido1"));
+                user.setApellido2(rs.getString("apellido2"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefono(rs.getInt("telefono"));
+                user.setContrasenya(rs.getString("contrasenya"));
+                user.setUsuario(rs.getString("usuario"));
+                user.setTipo_usuario(rs.getString("tipo_usuario"));
+                user.setBloqueado(rs.getInt("bloqueado"));
+            }
+            
+        }
+        return user;
+    }
+
 
 
     /**
