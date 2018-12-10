@@ -318,6 +318,7 @@ devuelve bloqueado dentro de usuarios
     @param un objeto pelicula
 
     */
+    //PROBLEMA CON PORTADA, BLOB NOT NULL
 
         public void creaPelicula(Pelicula pelicula) throws SQLException {
 

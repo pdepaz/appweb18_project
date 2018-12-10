@@ -61,7 +61,9 @@ public class Pelicula_Guardar extends HttpServlet {
             request.setAttribute("pelicula", pelicula);
 
             //Enviamos los atributos a través de un request al jsp
-
+            
+            //Yo creo que esto no esta bien
+            //Creo que habrá que mandarselo al controlador para que la muestre.
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
 
 
