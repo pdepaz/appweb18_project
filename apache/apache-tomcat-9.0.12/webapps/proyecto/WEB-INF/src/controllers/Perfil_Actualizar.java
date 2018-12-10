@@ -58,6 +58,8 @@ public class Perfil_Actualizar extends HttpServlet {
                 //Esto va a ser innecesario porque el id ya estaba en la sesion, estamos actualizando
                 if (actualizado == 1){
                     session.setAttribute("session_id", user.getId());
+                    //Probar a ver si almacenando el usuario en la sesion
+                    session.setAttribute("mi_usuario", user);
                 }
                 
                 response.sendRedirect("perfil");

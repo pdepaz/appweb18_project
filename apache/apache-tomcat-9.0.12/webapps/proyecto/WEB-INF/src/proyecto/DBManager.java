@@ -200,8 +200,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(6, usuario.getContrasenya());
             st.setInt(7,usuario.getId());
             // execute select SQL stetement
-            st.executeUpdate();
-            
+            st.executeUpdate(); 
         }
         return 1;
     } 
