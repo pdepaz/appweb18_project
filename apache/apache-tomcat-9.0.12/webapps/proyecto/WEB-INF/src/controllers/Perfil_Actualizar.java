@@ -41,7 +41,7 @@ public class Perfil_Actualizar extends HttpServlet {
             //DE AQUI HASTA TELEFONO (INCLUIDO), SE AUTORELLENA (asumimos que se mete algo)
             //Podemos hacer una prueba de que cuando se acceda a este servlet cree un usuario
             //Para ver si esque no le estan llegando bien los parametros
-            user.setId((int)session.getAtribute("session_id"));
+            user.setId((int)session.getAttribute("session_id"));
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
