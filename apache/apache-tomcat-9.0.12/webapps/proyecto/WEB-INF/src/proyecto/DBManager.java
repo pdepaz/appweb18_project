@@ -105,7 +105,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            if (rs) {
+            if (rs.getNext()) {
                 return true; //Doesn't exists
             } else { 
                 return false; //User exists
