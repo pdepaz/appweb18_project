@@ -2,7 +2,7 @@
 
 
 <!-- Header -->
-				<header id="header" class="alt"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
+				<header id="header" class="reveal"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
 					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">

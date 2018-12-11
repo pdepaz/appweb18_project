@@ -39,11 +39,6 @@
 					<section class="box special">
 						<header class="major">
 							<h2>La red social de la que todo el mundo está hablando.</h2>
-							<br/>
-							<p>¿Te la vas a perder?</p>
-							<ul class="actions special">
-									<li><a href="crear_cuenta.jsp" class="button alt">Crea tu cuenta</a></li>
-								</ul>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>

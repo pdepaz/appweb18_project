@@ -14,15 +14,7 @@
 
         <body>
 
-            <%@ include file='header.jsp' %>
-
-        <table name="html_header" border="1">
-            <tr>
-                <td><h1>Temas de Debate</h1></td>
-                <td>BUSCADOR</td>
-                <td>Otras cosas por aqui...</td>
-            </tr>
-        </table>
+        <%@ include file='header.jsp' %>
     
         <section id="main" class="container">
             <h2><b>Peliculas más nuevas</b></h2>
