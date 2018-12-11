@@ -97,7 +97,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     
         //Verificar que los datos que me llegan están bien (de los obligatorios)
         
-       String query = "SELECT Usuarios.usuario FROM Usuarios WHERE Usuario.email=? OR Usuario.usuario=?";
+       String query = "SELECT * FROM Usuarios WHERE Usuarios.email=? OR Usuarios.usuario=?";
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -106,10 +106,10 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
             
-            if (rs != null) {
-                return false; //Doesn't exists
+            if (rs.next()) {
+                return true; //Doesn't exists
             } else { 
-                return true; //User exists
+                return false; //User exists
             }
         }
     }   
@@ -998,7 +998,7 @@ devuelve bloqueado dentro de usuarios
             st.setString(2, contrasenya);           
             ResultSet rs = st.executeQuery();
             
-            if(rs.getInt("id") == userid){ //User found and query OK
+            while(rs.next()){ //User found and query OK
                 result = true;
             }
         }

@@ -42,22 +42,26 @@ public class Usuario_Guardar extends HttpServlet {
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
-            user.setEmail(request.getParameter("email"));
-            user.setTipo_usuario("USUARIO");
-            user.setUsuario(request.getParameter("usuario"));
+            user.setEmail(request.getParameter("email")); 
             user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
-            user.setContrasenya(request.getParameter("contrasenya"));
+            
+            String contrasenya1 = request.getParameter("contrasenya");
+            String contrasenya2 = request.getParameter("contrasenya2");
+            if(contrasenya1.equals(contrasenya2)){
+                user.setContrasenya(request.getParameter("contrasenya"));
+            }else{
+                response.sendError(500);
+                return;
+            }
+            
+            user.setUsuario(request.getParameter("usuario"));
+            user.setTipo_usuario("USUARIO");
             user.setBloqueado(0);
             
             int nuevo = db.crearUsuario(user); 
-            //Al introducirlo en la base de datos se le genera el id
-            //Aqui el problema está en que no sabemos cual es el id del usuario....
-            //Creo una solucion provisional que nos ayuda a determinar el id del usuario
-            //almacenado en la base de datos gracias a saber el nombredeusuario
-            //
-            Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());
-
+            
             if (nuevo == 1){
+            Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());          
                 //USER NO TIENE ID
                 //Almacenamos el id del usuario a través de uno auxiliar
                 session.setAttribute("session_id", aux.getId());
