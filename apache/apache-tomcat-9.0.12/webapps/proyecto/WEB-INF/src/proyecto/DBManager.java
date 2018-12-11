@@ -96,7 +96,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
     
         //Verificar que los datos que me llegan están bien (de los obligatorios)
         
-       String query = "SELECT * FROM Usuarios WHERE Usuario.email=? OR Usuario.usuario=?";
+       String query = "SELECT * FROM Usuarios WHERE Usuarios.email=? OR Usuarios.usuario=?";
         
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
