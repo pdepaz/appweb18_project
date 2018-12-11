@@ -23,7 +23,7 @@
                                 <form method="post" action="usuario_guardar">
                                     <div class="row gtr-uniform gtr-50">
                                         <div class="col-6 col-12-mobilep">
-                                            <input type="text" name="name" id="name" value="" placeholder="Name">
+                                            <input type="text" name="nombre" id="nombre" value="" placeholder="nombre">
                                         </div>
                                         <div class="col-6 col-12-mobilep">
                                             <input type="text" name="apellido1" id="apellido1" value="" placeholder="Primer Apellido">
