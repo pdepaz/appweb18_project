@@ -44,30 +44,21 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setDescripcion(request.getParameter("descripcion"));
             pelicula.setDirector(request.getParameter("director"));
             pelicula.setGenero(request.getParameter("genero"));
-           //Portada pelicula.setPortada(request.getParameter("portada"));
+            //Portada pelicula.setPortada(request.getParameter("portada"));
             pelicula.setTrailer(request.getParameter("trailer"));
-            //Creador de la pelicula
-            //Realmente el creador es el id del usuario creador(el de la sesion)
+            
+            //El creador es el id del usuario de la sesion
             pelicula.setCreador((int) session.getAttribute("session_id"));
-            //de primeras no estará bloqueada
-            pelicula.setBloqueado(0);
+            pelicula.setBloqueado(0); //No bloqueado la pelicula al principio
 
             db.creaPelicula(pelicula);
 
-            //EN UNA PELICULA RECIEN CREADA, NO HAY COMENTARIOS!
-            List<Comentario> comentarios = new ArrayList<Comentario>();
-
-            request.setAttribute("comentarios", comentarios);
-            request.setAttribute("pelicula", pelicula);
-
-            //Enviamos los atributos a través de un request al jsp
+            List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
             
-            //Yo creo que esto no esta bien
-            //Creo que habrá que mandarselo al controlador para que la muestre.
-            request.getRequestDispatcher("pelicula.jsp").forward(request, response);
-
-
-
+            Pelicula movie = db.cargar_pelicula_nombrepeli(pelicula.getTitulo());
+            
+            String url = "pelicula?id=" + movie.getId();
+            response.sendRedirect(url);
           
         } catch (NamingException|SQLException e){
             e.printStackTrace();

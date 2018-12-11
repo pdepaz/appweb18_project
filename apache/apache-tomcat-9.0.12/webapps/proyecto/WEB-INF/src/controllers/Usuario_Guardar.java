@@ -44,6 +44,7 @@ public class Usuario_Guardar extends HttpServlet {
             user.setApellido2(request.getParameter("apellido2"));
             user.setEmail(request.getParameter("email")); 
             user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
+            
             String contrasenya1 = request.getParameter("contrasenya");
             String contrasenya2 = request.getParameter("contrasenya2");
             if(contrasenya1.equals(contrasenya2)){
