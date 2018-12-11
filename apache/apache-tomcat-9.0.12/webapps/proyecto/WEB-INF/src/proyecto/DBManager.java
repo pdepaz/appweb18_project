@@ -950,24 +950,20 @@ devuelve bloqueado dentro de usuarios
      */
     public boolean check_cambio_password(int userid, String contrasenya) throws SQLException {
         
-            
+        boolean result = false;
         String query = "SELECT * FROM Usuarios WHERE Usuarios.id=? AND Usuarios.contrasenya=?";
-        
-        try (PreparedStatement st = connection.prepareStatement(query)) {
-        // Se insertan los valores en la consulta :
+
+        try(PreparedStatement st = connection.prepareStatement(query)){
+            
             st.setInt(1, userid);
-            st.setString(2, contrasenya);
-            // execute select SQL stetement
+            st.setString(2, contrasenya);           
             ResultSet rs = st.executeQuery();
             
-            if (rs.next()) {
-                
-                return true;
-            }else{
-                return false;
+            if(rs.getInt("id") == userid){ //User found and query OK
+                result = true;
             }
         }
-        
+        return result;
         
     } 
 }

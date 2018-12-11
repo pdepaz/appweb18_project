@@ -48,9 +48,9 @@ public class Perfil_Actualizar extends HttpServlet {
             user.setTelefono(Integer.parseInt((request.getParameter("telefono"))));
             String old_password = request.getParameter("old_contrasenya");
             
-            int id_de_sesion = (int) session.getAttribute("session_id");
+            int session_id = (int) session.getAttribute("session_id");
             //Al iniciar sesión se está atribuyendo el id de usuario a la sesion????
-            boolean result_check = db.check_cambio_password(id_de_sesion, old_password);
+            boolean result_check = db.check_cambio_password(session_id, old_password);
             
             if(result_check){ //old_contrasenya es igual a la de la Base de Datos
                 user.setContrasenya(request.getParameter("new_contrasenya"));
