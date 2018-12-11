@@ -37,15 +37,15 @@ public class Comentario_Peli_Guardar extends HttpServlet {
         HttpSession session = request.getSession();
 
         try (DBManager db = new DBManager()){
-            
+
             int session_id = (int) session.getAttribute("session_id");
-            
+
             Usuario usuario = db.cargar_usuario(session_id);
 
             Comentario nuevo_comentario = new Comentario();
             nuevo_comentario.setComentario_text(request.getParameter("comentario_text"));
             nuevo_comentario.setTipo_tema("Pelicula");
-            nuevo_comentario.setPelicula(Integer.parseInt(request.getParameter("id_pelicula")));
+            nuevo_comentario.setPelicula(Integer.parseInt(request.getParameter("id_peli")));
             //Ver si en la funcion para añadir comentarios en DBManager trata correctamente que sea una pelicula
             nuevo_comentario.setUsuario(session_id);
             java.util.Date dt = new java.util.Date();
@@ -56,10 +56,10 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());
             nuevo_comentario.setBloqueado(0);
 
-            db.creaComentario(nuevo_comentario); 
-            
-            String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
-            response.sendRedirect(atributo);
+            db.creaComentario(nuevo_comentario);
+
+            //String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
+            response.sendRedirect("home_peliculas");
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();
