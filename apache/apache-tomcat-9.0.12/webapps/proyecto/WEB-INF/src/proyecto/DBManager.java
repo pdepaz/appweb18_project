@@ -13,6 +13,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.io.*;
 
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
@@ -313,13 +314,13 @@ devuelve bloqueado dentro de usuarios
 
     } 
 
-    /*
-    Crear Pelicula: Anade una pelicula a la base de datos.
-    @param un objeto pelicula
 
-    */
-    //PROBLEMA CON PORTADA, BLOB NOT NULL
-
+/**
+     * Crear Pelicula. Anade una pelicula a la base de datos.
+     *
+     * @param Pelicula object
+     * @return
+     */
         public void creaPelicula(Pelicula pelicula) throws SQLException {
 
                 String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -339,10 +340,42 @@ devuelve bloqueado dentro de usuarios
                     st.executeUpdate();
                 }
 
-
         }
+        
+        
+/**
+     * Carga la pelicula en funcion de un nombre de pelicula 
+     *
+     * @param String nombre de usuario
+     * @return Pelicula
+     */
+    public Pelicula cargar_pelicula_nombrepeli(String nombre_pelicula) throws SQLException { 
+        
+        Pelicula movie = new Pelicula(); //Objeto de la clase Usuario
+        String query = "SELECT * FROM Peliculas WHERE Peliculas.titulo = ?";
+        
+        try(PreparedStatement st = connection.prepareStatement(query)){
+            st.setString(1, nombre_pelicula);            
+            
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()){ //OK, SQL return something
+                movie.setId(rs.getInt("id"));
+                movie.setTitulo(rs.getString("titulo"));
+                movie.setAnyo(rs.getInt("anyo"));
+                movie.setDuracion(rs.getInt("duracion"));
+                movie.setDescripcion(rs.getString("descripcion"));
+                movie.setDirector(rs.getString("director"));
+                movie.setGenero(rs.getString("genero"));
+                movie.setTrailer(rs.getString("trailer"));
+                movie.setCreador(rs.getInt("creador"));
+                movie.setBloqueado(rs.getInt("bloqueado"));
+            }
+            
+        }
+        return movie;
 
-
+}
 
     /*
     Crear Serie: Anade una serie a la base de datos
@@ -754,8 +787,13 @@ devuelve bloqueado dentro de usuarios
     }
 
 
-    //Carga pelicula para la vista
-    public Pelicula cargarPelicula(int id) throws SQLException { 
+    /**
+     * Carga pelicula (para la vista individual de cada pelicula)
+     *
+     * @param id de la pelicula
+     * @return Pelicula object
+     */      
+     public Pelicula cargarPelicula(int id) throws SQLException { 
         Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
         String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
@@ -770,6 +808,7 @@ devuelve bloqueado dentro de usuarios
                 movie.setDescripcion(rs.getString("descripcion"));
                 movie.setDirector(rs.getString("director"));
                 movie.setGenero(rs.getString("genero"));
+                movie.setPortada(rs.getBytes("portada"));
                 movie.setTrailer(rs.getString("trailer"));
                 movie.setCreador(rs.getInt("creador"));
                 movie.setBloqueado(rs.getInt("bloqueado"));
@@ -967,3 +1006,5 @@ devuelve bloqueado dentro de usuarios
         
     } 
 }
+
+

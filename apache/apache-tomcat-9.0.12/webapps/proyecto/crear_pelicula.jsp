@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <section class="box">
                     <b><h3>Pelicula</h3></b>
-                        <form method="post" action="/pelicula_guardar">
+                        <form method="post" action="pelicula_guardar">
                             <div class="row gtr-uniform gtr-50">
                                 <div class="col-6 col-12-mobilep">
                                     <select name="genero">
@@ -40,7 +40,7 @@
                                 </div>
                 
                                 <div class="col-6 col-12-mobilep">
-                                    <input type="text" placeholder="Duracion" name="duracion" required>
+                                    <input type="text" placeholder="Duracion (min)" name="duracion" required>
                                 </div>
                 
                                 <div class="col-6 col-12-mobilep">
@@ -50,9 +50,13 @@
                                 <div class="col-6 col-12-mobilep">
                                     <input type="text" placeholder="Director" name="director" required>
                                 </div>
+                                
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="YouTube Trailer" name="trailer" required>
+                                </div>
                 
                                 <div class="col-6 col-12-mobilep">
-                                    <textarea name="descripcion" rows="10" cols="40" placeholder="Escriba qui la descipcion"> </textarea>
+                                    <textarea name="descripcion" rows="5" cols="40" placeholder="Escriba aqui la descipcion"> </textarea>
                                 </div>
                 
                             <div class="col-12">
