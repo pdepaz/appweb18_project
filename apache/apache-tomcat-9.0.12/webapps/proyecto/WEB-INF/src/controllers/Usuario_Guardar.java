@@ -57,7 +57,7 @@ public class Usuario_Guardar extends HttpServlet {
             //
             if (nuevo == 1){
             Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());
-
+                
           
                 //USER NO TIENE ID
                 //Almacenamos el id del usuario a través de uno auxiliar
