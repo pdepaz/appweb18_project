@@ -959,7 +959,7 @@ devuelve bloqueado dentro de usuarios
             st.setString(2, contrasenya);           
             ResultSet rs = st.executeQuery();
             
-            if(rs.getInt("id") == userid){ //User found and query OK
+            while(rs.next()){ //User found and query OK
                 result = true;
             }
         }
