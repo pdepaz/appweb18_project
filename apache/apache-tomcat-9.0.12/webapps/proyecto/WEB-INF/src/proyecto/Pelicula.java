@@ -6,18 +6,18 @@ public class Pelicula {
 	private int anyo;
     private int duracion;
     private String descripcion;
-    private String director;    
+    private String director;
     private String genero;
     private byte[] portada;
     private String trailer;
     private int creador;
     private int bloqueado;
 
-    
+
 	public String toString() {
 		return "Pelicula";
 	}
-    
+
     public int getId() {
 		return id;
 	}
@@ -60,7 +60,7 @@ public class Pelicula {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-    public int getPortada() {
+  public byte[] getPortada() {
 		return portada;
 	}
 	public void setPortada(byte[] portada) {
@@ -85,6 +85,6 @@ public class Pelicula {
 		this.bloqueado = bloqueado;
 	}
 
-	
-	
+
+
 }

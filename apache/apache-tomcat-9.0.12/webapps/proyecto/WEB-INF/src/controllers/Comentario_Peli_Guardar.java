@@ -56,10 +56,10 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());
             nuevo_comentario.setBloqueado(0);
 
-            db.creaComentario(nuevo_comentario);
+            db.creaComentarioPeli(nuevo_comentario);
 
-            //String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
-            response.sendRedirect("home_peliculas");
+            String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
+            response.sendRedirect(atributo);
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();

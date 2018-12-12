@@ -242,7 +242,7 @@ devuelve bloqueado dentro de usuarios
      * @param comentario
      * @return 1 if correct, 0 if not created, -1 if error
      */
-    public int creaComentario(Comentario comment) throws SQLException {
+    public int creaComentarioPeli(Comentario comment) throws SQLException {
         //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
 
@@ -261,52 +261,95 @@ devuelve bloqueado dentro de usuarios
             return -1;
         }
 
-        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,serie,libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?)";
+        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, pelicula,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?,?)";
+
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+                st.setString(1, comment.getComentario_text());
+                st.setString(2, "Pelicula");
+                st.setInt(3, comment.getPelicula());
+                //st.setInt(4, 0);
+                //st.setInt(5, 0);
+                st.setInt(4, comment.getUsuario());
+                st.setString(5,"2010-10-10 10:10:10");
+                st.setInt(6, comment.getComentario_padre());
+                st.setInt(7, 0);
+
+          st.executeUpdate();
+          return 1;
+        }
+    }
+    public int creaComentarioSerie(Comentario comment) throws SQLException {
+        //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
+        //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
+
+        //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
+        if(comment.getComentario_text().equals("") || isBloqueado(comment.getUsuario()) == 1){
+            return -1;
+        }
+
+        /*if(comment.getComentario_padre() == 0){
+            comment.setComentario_padre(0);
+        }*/
+
+
+        //CHECK SECURITY
+        if(comment.getComentario_text().contains("<") || comment.getComentario_text().contains(">") || comment.getComentario_text().contains("SELECT")){
+            return -1;
+        }
+
+        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, serie,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?,?)";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
 
-            switch(comment.getTipo_tema()){
-
-            case "Pelicula":
-                st.setString(1, comment.getComentario_text());
-                st.setString(2, "Pelicula");
-                st.setInt(3, comment.getPelicula());
-                st.setInt(4, 0);
-                st.setInt(5, 0);
-                st.setInt(6, comment.getUsuario());
-                st.setString(7,"2010-10-10 10:10:10");
-                st.setInt(8, comment.getComentario_padre());
-                st.setInt(9, 0);
-                break;
-
-            case "Serie":
                 st.setString(1, comment.getComentario_text());
                 st.setString(2, "Serie");
-                st.setInt(3, 0);
+                //st.setInt(3, 0);
                 st.setInt(4, comment.getSerie());
-                st.setInt(5, 0);
+                //st.setInt(5, 0);
                 st.setInt(6, comment.getUsuario());
                 st.setString(7, "2010-10-10 10:10:10");
                 st.setInt(8, comment.getComentario_padre());
                 st.setInt(9, 0);
-                break;
 
-            case "Libro":
+          st.executeUpdate();
+          return 1;
+        }
+    }
+    public int creaComentarioLibro(Comentario comment) throws SQLException {
+        //El usuario que cree un comentario solo verá el botón de comentar si existe de manera que no verifico si existe porque se hará en otro lado
+        //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
+
+        //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
+        if(comment.getComentario_text().equals("") || isBloqueado(comment.getUsuario()) == 1){
+            return -1;
+        }
+
+        /*if(comment.getComentario_padre() == 0){
+            comment.setComentario_padre(0);
+        }*/
+
+
+        //CHECK SECURITY
+        if(comment.getComentario_text().contains("<") || comment.getComentario_text().contains(">") || comment.getComentario_text().contains("SELECT")){
+            return -1;
+        }
+
+        String query = "INSERT INTO Comentarios (comentario_text, tipo_tema, libro,usuario,fecha_creacion,comentario_padre,bloqueado) VALUES (?,?,?,?,?,?,?)";
+
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+
                 st.setString(1, comment.getComentario_text());
                 st.setString(2, "Libro");
-                st.setInt(3, 0);
-                st.setInt(4, 0);
+                //st.setInt(3, 0);
+                //st.setInt(4, 0);
                 st.setInt(5, comment.getLibro());
                 st.setInt(6, comment.getUsuario());
                 st.setString(7,"2010-10-10 10:10:10");
                 st.setInt(8, comment.getComentario_padre());
                 st.setInt(9, 0);
-                break;
-
-            case "default":
-                return -1;
-            }
 
           st.executeUpdate();
           return 1;
@@ -342,24 +385,24 @@ devuelve bloqueado dentro de usuarios
                 }
 
         }
-        
-        
+
+
 /**
-     * Carga la pelicula en funcion de un nombre de pelicula 
+     * Carga la pelicula en funcion de un nombre de pelicula
      *
      * @param String nombre de usuario
      * @return Pelicula
      */
-    public Pelicula cargar_pelicula_nombrepeli(String nombre_pelicula) throws SQLException { 
-        
+    public Pelicula cargar_pelicula_nombrepeli(String nombre_pelicula) throws SQLException {
+
         Pelicula movie = new Pelicula(); //Objeto de la clase Usuario
         String query = "SELECT * FROM Peliculas WHERE Peliculas.titulo = ?";
-        
+
         try(PreparedStatement st = connection.prepareStatement(query)){
-            st.setString(1, nombre_pelicula);            
-            
+            st.setString(1, nombre_pelicula);
+
             ResultSet rs = st.executeQuery();
-            
+
             while (rs.next()){ //OK, SQL return something
                 movie.setId(rs.getInt("id"));
                 movie.setTitulo(rs.getString("titulo"));
@@ -372,7 +415,7 @@ devuelve bloqueado dentro de usuarios
                 movie.setCreador(rs.getInt("creador"));
                 movie.setBloqueado(rs.getInt("bloqueado"));
             }
-            
+
         }
         return movie;
 
@@ -788,18 +831,14 @@ devuelve bloqueado dentro de usuarios
     }
 
 
-<<<<<<< HEAD
     //Carga pelicula para la vista
-    public Pelicula cargarPelicula(int id) throws SQLException {
-=======
     /**
      * Carga pelicula (para la vista individual de cada pelicula)
      *
      * @param id de la pelicula
      * @return Pelicula object
-     */      
-     public Pelicula cargarPelicula(int id) throws SQLException { 
->>>>>>> df9bf09f81d533ed0ddcbbff29a2f1cacd8fd5a8
+     */
+     public Pelicula cargarPelicula(int id) throws SQLException {
         Pelicula movie = new Pelicula(); //Objeto de la clase Pelicula
         String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
         try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
@@ -1012,5 +1051,3 @@ devuelve bloqueado dentro de usuarios
 
     }
 }
-
-

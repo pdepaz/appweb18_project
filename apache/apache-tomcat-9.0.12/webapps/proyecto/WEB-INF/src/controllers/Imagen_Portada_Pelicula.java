@@ -31,26 +31,26 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
      *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         HttpSession session = request.getSession();
 
         int pelicula_id = 0;
-        
+
         pelicula_id = Integer.parseInt(request.getParameter("id")); //Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
 
         try (DBManager db = new DBManager()){
 
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
-            byte[] portada_img = mi_pelicula.getPortada();
-            
-            
-            
+            //byte[] portada_img = mi_pelicula.getPortada();
+
+
+
 
             request.setAttribute("pelicula", mi_pelicula);
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
-          
+
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);
