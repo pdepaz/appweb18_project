@@ -34,17 +34,18 @@ public class Home_Control extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-            
+
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(60*60); //1 hora de sesion maxima
-        
+
         try (DBManager db = new DBManager()){
+            
 
             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
             rd.forward(request, response);
-            
+
         } catch (NamingException|SQLException e){
-            e.printStackTrace(); 
+            e.printStackTrace();
             response.sendError(500);
         }
     }

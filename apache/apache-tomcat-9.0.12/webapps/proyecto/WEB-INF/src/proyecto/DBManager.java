@@ -548,9 +548,11 @@ devuelve bloqueado dentro de usuarios
      * @return true = bloqueado
      */
     public boolean bloquear_tema(String tipo, int id) throws SQLException {
-        if(!isModerador(id)){
-            return false;
-        }
+
+      //comprobar si el usuario es moderador en otro lado yo creo mejor
+        //if(!isModerador(id)){
+        //    return false;
+      //  }
 
         switch(tipo){
             case "Peliculas":
@@ -560,7 +562,7 @@ devuelve bloqueado dentro de usuarios
                     st.setInt(1, id);
                     st.executeUpdate();
                 }
-                String query_bloquear_pelicula2 = "UPDATE Comentarios SET bloqueado=1 WHERE pelicula=?";
+                String query_bloquear_pelicula2 = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.pelicula=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula2)){
                     st.setInt(1, id);
                     st.executeUpdate();

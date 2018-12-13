@@ -7,6 +7,7 @@
 
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
+
 <%Usuario usuario = (Usuario) request.getAttribute("usuario");%>
 
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>

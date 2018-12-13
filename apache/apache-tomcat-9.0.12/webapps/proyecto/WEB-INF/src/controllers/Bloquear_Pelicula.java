@@ -33,19 +33,20 @@ public class Bloquear_Pelicula extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-        
+
         HttpSession session = request.getSession();
-        int peliculaid = (int) request.getAttribute("pelicula_id");
+        int peliculaid = Integer.parseInt(request.getParameter("pelicula_id"));
+
         boolean bloqueada = false;
         try (DBManager db = new DBManager()){
-          
-            bloqueada = db.bloquear_tema("Pelicula",peliculaid);
 
-            if(bloqueada){
+            bloqueada = db.bloquear_tema("Peliculas",peliculaid);
+
+              if(bloqueada){
                 response.sendRedirect("home_peliculas");
-            }
+              }
             //Else error
-                                    
+
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);
