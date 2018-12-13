@@ -19,9 +19,12 @@
         <h1>Pelicula</h1>
         <h2><b><%= pelicula.getTitulo() %></b></h2>
         <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
-           <div class = "boton">
-               <input type = "submit" value = "Bloquear Tema">
-           </div>
+        <form id = "bloquear_pelicula" action = "bloquear_pelicula" method = "post">
+            <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
+              <div class = "boton">
+                  <input type = "submit" value = "Bloquear Pelicula">
+              </div>
+        </form>
         <%}%>
     </header>
 
@@ -58,9 +61,13 @@
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                         <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
                        <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
-                          <div class = "boton">
-                              <input type = "submit" value = "Bloquear Comentario">
-                          </div>
+                       <form id = "bloquear_comentario" action = "bloquear_comentario" method = "post">
+                         <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
+                           <input type = "hidden" name ="comentario_id" value="<%=tmp.getId()%>">
+                             <div class = "boton">
+                                 <input type = "submit" value = "Bloquear Comentario">
+                             </div>
+                       </form>
                        <%}%>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>

@@ -36,15 +36,16 @@ public class Bloquear_comentario extends HttpServlet {
         boolean solucion = false;
         HttpSession session = request.getSession();
         int comentario_id = (int) request.getAttribute("comentario_id");
-        int pelicula_id = (int) request.getAttribute("pelii_id");
+        //int pelicula_id = (int) request.getAttribute("pelii_id");
 
         try (DBManager db = new DBManager()){
-            solucion = db.bloquearComentario(comentario_id);
+            solucion = db.bloquear_comentario(comentario_id);
             if(solucion == false){
               //MANDAR ERROR
             }
             else{
-              sendRedirect("pelicula?id="+pelicula_id);
+              response.sendRedirect("homw");
+              //response.sendRedirect("pelicula?id="+pelicula_id);
             }
         } catch (NamingException|SQLException e){
             e.printStackTrace();

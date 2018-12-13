@@ -23,6 +23,25 @@
   	<section id="main" class="container">
 		<header>
             <h2>Este es el perfil de: <%= usuario.getNombre()%></h2>
+						<%if(mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
+							<%if(usuario.getBloqueado() == 0){%>
+							<%if(!usuario.getTipo_usuario().equals("MODERADOR")){%>
+							<form id = "bloquear_usuario" action = "bloquear_usuario" method = "post">
+									<input type = "hidden" name ="usuario_id" value="<%=usuario.getId()%>">
+										<div class = "boton">
+												<input type = "submit" value = "Bloquear Usuario">
+										</div>
+							</form>
+								<%}%>
+						 	<%}else{%>
+							<form id = "desbloquar_usuario" action = "desbloquear_usuario" method = "post">
+									<input type = "hidden" name ="usuario_id" value="<%=usuario.getId()%>">
+										<div class = "boton">
+												<input type = "submit" value = "Desloquear Usuario">
+										</div>
+							</form>
+						 <%}%>
+						 <%}%>
             <p>Aquí tienes algo de información acerca de este usuario </p>
         </header>
 
