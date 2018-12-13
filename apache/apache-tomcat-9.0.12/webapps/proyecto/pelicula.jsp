@@ -8,6 +8,7 @@
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>
+<% Usuario creador = (Usuario) request.getAttribute("usuariocreador"); %>
 <!DOCTYPE html>
 <html>
 <section id="main" class="container">
@@ -36,7 +37,7 @@
                         <h3><b>Descripción: </b><%= pelicula.getDescripcion()%></h3>
                         <h3><b>Trailer: </b></h3> <iframe width="560" height="315" src="<%=pelicula.getTrailer()%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p> </p>
-                        <h3><b>Usuario Creador: </b><%= pelicula.getCreador()%></h3>
+                        <h3><b>Usuario Creador: </b><a href="usuario?usuarioid=<%= usuariocreador.getId()%>"> <b><%= usuariocreador.getUsuario() %></b></a></h3>
                 </div>
             </div>
         </div>

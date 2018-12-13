@@ -50,6 +50,8 @@ public class Pelicula_Control extends HttpServlet {
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
+            Usuario usuariocreador = db.cargar_usuario(mi_pelicula.getCreador());
+
             //Ahora, cogemos los comentarios asociados a esta pelicula
             List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id,"Pelicula");
 
@@ -59,6 +61,7 @@ public class Pelicula_Control extends HttpServlet {
                 userscomentadores.add(db.cargar_usuario(tmp.getUsuario()));
             }
 
+            request.setAttribute("usuariocreador",usuariocreador);
             request.setAttribute("usersComentadores",userscomentadores);
             request.setAttribute("comentarios_pelicula", comentarios);
             request.setAttribute("pelicula", mi_pelicula);
