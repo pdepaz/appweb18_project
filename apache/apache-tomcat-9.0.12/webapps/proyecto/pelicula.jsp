@@ -8,7 +8,7 @@
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
 
-<%Usuario usuario = (Usuario) request.getAttribute("usuario");%>
+<%Usuario usuario = (Usuario) session.getAttribute("mi_usuario");%>
 
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>
 <% Usuario usuariocreador = (Usuario) request.getAttribute("usuariocreador"); %>
@@ -20,12 +20,21 @@
         <h1>Pelicula</h1>
         <h2><b><%= pelicula.getTitulo() %></b></h2>
         <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
-        <form id = "bloquear_pelicula" action = "bloquear_pelicula" method = "post">
-            <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
-              <div class = "boton">
-                  <input type = "submit" value = "Bloquear Pelicula">
-              </div>
-        </form>
+            <%if(pelicula.getBloqueado()==0){%>
+              <form id = "bloquear_pelicula" action = "bloquear_pelicula" method = "post">
+                <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
+                  <div class = "boton">
+                    <input type = "submit" value = "Bloquear Pelicula">
+                  </div>
+              </form>
+            <%}else{%>
+              <form id = "desbloquear_pelicula" action = "desbloquear_pelicula" method = "post">
+                  <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
+                    <div class = "boton">
+                      <input type = "submit" value = "Desbloquear Pelicula">
+                    </div>
+              </form>
+            <%}%>
         <%}%>
     </header>
 

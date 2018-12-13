@@ -4,6 +4,7 @@
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
 <link rel="stylesheet" href="assets/css/main.css" />
+<%Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario");%>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
 
             <div class="row">
                 <%for(Pelicula movie: pelis_nuevas){%>
-                <%if(movie.getBloqueado() == 0){%>
+                <%if(movie.getBloqueado() == 0 || mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
                     <div class="col-6 col-12-narrower">
                         <section class="box special">
                             <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
@@ -45,7 +46,7 @@
 
             <div class="row">
                 <%for(Pelicula movie: pelis_recomendadas){%>
-                <%if(movie.getBloqueado() == 0){%>
+                <%if(movie.getBloqueado() == 0 || mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
                     <div class="col-6 col-12-narrower">
                         <section class="box special">
                             <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
@@ -66,7 +67,7 @@
         </section>
             <div class="row">
                 <%for(Pelicula movie: pelis_mas_comentadas){%>
-                <%if(movie.getBloqueado() == 0){%>
+                <%if(movie.getBloqueado() == 0 || mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
                     <div class="col-6 col-12-narrower">
                         <section class="box special">
                             <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
