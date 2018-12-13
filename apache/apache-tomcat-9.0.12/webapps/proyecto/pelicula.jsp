@@ -44,15 +44,15 @@
         <h2><b>Comentarios</b></h2>
         <% if(comentarios.size() > 0){ %>
             <% for(Comentario tmp: comentarios) { %>
-            <% for(Usuario ustmp: userscomentadores){ %>
+           
                 <% if (tmp.getBloqueado() == 0){ %>
                     <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
-                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= ustmp.getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
+                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>
                 <% } %>
-                <% } %>
+               
             <% } %>
         <% }else{ %>
             <p>La película no tiene comentarios</p>
