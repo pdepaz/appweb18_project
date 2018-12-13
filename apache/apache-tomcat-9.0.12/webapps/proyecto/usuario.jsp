@@ -61,6 +61,9 @@ if(session.getAttribute("session_id") != null){
                 <li>Email: <%= usuario.getEmail() %></li>
             </ul>
         </div>
+
+        <%@ include file='footer.jsp' %>
+        
 	</section>
 </body>
 </html>

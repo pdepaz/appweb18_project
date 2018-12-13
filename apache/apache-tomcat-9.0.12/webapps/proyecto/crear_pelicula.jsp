@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <title>Crea pelicula</title>
@@ -70,5 +69,7 @@
                 </section>
             </div>
         </div>
+
+        <%@ include file='footer.jsp' %>
       </body>
 </html>

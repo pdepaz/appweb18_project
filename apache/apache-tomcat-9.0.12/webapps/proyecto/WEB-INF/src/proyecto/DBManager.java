@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.List;
 
 import javax.naming.Context;
@@ -15,6 +16,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.*;
 
+import java.nio.*;
+import java.net.*;
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
@@ -1136,4 +1139,44 @@ public boolean checkPelicula(Pelicula pelicula){
         return result;
 
     }
+
+    public static int GetImageFormat(int[] array){
+        //int[] bmp = Encoding.ASCII.GetBytes("BM");     // BMP
+        //int[] gif = Encoding.ASCII.GetBytes("GIF");    // GIF
+        int[] png = new int[] { 137, 80, 78, 71 };    // PNG
+        int[] tiff = new int[] { 73, 73, 42 };         // TIFF
+        int[] tiff2 = new int[] { 77, 77, 42 };         // TIFF
+        int[] jpeg = new int[] { 255, 216, 255, 224 }; // jpeg
+        int[] jpeg2 = new int[] { 255, 216, 255, 225 }; // jpeg canon
+
+        int[] buffer = new int[4];
+        
+        for(int i = 0; i < 4; i++)
+            buffer[i] = array[i];
+
+        /*if (buffer == bmp)
+            return 1; //BMP
+
+        if (buffer == gif)
+            return 2; //GIF*/
+
+        if (buffer == png)
+            return 3; //PNG
+
+        if (buffer == tiff)
+            return 4; //TIFF
+
+        if (buffer == tiff2)
+            return 4; //TIFF
+
+        if (buffer == jpeg)
+            return 5; //JPEG
+
+        if (buffer == jpeg2)
+            return 5; //JPEG
+
+        return 0; //UNKNOWN
+    }
+
+
 }
