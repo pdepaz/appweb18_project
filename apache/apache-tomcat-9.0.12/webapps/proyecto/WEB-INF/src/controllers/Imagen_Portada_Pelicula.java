@@ -19,6 +19,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import java.util.stream;
+
+
 /**
  * Muestra la portada de una pelicula (cogiendola de la Base de Datos)
  *

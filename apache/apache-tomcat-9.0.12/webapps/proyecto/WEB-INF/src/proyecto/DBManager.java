@@ -15,6 +15,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.*;
 
+import java.util.stream;
+
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
