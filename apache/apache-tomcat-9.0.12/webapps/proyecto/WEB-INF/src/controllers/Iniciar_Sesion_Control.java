@@ -31,40 +31,40 @@ public class Iniciar_Sesion_Control extends HttpServlet {
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         HttpSession session = request.getSession();
-		
+
 		if (session != null) {
 		    // Not created yet. Now do so yourself.
-			
+
 			try (DBManager db = new DBManager()){
-            	
+
             	String username = request.getParameter("username");
             	String password = request.getParameter("password");
                 //request.getParameter("g-recaptcha-response");
 
-                
+
             	int id_usuario = db.iniciarSesion(username, password);
 
             	if (id_usuario == -1){
-            		response.sendRedirect("error"); 
+            		response.sendRedirect("error");
             	} else {
             		//Tenemos ya el ID del usuario
    	            	session.setAttribute("session_id", id_usuario);
-                    
-                    response.sendRedirect("home");
+
+                    response.sendRedirect("perfil");
             	}
-          
+
 	        } catch (NamingException|SQLException e){
 	            e.printStackTrace();
 	            response.sendError(500);
 	        }
-            
-            
+
+
 		} else {
 		    // Sesion already created.
-            response.sendRedirect("error"); 
+            response.sendRedirect("error");
 		}
-        
+
     }
 }
