@@ -53,9 +53,10 @@ public class Pelicula_Control extends HttpServlet {
             //Ahora, cogemos los comentarios asociados a esta pelicula
             List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id,"Pelicula");
 
-            List<Usuarios> userscomentadores = new ArrayList<>();
+            List<Usuario> userscomentadores = new ArrayList<>();
             for(Comentario tmp: comentarios){
-                userscomentadores.add(db.cargar_usuario(tmp.getUsuario()));
+                Usuario temp = db.cargar_usuario(tmp.getUsuario());
+                userscomentadores.add(temp);
             }
 
             request.setAttribute("usersComentadores",userscomentadores);
