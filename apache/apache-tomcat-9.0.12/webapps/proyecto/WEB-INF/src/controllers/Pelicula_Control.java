@@ -49,14 +49,13 @@ public class Pelicula_Control extends HttpServlet {
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
-<<<<<<< HEAD
+
             int session_id = (int) session.getAttribute("session_id");
             Usuario usuario = db.cargar_usuario(session_id);
-=======
+
 
             Usuario usuariocreador = db.cargar_usuario(mi_pelicula.getCreador());
 
->>>>>>> 1bb464061c605431436651927d86553e3f5765ad
             //Ahora, cogemos los comentarios asociados a esta pelicula
             List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id,"Pelicula");
 
