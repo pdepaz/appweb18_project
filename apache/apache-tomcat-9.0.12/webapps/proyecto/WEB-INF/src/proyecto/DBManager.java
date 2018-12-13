@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.List;
 
 import javax.naming.Context;
