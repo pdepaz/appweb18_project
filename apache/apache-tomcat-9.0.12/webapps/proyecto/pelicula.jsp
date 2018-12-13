@@ -7,7 +7,7 @@
 
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
-
+<%List<Usuarios> userscomentadores = (List<Usuarios>) request.getAttribute("userscomentadores") ;%>
 <!DOCTYPE html>
 <html>
 <section id="main" class="container">
@@ -44,12 +44,14 @@
         <h2><b>Comentarios</b></h2>
         <% if(comentarios.size() > 0){ %>
             <% for(Comentario tmp: comentarios) {%>
+            <%for(Usuarios ustmp: userscomentadores){ %>
                 <% if (tmp.getBloqueado() == 0){ %>
                     <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
-                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= tmp.getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
+                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= ustmp.getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>
+                <% } %>
                 <% } %>
             <% } %>
         <% }else{ %>
