@@ -34,6 +34,7 @@ public class Pelicula_Guardar extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8"); 
 
         try (DBManager db = new DBManager()){
             
