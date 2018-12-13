@@ -75,7 +75,7 @@
 
 					<h2>Crear cuenta</h2>
 					<p>¿A qué estás esperando?</p>
-					<form >
+					<form action = "crear_cuenta.jsp">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
 								<input type="email" name="email" id="email" placeholder="Email" />
