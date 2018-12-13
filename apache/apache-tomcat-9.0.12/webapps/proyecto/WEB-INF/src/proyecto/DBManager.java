@@ -1105,7 +1105,7 @@ devuelve bloqueado dentro de usuarios
 
     }
 
-    public static int GetImageFormat(Stream stream){
+    public static int GetImageFormat(byte[] array){
         byte[] bmp = Encoding.ASCII.GetBytes("BM");     // BMP
         byte[] gif = Encoding.ASCII.GetBytes("GIF");    // GIF
         byte[] png = new byte[] { 137, 80, 78, 71 };    // PNG
@@ -1115,27 +1115,29 @@ devuelve bloqueado dentro de usuarios
         byte[] jpeg2 = new byte[] { 255, 216, 255, 225 }; // jpeg canon
 
         byte[] buffer = new byte[4];
-        stream.Read(buffer, 0, buffer.Length);
+        
+        for(int i = 0; i < 4; i++)
+            buffer[i]= array.get(i);
 
-        if (bmp.SequenceEqual(buffer.Take(bmp.Length)))
+        if (buffer == bmp)
             return 1; //BMP
 
-        if (gif.SequenceEqual(buffer.Take(gif.Length)))
+        if (buffer == gif)
             return 2; //GIF
 
-        if (png.SequenceEqual(buffer.Take(png.Length)))
+        if (buffer == png)
             return 3; //PNG
 
-        if (tiff.SequenceEqual(buffer.Take(tiff.Length)))
+        if (buffer == tiff)
             return 4; //TIFF
 
-        if (tiff2.SequenceEqual(buffer.Take(tiff2.Length)))
+        if (buffer == tiff2)
             return 4; //TIFF
 
-        if (jpeg.SequenceEqual(buffer.Take(jpeg.Length)))
+        if (buffer == jpeg)
             return 5; //JPEG
 
-        if (jpeg2.SequenceEqual(buffer.Take(jpeg2.Length)))
+        if (buffer == jpeg2)
             return 5; //JPEG
 
         return 0; //UNKNOWN

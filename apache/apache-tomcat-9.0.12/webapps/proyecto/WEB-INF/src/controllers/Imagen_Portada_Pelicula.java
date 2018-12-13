@@ -49,9 +49,9 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             byte[] portada_img = mi_pelicula.getPortada();
 
-            ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
+            //ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
 
-            int result_type_image = db.GetImageFormat(stream_portada_img); //DBManager line 1100
+            int result_type_image = db.GetImageFormat(portada_img); //DBManager line 1100
             //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.
 
             switch (result_type_image) {
