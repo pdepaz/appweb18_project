@@ -1,17 +1,26 @@
-<%@ page language='java' contentType='text/html;charset=utf-8' isErrorPage='false' errorPage='error'%>
+<%@ page language='java' contentType='text/html;charset=utf-8'%>
 
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
 <link rel="stylesheet" href="assets/css/main.css" />
 
+
+<%
+Usuario mi_usuario = new Usuario();
+if(session.getAttribute("session_id") != null){
+    mi_usuario = (Usuario) session.getAttribute("mi_usuario");
+} else {
+    mi_usuario.setTipo_usuario("USUARIO");
+}
+%>
+
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
 
-<%Usuario usuario = (Usuario) session.getAttribute("mi_usuario");%>
-
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>
 <% Usuario usuariocreador = (Usuario) request.getAttribute("usuariocreador"); %>
+
 <!DOCTYPE html>
 <html>
 <section id="main" class="container">
@@ -19,8 +28,11 @@
     <header>
         <h1>Pelicula</h1>
         <h2><b><%= pelicula.getTitulo() %></b></h2>
-        <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
+        
+        <%if(mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
+            
             <%if(pelicula.getBloqueado()==0){%>
+              
               <form id = "bloquear_pelicula" action = "bloquear_pelicula" method = "post">
                 <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
                   <div class = "boton">
@@ -48,7 +60,7 @@
                 <div class="row-6 row-12-mobilep">
                     <div class="row-6 row-12-mobilep">
                     <h3><b>Portada</b></h3>
-                        <img src="<%=pelicula.getTitulo()%>.jpg"/> <%--Aquí para insertar la foto de la portada, falta importar la url de la imagen--%>
+                        <img src="<%=pelicula.getTitulo()%>.jpg" alt="<%=pelicula.getTitulo()%>" width="150"/> <%--Aquí para insertar la foto de la portada, falta importar la url de la imagen--%>
                     </div>
                     <br/>
                         <h3><b>Año: </b><%= pelicula.getAnyo()%></h3>
@@ -70,7 +82,7 @@
                     <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                         <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
-                       <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
+                       <%if(mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
                        <form id = "bloquear_comentario" action = "bloquear_comentario" method = "post">
                          <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
                            <input type = "hidden" name ="comentario_id" value="<%=tmp.getId()%>">
@@ -90,7 +102,7 @@
         <% if(session.getAttribute("session_id") != null){ %>
             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
-                <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+                <textarea name ="comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
                   <div class = "boton">
                       <input type = "submit" value = "Publicar">
                   </div>

@@ -49,8 +49,14 @@ public class Pelicula_Control extends HttpServlet {
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
-            int session_id = (int) session.getAttribute("session_id");
-            Usuario mi_usuario = db.cargar_usuario(session_id);
+            
+            int session_id = -1;
+            Usuario mi_usuario = new Usuario();
+            
+            if(session.getAttribute("session_id") != null){ //Hay sesion
+                session_id = (int) session.getAttribute("session_id");
+                mi_usuario = db.cargar_usuario(session_id);
+            }
 
             Usuario usuariocreador = db.cargar_usuario(mi_pelicula.getCreador());
 

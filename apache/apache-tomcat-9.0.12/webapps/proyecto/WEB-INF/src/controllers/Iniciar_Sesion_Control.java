@@ -50,9 +50,12 @@ public class Iniciar_Sesion_Control extends HttpServlet {
             		response.sendRedirect("error");
             	} else {
             		//Tenemos ya el ID del usuario
+   	            	Usuario mi_usuario = db.cargar_usuario(id_usuario);
+                    session.setAttribute("mi_usuario", mi_usuario);
+                    
    	            	session.setAttribute("session_id", id_usuario);
 
-                    response.sendRedirect("perfil");
+                    response.sendRedirect("home");
             	}
 
 	        } catch (NamingException|SQLException e){

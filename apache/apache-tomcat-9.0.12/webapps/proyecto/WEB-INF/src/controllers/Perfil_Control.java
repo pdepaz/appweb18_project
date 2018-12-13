@@ -46,12 +46,7 @@ public class Perfil_Control extends HttpServlet {
 
 
         try (DBManager db = new DBManager()){
-
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-            
-            Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
-            
-            session.setAttribute("mi_usuario", mi_usuario);
             response.sendRedirect("perfil.jsp");
           
         } catch (NamingException|SQLException e){
