@@ -25,11 +25,19 @@
 					<h2>Manloo</h2>
 					<p>Descubra la nueva manera de comentar películas, series y libros</p>
 
-					<% if(session.getAttribute("session_id") == null){ %>
-					<ul class="actions special">
-						<li><a class="button primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesion</a></li>
-					</ul>
-					<% } %>
+					<%--<ul class="actions special" action="crear_cuenta.">
+						<li><a class="button primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
+					</ul>--%>
+
+					<%if(session.getAttribute("session_id") == null){ %>
+							<form action = "crear_cuenta.jsp">
+								<div class = "boton">
+										<input type = "submit" value = "Crear Cuenta">
+								</div>
+							</div>
+						</form>
+				<%}%>
+
 				</section>
 
 
@@ -38,9 +46,18 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>La red social de la que todo el mundo está hablando.</h2>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<% if(session.getAttribute("session_id") != null){ %>
+						<h2>Busque información acerca de un usuario</h2>
+								<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
+										<input type="text" name ="nombre_usuario" size = "2">
+											<div class = "boton">
+													<input type = "submit" value = "Buscar">
+											</div>
+								</form>
+						<%}else{%>
+							<h3>La red social de la que todo el mundo está hablando</h3>
+						<%}%>
 					</section>
 
 					<div class="row">
@@ -73,15 +90,15 @@
 			<!-- Crear Cuenta -->
 				<section id="cta">
 
-					<h2>Crear cuenta</h2>
+					<h2>Pregúntanos</h2>
 					<p>¿A qué estás esperando?</p>
-					<form action = "crear_cuenta.jsp">
+					<form action = "mailto:manlooAB@hotmail.com">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="Email" />
+								<input type="email" name="email" id="email" placeholder="Consulta" action="mandar_mail">
 							</div>
 							<div class="col-4 col-12-mobilep">
-								<input type="submit" value="Crear Cuenta" class="fit" />
+								<input type="submit" value="Enviar" class="fit" />
 							</div>
 						</div>
 					</form>

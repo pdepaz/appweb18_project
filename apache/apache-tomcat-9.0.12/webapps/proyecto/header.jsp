@@ -26,7 +26,7 @@
 								<li><button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesion</button></li>
 							<% } else { %>
 								<li><form action="cerrar_sesion"><button class="button">Cerrar Sesion</button></form></li>
-							<% } %>							
+							<% } %>
 						</ul>
 					</nav>
 
@@ -39,7 +39,7 @@
 					      <img src="images/img_avatar.png" alt="Avatar" class="avatar">
 					    </div>
 
-					    <!--Form propiamente dicho-->					    
+					    <!--Form propiamente dicho-->
 					    <div class="container">
 					      <label for="username"><b>Usuario</b></label>
 					      <input type="text" placeholder="Introduzca su usuario" id="username" name="username" required>
@@ -48,10 +48,10 @@
 					      <input type="password" placeholder="Introduzca su contraseña" id="password" name="password" required>
 
 					      <div class="g-recaptcha" data-sitekey="6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR"></div>
-					        
+
 					      <button type="submit" class="submitbutton">Iniciar Sesion</button>
-                        </div> 
-                        
+                        </div>
+
                         <div class="container">
 							<input type="checkbox" id="remember" name="remember">
 							<label for="remember">Recuérdame</label>

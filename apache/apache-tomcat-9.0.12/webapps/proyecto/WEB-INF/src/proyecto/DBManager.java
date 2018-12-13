@@ -45,9 +45,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
         connection = null;
     }
-
-
-
     /**
      * Checkea en la DB si el usuario y la contraseña dados por argumentos existen
      *
@@ -114,7 +111,21 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
     }
 
+    /*public boolean buscarUsuario(String usuario)throws SQLException{
+        String query_user = "SELECT * FROM Usuarios WHERE nombre=?"
+        try (PreparedStatement st = connection.prepareStatement(query_user)) {
+        // Se insertan los valores en la consulta :
+            st.setString(1, usuario);
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
 
+            if (rs.next()) {
+                return true; //Doesn't exists
+            } else {
+                return false; //User exists
+            }
+        }
+    }*/
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
      *
@@ -419,10 +430,26 @@ devuelve bloqueado dentro de usuarios
                 movie.setCreador(rs.getInt("creador"));
                 movie.setBloqueado(rs.getInt("bloqueado"));
             }
-
         }
         return movie;
+}
 
+public int getIdByUsuario(String usuario) throws SQLException{
+
+    int id = -1;
+
+    String query_user = "SELECT * FROM Usuarios WHERE Usuarios.usuario=?";
+    try (PreparedStatement st = connection.prepareStatement(query_user)) {
+    // Se insertan los valores en la consulta :
+        st.setString(1, usuario);
+        // execute select SQL stetement
+        ResultSet rs = st.executeQuery();
+        //OK, SQL return something
+        while (rs.next()){ //OK, SQL return something
+          id = rs.getInt("id");
+        }
+    }
+    return id;
 }
 
     /*
