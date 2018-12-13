@@ -3,7 +3,15 @@
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
-<% Usuario mi_usuario = (Usuario) session.getAttribute("mi_usuario"); %>
+<%
+Usuario mi_usuario = new Usuario();
+if(session.getAttribute("session_id") != null){
+    mi_usuario = (Usuario) session.getAttribute("mi_usuario");
+} else {
+    mi_usuario.setTipo_usuario("USUARIO");
+}
+%>
+
 <% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
 
 
@@ -53,6 +61,9 @@
                 <li>Email: <%= usuario.getEmail() %></li>
             </ul>
         </div>
+
+        <%@ include file='footer.jsp' %>
+        
 	</section>
 </body>
 </html>

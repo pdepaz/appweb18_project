@@ -34,9 +34,10 @@ public class Pelicula_Guardar extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8"); 
 
         try (DBManager db = new DBManager()){
-            
+
             Pelicula pelicula = new Pelicula();
             pelicula.setTitulo(request.getParameter("titulo"));
             pelicula.setAnyo(Integer.parseInt((request.getParameter("anyo"))));
@@ -46,20 +47,22 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setGenero(request.getParameter("genero"));
             //Portada pelicula.setPortada(request.getParameter("portada"));
             pelicula.setTrailer(request.getParameter("trailer"));
-            
+
             //El creador es el id del usuario de la sesion
             pelicula.setCreador((int) session.getAttribute("session_id"));
             pelicula.setBloqueado(0); //No bloqueado la pelicula al principio
 
+            if(!db.checkPelicula(pelicula)){
+            response.sendRedirect("error");
+          }
             db.creaPelicula(pelicula);
-
             List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
-            
+
             Pelicula movie = db.cargar_pelicula_nombrepeli(pelicula.getTitulo());
-            
+
             String url = "pelicula?id=" + movie.getId();
             response.sendRedirect(url);
-          
+
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

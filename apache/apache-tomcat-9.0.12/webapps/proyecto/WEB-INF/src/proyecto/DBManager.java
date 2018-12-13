@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.List;
 
 import javax.naming.Context;
@@ -15,6 +16,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.*;
 
+import java.nio.*;
+import java.net.*;
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
@@ -400,7 +403,41 @@ devuelve bloqueado dentro de usuarios
                 }
                 return 1;
         }
+/*
+*
+* Comprueba si la pelicula tiene algun parametro introducido en el formulario invalido
+*     TRUE cuando no tiene FALSE si tiene algun parametro no valido
+*/
+public boolean checkPelicula(Pelicula pelicula){
+  //Anado una comprobacion podemos anadir mas
+      if(pelicula.getTrailer().contains("proyecto")){
+        return false;
+      }
 
+      return true;
+
+}
+//CExiste la peliculaen la base de datos
+/**
+ * Compruebasi existe la peli en la base de datos
+ *
+ * @param id de la pelicula
+ * @return Pelicula object
+ */
+ public boolean existePelicula(int id) throws SQLException {
+     //Objeto de la clase Pelicula
+    String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
+    try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+        if(rs.next()){ //OK, SQL return something
+          return true;
+        }
+
+
+    }
+    return false;
+}
 
 /**
      * Carga la pelicula en funcion de un nombre de pelicula
@@ -1129,4 +1166,44 @@ public int getIdByUsuario(String usuario) throws SQLException{
         return result;
 
     }
+
+    public static int GetImageFormat(int[] array){
+        //int[] bmp = Encoding.ASCII.GetBytes("BM");     // BMP
+        //int[] gif = Encoding.ASCII.GetBytes("GIF");    // GIF
+        int[] png = new int[] { 137, 80, 78, 71 };    // PNG
+        int[] tiff = new int[] { 73, 73, 42 };         // TIFF
+        int[] tiff2 = new int[] { 77, 77, 42 };         // TIFF
+        int[] jpeg = new int[] { 255, 216, 255, 224 }; // jpeg
+        int[] jpeg2 = new int[] { 255, 216, 255, 225 }; // jpeg canon
+
+        int[] buffer = new int[4];
+        
+        for(int i = 0; i < 4; i++)
+            buffer[i] = array[i];
+
+        /*if (buffer == bmp)
+            return 1; //BMP
+
+        if (buffer == gif)
+            return 2; //GIF*/
+
+        if (buffer == png)
+            return 3; //PNG
+
+        if (buffer == tiff)
+            return 4; //TIFF
+
+        if (buffer == tiff2)
+            return 4; //TIFF
+
+        if (buffer == jpeg)
+            return 5; //JPEG
+
+        if (buffer == jpeg2)
+            return 5; //JPEG
+
+        return 0; //UNKNOWN
+    }
+
+
 }

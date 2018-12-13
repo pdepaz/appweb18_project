@@ -31,18 +31,18 @@ public class Error_Control extends HttpServlet {
      *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
-        
+
+
         HttpSession session = request.getSession();
-        
+
         try (DBManager db = new DBManager()){
 
-            request.getRequestDispatcher("error.jsp").forward(request, response); 
-            
+            //request.getRequestDispatcher("error.jsp").forward(request, response);
+            response.sendRedirect("home.jsp");
         } catch (NamingException|SQLException e){
-            e.printStackTrace(); 
+            e.printStackTrace();
             response.sendError(500);
         }
-        
+
     }
 }

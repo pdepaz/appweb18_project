@@ -177,7 +177,8 @@ if(session.getAttribute("session_id") != null){
                         <%}%>
                     <%}%>
                 </div>
-            
+                
+            <%@ include file='footer.jsp' %>
         </body>
     </section>
 </html>
