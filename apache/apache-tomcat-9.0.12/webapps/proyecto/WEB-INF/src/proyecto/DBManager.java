@@ -1118,7 +1118,7 @@ devuelve bloqueado dentro de usuarios
         int[] buffer = new int[4];
         
         for(int i = 0; i < 4; i++)
-            buffer[i]= array.get(i);
+            buffer[i]= array[i];
 
         /*if (buffer == bmp)
             return 1; //BMP
