@@ -38,21 +38,32 @@ public class Pelicula_Control extends HttpServlet {
 
         if(request.getParameter("id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            response.sendRedirect("home_peliculas");
+            //creo que no va a funcionar
+              request.getRequestDispatcher("error").forward(request, response);
         } else {
+
+          try{
             pelicula_id = Integer.parseInt(request.getParameter("id"));
+          }catch(Exception excepcion){
+              request.getRequestDispatcher("error").forward(request, response);
+
+          }
         }
 
 
 
         try (DBManager db = new DBManager()){
-
+            if(!db.existePelicula(pelicula_id)){
+              request.getRequestDispatcher("error").forward(request, response);
+            }
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
+
+
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
-            
+
             int session_id = -1;
             Usuario mi_usuario = new Usuario();
-            
+
             if(session.getAttribute("session_id") != null){ //Hay sesion
                 session_id = (int) session.getAttribute("session_id");
                 mi_usuario = db.cargar_usuario(session_id);
@@ -79,7 +90,7 @@ public class Pelicula_Control extends HttpServlet {
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();
-            response.sendError(500);
+          response.sendError(500);
         }
     }
 }

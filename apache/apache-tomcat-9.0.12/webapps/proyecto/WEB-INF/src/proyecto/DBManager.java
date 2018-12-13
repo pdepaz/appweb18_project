@@ -389,7 +389,41 @@ devuelve bloqueado dentro de usuarios
                 }
                 return 1;
         }
+/*
+*
+* Comprueba si la pelicula tiene algun parametro introducido en el formulario invalido
+*     TRUE cuando no tiene FALSE si tiene algun parametro no valido
+*/
+public boolean checkPelicula(Pelicula pelicula){
+  //Anado una comprobacion podemos anadir mas
+      if(pelicula.getTrailer().contains("proyecto")){
+        return false;
+      }
 
+      return true;
+
+}
+//CExiste la peliculaen la base de datos
+/**
+ * Compruebasi existe la peli en la base de datos
+ *
+ * @param id de la pelicula
+ * @return Pelicula object
+ */
+ public boolean existePelicula(int id) throws SQLException {
+     //Objeto de la clase Pelicula
+    String query_pelicula = "SELECT * FROM Peliculas WHERE id =?";
+    try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+        if(rs.next()){ //OK, SQL return something
+          return true;
+        }
+
+
+    }
+    return false;
+}
 
 /**
      * Carga la pelicula en funcion de un nombre de pelicula

@@ -22,8 +22,8 @@
                         <form method="post" action="pelicula_guardar">
                             <div class="row gtr-uniform gtr-50">
                                 <div class="col-6 col-12-mobilep">
-                                    <select name="genero">
-                                        <option value="Genero">Genero<selected></option>
+                                    <select name="genero" >
+
                                         <option value="Comedia">Comedia</option>
                                         <option value="Accion">Accion</option>
                                         <option value="Animacion">Animacion</option>
@@ -34,31 +34,31 @@
                                         <option value="Terror">Terror</option>
                                     </select>
                                 </div>
-                
+
                                 <div class="col-6 col-12-mobilep">
                                     <input type="text" placeholder="Titulo" name="titulo" required>
                                 </div>
-                
+
                                 <div class="col-6 col-12-mobilep">
                                     <input type="text" placeholder="Duracion (min)" name="duracion" required>
                                 </div>
-                
+
                                 <div class="col-6 col-12-mobilep">
                                     <input type="text" placeholder="Anyo" name="anyo" required>
                                 </div>
-                
+
                                 <div class="col-6 col-12-mobilep">
                                     <input type="text" placeholder="Director" name="director" required>
                                 </div>
-                                
+
                                 <div class="col-6 col-12-mobilep">
-                                    <input type="text" placeholder="YouTube Trailer" name="trailer" required>
+                                    <input type="text" placeholder="YouTube Trailer" name="trailer" >
                                 </div>
-                
+
                                 <div class="col-6 col-12-mobilep">
                                     <textarea name="descripcion" rows="5" cols="40" placeholder="Escriba aqui la descipcion"> </textarea>
                                 </div>
-                
+
                             <div class="col-12">
                                 <ul class="actions">
                                     <li><input type="submit" value="Enviar"></li>
@@ -68,7 +68,7 @@
                         </div>
                     </form>
                 </section>
-            </div>       
+            </div>
         </div>
       </body>
 </html>
