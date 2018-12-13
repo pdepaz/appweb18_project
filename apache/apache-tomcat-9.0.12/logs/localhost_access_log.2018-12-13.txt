@@ -620,3 +620,14 @@
 0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:46:00 +0100] "GET /proyecto/home_peliculas HTTP/1.1" 200 10651
 0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:46:04 +0100] "GET /proyecto/pelicula?id=1 HTTP/1.1" 200 7376
 0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:46:07 +0100] "POST /proyecto/bloquear_comentario HTTP/1.1" 500 1488
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:52:53 +0100] "GET /proyecto/home HTTP/1.1" 200 6620
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:52:55 +0100] "GET /proyecto/home_peliculas HTTP/1.1" 200 10651
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:52:57 +0100] "GET /proyecto/pelicula?id=4 HTTP/1.1" 200 4832
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:09 +0100] "POST /proyecto/comentario_peli_guardar HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:09 +0100] "GET /proyecto/pelicula?id=4 HTTP/1.1" 200 5632
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:45 +0100] "GET /proyecto/home_peliculas HTTP/1.1" 200 11278
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:47 +0100] "GET /proyecto/cerrar_sesion? HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:47 +0100] "GET /proyecto/home HTTP/1.1" 200 6532
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:54 +0100] "POST /proyecto/iniciar_sesion HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:54 +0100] "GET /proyecto/home HTTP/1.1" 200 6620
+0:0:0:0:0:0:0:1 - - [13/Dec/2018:12:53:57 +0100] "GET /proyecto/crear_pelicula.jsp HTTP/1.1" 200 6134
