@@ -7,13 +7,10 @@
 
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
-<<<<<<< HEAD
 <%Usuario usuario = (Usuario) request.getAttribute("usuario");%>
 
-=======
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>
 <% Usuario usuariocreador = (Usuario) request.getAttribute("usuariocreador"); %>
->>>>>>> 1bb464061c605431436651927d86553e3f5765ad
 <!DOCTYPE html>
 <html>
 <section id="main" class="container">
@@ -55,12 +52,11 @@
         <h2><b>Comentarios</b></h2>
         <% if(comentarios.size() > 0){ %>
             <% for(Comentario tmp: comentarios) { %>
-           
+
                 <% if (tmp.getBloqueado() == 0){ %>
                     <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
-<<<<<<< HEAD
-                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= tmp.getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
+                        <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
                        <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
                           <div class = "boton">
                               <input type = "submit" value = "Bloquear Comentario">
@@ -68,15 +64,9 @@
                        <%}%>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>
-            <% } %>
-=======
-                       <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
+            <%}%>
+            <%}%>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
-                    </div>
-                <% } %>
-               
->>>>>>> 1bb464061c605431436651927d86553e3f5765ad
-            <% } %>
         <% }else{ %>
             <p>La película no tiene comentarios</p>
         <% } %>

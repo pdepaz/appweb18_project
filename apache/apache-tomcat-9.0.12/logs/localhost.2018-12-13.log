@@ -9590,3 +9590,1265 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
+13-Dec-2018 11:50:20.843 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+13-Dec-2018 11:50:20.843 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+13-Dec-2018 11:50:22.883 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+13-Dec-2018 11:50:22.883 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+13-Dec-2018 11:50:22.886 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
+13-Dec-2018 11:50:38.349 GRAVE [http-nio-9190-exec-9] org.apache.catalina.core.ApplicationDispatcher.invoke El Servlet.service() para servlet [jsp] lanzó una excepción
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [80] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+77:                
+78: >>>>>>> 1bb464061c605431436651927d86553e3f5765ad
+79:             <% } %>
+80:         <% }else{ %>
+81:             <p>La película no tiene comentarios</p>
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [85] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+84:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+85:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+86:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+87:                   <div class = "boton">
+88:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [379] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [387] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [388] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:50:38.349 GRAVE [http-nio-9190-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [proyecto.Pelicula_Control] en el contexto con ruta [/proyecto] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [80] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+77:                
+78: >>>>>>> 1bb464061c605431436651927d86553e3f5765ad
+79:             <% } %>
+80:         <% }else{ %>
+81:             <p>La película no tiene comentarios</p>
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [85] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+84:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+85:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+86:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+87:                   <div class = "boton">
+88:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [379] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [387] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [388] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:] con causa raíz
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [80] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+77:                
+78: >>>>>>> 1bb464061c605431436651927d86553e3f5765ad
+79:             <% } %>
+80:         <% }else{ %>
+81:             <p>La película no tiene comentarios</p>
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [85] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+82:         <% } %>
+83:         <% if(session.getAttribute("session_id") != null){ %>
+84:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+85:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+86:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+87:                   <div class = "boton">
+88:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [376] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [379] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [384] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [387] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [388] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:51:12.582 GRAVE [http-nio-9190-exec-3] org.apache.catalina.core.ApplicationDispatcher.invoke El Servlet.service() para servlet [jsp] lanzó una excepción
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [74] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+71:                 <% } %>
+72: 
+73:             <% } %>
+74:         <% }else{ %>
+75:             <p>La película no tiene comentarios</p>
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [79] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+78:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+79:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+80:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+81:                   <div class = "boton">
+82:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [367] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [372] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [382] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:51:12.583 GRAVE [http-nio-9190-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [proyecto.Pelicula_Control] en el contexto con ruta [/proyecto] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [74] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+71:                 <% } %>
+72: 
+73:             <% } %>
+74:         <% }else{ %>
+75:             <p>La película no tiene comentarios</p>
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [79] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+78:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+79:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+80:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+81:                   <div class = "boton">
+82:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [367] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [372] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [382] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:] con causa raíz
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [74] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+71:                 <% } %>
+72: 
+73:             <% } %>
+74:         <% }else{ %>
+75:             <p>La película no tiene comentarios</p>
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [79] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+76:         <% } %>
+77:         <% if(session.getAttribute("session_id") != null){ %>
+78:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+79:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+80:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+81:                   <div class = "boton">
+82:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [367] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [372] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [373] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [378] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [381] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [382] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:15.290 GRAVE [http-nio-9190-exec-8] org.apache.catalina.core.ApplicationDispatcher.invoke El Servlet.service() para servlet [jsp] lanzó una excepción
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:15.291 GRAVE [http-nio-9190-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [proyecto.Pelicula_Control] en el contexto con ruta [/proyecto] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:] con causa raíz
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:19.649 GRAVE [http-nio-9190-exec-7] org.apache.catalina.core.ApplicationDispatcher.invoke El Servlet.service() para servlet [jsp] lanzó una excepción
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:19.650 GRAVE [http-nio-9190-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [proyecto.Pelicula_Control] en el contexto con ruta [/proyecto] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:] con causa raíz
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [73] en el archivo jsp: [/pelicula.jsp]
+Syntax error on token "else", finally expected
+70:                 <% } %>
+71: 
+72:             <% } %>
+73:         <% }else{ %>
+74:             <p>La película no tiene comentarios</p>
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [78] en el archivo jsp: [/pelicula.jsp]
+pelicula cannot be resolved
+75:         <% } %>
+76:         <% if(session.getAttribute("session_id") != null){ %>
+77:             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+78:                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+79:                 <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+80:                   <div class = "boton">
+81:                       <input type = "submit" value = "Publicar">
+
+
+Ha tenido lugar un error en la línea: [360] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "catch", Identifier expected
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [362] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [363] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [365] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+response cannot be resolved
+
+Ha tenido lugar un error en la línea: [366] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [368] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+out cannot be resolved
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Ha tenido lugar un error en la línea: [371] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved
+
+Ha tenido lugar un error en la línea: [374] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "finally", { expected
+
+Ha tenido lugar un error en la línea: [375] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+_jspx_page_context cannot be resolved to a variable
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:53.804 GRAVE [http-nio-9190-exec-6] org.apache.catalina.core.ApplicationDispatcher.invoke El Servlet.service() para servlet [jsp] lanzó una excepción
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [69] en el archivo jsp: [/pelicula.jsp]
+Syntax error, insert "}" to complete Statement
+66:                     </div>
+67:             <% } %>
+68:                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
+69:         <% }else{ %>
+70:             <p>La película no tiene comentarios</p>
+71:         <% } %>
+72:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "}", delete this token
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+13-Dec-2018 11:52:53.804 GRAVE [http-nio-9190-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [proyecto.Pelicula_Control] en el contexto con ruta [/proyecto] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [69] en el archivo jsp: [/pelicula.jsp]
+Syntax error, insert "}" to complete Statement
+66:                     </div>
+67:             <% } %>
+68:                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
+69:         <% }else{ %>
+70:             <p>La película no tiene comentarios</p>
+71:         <% } %>
+72:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "}", delete this token
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:] con causa raíz
+ org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [69] en el archivo jsp: [/pelicula.jsp]
+Syntax error, insert "}" to complete Statement
+66:                     </div>
+67:             <% } %>
+68:                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
+69:         <% }else{ %>
+70:             <p>La película no tiene comentarios</p>
+71:         <% } %>
+72:         <% if(session.getAttribute("session_id") != null){ %>
+
+
+Ha tenido lugar un error en la línea: [369] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error on token "}", delete this token
+
+Ha tenido lugar un error en la línea: [370] en el fichero java generado: [/var/home/lab/alum0/03/46/805/Escritorio/Appweb/appweb18_project/apache/apache-tomcat-9.0.12/work/Catalina/localhost/proyecto/org/apache/jsp/pelicula_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:103)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:473)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:392)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:383)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:668)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
