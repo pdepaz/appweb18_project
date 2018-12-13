@@ -1,4 +1,4 @@
-<%@ page language='java' contentType='text/html;charset=utf-8' isErrorPage='false'%>
+<%@ page language='java' contentType='text/html;charset=utf-8'%>
 
 <!-- Footer -->
     <footer id="footer">
