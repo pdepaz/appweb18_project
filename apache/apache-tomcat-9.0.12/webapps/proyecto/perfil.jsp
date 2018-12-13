@@ -104,6 +104,7 @@
     </section>
     
     <%@ include file='footer.jsp' %>
+    
     <script type="text/javascript"> 
         document.getElementById('nombre').value = '<%=mi_usuario.getNombre()%>';
         document.getElementById('apellido1').value = '<%=mi_usuario.getApellido1()%>';

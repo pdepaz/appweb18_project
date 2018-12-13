@@ -131,6 +131,7 @@ if(session.getAttribute("session_id") != null){
             </form>
         <%}%>
         
+        <%@ include file='footer.jsp' %>
       </body>
 </section>
 </html>
