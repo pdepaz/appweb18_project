@@ -36,18 +36,39 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
         int pelicula_id = 0;
 
-        pelicula_id = Integer.parseInt(request.getParameter("id")); //Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
+        //Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
+        //imagen?id_pelicula=___
+        pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
 
         try (DBManager db = new DBManager()){
 
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
-            //byte[] portada_img = mi_pelicula.getPortada();
+            byte[] portada_img = mi_pelicula.getPortada();
 
+            ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
 
+            int result_type_image = db.GetImageFormat(stream_portada_img); //DBManager line 1100
+            //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.
 
+            switch (result_type_image) {
+                case 0:  response.sendRedirect("cerrar_sesion");
+                         break;
+                case 1:  response.setContentType("image/bmp");
+                         break;
+                case 2:  response.setContentType("image/gif");
+                         break;
+                case 3:  response.setContentType("image/png");
+                         break;
+                case 4:  response.setContentType("image/tiff");
+                         break;
+                case 5:  response.setContentType("image/jpeg");
+                         break;
+                default: response.sendRedirect("cerrar_sesion");
+                         break;
+            }
 
-            request.setAttribute("pelicula", mi_pelicula);
+            request.setAttribute("portada_img", portada_img);
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
 
