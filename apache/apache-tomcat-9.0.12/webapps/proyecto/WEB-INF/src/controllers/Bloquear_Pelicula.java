@@ -39,7 +39,7 @@ public class Bloquear_Pelicula extends HttpServlet {
         boolean bloqueada = false;
         try (DBManager db = new DBManager()){
           
-            bloqueada = bloquear_tema("Pelicula",peliculaid);
+            bloqueada = db.bloquear_tema("Pelicula",peliculaid);
 
             if(bloqueada){
                 response.sendRedirect("home_peliculas");
