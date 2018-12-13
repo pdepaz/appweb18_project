@@ -8,7 +8,7 @@
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
 <%List<Usuario> userscomentadores = (List<Usuario>) request.getAttribute("usersComentadores"); %>
-<% Usuario creador = (Usuario) request.getAttribute("usuariocreador"); %>
+<% Usuario usuariocreador = (Usuario) request.getAttribute("usuariocreador"); %>
 <!DOCTYPE html>
 <html>
 <section id="main" class="container">
