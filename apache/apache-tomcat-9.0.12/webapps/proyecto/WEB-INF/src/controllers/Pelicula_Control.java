@@ -31,33 +31,35 @@ public class Pelicula_Control extends HttpServlet {
      *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+
         HttpSession session = request.getSession();
 
         int pelicula_id = 0;
-        
+
         if(request.getParameter("id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            response.sendRedirect("home_peliculas");            
+            response.sendRedirect("home_peliculas");
         } else {
             pelicula_id = Integer.parseInt(request.getParameter("id"));
         }
-        
+
 
 
         try (DBManager db = new DBManager()){
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
-
+            int session_id = (int) session.getAttribute("session_id");
+            Usuario usuario = db.cargar_usuario(session_id);
             //Ahora, cogemos los comentarios asociados a esta pelicula
             List<Comentario> comentarios = db.cargar_comentarios_list(pelicula_id,"Pelicula");
 
             request.setAttribute("comentarios_pelicula", comentarios);
             request.setAttribute("pelicula", mi_pelicula);
+            request.setAttribute("usuario", usuario);
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
-          
+
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

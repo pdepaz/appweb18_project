@@ -7,6 +7,7 @@
 
 <%Pelicula pelicula = (Pelicula) request.getAttribute("pelicula");%>
 <%List<Comentario> comentarios = (List<Comentario>) request.getAttribute("comentarios_pelicula");%>
+<%Usuario usuario = (Usuario) request.getAttribute("usuario");%>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,11 @@
     <header>
         <h1>Pelicula</h1>
         <h2><b><%= pelicula.getTitulo() %></b></h2>
+        <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
+           <div class = "boton">
+               <input type = "submit" value = "Bloquear Tema">
+           </div>
+        <%}%>
     </header>
 
     <body>
@@ -48,21 +54,27 @@
                     <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                        <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= tmp.getUsuario() %></b></a>:<%= tmp.getComentario_text()%></h3>
+                       <%if(usuario.getTipo_usuario().equals("MODERADOR")){%>
+                          <div class = "boton">
+                              <input type = "submit" value = "Bloquear Comentario">
+                          </div>
+                       <%}%>
                         <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
                     </div>
-                <% } %>
+            <% } %>
             <% } %>
         <% }else{ %>
             <p>La película no tiene comentarios</p>
         <% } %>
-
-        <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
-            <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
-            <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
-            <div class = "boton">
-                <input type = "submit" value = "Publicar">
-            </div>
-        </form>
-    </body>
+        <% if(session.getAttribute("session_id") != null){ %>
+            <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+                <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
+                <textarea name ="comentario_text" rows="10" cols="40">Escribe aquí tu comentario</textarea>
+                  <div class = "boton">
+                      <input type = "submit" value = "Publicar">
+                  </div>
+            </form>
+        <%}%>
+      </body>
 </section>
 </html>

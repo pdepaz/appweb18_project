@@ -247,7 +247,7 @@ devuelve bloqueado dentro de usuarios
         //El comentario vendrá a traves de un formulario del que podremos obtener quien es el usuario y su id.
 
         //comprobamos si la cadena introducida es espacio vacio o si el usuario está bloqueado
-        if(comment.getComentario_text().equals("") || isBloqueado(comment.getUsuario()) == 1){
+        if(comment.getComentario_text().equals("") || isBloqueado(comment.getUsuario()) == 1 || comment.getBloqueado() == 1){
             return -1;
         }
 
@@ -365,7 +365,11 @@ devuelve bloqueado dentro de usuarios
      * @param Pelicula object
      * @return
      */
-        public void creaPelicula(Pelicula pelicula) throws SQLException {
+        public int creaPelicula(Pelicula pelicula) throws SQLException {
+
+                if(isBloqueado(pelicula.getCreador()) == 1 || pelicula.getBloqueado() == 1){
+                    return -1;
+                }
 
                 String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
 
@@ -383,7 +387,7 @@ devuelve bloqueado dentro de usuarios
 
                     st.executeUpdate();
                 }
-
+                return 1;
         }
 
 
@@ -556,12 +560,22 @@ devuelve bloqueado dentro de usuarios
                     st.setInt(1, id);
                     st.executeUpdate();
                 }
+                String query_bloquear_pelicula2 = "UPDATE Comentarios SET bloqueado=1 WHERE pelicula=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_pelicula2)){
+                    st.setInt(1, id);
+                    st.executeUpdate();
+                }
                 break;
 
             case "Series":
 
                 String query_bloquear_serie = "UPDATE Series SET Series.bloqueado=1 WHERE Series.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie)){
+                    st.setInt(1, id);
+                    st.executeUpdate();
+                }
+                String query_bloquear_serie2 = "UPDATE Comentarios SET bloqueado=1 WHERE serie=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_serie2)){
                     st.setInt(1, id);
                     st.executeUpdate();
                 }
@@ -572,6 +586,11 @@ devuelve bloqueado dentro de usuarios
 
                 String query_bloquear_libro = "UPDATE Libros SET Libros.bloqueado=1 WHERE Libros.id=?";
                 try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro)){
+                    st.setInt(1, id);
+                    st.executeUpdate();
+                }
+                String query_bloquear_libro2 = "UPDATE Comentarios SET bloqueado=1 WHERE libro=?";
+                try(PreparedStatement st = connection.prepareStatement(query_bloquear_libro2)){
                     st.setInt(1, id);
                     st.executeUpdate();
                 }
@@ -636,9 +655,17 @@ devuelve bloqueado dentro de usuarios
             return false;
         }
 
-        String query_bloquear_usuario = "UPDATE Usuarios SET Usuarios.bloqueado=1 WHERE Usuarios.id=?";
+        String query_bloquear_usuario = "UPDATE Usuarios SET bloqueado=1 WHERE id=?";
 
         try(PreparedStatement st = connection.prepareStatement(query_bloquear_usuario)){
+            st.setInt(1, id);
+
+            st.executeUpdate();
+        }
+
+        String query_bloquear_usuario2 = "UPDATE Comentarios SET bloqueado=1 WHERE usuario=?";
+
+        try(PreparedStatement st = connection.prepareStatement(query_bloquear_usuario2)){
             st.setInt(1, id);
 
             st.executeUpdate();

@@ -17,7 +17,7 @@
 </head>
 
 <body class="is-preload">
-    
+
     <%@ include file='header.jsp' %>
 
   	<section id="main" class="container">
@@ -26,7 +26,6 @@
             <p>Aquí tienes algo de información acerca de este usuario </p>
         </header>
 
-	
         <div class="col-6 col-12-mobilep" >
             <ul class="alt">
                 <li>Nombre: <%= usuario.getNombre() %></li>
@@ -35,6 +34,5 @@
             </ul>
         </div>
 	</section>
-
 </body>
 </html>
