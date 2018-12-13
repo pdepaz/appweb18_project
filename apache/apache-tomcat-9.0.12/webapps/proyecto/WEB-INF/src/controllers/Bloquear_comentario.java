@@ -35,7 +35,7 @@ public class Bloquear_comentario extends HttpServlet {
     {
         boolean solucion = false;
         HttpSession session = request.getSession();
-        int comentario_id = (int) request.getAttribute("comentario_id");
+        int comentario_id = Integer.parseInt(request.getParameter("comentario_id"));
         //int pelicula_id = (int) request.getAttribute("pelii_id");
 
         try (DBManager db = new DBManager()){
@@ -44,7 +44,7 @@ public class Bloquear_comentario extends HttpServlet {
               //MANDAR ERROR
             }
             else{
-              response.sendRedirect("homw");
+              response.sendRedirect("home");
               //response.sendRedirect("pelicula?id="+pelicula_id);
             }
         } catch (NamingException|SQLException e){

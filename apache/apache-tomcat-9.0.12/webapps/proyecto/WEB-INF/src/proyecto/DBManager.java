@@ -506,9 +506,6 @@ devuelve bloqueado dentro de usuarios
      * @return true = bloqueado
      */
     public boolean bloquear_comentario(int id) throws SQLException { //Pasamos el id del comentario que queremos bloquear
-        if(!isModerador(id)){
-            return false;
-        }
 
         String query_bloquear_comentario = "UPDATE Comentarios SET Comentarios.bloqueado=1 WHERE Comentarios.id=?";
 

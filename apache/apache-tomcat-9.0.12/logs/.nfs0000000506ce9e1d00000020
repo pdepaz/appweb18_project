@@ -13430,7 +13430,6 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-<<<<<<< HEAD
 13-Dec-2018 13:07:56.936 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
 13-Dec-2018 13:07:56.936 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 13-Dec-2018 13:07:56.938 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
@@ -13712,22 +13711,6 @@ Stacktrace:
 13-Dec-2018 13:30:26.089 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 13-Dec-2018 13:30:26.090 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
 13-Dec-2018 13:30:36.973 GRAVE [http-nio-9190-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
-=======
-13-Dec-2018 13:15:40.407 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
-13-Dec-2018 13:15:40.407 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
-13-Dec-2018 13:15:40.409 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
-13-Dec-2018 13:19:03.959 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
-13-Dec-2018 13:19:03.959 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
-13-Dec-2018 13:19:05.607 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
-13-Dec-2018 13:19:05.607 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
-13-Dec-2018 13:19:05.609 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
-13-Dec-2018 13:19:11.028 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
-13-Dec-2018 13:19:11.029 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
-13-Dec-2018 13:19:12.516 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
-13-Dec-2018 13:19:12.516 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
-13-Dec-2018 13:19:12.518 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
-13-Dec-2018 13:19:42.347 GRAVE [http-nio-9190-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
->>>>>>> fcbe4810333bc2d04b5d11569b6af1e1964c4c42
  java.lang.NullPointerException
 	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:53)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
@@ -13755,16 +13738,12 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-<<<<<<< HEAD
 13-Dec-2018 13:35:40.053 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 13-Dec-2018 13:35:40.053 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
 13-Dec-2018 13:36:35.966 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
 13-Dec-2018 13:36:35.967 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 13-Dec-2018 13:36:35.968 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
 13-Dec-2018 13:36:47.281 GRAVE [http-nio-9190-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
-=======
-13-Dec-2018 13:19:45.879 GRAVE [http-nio-9190-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
->>>>>>> fcbe4810333bc2d04b5d11569b6af1e1964c4c42
  java.lang.NullPointerException
 	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:53)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
@@ -13792,11 +13771,7 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-<<<<<<< HEAD
 13-Dec-2018 13:37:54.442 GRAVE [http-nio-9190-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
-=======
-13-Dec-2018 13:20:05.297 GRAVE [http-nio-9190-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Control] lanzó excepción
->>>>>>> fcbe4810333bc2d04b5d11569b6af1e1964c4c42
  java.lang.NullPointerException
 	at proyecto.Pelicula_Control.doGet(Pelicula_Control.java:53)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
@@ -13824,7 +13799,6 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-<<<<<<< HEAD
 13-Dec-2018 13:39:55.194 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 13-Dec-2018 13:39:55.194 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
 13-Dec-2018 13:40:03.017 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
@@ -14360,10 +14334,3 @@ Stacktrace:
 13-Dec-2018 13:45:26.589 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
 13-Dec-2018 13:45:26.589 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 13-Dec-2018 13:45:26.591 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
-=======
-13-Dec-2018 13:24:28.013 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
-13-Dec-2018 13:24:28.013 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
-13-Dec-2018 13:24:29.406 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
-13-Dec-2018 13:24:29.407 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
-13-Dec-2018 13:24:29.408 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@20bd8be5')
->>>>>>> fcbe4810333bc2d04b5d11569b6af1e1964c4c42
