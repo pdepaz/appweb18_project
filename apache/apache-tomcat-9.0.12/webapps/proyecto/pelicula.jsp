@@ -40,6 +40,7 @@ if(session.getAttribute("session_id") != null){
                   </div>
               </form>
             <%}else{%>
+            <p>La película está Bloqueado</p>
               <form id = "desbloquear_pelicula" action = "desbloquear_pelicula" method = "post">
                   <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
                     <div class = "boton">
@@ -77,29 +78,50 @@ if(session.getAttribute("session_id") != null){
         <h2><b>Comentarios</b></h2>
         <% if(comentarios.size() > 0){ %>
             <% for(Comentario tmp: comentarios) { %>
-
-                <% if (tmp.getBloqueado() == 0){ %>
-                    <div class="row-6 row-12-mobilep">
+                <%if (mi_usuario.getTipo_usuario().equals("MODERADOR")){ %>
+                        <%if (tmp.getBloqueado() == 0){%>
+                            <div class="row-6 row-12-mobilep">
+                                <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
+                                <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
+                            <form id = "bloquear_comentario" action = "bloquear_comentario" method = "post">
+                                <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
+                                <input type = "hidden" name ="comentario_id" value="<%=tmp.getId()%>">
+                                    <div class = "boton">
+                                        <input type = "submit" value = "Bloquear Comentario">
+                                    </div>
+                            </form>
+                            </div>
+                        <%}else{%>
+                            <div class="row-6 row-12-mobilep">
+                                <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
+                                <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
+                                <p>El comentario está Bloqueado</p>
+                                <form id = "desbloquear_comentario" action = "desbloquear_comentario" method = "post">
+                                <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
+                                    <input type = "hidden" name ="comentario_id" value="<%=tmp.getId()%>">
+                                    <div class = "boton">
+                                        <input type = "submit" value = "Desbloquear Comentario">
+                                    </div>
+                                </form>
+                            </div>
+                        <%}%>
+                        
+                <%} else {%> <%-- USUARIO NORMAL--%>
+                    <%if (tmp.getBloqueado() == 0){%>
+                        <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                         <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
-                       <%if(mi_usuario.getTipo_usuario().equals("MODERADOR")){%>
-                       <form id = "bloquear_comentario" action = "bloquear_comentario" method = "post">
-                         <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
-                           <input type = "hidden" name ="comentario_id" value="<%=tmp.getId()%>">
-                             <div class = "boton">
-                                 <input type = "submit" value = "Bloquear Comentario">
-                             </div>
-                       </form>
-                       <%}%>
-                        <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
-                    </div>
-            <%}%>
-            <%}%>
-                        <%--AQUI, PONER UN TEXT AREA O ALGO PARA CONTESTAR --%>
-        <% }else{ %>
+                        </div>
+                    <%}%>
+                <%}%>
+            <%}%> <%-- End of FOR--%>
+        
+        <%} else { %>
             <p>La película no tiene comentarios</p>
-        <% } %>
-        <% if(session.getAttribute("session_id") != null){ %>
+        <%}%>
+        
+        
+        <%if(session.getAttribute("session_id") != null){ %>
             <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
                 <textarea name ="comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
@@ -108,6 +130,7 @@ if(session.getAttribute("session_id") != null){
                   </div>
             </form>
         <%}%>
+        
       </body>
 </section>
 </html>

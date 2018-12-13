@@ -34,6 +34,7 @@
 							</form>
 								<%}%>
 						 	<%}else{%>
+							<p>EL usuario está Bloqueado</p>
 							<form id = "desbloquar_usuario" action = "desbloquear_usuario" method = "post">
 									<input type = "hidden" name ="usuario_id" value="<%=usuario.getId()%>">
 										<div class = "boton">
