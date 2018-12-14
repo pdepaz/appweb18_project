@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.lang.reflect.Array;
-import java.util.List;
+import java.util.*;
+
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -905,7 +906,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
@@ -934,7 +935,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
@@ -963,7 +964,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
