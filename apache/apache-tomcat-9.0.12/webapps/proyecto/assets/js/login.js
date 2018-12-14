@@ -1,4 +1,4 @@
-// Get the modal
+// Get the modal for LOGING IN
 var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -8,7 +8,7 @@ window.onclick = function(event) {
 }
 
 
-// Get the modal
+// Get the modal for EDITING A PROFILE
 var modal = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -18,9 +18,11 @@ window.onclick = function(event) {
 }
 
 
-grecaptcha.ready(function() {
-grecaptcha.execute('6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR', {action: 'login'})
-.then(function(token) {
-// Verify the token on the server.
-});
-});
+// Get the modal for CREATING A ACCOUNT
+var modal = document.getElementById('id03');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
