@@ -22,16 +22,11 @@
 
 			<section id="main" class="container">
                 <header>
-                    <h2>Error</h2>
-                    <p>Ha habido un problema procesando su solicitud :(</p>
                     
-					<section id="cta">
-
-						<div class="col-8 col-12-mobilep">
-							<img src="404_error.png" alt="Error">	
-						</div>
-
-						<form action = "home">
+                    <h2>Error</h2>
+                    <p>Ha habido un problema procesando su solicitud</p>
+                    
+                    <form action = "home">
 							<div class="row gtr-50 gtr-uniform">
 	
 								<div class="col-4 col-12-mobilep">
@@ -39,7 +34,13 @@
 								</div>
 
 							</div>
-						</form>
+					</form>
+
+					<section id="cta">
+
+						<div class="col-8 col-12-mobilep">
+							<img src="404_error.png" alt="Error">	
+						</div>
 
 					</section>
 
