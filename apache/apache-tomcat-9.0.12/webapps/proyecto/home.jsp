@@ -91,9 +91,9 @@
 
 					<h2>Envianos tu consulta</h2>
 					<p>¿A qué estás esperando?</p>
-					<form action = "mailto:manlooAB@hotmail.com,name2@mail.com?subject=Consulta%20Manloo&amp;body=Escriba%20aqu%C3%AD%20su%20consulta">
+					<form action = "mailto:manlooAB@hotmail.com?subject=Consulta%20Manloo>
 						<div class="row gtr-50 gtr-uniform">
-							<div class="col-4 col-12-mobilep">
+							<div class="boton">
 								<input type="submit" value="Consultar" class="fit" />
 							</div>
 						</div>
