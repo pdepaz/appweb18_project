@@ -16,7 +16,7 @@
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
-									<li><a onclick="document.getElementById('id04').style.display='block'" style="width:auto;>Pelicula</a></li>
+									<li onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Pelicula</li>
 									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
