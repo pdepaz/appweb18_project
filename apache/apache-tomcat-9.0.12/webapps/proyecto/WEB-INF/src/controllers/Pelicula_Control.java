@@ -42,11 +42,12 @@ public class Pelicula_Control extends HttpServlet {
 
             if(request.getParameter("id") == null){
             //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            //creo que no va a funcionar
-              request.getRequestDispatcher("error").forward(request, response);
+            
+             // request.getRequestDispatcher("error").forward(request, response);
+              throws new Exception();
         } else {
 
-            //Si lanza la exceipcion lo cojera el catch de abajo
+            //Si lanza la exceipcion del tipo numberFormat(Error al pasar de string a integer) lo cojera el catch de abajo
             pelicula_id = Integer.parseInt(request.getParameter("id"));
           
         }
@@ -56,8 +57,9 @@ public class Pelicula_Control extends HttpServlet {
 
 
             if(!db.existePelicula(pelicula_id)){
-              //Lanzar una excepcion para que lo coja la parte de abajo
-              //throws Excepction
+            //Lanzar una excepcion para que lo coja la parte de abajo
+            //No existe la pelicula en la base de datos
+              throws new Exception();
             }
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
 
@@ -79,7 +81,6 @@ public class Pelicula_Control extends HttpServlet {
 
             List<Usuario> userscomentadores = new ArrayList<>();
             for(Comentario tmp: comentarios){
-
                 userscomentadores.add(db.cargar_usuario(tmp.getUsuario()));
             }
 
@@ -91,9 +92,12 @@ public class Pelicula_Control extends HttpServlet {
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
 
-        } catch (NamingException|SQLException| NumberFormatException  e ){
-            e.printStackTrace();
+        } catch (NamingException|SQLException e){
+           // e.printStackTrace();
           response.sendRedirect("error");
+        } catch(NumberFormatException | Exception  e  ){
+            response.sendRedirect("error");
+
         }
     }
 }
