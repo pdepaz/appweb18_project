@@ -16,7 +16,7 @@
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
-									<li onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Pelicula</li>
+									<li><p onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Pelicula</p></li>
 									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
@@ -35,19 +35,19 @@
 					  <form class="modal-content animate" method="post" action="iniciar_sesion"> <!--Mandar a nuestro servlet-->
 					    <!--Aspa de cerrar y avatar usuario-->
 					    <div class="imgcontainer">
-					      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar">&times;</span>
-					      <img src="images/img_avatar.png" alt="Avatar" class="avatar">
+					      	<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar">&times;</span>
+					      	<img src="images/img_avatar.png" alt="Avatar" class="avatar">
 					    </div>
 
 					    <!--Form propiamente dicho-->
 					    <div class="container">
-					      <label for="username"><b>Usuario</b></label>
-					      <input type="text" placeholder="Introduzca su usuario" id="username" name="username" required>
+					      	<label for="username"><b>Usuario</b></label>
+					      	<input type="text" placeholder="Introduzca su usuario" id="username" name="username" required>
 
-					      <label for="password"><b>Contraseña</b></label>
-					      <input type="password" placeholder="Introduzca su contraseña" id="password" name="password" required>
+					      	<label for="password"><b>Contraseña</b></label>
+					      	<input type="password" placeholder="Introduzca su contraseña" id="password" name="password" required>
 
-					      <button type="submit" class="submitbutton">Iniciar Sesion</button>
+					      	<button type="submit" class="submitbutton">Iniciar Sesion</button>
                         </div>
 
                         <%--<div class="container">
@@ -57,10 +57,7 @@
 
 					    <!--Cancelar y olvidar contrasenya-->
 					    <div class="container">
-					      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
-					      <%--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					      <button type="button" class="olvidarcontrasenya" onclick="location.href='#'">Olvidé mi contraseña</button>--%>
+					     	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
 					    </div>
 					  </form>
 					</div>
