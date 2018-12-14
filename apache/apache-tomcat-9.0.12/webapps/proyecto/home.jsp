@@ -15,6 +15,7 @@
 	</head>
 
 	<body class="landing is-preload">
+		
 		<div id="page-wrapper">
 
 			<%@ include file='header.jsp' %>
@@ -37,10 +38,11 @@
 						</form>
 				<%}%>--%>
 
-
-				<ul class="actions special">
-					<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
-				</ul>
+				<%if(session.getAttribute("session_id") == null){ %>	
+					<ul class="actions special">
+						<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
+					</ul>
+				<%}%>
 
 				</section>
 
@@ -109,16 +111,19 @@
 
 				</section>
 
-			<%@ include file='footer.jsp' %>
-
-
-			<%--FORMULARIO de CREAR CUENTA --%>
+				<%--FORMULARIO de CREAR CUENTA --%>
 					<div id="id03" class="modal">
 						<div class="row">
 		                    <div class="col-12">
 		                        <section class="box">
 		                           <b><h3>Formulario</h3></b>
-		                                <form method="post" action="usuario_guardar">
+		                                <form class="modal-content animate" autocomplete="off" method="post" action="usuario_guardar">
+		                                    <%--Aspa de cerrar--%>
+								            <div class="imgcontainer">
+										     	<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Cerrar">&times;</span>
+										    </div>
+
+										    <%--Formulario--%>	
 		                                    <div class="row gtr-uniform gtr-50">
 		                                        <div class="col-6 col-12-mobilep">
 		                                            <input type="text" name="nombre" id="nombre" value="" placeholder="nombre">
@@ -147,15 +152,20 @@
 		                                        <div class="col-12">
 		                                            <ul class="actions">
 		                                                <li><input type="submit" value="Enviar"></li>
-		                                                <li><input type="reset" value="Cancelar" class="alt"></li>
+		                                                <li><input type="reset" value="Reset" class="alt"></li>
 		                                            </ul>
 		                                        </div>
 		                                    </div>
+
 		                                </form>
+
 		                        </section>
 		                    </div>
 	                	</div>
 					</div>
-					
+
+
+			<%@ include file='footer.jsp' %>
+
 	</body>
 </html>
