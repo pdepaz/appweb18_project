@@ -69,12 +69,9 @@ public class Usuario_Control extends HttpServlet {
                 }
 
 
-            } catch (NamingException|SQLException e){
+            } catch (NamingException|SQLException|NumberFormatException e){
                // e.printStackTrace();
                 response.sendRedirect("error");
-            }catch(NumberFormatException e){
-                response.sendRedirect("error");
-
             }
     }
 }
