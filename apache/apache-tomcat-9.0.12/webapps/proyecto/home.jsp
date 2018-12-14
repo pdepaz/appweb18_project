@@ -11,7 +11,6 @@
 		<title>Manloo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src='https://www.google.com/recaptcha/api.js?render=6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR'></script>
 
 	</head>
 
@@ -90,16 +89,12 @@
 			<!-- Crear Cuenta -->
 				<section id="cta">
 
-					<h2>Pregúntanos</h2>
+					<h2>Envianos tu consulta</h2>
 					<p>¿A qué estás esperando?</p>
-					<form action = "mailto:manlooAB@hotmail.com">
+					<form action = "mailto:manlooAB@hotmail.com,name2@mail.com?subject=Consulta%20Manloo&amp;body=Escriba%20aqu%C3%AD%20su%20consulta">
 						<div class="row gtr-50 gtr-uniform">
-							<div class="col-8 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="Su email">
-								<input type="text" name="texto" id="texto" placeholder="Consulta...">
-							</div>
 							<div class="col-4 col-12-mobilep">
-								<input type="submit" value="Enviar" class="fit" />
+								<input type="submit" value="Consultar" class="fit" />
 							</div>
 						</div>
 					</form>

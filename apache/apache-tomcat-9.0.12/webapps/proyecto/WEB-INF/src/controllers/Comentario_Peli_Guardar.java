@@ -62,8 +62,8 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             response.sendRedirect(atributo);
 
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+           
+            response.sendRedirect("error");
         }
     }
 }
