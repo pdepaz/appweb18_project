@@ -90,7 +90,7 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
         } catch (NamingException|SQLException|NumberFormatException e){
             e.printStackTrace();
             //response.sendRedirect("error");
-            response.sendError("500");
+            response.sendError(500);
         }
     }
 }
