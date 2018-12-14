@@ -1,4 +1,6 @@
 package proyecto;
+import java.sql.*;
+
 
 public class Comentario {
 	private int id;
@@ -9,7 +11,7 @@ public class Comentario {
     private int libro;
 	//private String foto;
 	private int usuario;
-    private String fecha_creacion;
+    private java.sql.Date fecha_creacion;
     private int comentario_padre;
     private String tipo_usuario;
     private int bloqueado;
@@ -71,11 +73,11 @@ public class Comentario {
 		this.usuario = usuario;
 	}
 	
-	public String getFecha_creacion() {
+	public java.sql.Date getFecha_creacion() {
 		return fecha_creacion;
 	}
 	
-	public void setFecha_creacion(String fecha_creacion) {
+	public void setFecha_creacion(java.sql.Date fecha_creacion) {
 		this.fecha_creacion = fecha_creacion;
 	}
 	
