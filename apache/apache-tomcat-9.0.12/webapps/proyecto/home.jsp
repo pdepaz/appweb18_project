@@ -101,7 +101,7 @@
 					<form action = "mailto:manlooAB@hotmail.com">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="Su email">
+								<input type="email" name="correo" id="correo" placeholder="Su email">
 							</div>
 							<div class="col-4 col-12-mobilep">
 								<input type="submit" value="Consultar" class="fit" />
