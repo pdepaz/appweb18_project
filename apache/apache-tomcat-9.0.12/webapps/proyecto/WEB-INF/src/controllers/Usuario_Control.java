@@ -42,6 +42,22 @@ public class Usuario_Control extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
+        if(request.getParameter("usuarioid") == null){
+            //Intentan hacer algo raro con la url
+              throw new Exception();
+        } else {
+        //El catch de abajo cogera la excepcion y lo mandara a error si pone una letra en el usuarioid
+        int usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
+        int session_id =-1;
+        if(session.getAttribute("session_id")!= null){
+          session_id = (int) session.getAttribute("session_id");
+        }
+          
+        }
+            //No existe el usuario al que intenta acceder modificando la url
+            if(!existeUsuarioId(usuarioid)){
+                throw new Exception();
+            }
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Usuario usuario = db.cargar_usuario(usuario_id);
 
@@ -58,6 +74,9 @@ public class Usuario_Control extends HttpServlet {
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);
+        }catch(NumberFormatException| Exception e){
+            response.sendRedirect("error");
+
         }
     }
 }

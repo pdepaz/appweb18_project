@@ -41,10 +41,9 @@ public class Pelicula_Control extends HttpServlet {
         try (DBManager db = new DBManager()){
 
             if(request.getParameter("id") == null){
-            //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            
+            //si no hay nada te da error
              // request.getRequestDispatcher("error").forward(request, response);
-              throws new Exception();
+              throw new Exception();
         } else {
 
             //Si lanza la exceipcion del tipo numberFormat(Error al pasar de string a integer) lo cojera el catch de abajo
@@ -52,14 +51,10 @@ public class Pelicula_Control extends HttpServlet {
           
         }
 
-
-
-
-
             if(!db.existePelicula(pelicula_id)){
             //Lanzar una excepcion para que lo coja la parte de abajo
             //No existe la pelicula en la base de datos
-              throws new Exception();
+              throw new Exception();
             }
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
 
@@ -94,7 +89,7 @@ public class Pelicula_Control extends HttpServlet {
 
         } catch (NamingException|SQLException e){
            // e.printStackTrace();
-          response.sendRedirect("error");
+            response.sendRedirect("error");
         } catch(NumberFormatException | Exception  e  ){
             response.sendRedirect("error");
 
