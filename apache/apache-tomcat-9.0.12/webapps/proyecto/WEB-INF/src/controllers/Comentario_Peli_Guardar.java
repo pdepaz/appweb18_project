@@ -50,7 +50,8 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             nuevo_comentario.setUsuario(session_id);
             //Meter direcamente la date o hacer un get current time
             java.sql.Date dt = new java.sql.Date();
-            dt = getCurrentDatetime();
+            java.util.Date today = new java.util.Date();
+            dt = new java.sql.Date(today.getTime());
             //java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             //String currentTime = fecha.format(dt);
             nuevo_comentario.setFecha_creacion(dt);

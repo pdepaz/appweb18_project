@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.lang.reflect.Array;
-import java.util.List;
+import java.util.*;
+
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
