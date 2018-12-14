@@ -112,7 +112,7 @@
                                     <textarea name="descripcion" rows="5" cols="40" placeholder="Escriba aqui la descipcion"></textarea>
                                 </div>
 
-                            <div class="col-12">
+                            <div class="container">
                                 <ul class="actions">
                                     <li><input type="submit" value="Enviar" class="submitbutton"></li>
                                     <li><input type="reset" value="Reset" class="cancelbutton"></li>
