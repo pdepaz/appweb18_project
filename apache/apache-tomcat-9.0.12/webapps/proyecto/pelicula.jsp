@@ -131,7 +131,7 @@ if(session.getAttribute("session_id") != null){
                                     <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
                                                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
                                                 <%--input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>"--%>
-                                                <textarea name ="comentario_text" rows="1" cols="40" placeholder="Escriba aquí su comentario"></textarea>
+                                                <textarea name ="comentario_text" rows="1" cols="40" placeholder="Escriba aquí su respuesta"></textarea>
                                                   <div class = "boton">
                                                       <input type = "submit" value = "Responder">
                                                   </div>
