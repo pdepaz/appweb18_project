@@ -113,7 +113,7 @@
                                 </div>
 
                             <div class="container">
-                                <ul class="actions">
+                                <ul>
                                     <li><input type="submit" value="Enviar" class="submitbutton"></li>
                                     <li><input type="reset" value="Reset" class="cancelbutton"></li>
                                 </ul>
