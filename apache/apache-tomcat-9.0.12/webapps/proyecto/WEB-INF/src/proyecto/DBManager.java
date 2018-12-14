@@ -68,7 +68,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
         int id_user = -1;
 
-        String query = "SELECT * FROM Usuarios WHERE Usuarios.usuario=? AND Usuarios.contrasenya=?";
+        String query = "SELECT * FROM Usuarios WHERE BINARY Usuarios.usuario=? AND BINARY Usuarios.contrasenya=?";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -98,7 +98,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
 
         //Verificar que los datos que me llegan están bien (de los obligatorios)
 
-       String query = "SELECT * FROM Usuarios WHERE Usuarios.email=? OR Usuarios.usuario=?";
+       String query = "SELECT * FROM Usuarios WHERE Usuarios.email=? OR BINARY Usuarios.usuario=?";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -852,7 +852,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
     //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
     public Usuario cargar_usuario_nombreusuario(String nombreusuario) throws SQLException {
         Usuario user = new Usuario(); //Objeto de la clase Usuario
-        String query_usuario = "SELECT * FROM Usuarios WHERE Usuarios.usuario = ?";
+        String query_usuario = "SELECT * FROM Usuarios WHERE BINARY Usuarios.usuario = ?";
         try(PreparedStatement st = connection.prepareStatement(query_usuario)){
             st.setString(1, nombreusuario);
             ResultSet rs = st.executeQuery();
@@ -1180,7 +1180,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
     public boolean check_cambio_password(int userid, String contrasenya) throws SQLException {
 
         boolean result = false;
-        String query = "SELECT * FROM Usuarios WHERE Usuarios.id=? AND Usuarios.contrasenya=?";
+        String query = "SELECT * FROM Usuarios WHERE BINARY Usuarios.id=? AND BINARY Usuarios.contrasenya=?";
 
         try(PreparedStatement st = connection.prepareStatement(query)){
 
