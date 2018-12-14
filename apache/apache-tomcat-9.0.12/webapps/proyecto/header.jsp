@@ -16,7 +16,7 @@
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
-									<li><a href="crear_pelicula.jsp">Pelicula</a></li>
+									<li><a onclick="document.getElementById('id04').style.display='block'" style="width:auto;>Pelicula</a></li>
 									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
@@ -61,6 +61,73 @@
 					      <%--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      <button type="button" class="olvidarcontrasenya" onclick="location.href='#'">Olvidé mi contraseña</button>--%>
+					    </div>
+					  </form>
+					</div>
+
+					<%--FORMULARIO de CREAR PELICULA --%>
+					<div id="id04" class="modal">
+					  <form class="modal-content animate" method="post" action="pelicula_guardar"> <!--Mandar a nuestro servlet-->
+					    <!--Aspa de cerrar-->
+					    <div class="imgcontainer">
+					      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Cerrar">&times;</span>
+					    </div>
+
+					    <!--Form propiamente dicho-->
+					    <div class="container">
+					      <form method="post" action="pelicula_guardar">
+                            <div class="row gtr-uniform gtr-50">
+                                <div class="col-6 col-12-mobilep">
+                                    <select name="genero" >
+
+                                        <option value="Comedia">Comedia</option>
+                                        <option value="Accion">Accion</option>
+                                        <option value="Animacion">Animacion</option>
+                                        <option value="Documental">Documental</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                                        <option value="Erotico">Erotico</option>
+                                        <option value="Terror">Terror</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="Titulo *" name="titulo" required>
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="Duracion (min) *" name="duracion" required>
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="Año *" name="anyo" required>
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="Director *" name="director" required>
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" placeholder="YouTube Trailer" name="trailer" >
+                                </div>
+
+                                <div class="col-6 col-12-mobilep">
+                                    <textarea name="descripcion" rows="5" cols="40" placeholder="Escriba aqui la descipcion"></textarea>
+                                </div>
+
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Enviar"></li>
+                                    <li><input type="reset" value="Reset" class="alt"></li>
+                                </ul>
+                            </div>
+                           </div>
+                    	 </form>
+                        </div>
+
+					    <!--Cancelar y olvidar contrasenya-->
+					    <div class="container">
+					      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbutton">Cancelar</button>
 					    </div>
 					  </form>
 					</div>
