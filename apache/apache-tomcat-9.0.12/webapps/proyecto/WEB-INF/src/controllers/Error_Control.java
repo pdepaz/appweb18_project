@@ -37,9 +37,9 @@ public class Error_Control extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
-            //request.getRequestDispatcher("error.jsp").forward(request, response);
             session.invalidate();
             response.sendRedirect("error.jsp");
+            
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);

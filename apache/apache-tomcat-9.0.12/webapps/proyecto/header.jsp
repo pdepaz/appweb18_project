@@ -47,8 +47,6 @@
 					      <label for="password"><b>Contraseña</b></label>
 					      <input type="password" placeholder="Introduzca su contraseña" id="password" name="password" required>
 
-					      <div class="g-recaptcha" data-sitekey="6LfsT34UAAAAADa3jHrtDwYSF7qPbOKuqjJr9QKR"></div>
-
 					      <button type="submit" class="submitbutton">Iniciar Sesion</button>
                         </div>
 
