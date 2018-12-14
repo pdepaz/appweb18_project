@@ -52,7 +52,7 @@ public class Usuario_Control extends HttpServlet {
                 }
                 
                 //No existe el usuario al que intenta acceder modificando la url
-                if(!existeUsuarioId(usuario_id)){
+                if(!db.existeUsuarioId(usuario_id)){
                     throw new SQLException();
                 }
 
