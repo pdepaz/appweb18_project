@@ -23,16 +23,18 @@
 
 			<section id="main" class="container">
                 <header>
-                    <h2>Error</h2>
-                    <p>Ha habido un problema procesando su solicitud</p>
+                    <h2>Su búsqueda no tiene resultados</h2>
+                    <p>Pruebe de nuevo</p>
                     <br/>
-                    <img src="error_image.png" alt="Error Image" height="250">
                     
-						<form action = "home">
-								<div class = "boton">
-									<input type = "submit" value = "Home">
-								</div>
-						</form>
+                    <% if(session.getAttribute("session_id") != null){ %>
+							<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
+								<input type="text" name ="nombre_usuario" size = "2">
+									<div class = "boton">
+											<input type = "submit" value = "Buscar">
+									</div>
+							</form>
+					<%}%>
 
                 </header>
             </section>

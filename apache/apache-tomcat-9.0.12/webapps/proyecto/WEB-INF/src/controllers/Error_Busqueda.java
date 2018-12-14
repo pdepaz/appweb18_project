@@ -37,12 +37,13 @@ public class Error_Busqueda extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
-            session.invalidate();
-            response.sendRedirect("error.jsp");
-            
+            request.getRequestDispatcher("error_busqueda.jsp").forward(request, response);   
+
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+            //e.printStackTrace();
+            //response.sendError(500);
+            response.sendRedirect("error");
+
         }
 
     }
