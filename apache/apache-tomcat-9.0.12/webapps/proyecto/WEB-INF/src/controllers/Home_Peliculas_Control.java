@@ -51,7 +51,7 @@ public class Home_Peliculas_Control extends HttpServlet {
         } catch (NamingException|SQLException e){
             //e.printStackTrace(); 
             //response.sendError(500);
-            response.sendRedirect("error")
+            response.sendRedirect("error");
         }
     }
 }
