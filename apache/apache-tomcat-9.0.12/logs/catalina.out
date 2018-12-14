@@ -9991,4 +9991,9 @@ solucion:1
 13-Dec-2018 19:25:13.282 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 2417 ms
 >>>>>>> a09fe7b044229b6baf0a254d3a1ca4597bb17779
 ./catalina.sh: 1: eval: /usr/lib/jvm/java8-openjdk-amd64/bin/java: not found
+<<<<<<< HEAD
+=======
+./catalina.sh: 1: eval: /usr/lib/jvm/java8-openjdk-amd64/bin/java: not found
+>>>>>>> c364a928b7a609d61d98a23aa3d663006c290242
+./catalina.sh: 1: eval: /usr/lib/jvm/java8-openjdk-amd64/bin/java: not found
 ./catalina.sh: 1: eval: /usr/lib/jvm/java8-openjdk-amd64/bin/java: not found

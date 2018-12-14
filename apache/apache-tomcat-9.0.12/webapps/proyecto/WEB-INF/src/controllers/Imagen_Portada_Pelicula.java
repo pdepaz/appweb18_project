@@ -42,9 +42,11 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
         //Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
         //imagen?id_pelicula=___
-        pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
+        
 
         try (DBManager db = new DBManager()){
+
+            pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
 
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
@@ -60,8 +62,9 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
                 offset += 4;
             }
 
-            int result_type_image = db.GetImageFormat(int_portada_img); //DBManager line 1100
+            //int result_type_image = db.GetImageFormat(int_portada_img); //DBManager line 1100
             //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.            
+            int result_type_image = 3;
 
             switch (result_type_image) {
                 case 0:  response.sendRedirect("cerrar_sesion");
@@ -82,10 +85,11 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             request.setAttribute("portada_img", portada_img);
 
-            request.getRequestDispatcher("pelicula.jsp").forward(request, response);
+            request.getRequestDispatcher("pelicula").forward(request, response);
 
-        } catch (NamingException|SQLException e){
+        } catch (NamingException|SQLException|NumberFormatException e){
             e.printStackTrace();
+            //response.sendRedirect("error");
             response.sendError(500);
         }
     }

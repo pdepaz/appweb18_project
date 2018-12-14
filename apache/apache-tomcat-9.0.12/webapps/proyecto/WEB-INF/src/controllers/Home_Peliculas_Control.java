@@ -49,9 +49,9 @@ public class Home_Peliculas_Control extends HttpServlet {
             request.getRequestDispatcher("home_peliculas.jsp").forward(request, response);
             
         } catch (NamingException|SQLException e){
-            e.printStackTrace(); 
-            response.sendError(500);
-            //response.sendRedirect("error")
+            //e.printStackTrace(); 
+            //response.sendError(500);
+            response.sendRedirect("error")
         }
     }
 }

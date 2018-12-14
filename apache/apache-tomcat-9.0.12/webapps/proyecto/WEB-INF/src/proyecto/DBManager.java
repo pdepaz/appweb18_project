@@ -1207,8 +1207,10 @@ public int getIdByUsuario(String usuario) throws SQLException{
 
         int[] buffer = new int[4];
         
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 4; i++){
             buffer[i] = array[i];
+        }
+            
 
         /*if (buffer == bmp)
             return 1; //BMP
@@ -1216,20 +1218,40 @@ public int getIdByUsuario(String usuario) throws SQLException{
         if (buffer == gif)
             return 2; //GIF*/
 
-        if (buffer == png)
+        for(int i = 0; i < 4; i++){
+            if(buffer[i] != png[i]){
+                break;
+            }
             return 3; //PNG
+        }
 
-        if (buffer == tiff)
+        for(int i = 0; i < 4; i++){
+            if(buffer[i] != tiff[i]){
+                break;
+            }
             return 4; //TIFF
+        }
 
-        if (buffer == tiff2)
+        for(int i = 0; i < 4; i++){
+            if(buffer[i] != tiff2[i]){
+                break;
+            }
             return 4; //TIFF
-
-        if (buffer == jpeg)
+        }
+            
+        for(int i = 0; i < 4; i++){
+            if(buffer[i] != jpeg[i]){
+                break;
+            }
             return 5; //JPEG
+        }
 
-        if (buffer == jpeg2)
+        for(int i = 0; i < 4; i++){
+            if(buffer[i] != jpeg2[i]){
+                break;
+            }
             return 5; //JPEG
+        }
 
         return 0; //UNKNOWN
     }

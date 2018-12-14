@@ -55,7 +55,7 @@ if(session.getAttribute("session_id") != null){
                             
                         <%}%>
                     <%} else {%> <%--NO es Moderador --%>
-                            
+                            <p>Prueba</p>
                             <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
                                 <div class="col-6 col-12-narrower">
                                     <section class="box special">
