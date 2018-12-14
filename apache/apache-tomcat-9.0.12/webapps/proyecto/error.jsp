@@ -15,18 +15,17 @@
 
 	</head>
 
-	<body class="landing is-preload">
+	<body class="is-preload">
 		<div id="page-wrapper">
 
-			<%@ include file='header.jsp' %>
+			<%@ include file='header.jsp'%>
 			<br/>
-			
+
 			<section id="main" class="container">
                 <header>
                     <h2>Error</h2>
                     <p>Ha habido un problema procesando su solicitud</p>
                     <br/>
-                    <img src="error_image.png" alt="Error Image" height="250">
 
 						<form action = "home">
 								<div class = "boton">
