@@ -1258,7 +1258,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
     //Prueba correo
     public static void enviarConGMail(String destinatario) {
     // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-    private String remitente = "prvebxs";  //Para la dirección nomcuenta@gmail.com
+    String remitente = "prvebxs";  //Para la dirección nomcuenta@gmail.com
     String asunto="Bienvenido a Manloo";
     String cuerpo="Saludos Usuario, Bienvenido a manloo. Tenemos el orgullo placer y honor de darle un buen recibimiento";
 
