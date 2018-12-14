@@ -93,10 +93,10 @@ if(session.getAttribute("session_id") != null){
                                             <input type = "submit" value = "Bloquear Comentario">
                                         </div>
                                 </form>
-                                <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+                                <form id = "creacion_comentario_respuesta" action = "comentario_peli_guardar" method = "post">
                                     <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
                                     <input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>">
-                                    <textarea name ="comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
+                                    <textarea name = "comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
                                       <div class = "boton">
                                           <input type = "submit" value = "Responder">
                                       </div>
@@ -114,7 +114,7 @@ if(session.getAttribute("session_id") != null){
                                         <input type = "submit" value = "Desbloquear Comentario">
                                     </div>
                                 </form>
-                                <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+                                <form id = "creacion_comentario_respuesta" action = "comentario_peli_guardar" method = "post">
                                     <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
                                     <input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>">
                                     <textarea name ="comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
@@ -130,7 +130,7 @@ if(session.getAttribute("session_id") != null){
                         <div class="row-6 row-12-mobilep">
                         <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                         <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
-                        <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
+                        <form id = "creacion_comentario_respuesta" action = "comentario_peli_guardar" method = "post">
                                     <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
                                     <input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>">
                                     <textarea name ="comentario_text" rows="10" cols="40" placeholder="Escriba aquí su comentario"></textarea>
