@@ -16,7 +16,7 @@
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>
 								<ul>
-									<li><p onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Pelicula</p></li>
+									<li><button class="button" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Pelicula</button></li>
 									<li><a href="home">Serie</a></li>
 									<li><a href="home">Libro</a></li>
 								</ul>
@@ -57,7 +57,7 @@
 
 					    <!--Cancelar y olvidar contrasenya-->
 					    <div class="container">
-					     	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
+					      	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
 					    </div>
 					  </form>
 					</div>
