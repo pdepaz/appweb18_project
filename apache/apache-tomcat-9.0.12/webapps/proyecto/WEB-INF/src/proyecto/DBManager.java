@@ -1255,7 +1255,10 @@ public int getIdByUsuario(String usuario) throws SQLException{
 
         return 0; //UNKNOWN
     }
-    //Prueba correo
+    
+
+
+    /*//Prueba correo
     public static void enviarConGMail(String destinatario) {
     // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
     String remitente = "prvebxs";  //Para la dirección nomcuenta@gmail.com
@@ -1288,7 +1291,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
         me.printStackTrace();   //Si se produce un error
     }
 }
-
+*/
 
 
 
