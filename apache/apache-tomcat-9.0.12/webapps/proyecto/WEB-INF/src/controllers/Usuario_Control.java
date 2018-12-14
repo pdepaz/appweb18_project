@@ -33,6 +33,8 @@ public class Usuario_Control extends HttpServlet {
     {
         HttpSession session = request.getSession();
 
+        int usuario_id = -1;
+        int session_id = -1;
 
             try (DBManager db = new DBManager()){
 
@@ -41,8 +43,7 @@ public class Usuario_Control extends HttpServlet {
                       throw new NamingException();
                 } else {
                 //El catch de abajo cogera la excepcion y lo mandara a error si pone una letra en el usuarioid
-                    int usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
-                    int session_id = -1;
+                    usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
 
                     if(session.getAttribute("session_id")!= null){
                         session_id = (int) session.getAttribute("session_id");
@@ -54,7 +55,7 @@ public class Usuario_Control extends HttpServlet {
                 if(!existeUsuarioId(usuarioid)){
                     throw new SQLException();
                 }
-                
+
                 //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
                 Usuario usuario = db.cargar_usuario(usuario_id);
 
