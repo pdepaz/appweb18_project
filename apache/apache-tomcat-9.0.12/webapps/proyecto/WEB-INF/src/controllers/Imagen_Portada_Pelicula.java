@@ -88,8 +88,9 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
             request.getRequestDispatcher("pelicula").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
-            //e.printStackTrace();
-            response.sendRedirect("error");
+            e.printStackTrace();
+            //response.sendRedirect("error");
+            response.sendError("500");
         }
     }
 }
