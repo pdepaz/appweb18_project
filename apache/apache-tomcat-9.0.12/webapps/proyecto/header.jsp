@@ -50,17 +50,17 @@
 					      <button type="submit" class="submitbutton">Iniciar Sesion</button>
                         </div>
 
-                        <div class="container">
+                        <%--<div class="container">
 							<input type="checkbox" id="remember" name="remember">
 							<label for="remember">Recuérdame</label>
-						</div>
+						</div>--%>
 
 					    <!--Cancelar y olvidar contrasenya-->
 					    <div class="container">
 					      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbutton">Cancelar</button>
+					      <%--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					      <button type="button" class="olvidarcontrasenya" onclick="location.href='#'">Olvidé mi contraseña</button>
+					      <button type="button" class="olvidarcontrasenya" onclick="location.href='#'">Olvidé mi contraseña</button>--%>
 					    </div>
 					  </form>
 					</div>
