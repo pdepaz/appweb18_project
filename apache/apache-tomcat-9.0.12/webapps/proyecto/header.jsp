@@ -117,8 +117,8 @@
 
                             <div class="col-12">
                                 <ul class="actions">
-                                    <li><input type="submit" value="Enviar"></li>
-                                    <li><input type="reset" value="Reset" class="alt"></li>
+                                    <li><input type="submit" value="Enviar" class="submitbutton"></li>
+                                    <li><input type="reset" value="Reset" class="cancelbutton"></li>
                                 </ul>
                             </div>
                            </div>

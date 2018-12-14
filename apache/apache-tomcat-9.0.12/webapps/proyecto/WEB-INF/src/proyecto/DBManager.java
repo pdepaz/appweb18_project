@@ -20,6 +20,12 @@ import java.io.*;
 import java.nio.*;
 import java.net.*;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
     private Connection connection;
