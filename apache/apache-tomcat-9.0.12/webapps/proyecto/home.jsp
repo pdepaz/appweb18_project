@@ -54,16 +54,16 @@
 						<header class="major">
 						</header>
 						<% if(session.getAttribute("session_id") != null){ %>
-						<h2>Busque información acerca de un usuario</h2>
-								<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
+							<h2>Busque usuarios</h2>
+									<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
 										<input type="text" name ="nombre_usuario" size = "2">
 											<div class = "boton">
 													<input type = "submit" value = "Buscar">
 											</div>
-								</form>
-						<%}else{%>
-							<h3>La red social de la que todo el mundo está hablando</h3>
-						<%}%>
+									</form>
+							<%} else{%>
+								<h3>La red social de la que todo el mundo está hablando</h3>
+							<%}%>
 					</section>
 
 					<div class="row">

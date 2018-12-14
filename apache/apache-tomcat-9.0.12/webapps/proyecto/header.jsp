@@ -1,15 +1,5 @@
 <%@ page language='java' contentType='text/html;charset=utf-8'%>
 
-<%@ page import='proyecto.*'%>
-<%@ page import='java.util.List, java.io.*, java.util.*'%>
-
-<%
-Usuario mi_usuario = new Usuario();
-if(session.getAttribute("session_id") != null){
-	mi_usuario = (Usuario) session.getAttribute("mi_usuario");
-}
-%>
-
 <!-- Header -->
 <header id="header" class="reveal"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
 					<h1><a href="home">Manloo</h1>
@@ -21,7 +11,7 @@ if(session.getAttribute("session_id") != null){
 							<li><a href="home">Libros</a></li>
 							<% if(session.getAttribute("session_id") != null){ %>
 							<li>
-								<a href="perfil">Mi perfil | <%= mi_usuario.getNombre()%></a>
+								<a href="perfil">Mi perfil</a>
 							</li>
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>

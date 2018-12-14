@@ -20,32 +20,30 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Muestra la vista de la Home (página de bienvenida)
+ * Gestiona los errores
  *
  */
-@WebServlet("/home")
-public class Home_Control extends HttpServlet {
+@WebServlet("/error_busqueda")
+public class Error_Busqueda extends HttpServlet {
 
     /**
-     * Método del servlet que responde a una petición GET.
+     * Metodo del servlet que responde a una peticion GET.
      *
      */
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws IOException, ServletException
-    {
 
         HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(60*60); //1 hora de sesion maxima
 
         try (DBManager db = new DBManager()){
 
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-
+            session.invalidate();
+            response.sendRedirect("error.jsp");
+            
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);
-            //response.sendRedirect("error");
         }
+
     }
 }

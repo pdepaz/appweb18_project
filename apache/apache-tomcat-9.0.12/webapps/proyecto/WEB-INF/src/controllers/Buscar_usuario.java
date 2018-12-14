@@ -34,8 +34,10 @@ public class Buscar_usuario extends HttpServlet {
     throws IOException, ServletException
     {
         int solucion = -1;
+        
         HttpSession session = request.getSession();
         String user = request.getParameter("nombre_usuario");
+        
         try (DBManager db = new DBManager()){
             solucion = db.getIdByUsuario(user);
             if(solucion != -1){
@@ -43,11 +45,12 @@ public class Buscar_usuario extends HttpServlet {
               response.sendRedirect("usuario?usuarioid="+solucion);
             }
             else{
-              response.sendRedirect("home");
+              response.sendRedirect("error_busqueda");
             }
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+            //e.printStackTrace();
+            //response.sendError(500);
+            response.sendRedirect("home");
         }
     }
 }
