@@ -95,9 +95,9 @@ if(session.getAttribute("session_id") != null){
                                 </form>
                                 <%if(session.getAttribute("session_id") != null){ %>
                                     <%if(mi_usuario.getBloqueado() == 0){%>
-                                        <form id = "creacion_comentario_respuesta" action = "comentario_peli_guardar" method = "post">
+                                        <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
                                             <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
-                                            <input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>">
+                                            <%--input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>"--%>
                                             <textarea name = "comentario_text" rows="1" cols="40" placeholder="Escriba aquí su comentario"></textarea>
                                               <div class = "boton">
                                                   <input type = "submit" value = "Responder">
@@ -128,9 +128,9 @@ if(session.getAttribute("session_id") != null){
                             <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
                             <%if(session.getAttribute("session_id") != null){ %>
                                 <%if(mi_usuario.getBloqueado() == 0){%>
-                                    <form id = "creacion_comentario_respuesta" action = "comentario_peli_guardar" method = "post">
+                                    <form id = "creacion_comentario" action = "comentario_peli_guardar" method = "post">
                                                 <input type = "hidden" name ="id_peli" value="<%=pelicula.getId()%>">
-                                                <input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>">
+                                                <%--input type = "hidden" name ="id_coment" value="<%=tmp.getId()%>"--%>
                                                 <textarea name ="comentario_text" rows="1" cols="40" placeholder="Escriba aquí su comentario"></textarea>
                                                   <div class = "boton">
                                                       <input type = "submit" value = "Responder">
