@@ -26,7 +26,8 @@
                     <h2>Error</h2>
                     <p>Ha habido un problema procesando su solicitud</p>
                     <br/>
-
+                    <img src="error_image.png" alt="Error Image" height="250">
+                    
 						<form action = "home">
 								<div class = "boton">
 									<input type = "submit" value = "Home">
