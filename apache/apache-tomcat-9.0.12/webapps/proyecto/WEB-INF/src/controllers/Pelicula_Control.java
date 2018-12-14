@@ -86,12 +86,9 @@ public class Pelicula_Control extends HttpServlet {
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
 
-        } catch (NamingException|SQLException e){ //
+        } catch (NamingException|SQLException|NumberFormatException e){ //
            // e.printStackTrace();
             response.sendRedirect("error");
-        } catch(NumberFormatException e){
-            response.sendRedirect("error");
-
-        }
+        } 
     }
 }

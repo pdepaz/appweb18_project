@@ -49,9 +49,9 @@ public class Perfil_Control extends HttpServlet {
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             response.sendRedirect("perfil.jsp");
           
-        } catch (NamingException|SQLException e){
+        } catch (NamingException|SQLException|NumberFormatException e){
             e.printStackTrace();
-            response.sendError(500);
+            response.sendRedirect("error");
         }
     }
 }

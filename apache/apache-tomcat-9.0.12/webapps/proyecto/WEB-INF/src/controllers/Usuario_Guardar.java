@@ -38,7 +38,7 @@ public class Usuario_Guardar extends HttpServlet {
         try (DBManager db = new DBManager()){
             
             Usuario user = new Usuario();
-
+            
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
@@ -47,11 +47,13 @@ public class Usuario_Guardar extends HttpServlet {
             
             String contrasenya1 = request.getParameter("contrasenya");
             String contrasenya2 = request.getParameter("contrasenya2");
+
+
+
             if(contrasenya1.equals(contrasenya2)){
                 user.setContrasenya(request.getParameter("contrasenya"));
             }else{
-                response.sendError(500);
-                return;
+                throw new SQLException();
             }
             
             user.setUsuario(request.getParameter("usuario"));
@@ -69,9 +71,9 @@ public class Usuario_Guardar extends HttpServlet {
 
             response.sendRedirect("perfil");
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){
+            //e.printStackTrace();
+            response.sendRedirect("error");
         }
     }
 }
