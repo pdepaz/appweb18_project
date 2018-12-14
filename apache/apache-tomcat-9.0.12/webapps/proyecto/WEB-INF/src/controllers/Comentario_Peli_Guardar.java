@@ -49,7 +49,7 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             //Ver si en la funcion para añadir comentarios en DBManager trata correctamente que sea una pelicula
             nuevo_comentario.setUsuario(session_id);
             //Meter direcamente la date o hacer un get current time
-            java.sql.Date dt = new java.sql.Date();
+            java.sql.Date dt;
             java.util.Date today = new java.util.Date();
             dt = new java.sql.Date(today.getTime());
             //java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
