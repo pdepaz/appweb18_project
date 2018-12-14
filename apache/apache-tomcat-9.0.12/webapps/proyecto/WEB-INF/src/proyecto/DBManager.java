@@ -314,7 +314,7 @@ devuelve bloqueado dentro de usuarios
                 //st.setInt(4, 0);
                 //st.setInt(5, 0);
                 st.setInt(4, comment.getUsuario());
-                st.setString(5,"2010-10-10 10:10:10");
+                st.setDate(5,comment.getFecha_creacion());
                 st.setInt(6, comment.getComentario_padre());
                 st.setInt(7, 0);
 

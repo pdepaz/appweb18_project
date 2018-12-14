@@ -18,34 +18,23 @@
 	<body class="is-preload">
 		<div id="page-wrapper">
 
-			<%@ include file='header.jsp' %>
+			<%@ include file='header.jsp'%>
+			<br/>
 
 			<section id="main" class="container">
                 <header>
-                    
                     <h2>Error</h2>
                     <p>Ha habido un problema procesando su solicitud</p>
+                    <br/>
+                    <img src="error_image.png" alt="Error Image" height="250">
                     
-                    <form action = "home">
-							<div class="row gtr-50 gtr-uniform">
-	
-								<div class="col-4 col-12-mobilep">
-									<input type="submit" value="Volver a la Home" class="fit" />
+						<form action = "home">
+								<div class = "boton">
+									<input type = "submit" value = "Home">
 								</div>
-
-							</div>
-					</form>
-
-					<section id="cta">
-
-						<div class="col-8 col-12-mobilep">
-							<img src="404_error.png" alt="Error">	
-						</div>
-
-					</section>
+						</form>
 
                 </header>
-
             </section>
 
         <%@ include file='footer.jsp' %>
