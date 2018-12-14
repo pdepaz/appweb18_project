@@ -48,8 +48,6 @@ public class Usuario_Guardar extends HttpServlet {
             String contrasenya1 = request.getParameter("contrasenya");
             String contrasenya2 = request.getParameter("contrasenya2");
 
-
-
             if(contrasenya1.equals(contrasenya2)){
                 user.setContrasenya(request.getParameter("contrasenya"));
             }else{
@@ -63,8 +61,7 @@ public class Usuario_Guardar extends HttpServlet {
             int nuevo = db.crearUsuario(user); 
             
             if (nuevo == 1){
-            Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());          
-                //USER NO TIENE ID
+                Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());          
                 //Almacenamos el id del usuario a través de uno auxiliar
                 session.setAttribute("session_id", aux.getId());
             }
