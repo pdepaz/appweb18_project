@@ -38,6 +38,12 @@ public class Comentario_Peli_Guardar extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
+            if(session.getAttribute("session_id") == null){
+
+                throw new SQLException();
+                
+            }
+
             int session_id = (int) session.getAttribute("session_id");
 
             Usuario usuario = db.cargar_usuario(session_id);
@@ -65,8 +71,8 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             response.sendRedirect(atributo);
 
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+            //e.printStackTrace();
+            response.sendRedirect("error");
         }
     }
 }
