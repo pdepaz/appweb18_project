@@ -48,10 +48,12 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             nuevo_comentario.setPelicula(Integer.parseInt(request.getParameter("id_peli")));
             //Ver si en la funcion para añadir comentarios en DBManager trata correctamente que sea una pelicula
             nuevo_comentario.setUsuario(session_id);
-            java.util.Date dt = new java.util.Date();
-            java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String currentTime = fecha.format(dt);
-            nuevo_comentario.setFecha_creacion(currentTime);
+            //Meter direcamente la date o hacer un get current time
+            java.sql.Date dt = new java.sql.Date();
+            dt = getCurrentDatetime();
+            //java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            //String currentTime = fecha.format(dt);
+            nuevo_comentario.setFecha_creacion(dt);
             nuevo_comentario.setComentario_padre(0);
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());
             nuevo_comentario.setBloqueado(0);
@@ -62,8 +64,8 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             response.sendRedirect(atributo);
 
         } catch (NamingException|SQLException e){
-           
-            response.sendRedirect("error");
+            e.printStackTrace();
+            response.sendError(500);
         }
     }
 }

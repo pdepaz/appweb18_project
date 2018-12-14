@@ -314,7 +314,7 @@ devuelve bloqueado dentro de usuarios
                 //st.setInt(4, 0);
                 //st.setInt(5, 0);
                 st.setInt(4, comment.getUsuario());
-                st.setDate(5,comment.getFecha_creacion());
+                st.setDate(5,comment.get());
                 st.setInt(6, comment.getComentario_padre());
                 st.setInt(7, 0);
 
@@ -905,7 +905,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
@@ -934,7 +934,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
@@ -963,7 +963,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                     comment.setSerie(rs.getInt("serie"));
                     comment.setLibro(rs.getInt("libro"));
                     comment.setUsuario(rs.getInt("usuario"));
-                    comment.setFecha_creacion(rs.getString("fecha_creacion"));
+                    comment.setFecha_creacion(rs.getDate("fecha_creacion"));
                     comment.setComentario_padre(rs.getInt("comentario_padre"));
                     comment.setBloqueado(rs.getInt("bloqueado"));
 
