@@ -11,7 +11,6 @@ public class Comentario {
     private int libro;
 	//private String foto;
 	private int usuario;
-	//Establecer esto como java date y hacer lo comentado en comentario guardar
     private java.sql.Date fecha_creacion;
     private int comentario_padre;
     private String tipo_usuario;
