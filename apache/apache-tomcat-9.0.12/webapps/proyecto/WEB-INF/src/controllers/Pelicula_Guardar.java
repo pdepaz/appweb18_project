@@ -53,7 +53,7 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setBloqueado(0); //No bloqueado la pelicula al principio
 
             if(!db.checkPelicula(pelicula)){
-                    response.sendRedirect("error");
+                throw new NamingException();
             }
             db.creaPelicula(pelicula);
             List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
@@ -64,8 +64,8 @@ public class Pelicula_Guardar extends HttpServlet {
             response.sendRedirect(url);
 
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+           // e.printStackTrace();
+            response.sendRedirect("error");
         }
     }
 }
