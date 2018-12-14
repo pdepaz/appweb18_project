@@ -114,6 +114,35 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
     }
 
+    /**
+     * Checkea si el usuario existe en la DB. por id
+     *
+     * @param id
+    
+     * @return true si existe, false si no existe
+     */
+    public boolean existeUsuarioId(int id) throws SQLException {
+
+        //Verificar que los datos que me llegan están bien (de los obligatorios)
+
+       String query = "SELECT * FROM Usuarios WHERE Usuarios.id=?";
+
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+        // Se insertan los valores en la consulta :
+            st.setInt(1, id);
+            ;
+            // execute select SQL stetement
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                return true; //Exist
+            } else {
+                return false; //no existe
+            }
+        }
+    }
+
+
     /*public boolean buscarUsuario(String usuario)throws SQLException{
         String query_user = "SELECT * FROM Usuarios WHERE nombre=?"
         try (PreparedStatement st = connection.prepareStatement(query_user)) {

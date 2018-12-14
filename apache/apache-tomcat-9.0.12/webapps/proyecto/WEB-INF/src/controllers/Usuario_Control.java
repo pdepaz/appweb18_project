@@ -33,31 +33,48 @@ public class Usuario_Control extends HttpServlet {
     {
         HttpSession session = request.getSession();
 
-        int usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
-        int session_id =-1;
-        if(session.getAttribute("session_id")!= null){
-          session_id = (int) session.getAttribute("session_id");
-        }
+        int usuario_id = -1;
+        int session_id = -1;
+
+            try (DBManager db = new DBManager()){
+
+                if(request.getParameter("usuarioid") == null){
+                    //Intentan hacer algo raro con la url
+                      throw new NamingException();
+                } else {
+                //El catch de abajo cogera la excepcion y lo mandara a error si pone una letra en el usuarioid
+                    usuario_id = Integer.parseInt(request.getParameter("usuarioid"));
+
+                    if(session.getAttribute("session_id")!= null){
+                        session_id = (int) session.getAttribute("session_id");
+                    }
+                  
+                }
+                
+                //No existe el usuario al que intenta acceder modificando la url
+                if(!db.existeUsuarioId(usuario_id)){
+                    throw new SQLException();
+                }
+
+                //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
+                Usuario usuario = db.cargar_usuario(usuario_id);
+
+                //MANDAMOS EL USUARIO QUE QUEREMOS VER POR PARAMETRO ?
+                request.setAttribute("usuario", usuario);
+
+                if (usuario_id == session_id){
+                    response.sendRedirect("perfil");
+                } else {
+                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
+                }
 
 
-        try (DBManager db = new DBManager()){
+            } catch (NamingException|SQLException e){
+               // e.printStackTrace();
+                response.sendRedirect("error");
+            }catch(NumberFormatException e){
+                response.sendRedirect("error");
 
-            //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-            Usuario usuario = db.cargar_usuario(usuario_id);
-
-            //MANDAMOS EL USUARIO QUE QUEREMOS VER POR PARAMETRO ?
-            request.setAttribute("usuario", usuario);
-
-            if (usuario_id == session_id){
-                response.sendRedirect("perfil");
-            } else {
-                request.getRequestDispatcher("usuario.jsp").forward(request, response);
             }
-
-
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
-        }
     }
 }

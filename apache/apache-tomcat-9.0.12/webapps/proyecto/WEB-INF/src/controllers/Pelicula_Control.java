@@ -35,30 +35,29 @@ public class Pelicula_Control extends HttpServlet {
         HttpSession session = request.getSession();
 
         int pelicula_id = 0;
-
-        if(request.getParameter("id") == null){
-            //SI NO METES NADA, TE REDIRIGE A LA HOME DE PELICULAS
-            //creo que no va a funcionar
-              request.getRequestDispatcher("error").forward(request, response);
-        } else {
-
-          try{
-            pelicula_id = Integer.parseInt(request.getParameter("id"));
-          }catch(Exception excepcion){
-              request.getRequestDispatcher("error").forward(request, response);
-
-          }
-        }
-
-
+ 
 
         try (DBManager db = new DBManager()){
+
+            if(request.getParameter("id") == null){
+            //si no hay nada te da error
+                throw new NamingException();
+
+        } else {
+
+            //Si lanza la exceipcion del tipo numberFormat(Error al pasar de string a integer) lo cojera el catch de abajo
+            pelicula_id = Integer.parseInt(request.getParameter("id"));
+          
+        }
+
             if(!db.existePelicula(pelicula_id)){
-              request.getRequestDispatcher("error").forward(request, response);
+                
+                throw new SQLException(); //No existe la pelicula en la base de datos
+
             }
+            
+
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-
-
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
             int session_id = -1;
@@ -76,7 +75,6 @@ public class Pelicula_Control extends HttpServlet {
 
             List<Usuario> userscomentadores = new ArrayList<>();
             for(Comentario tmp: comentarios){
-
                 userscomentadores.add(db.cargar_usuario(tmp.getUsuario()));
             }
 
@@ -88,9 +86,12 @@ public class Pelicula_Control extends HttpServlet {
 
             request.getRequestDispatcher("pelicula.jsp").forward(request, response);
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-          response.sendError(500);
+        } catch (NamingException|SQLException e){ //
+           // e.printStackTrace();
+            response.sendRedirect("error");
+        } catch(NumberFormatException e){
+            response.sendRedirect("error");
+
         }
     }
 }

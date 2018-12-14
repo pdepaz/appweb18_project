@@ -8,7 +8,7 @@
 
 <html>
 	<head>
-		<title>Error - Manloo</title>
+		<title>Error - Manloo </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
@@ -22,15 +22,30 @@
 
 			<section id="main" class="container">
                 <header>
-                    <h2>Error</h2>
-                    <p>Ha habido un problema procesando su solicitud :(</p>
                     
-                    <section class="box">
-                        <ul class="actions">
-                            <li><a href="home" class="Volver a la Home">Home</a></li>
-                        </ul>
-                    </section>
+                    <h2>Error</h2>
+                    <p>Ha habido un problema procesando su solicitud</p>
+                    
+                    <form action = "home">
+							<div class="row gtr-50 gtr-uniform">
+	
+								<div class="col-4 col-12-mobilep">
+									<input type="submit" value="Volver a la Home" class="fit" />
+								</div>
+
+							</div>
+					</form>
+
+					<section id="cta">
+
+						<div class="col-8 col-12-mobilep">
+							<img src="404_error.png" alt="Error">	
+						</div>
+
+					</section>
+
                 </header>
+
             </section>
 
         <%@ include file='footer.jsp' %>
