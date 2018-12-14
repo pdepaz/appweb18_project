@@ -95,7 +95,8 @@
 					<form action = "mailto:manlooAB@hotmail.com">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="Consulta" action="mandar_mail">
+								<input type="email" name="email" id="email" placeholder="Su email">
+								<input type="text" name="texto" id="texto" placeholder="Consulta...">
 							</div>
 							<div class="col-4 col-12-mobilep">
 								<input type="submit" value="Enviar" class="fit" />
