@@ -85,7 +85,7 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             request.setAttribute("portada_img", portada_img);
 
-            request.getRequestDispatcher("pelicula.jsp").forward(request, response);
+            request.getRequestDispatcher("pelicula").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
