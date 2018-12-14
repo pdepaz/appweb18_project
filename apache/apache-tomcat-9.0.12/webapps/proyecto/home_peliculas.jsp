@@ -53,9 +53,25 @@ if(session.getAttribute("session_id") != null){
                                 </section>
                             </div>
                             
-                        <%}%>
-                    <%} else {%> <%--NO es Moderador --%>
-                            <p>Prueba</p>
+                        <%} else {%> <%--NO moderador --%>
+
+                            <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
+                                <div class="col-6 col-12-narrower">
+                                    <section class="box special">
+                                        <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                            <h3><b><%= movie.getTitulo()%></b></h3>
+                                                <p><%= movie.getDescripcion()%></p>
+                                            <ul class="actions special">
+                                                <li><a href="pelicula?id=<%= movie.getId()%>" class="button alt">Más Info</a></li>
+                                                
+                                            </ul>
+                                    </section>
+                                </div>
+                            <%}%>
+
+                        <% } %>
+                    <%} else {%> <%--Sesion no iniciada --%>
+                            
                             <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
                                 <div class="col-6 col-12-narrower">
                                     <section class="box special">
@@ -107,8 +123,24 @@ if(session.getAttribute("session_id") != null){
                                 </section>
                             </div>
                             
-                        <%}%>
-                    <%} else {%> <%--NO es Moderador --%>
+                        <%} else {%> <%--NO moderador --%>
+
+                            <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
+                                <div class="col-6 col-12-narrower">
+                                    <section class="box special">
+                                        <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                            <h3><b><%= movie.getTitulo()%></b></h3>
+                                                <p><%= movie.getDescripcion()%></p>
+                                            <ul class="actions special">
+                                                <li><a href="pelicula?id=<%= movie.getId()%>" class="button alt">Más Info</a></li>
+                                                
+                                            </ul>
+                                    </section>
+                                </div>
+                            <%}%>
+
+                        <% } %>
+                    <%} else {%> <%--Sesion no iniciada --%>
                             
                             <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
                                 <div class="col-6 col-12-narrower">
@@ -158,8 +190,24 @@ if(session.getAttribute("session_id") != null){
                                     </section>
                                 </div>
                                 
+                            <%} else {%> <%--NO moderador --%>
+
+                            <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
+                                <div class="col-6 col-12-narrower">
+                                    <section class="box special">
+                                        <span class="image featured"><img src="<%=movie.getTitulo()%>.jpg" alt="" /></span>
+                                            <h3><b><%= movie.getTitulo()%></b></h3>
+                                                <p><%= movie.getDescripcion()%></p>
+                                            <ul class="actions special">
+                                                <li><a href="pelicula?id=<%= movie.getId()%>" class="button alt">Más Info</a></li>
+                                                
+                                            </ul>
+                                    </section>
+                                </div>
                             <%}%>
-                        <%} else {%> <%--NO es Moderador --%>
+
+                        <% } %>
+                    <%} else {%> <%--Sesion no iniciada --%>
                                 
                                 <%if(movie.getBloqueado() == 0){%> <%-- Entra, si la pelicula NO bloqueada  --%>
                                     <div class="col-6 col-12-narrower">
