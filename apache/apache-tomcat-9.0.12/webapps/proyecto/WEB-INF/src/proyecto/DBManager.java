@@ -402,7 +402,6 @@ devuelve bloqueado dentro de usuarios
 
     }
 
-
 /**
      * Crear Pelicula. Anade una pelicula a la base de datos.
      *

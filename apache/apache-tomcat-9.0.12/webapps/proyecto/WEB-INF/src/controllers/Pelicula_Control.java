@@ -43,12 +43,12 @@ public class Pelicula_Control extends HttpServlet {
             //si no hay nada te da error
                 throw new NamingException();
 
-        } else {
+            } else {
 
             //Si lanza la exceipcion del tipo numberFormat(Error al pasar de string a integer) lo cojera el catch de abajo
             pelicula_id = Integer.parseInt(request.getParameter("id"));
           
-        }
+            }
 
             if(!db.existePelicula(pelicula_id)){
                 

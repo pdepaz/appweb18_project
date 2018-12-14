@@ -53,8 +53,8 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setBloqueado(0); //No bloqueado la pelicula al principio
 
             if(!db.checkPelicula(pelicula)){
-            response.sendRedirect("error");
-          }
+                    response.sendRedirect("error");
+            }
             db.creaPelicula(pelicula);
             List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
 
