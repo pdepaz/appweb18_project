@@ -21,7 +21,7 @@ if(session.getAttribute("session_id") != null){
 							<li><a href="home">Libros</a></li>
 							<% if(session.getAttribute("session_id") != null){ %>
 							<li>
-								<a href="perfil">Mi perfil | <%=mi_usuario.getNombre()%></a>
+								<a href="perfil">Mi perfil | <%= mi_usuario.getNombre()%></a>
 							</li>
 							<li>
 								<a class="icon fa-angle-down">Nuevo tema</a>

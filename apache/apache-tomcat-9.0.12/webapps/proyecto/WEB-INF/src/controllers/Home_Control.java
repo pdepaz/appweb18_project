@@ -39,14 +39,15 @@ public class Home_Control extends HttpServlet {
         session.setMaxInactiveInterval(60*60); //1 hora de sesion maxima
 
         try (DBManager db = new DBManager()){
+            Usuario mi_usuario = new Usuario();
+            session.setAttribute("mi_usuario", mi_usuario);
             
-
-            RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-            rd.forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
 
         } catch (NamingException|SQLException e){
             e.printStackTrace();
             response.sendError(500);
+            //response.sendRedirect("error");
         }
     }
 }
