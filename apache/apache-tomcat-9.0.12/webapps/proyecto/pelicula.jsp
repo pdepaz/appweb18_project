@@ -70,7 +70,7 @@ if(session.getAttribute("session_id") != null){
                         <h3><b>Duracion: </b><%= pelicula.getDuracion()%> min</h3>
                         <h3><b>Director: </b><%= pelicula.getDirector()%></h3>
                         <h3><b>Descripción: </b><%= pelicula.getDescripcion()%></h3>
-                        <h3><b>Trailer: </b></h3> <iframe width="853" height="480" src="<%=pelicula.getTrailer()%>&amp;controls=0&amp;showinfo=0" align="middle" frameborder="0" allowfullscreen ></iframe>
+                        <h3><b>Trailer: </b></h3> <iframe width="853" height="480" src="<%=pelicula.getTrailer()%>" align="middle" frameborder="0" allowfullscreen ></iframe>
 
                         <p> </p>
                         <h3><b>Usuario Creador: </b><a href="usuario?usuarioid=<%= usuariocreador.getId()%>"> <b><%= usuariocreador.getUsuario() %></b></a></h3>
