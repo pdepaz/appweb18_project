@@ -59,6 +59,10 @@
                                     <textarea name="descripcion" rows="5" cols="40" placeholder="Escriba aqui la descipcion"></textarea>
                                 </div>
 
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="file" name="portada" size="50" accept="image/png,image/jpeg" placeholder="Sube una portada (en formato PNG o JPEG)"/>
+                                </div>
+
                             <div class="container">
                                 
                                 <input type="submit" value="Enviar" class="submitbutton">
