@@ -26,8 +26,8 @@ import org.apache.commons.io.IOUtils;
  * Guarda en SQL los datos de un usuario
  *
  */
-//@WebServlet("/pelicula_guardar")
-@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
+@WebServlet("/pelicula_guardar")
+//@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
 public class Pelicula_Guardar extends HttpServlet {
 
     /**
