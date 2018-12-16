@@ -61,7 +61,7 @@
 
                                 <div class="col-6 col-12-mobilep">
                                     <p>Suba una portada (en formato PNG o JPEG)</p>
-                                    <input type="file" id="portada" name="portada" accept="image/png,image/jpeg" class="button" style="display: none;" />
+                                    <input type="file" id="portada" name="portada" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;" />
                                     <input type="button" value="Subir portada" onclick="document.getElementById('portada').click();" />
                                 </div>
 
