@@ -62,6 +62,10 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             //ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
 
+            if(portada_img == null){
+                throw new MyException();
+            }
+                
             //BYTE to INT
             int int_portada_img[] = new int[portada_img.length / 4];
             int offset = 0;
@@ -69,6 +73,7 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
                 int_portada_img[i] = (portada_img[3 + offset] & 0xFF) | ((portada_img[2 + offset] & 0xFF) << 8) | ((portada_img[1 + offset] & 0xFF) << 16) | ((portada_img[0 + offset] & 0xFF) << 24);  
                 offset += 4;
             }
+            
 
             //int result_type_image = db.GetImageFormat(int_portada_img); //DBManager line 1100
             //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.            
@@ -106,6 +111,10 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
             //request.getRequestDispatcher("pelicula").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
+            //e.printStackTrace();
+            response.sendRedirect("error");
+            //response.sendError(500);
+        } catch (MyException e){
             //e.printStackTrace();
             response.setContentType("image/png");
             response.setHeader("Content-Type", "image/png"); 
