@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,7 @@ import javax.sql.DataSource;
  *
  */
 @WebServlet("/pelicula_guardar")
+@MultipartConfig(maxFileSize = 65535) //64KB maximum BLOB size
 public class Pelicula_Guardar extends HttpServlet {
 
     /**
@@ -45,7 +47,26 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setDescripcion(request.getParameter("descripcion"));
             pelicula.setDirector(request.getParameter("director"));
             pelicula.setGenero(request.getParameter("genero"));
-            //Portada pelicula.setPortada(request.getParameter("portada"));
+            
+
+            //PORTADA
+            InputStream inputStream = null; //Input stream of the upload file
+            
+            //Now, obtain the upload file part in this multipart request
+            Part filePart = request.getPart("portada");
+            
+            if (filePart != null) {
+                //Obtains input stream of the upload file
+                //the InputStream will point to a stream that contains the contents of the file
+                inputStream = filePart.getInputStream();
+            }    
+            
+            if (inputStream != null) {
+                //Files are treated as BLOB objects in database
+                byte[] portada_imagen = IOUtils.toByteArray(inputStream);
+                pelicula.setPortada(portada_imagen);
+            }
+            
             pelicula.setTrailer(request.getParameter("trailer"));
 
             //El creador es el id del usuario de la sesion
@@ -55,6 +76,7 @@ public class Pelicula_Guardar extends HttpServlet {
             if(!db.checkPelicula(pelicula)){
                 throw new NamingException();
             }
+            
             db.creaPelicula(pelicula);
             List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
 
