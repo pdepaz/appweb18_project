@@ -422,7 +422,8 @@ devuelve bloqueado dentro de usuarios
                     return -1;
                 }
 
-                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                //String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, portada, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String query_pelicula = "INSERT INTO Peliculas (titulo, anyo, duracion, descripcion, director, genero, trailer, creador, bloqueado) VALUES (?,?,?,?,?,?,?,?,?)";
 
                 try(PreparedStatement st = connection.prepareStatement(query_pelicula)){
                     st.setString(1, pelicula.getTitulo());
@@ -431,10 +432,10 @@ devuelve bloqueado dentro de usuarios
                     st.setString(4, pelicula.getDescripcion());
                     st.setString(5,pelicula.getDirector());
                     st.setString(6,pelicula.getGenero());
-                    st.setBlob(7, pelicula.getPortada());
-                    st.setString(8,pelicula.getTrailer());
-                    st.setInt(9,pelicula.getCreador());
-                    st.setInt(10,pelicula.getBloqueado());
+                    //st.setBlob(7, pelicula.getPortada());
+                    st.setString(7,pelicula.getTrailer());
+                    st.setInt(8,pelicula.getCreador());
+                    st.setInt(9,pelicula.getBloqueado());
 
                     st.executeUpdate();
                 }
