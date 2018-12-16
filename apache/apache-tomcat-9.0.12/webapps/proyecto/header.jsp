@@ -73,37 +73,38 @@
 
 										    <%--Formulario--%>	
 		                                    <div class="container">
-		                                    <div class="row gtr-uniform gtr-50">
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="nombre" id="nombre" value="" placeholder="nombre">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="apellido1" id="apellido1" value="" placeholder="Primer Apellido">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="apellido2" id="apellido2" value="" placeholder="Segundo Apellido">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                                <input type="email" name="email" id="email" value="" placeholder="Email">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Clave">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita clave">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="usuario" id="usuario" value="" placeholder="Usuario">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
-		                                        </div>
-		                                   
-		                                    </div>
 
-		                                    <input type="submit" value="Enviar" class="submitbutton">
-		                                    <input type="reset" value="Reset" class="cancelbutton">
-		                                    
+			                                    <div class="row gtr-uniform gtr-50">
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="text" name="nombre" id="nombre" value="" placeholder="nombre">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="text" name="apellido1" id="apellido1" value="" placeholder="Primer Apellido">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="text" name="apellido2" id="apellido2" value="" placeholder="Segundo Apellido">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                                <input type="email" name="email" id="email" value="" placeholder="Email">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Clave">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita clave">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="text" name="usuario" id="usuario" value="" placeholder="Usuario">
+			                                        </div>
+			                                        <div class="col-6 col-12-mobilep">
+			                                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
+			                                        </div>
+			                                   
+			                                    </div>
+
+		                                    <button type="submit" class="submitbutton">Enviar</button>
+		                                    <button type="reset" class="cancelbutton">Reset</button>
+		                                   
 		                                    </div>
 		                                </form>
 					</div>
