@@ -46,7 +46,7 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             //Comprobaciones
             if(request.getParameter("id_pelicula") == null){
-                throw new NamingException();
+                throw new SQLException();
             } else {
                 //Puede lanzar excepcion NumberFormat (error de string a integer)
                 pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
@@ -63,7 +63,7 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
             //ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
 
             if(portada_img == null){
-                throw new MyException();
+                throw new NamingException();
             }
                 
             //BYTE to INT
@@ -110,11 +110,11 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             //request.getRequestDispatcher("pelicula").forward(request, response);
 
-        } catch (NamingException|SQLException|NumberFormatException e){
+        } catch (SQLException|NumberFormatException e){
             //e.printStackTrace();
             response.sendRedirect("error");
             //response.sendError(500);
-        } catch (MyException e){
+        } catch (NamingException e){
             //e.printStackTrace();
             response.setContentType("image/png");
             response.setHeader("Content-Type", "image/png"); 
