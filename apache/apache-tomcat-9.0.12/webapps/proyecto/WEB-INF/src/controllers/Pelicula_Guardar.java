@@ -20,6 +20,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.apache.commons.io.IOUtils;
+
 /**
  * Guarda en SQL los datos de un usuario
  *
@@ -76,7 +78,7 @@ public class Pelicula_Guardar extends HttpServlet {
             if(!db.checkPelicula(pelicula)){
                 throw new NamingException();
             }
-            
+
             db.creaPelicula(pelicula);
             List<Comentario> comentarios = new ArrayList<Comentario>(); //No hay comentarios al principio
 

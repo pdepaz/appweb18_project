@@ -5,30 +5,31 @@
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-
-
     <!-- General description of your web application -->
-
     <display-name>Proyecto</display-name>
-    <description>Proyecto de Aplicaciones Web
-    </description>
+    
+    <description>Proyecto de Aplicaciones Web</description>
 
    <resource-ref>
-    <description>
-      Resource reference to a factory for java.sql.Connection
-      instances that may be used for talking to a particular
-      database that is configured in the Context
-      configurartion for the web application.
-    </description>
-    <res-ref-name>
-      jdbc/proyecto
-    </res-ref-name>
-    <res-type>
-      javax.sql.DataSource
-    </res-type>
-    <res-auth>
-      Container
-    </res-auth>
-  </resource-ref>
+      <description>
+        Resource reference to a factory for java.sql.Connection
+        instances that may be used for talking to a particular
+        database that is configured in the Context
+        configurartion for the web application.
+      </description>
 
+      <res-ref-name>
+        jdbc/proyecto
+      </res-ref-name>
+
+      <res-type>
+        javax.sql.DataSource
+      </res-type>
+
+      <res-auth>
+        Container
+      </res-auth>
+  </resource-ref>
 </web-app>
+
+
