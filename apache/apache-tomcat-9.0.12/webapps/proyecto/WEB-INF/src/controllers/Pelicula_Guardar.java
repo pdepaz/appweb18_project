@@ -26,7 +26,7 @@ import org.apache.commons.io.IOUtils;
  * Guarda en SQL los datos de un usuario
  *
  */
-@WebServlet("/pelicula_guardar")
+//@WebServlet("/pelicula_guardar")
 @MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
 public class Pelicula_Guardar extends HttpServlet {
 
@@ -51,7 +51,7 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setGenero(request.getParameter("genero"));
             
 
-            //PORTADA
+            /*//PORTADA
             InputStream inputStream = null; //Input stream of the upload file
             
             //Now, obtain the upload file part in this multipart request
@@ -67,7 +67,7 @@ public class Pelicula_Guardar extends HttpServlet {
                 //Files are treated as BLOB objects in database
                 byte[] portada_imagen = IOUtils.toByteArray(inputStream);
                 pelicula.setPortada(portada_imagen);
-            }
+            }*/
             
             pelicula.setTrailer(request.getParameter("trailer"));
 
