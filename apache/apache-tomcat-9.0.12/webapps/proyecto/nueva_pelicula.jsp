@@ -60,10 +60,10 @@
                                 </div>
 
                             <div class="container">
-                                <ul>
-                                    <li><input type="submit" value="Enviar" class="submitbutton"></li>
-                                    <li><input type="reset" value="Reset" class="cancelbutton"></li>
-                                </ul>
+                                
+                                <input type="submit" value="Enviar" class="submitbutton">
+                                <input type="reset" value="Reset" class="cancelbutton">
+                                
                             </div>
                            </div>
                          </form>
