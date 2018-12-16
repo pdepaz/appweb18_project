@@ -430,7 +430,7 @@ devuelve bloqueado dentro de usuarios
                     st.setString(4, pelicula.getDescripcion());
                     st.setString(5,pelicula.getDirector());
                     st.setString(6,pelicula.getGenero());
-                    st.setBlob(7, pelicula.getPortada())
+                    st.setBlob(7, pelicula.getPortada());
                     st.setString(8,pelicula.getTrailer());
                     st.setInt(9,pelicula.getCreador());
                     st.setInt(10,pelicula.getBloqueado());
