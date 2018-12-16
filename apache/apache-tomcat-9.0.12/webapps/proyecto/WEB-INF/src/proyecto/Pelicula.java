@@ -60,7 +60,7 @@ public class Pelicula {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-  public byte[] getPortada() {
+    public byte[] getPortada() {
 		return portada;
 	}
 	public void setPortada(byte[] portada) {

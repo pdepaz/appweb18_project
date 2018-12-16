@@ -25,6 +25,8 @@ import java.net.*;
 
 /**
  * Muestra la portada de una pelicula (cogiendola de la Base de Datos)
+ * Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
+ * imagen?id_pelicula=___
  *
  */
 @WebServlet("/imagen")
@@ -40,13 +42,19 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
         int pelicula_id = 0;
 
-        //Se lo pasamos en la "src" de la imagen y obteniendo el id de la pelicula en el JSP
-        //imagen?id_pelicula=___
-        
-
         try (DBManager db = new DBManager()){
 
-            pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
+            //Comprobaciones
+            if(request.getParameter("id_pelicula") == null){
+                throw new NamingException();
+            } else {
+                //Puede lanzar excepcion NumberFormat (error de string a integer)
+                pelicula_id = Integer.parseInt(request.getParameter("id_pelicula"));
+            }
+
+            if(!db.existePelicula(pelicula_id)){
+                throw new SQLException(); //No existe la pelicula en la base de datos
+            }
 
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
 
@@ -67,25 +75,35 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
             int result_type_image = 3;
 
             switch (result_type_image) {
-                case 0:  response.sendRedirect("cerrar_sesion");
-                         break;
-                case 1:  response.setContentType("image/bmp");
-                         break;
-                case 2:  response.setContentType("image/gif");
-                         break;
-                case 3:  response.setContentType("image/png");
-                         break;
-                case 4:  response.setContentType("image/tiff");
-                         break;
-                case 5:  response.setContentType("image/jpeg");
-                         break;
-                default: response.sendRedirect("cerrar_sesion");
-                         break;
+                case 0: response.sendRedirect("cerrar_sesion");
+                        break;
+                case 1: response.setContentType("image/bmp");
+                        response.setHeader("Content-Type", "image/bmp");
+                        break;
+                case 2: response.setContentType("image/gif");
+                        response.setHeader("Content-Type", "image/gif");
+                        break;
+                case 3: response.setContentType("image/png");
+                        response.setHeader("Content-Type", "image/png");                
+                        break;
+                case 4: response.setContentType("image/tiff");
+                        response.setHeader("Content-Type", "image/tiff");
+                        break;
+                case 5: response.setContentType("image/jpeg");
+                        response.setHeader("Content-Type", "image/jpeg");
+                        break;
+                default:response.sendRedirect("cerrar_sesion");
+                        break;
             }
 
-            request.setAttribute("portada_img", portada_img);
+            response.setHeader("Content-Length", String.valueOf(portada_img.length));
 
-            request.getRequestDispatcher("pelicula").forward(request, response);
+            //Write Image Data to Response.
+            response.getOutputStream().write(portada_img);
+
+            //request.setAttribute("portada_img", portada_img);
+
+            //request.getRequestDispatcher("pelicula").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
             e.printStackTrace();

@@ -39,21 +39,17 @@ public class Pelicula_Control extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
+            //Comprobaciones
             if(request.getParameter("id") == null){
-            //si no hay nada te da error
+                //Error si no hay nada
                 throw new NamingException();
-
             } else {
-
-            //Si lanza la exceipcion del tipo numberFormat(Error al pasar de string a integer) lo cojera el catch de abajo
-            pelicula_id = Integer.parseInt(request.getParameter("id"));
-          
+                //Puede lanzar excepcion NumberFormat (error de string a integer)
+                pelicula_id = Integer.parseInt(request.getParameter("id"));
             }
 
             if(!db.existePelicula(pelicula_id)){
-                
                 throw new SQLException(); //No existe la pelicula en la base de datos
-
             }
             
 

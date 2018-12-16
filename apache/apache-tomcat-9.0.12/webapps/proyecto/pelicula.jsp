@@ -63,17 +63,17 @@ if(session.getAttribute("session_id") != null){
                     <h3><b>Portada</b></h3>
                         <%--<img src="<%=pelicula.getTitulo()%>.jpg" alt="<%=pelicula.getTitulo()%>" width="150"/>--%>
                         <img src="imagen?id_pelicula=<%=pelicula.getId()%>" alt="<%=pelicula.getTitulo()%>" width="150"/> 
-                        <%--Aquí para insertar la foto de la portada, falta importar la url de la imagen--%>
                     </div>
+                    
                     <br/>
                         <h3><b>Año: </b><%= pelicula.getAnyo()%></h3>
                         <h3><b>Duracion: </b><%= pelicula.getDuracion()%> min</h3>
                         <h3><b>Director: </b><%= pelicula.getDirector()%></h3>
                         <h3><b>Descripción: </b><%= pelicula.getDescripcion()%></h3>
-                        <h3><b>Trailer: </b></h3> <iframe width="853" height="480" src="<%=pelicula.getTrailer()%>" align="middle" frameborder="0" allowfullscreen ></iframe>
+                        <h3><b>Trailer: </b></h3> <iframe width="500" src="<%=pelicula.getTrailer()%>" align="middle" frameborder="0" allowfullscreen ></iframe>
 
                         <p> </p>
-                        <h3><b>Usuario Creador: </b><a href="usuario?usuarioid=<%= usuariocreador.getId()%>"> <b><%= usuariocreador.getUsuario() %></b></a></h3>
+                        <h3><b>Usuario creador: </b><a href="usuario?usuarioid=<%= usuariocreador.getId()%>"> <b><%= usuariocreador.getUsuario() %></b></a></h3>
                 </div>
             </div>
         </div>
@@ -158,10 +158,12 @@ if(session.getAttribute("session_id") != null){
                       </div>
                 </form>
             <%}else{%>
-                <p>No puedes comentar esta película, su usuario está bloqueado. Contacte con nosotros en caso de duda</p>
+                <p>No puedes comentar esta película, su usuario está bloqueado. Contacte con Manloo para más ayuda</p>
             <%}%>
         <%}%>
+
         <%@ include file='footer.jsp' %>
+        
       </body>
 </section>
 </html>

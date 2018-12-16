@@ -1203,6 +1203,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
 
     }
 
+
     public static int GetImageFormat(int[] array){
         //int[] bmp = Encoding.ASCII.GetBytes("BM");     // BMP
         //int[] gif = Encoding.ASCII.GetBytes("GIF");    // GIF
