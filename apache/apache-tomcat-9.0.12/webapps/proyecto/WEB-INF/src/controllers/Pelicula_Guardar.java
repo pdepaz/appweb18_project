@@ -69,7 +69,9 @@ public class Pelicula_Guardar extends HttpServlet {
                 pelicula.setPortada(portada_imagen);
             }*/
             
-            pelicula.setTrailer(request.getParameter("trailer"));
+            if (!request.getParameter("trailer").equals("")){
+                pelicula.setTrailer(request.getParameter("trailer"));
+            }
 
             //El creador es el id del usuario de la sesion
             pelicula.setCreador((int) session.getAttribute("session_id"));
