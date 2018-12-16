@@ -27,7 +27,7 @@ import org.apache.commons.io.IOUtils;
  *
  */
 @WebServlet("/pelicula_guardar")
-@MultipartConfig(maxFileSize = 65535) //64KB maximum BLOB size
+@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
 public class Pelicula_Guardar extends HttpServlet {
 
     /**

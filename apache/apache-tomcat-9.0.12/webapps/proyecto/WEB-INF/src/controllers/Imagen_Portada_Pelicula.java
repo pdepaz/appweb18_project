@@ -106,9 +106,13 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
             //request.getRequestDispatcher("pelicula").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
-            e.printStackTrace();
-            //response.sendRedirect("error");
-            response.sendError(500);
+            //e.printStackTrace();
+            response.setContentType("image/png");
+            response.setHeader("Content-Type", "image/png"); 
+            //response.setHeader("Content-Length", String.valueOf(portada_img.length));
+            //response.getOutputStream().write(portada_img);
+            response.sendRedirect("images/sin_portada.png");
+            //response.sendError(500);
         }
     }
 }
