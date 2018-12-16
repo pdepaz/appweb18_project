@@ -26,14 +26,11 @@
                     <h2>Se ha producido un error al crear su cuenta, vuelva a intentarlo</h2>
                     <br/>
                     
-                    <% if(session.getAttribute("session_id") != null){ %>
-                            <form id = "buscar_usuario" action = "buscar_usuario" method = "post">
-                                <input type="text" name ="nombre_usuario" size = "2">
-                                    <div class = "boton">
-                                            <input type = "submit" value = "Buscar">
-                                    </div>
-                            </form>
-                    <%}%>
+                    <%if(session.getAttribute("session_id") == null){ %>	
+						<ul class="actions special">
+							<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
+						</ul>
+					<%}%>
 
                 </header>
             </section>

@@ -70,7 +70,7 @@ public class Usuario_Guardar extends HttpServlet {
 
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
-            response.sendRedirect("error");
+            response.sendRedirect("error_crear_cuenta");
         }
     }
 }

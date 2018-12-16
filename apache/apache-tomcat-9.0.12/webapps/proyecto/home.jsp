@@ -111,53 +111,6 @@
 
 				</section>
 
-				<%--FORMULARIO de CREAR CUENTA --%>
-					<div id="id03" class="modal">
-									<form class="modal-content animate" autocomplete="off" method="post" action="usuario_guardar">
-		                                    <%--Aspa de cerrar--%>
-								            <div class="imgcontainer">
-										     	<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Cerrar">&times;</span>
-										    </div>
-
-										    <%--Formulario--%>	
-		                                    <div class="container">
-		                                    <div class="row gtr-uniform gtr-50">
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="nombre" id="nombre" value="" placeholder="nombre">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="apellido1" id="apellido1" value="" placeholder="Primer Apellido">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="apellido2" id="apellido2" value="" placeholder="Segundo Apellido">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                                <input type="email" name="email" id="email" value="" placeholder="Email">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Clave">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita clave">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="usuario" id="usuario" value="" placeholder="Usuario">
-		                                        </div>
-		                                        <div class="col-6 col-12-mobilep">
-		                                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
-		                                        </div>
-		                                        <div class="col-12">
-		                                            <ul class="actions">
-		                                                <li><input type="submit" value="Enviar"></li>
-		                                                <li><input type="reset" value="Reset" class="alt"></li>
-		                                            </ul>
-		                                        </div>
-		                                    </div>
-		                                    </div>
-		                                </form>
-					</div>
-
-
 			<%@ include file='footer.jsp' %>
 
 	</body>

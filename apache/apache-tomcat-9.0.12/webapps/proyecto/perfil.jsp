@@ -39,7 +39,7 @@
             </ul>
         </div>
 
-        <p>¿No te gustan tus datos? Estás a un click de cambiarlos.<p>
+        <p>¿Quieres cambiar tus datos? Estás a un click hacerlo.<p>
         <button class="button special small" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Editar Perfil</button>
         
         <%--FORMULARIO PARA CAMBIAR LOS DATOS--%>

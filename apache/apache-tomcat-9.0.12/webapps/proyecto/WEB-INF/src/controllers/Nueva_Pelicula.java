@@ -20,11 +20,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Gestiona los errores
+ * Redirige a la pagina para crear una pelicula
  *
  */
-@WebServlet("/error_crear_cuenta")
-public class Error_Crear_Cuenta extends HttpServlet {
+@WebServlet("/nueva_pelicula")
+public class Nueva_Pelicula extends HttpServlet {
 
     /**
      * Metodo del servlet que responde a una peticion GET.
@@ -36,14 +36,11 @@ public class Error_Crear_Cuenta extends HttpServlet {
 
         try (DBManager db = new DBManager()){
 
-            request.getRequestDispatcher("error_crear_cuenta.jsp").forward(request, response);   
+            request.getRequestDispatcher("nueva_pelicula.jsp").forward(request, response);
 
-        } catch (NamingException|SQLException e){
-            //e.printStackTrace();
-            //response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){ //
+           // e.printStackTrace();
             response.sendRedirect("error");
-
-        }
-
+        } 
     }
 }
