@@ -60,7 +60,8 @@
                                 </div>
 
                                 <div class="col-6 col-12-mobilep">
-                                    <input type="file" name="portada" size="50" accept="image/png,image/jpeg" placeholder="Sube una portada (en formato PNG o JPEG)"/>
+                                    <p>Suba una portada (en formato PNG o JPEG)</p>
+                                    <input type="file" name="portada" size="50" accept="image/png,image/jpeg" class="button" placeholder="Sube una portada (en formato PNG o JPEG)"/>
                                 </div>
 
                             <div class="container">
