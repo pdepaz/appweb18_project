@@ -43,9 +43,15 @@ public class Perfil_Control extends HttpServlet {
                 response.sendRedirect("home");            
             }else {
                 mi_usuario_id = (int) session.getAttribute("session_id");
+
+                Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
+                
+                session.setAttribute("mi_usuario", mi_usuario);
+
             }
-            //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
-            response.sendRedirect("perfil.jsp");
+            //response.sendRedirect("perfil.jsp");
+            request.getRequestDispatcher("perfil.jsp").forward(request, response);
+
           
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
