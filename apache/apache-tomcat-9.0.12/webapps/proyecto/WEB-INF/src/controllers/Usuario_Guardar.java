@@ -48,9 +48,9 @@ public class Usuario_Guardar extends HttpServlet {
             String contrasenya1 = request.getParameter("contrasenya");
             String contrasenya2 = request.getParameter("contrasenya2");
 
-            if(contrasenya1.equals(contrasenya2)){
+            if (contrasenya1.equals(contrasenya2)){
                 user.setContrasenya(request.getParameter("contrasenya"));
-            }else{
+            } else{
                 throw new SQLException();
             }
             
