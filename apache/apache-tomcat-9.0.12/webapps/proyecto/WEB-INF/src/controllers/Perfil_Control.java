@@ -30,12 +30,12 @@ public class Perfil_Control extends HttpServlet {
      * Metodo del servlet que responde a una peticion GET.
      *
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws IOException, ServletException
-    {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+       
         HttpSession session = request.getSession();
 
         int mi_usuario_id = 0;
+        
         try (DBManager db = new DBManager()){
 
             if(session.getAttribute("session_id") == null){
@@ -49,9 +49,9 @@ public class Perfil_Control extends HttpServlet {
                 session.setAttribute("mi_usuario", mi_usuario);
 
             }
-            //response.sendRedirect("perfil.jsp");
-            request.getRequestDispatcher("perfil.jsp").forward(request, response);
 
+            //request.getRequestDispatcher("perfil.jsp").forward(request, response);
+            response.sendRedirect("perfil.jsp");
           
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();

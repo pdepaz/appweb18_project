@@ -88,10 +88,10 @@
 			                                                <input type="email" name="email" id="email" value="" placeholder="Email">
 			                                        </div>
 			                                        <div class="col-6 col-12-mobilep">
-			                                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Clave">
+			                                                <input type="password" name="contrasenya" id="contrasenya" value="" placeholder="Contraseña">
 			                                        </div>
 			                                        <div class="col-6 col-12-mobilep">
-			                                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita clave">
+			                                            <input type="password" name="contrasenya2" id="contrasenya2" value="" placeholder="Repita contraseña">
 			                                        </div>
 			                                        <div class="col-6 col-12-mobilep">
 			                                            <input type="text" name="usuario" id="usuario" value="" placeholder="Usuario">

@@ -66,7 +66,8 @@ public class Usuario_Guardar extends HttpServlet {
                 session.setAttribute("session_id", aux.getId());
             }
 
-            response.sendRedirect("perfil");
+            //response.sendRedirect("perfil");
+            request.getRequestDispatcher("perfil").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
