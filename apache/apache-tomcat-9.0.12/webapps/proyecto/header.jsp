@@ -98,12 +98,12 @@
 		                                        <div class="col-6 col-12-mobilep">
 		                                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
 		                                        </div>
-		                                        <div class="col-12">
-		                                            <input type="submit" value="Enviar" class="submitbutton">
-		                                            <input type="reset" value="Reset" class="cancelbutton">
-		                                            
-		                                        </div>
+		                                   
 		                                    </div>
+
+		                                    <input type="submit" value="Enviar" class="submitbutton">
+		                                    <input type="reset" value="Reset" class="cancelbutton">
+		                                    
 		                                    </div>
 		                                </form>
 					</div>
