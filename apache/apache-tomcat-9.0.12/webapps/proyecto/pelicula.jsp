@@ -34,7 +34,7 @@ if(session.getAttribute("session_id") != null){
             <%if(pelicula.getBloqueado()==0){%>
 
               <form id = "bloquear_pelicula" action = "bloquear_pelicula" method = "post">
-                <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
+                <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
                   <div class = "boton">
                     <input type = "submit" value = "Bloquear Pelicula">
                   </div>
@@ -42,7 +42,7 @@ if(session.getAttribute("session_id") != null){
             <%}else{%>
             <p>La película está Bloqueado</p>
               <form id = "desbloquear_pelicula" action = "desbloquear_pelicula" method = "post">
-                  <input type = "hidden" name ="pelicula_id" value="<%=pelicula.getId()%>">
+                  <input type = "hidden" name ="pelii_id" value="<%=pelicula.getId()%>">
                     <div class = "boton">
                       <input type = "submit" value = "Desbloquear Pelicula">
                     </div>
@@ -135,6 +135,7 @@ if(session.getAttribute("session_id") != null){
                               </div>
                             <%}%>
                         <%}else{%>
+                          <%if (tmp.getComentario_padre() == 0){%>
                             <div class="row-6 row-12-mobilep">
                                 <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
                                 <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></a>: <%= tmp.getComentario_text()%></h3></b>
@@ -174,7 +175,7 @@ if(session.getAttribute("session_id") != null){
                                   <%}%>
                             </div>
                         <%}%>
-
+                    <%}%>
                 <%} else {%> <%-- USUARIO NORMAL--%>
                     <%if (tmp.getBloqueado() == 0){%>
                       <%if (tmp.getComentario_padre() == 0){%>
