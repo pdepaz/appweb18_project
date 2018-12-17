@@ -35,21 +35,26 @@ public class Desbloquear_Pelicula extends HttpServlet {
     {
 
         HttpSession session = request.getSession();
-        int peliculaid = Integer.parseInt(request.getParameter("pelicula_id"));
+      try (DBManager db = new DBManager()){
 
-        boolean bloqueada = false;
-        try (DBManager db = new DBManager()){
+          int peliculaid = Integer.parseInt(request.getParameter("pelii_id"));
 
-            bloqueada = db.desbloquear_tema("Peliculas",peliculaid);
+          boolean bloqueada = false;
 
-              if(bloqueada){
-                response.sendRedirect("home_peliculas");
-              }
-            //Else error
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+              bloqueada = db.desbloquear_tema("Peliculas",peliculaid);
+
+                if(bloqueada){
+                  response.sendRedirect("home_peliculas");
+                }else{
+                  //Else error
+                  throw new SQLException();
+                }
+
+
+          } catch (NamingException|SQLException|NumberFormatException e){
+
+              response.sendRedirect("error");
         }
     }
 }

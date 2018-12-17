@@ -35,10 +35,11 @@ public class Bloquear_Pelicula extends HttpServlet {
     {
 
         HttpSession session = request.getSession();
-        int peliculaid = Integer.parseInt(request.getParameter("pelicula_id"));
+        try (DBManager db = new DBManager()){
+        int peliculaid = Integer.parseInt(request.getParameter("pelii_id"));
 
         boolean bloqueada = false;
-        try (DBManager db = new DBManager()){
+
 
             bloqueada = db.bloquear_tema("Peliculas",peliculaid);
 
@@ -47,9 +48,8 @@ public class Bloquear_Pelicula extends HttpServlet {
               }
             //Else error
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){
+            response.sendRedirect("error");
         }
     }
 }

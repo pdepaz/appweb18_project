@@ -35,7 +35,7 @@ public class Perfil_Actualizar extends HttpServlet {
     {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("UTF-8");
-        
+
         try (DBManager db = new DBManager()){
 
             Usuario user = new Usuario();
@@ -69,9 +69,8 @@ public class Perfil_Actualizar extends HttpServlet {
                 response.sendRedirect("error");
             }
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){
+            response.sendRedirect("error");
         }
     }
 }

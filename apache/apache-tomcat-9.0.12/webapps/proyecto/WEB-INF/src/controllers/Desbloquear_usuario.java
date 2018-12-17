@@ -35,10 +35,11 @@ public class Desbloquear_usuario extends HttpServlet {
     {
 
         HttpSession session = request.getSession();
+        try (DBManager db = new DBManager()){
         int usuarioid = Integer.parseInt(request.getParameter("usuario_id"));
 
         boolean bloqueada = false;
-        try (DBManager db = new DBManager()){
+
 
             bloqueada = db.desbloquear_usuario(usuarioid);
 
@@ -47,9 +48,8 @@ public class Desbloquear_usuario extends HttpServlet {
               }
             //Else error
 
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){
+          response.sendRedirect("error");
         }
     }
 }

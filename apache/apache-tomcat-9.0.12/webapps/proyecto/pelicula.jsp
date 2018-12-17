@@ -184,10 +184,12 @@ if(session.getAttribute("session_id") != null){
                             <h3> <a href="usuario?usuarioid=<%= tmp.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp)).getUsuario() %></b></a>: <%= tmp.getComentario_text()%></h3>
                                 <%for(Comentario tmp2: comentarios){%>
                                     <%if(tmp2.getComentario_padre() == tmp.getId()){%>
-                                      <div class="row-6 row-12-mobilep">
-                                              <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
-                                              <h4>Respuesta de <a href="usuario?usuarioid=<%= tmp2.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp2)).getUsuario() %></b></a>: <%= tmp2.getComentario_text()%></h4>
-                                      </div>
+                                        <%if (tmp2.getBloqueado() == 0){%>
+                                          <div class="row-6 row-12-mobilep">
+                                                  <%--Cargar usuario por id, COMPROBAR el usuario bloqueado no puede mostrar comments --%>
+                                                  <h4>Respuesta de <a href="usuario?usuarioid=<%= tmp2.getUsuario()%>"> <b><%= userscomentadores.get(comentarios.indexOf(tmp2)).getUsuario() %></b></a>: <%= tmp2.getComentario_text()%></h4>
+                                          </div>
+                                        <%}%>
                                     <%}%>
                                   <%}%>
                             <%if(session.getAttribute("session_id") != null){ %>
