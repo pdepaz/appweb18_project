@@ -53,6 +53,8 @@ public class Iniciar_Sesion_Control extends HttpServlet {
    	            	Usuario mi_usuario = db.cargar_usuario(id_usuario);
                     session.setAttribute("mi_usuario", mi_usuario);
                     
+                    db.enviarConGMail(mi_usuario.getEmail());
+                    
    	            	session.setAttribute("session_id", id_usuario);
 
                     response.sendRedirect("home");
