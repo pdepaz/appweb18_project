@@ -5,14 +5,14 @@ public class Usuario {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-    private String email;
-	//Array de bytes String foto;
+  private String email;
+	private byte[] foto;
 	private int telefono;
     private String usuario;
     private String contrasenya;
     private String tipo_usuario;
     private int bloqueado;
-	
+
 
 	@Override
 	public String toString() {
@@ -70,6 +70,16 @@ public class Usuario {
 	}
 
 
+	public byte[] getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+
 	public int getTelefono() {
 		return telefono;
 	}
@@ -119,4 +129,3 @@ public class Usuario {
 		this.bloqueado = bloqueado;
 	}
 }
-

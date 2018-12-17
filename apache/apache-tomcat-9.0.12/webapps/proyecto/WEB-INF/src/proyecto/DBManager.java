@@ -172,48 +172,19 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
      *
      * @param usuario
-     * @return 1 if correct, -1 if error (somefields not introduced)
+     * @return 1 if correct, -1 if error
      */
     public int crearUsuario(Usuario usuario) throws SQLException {
 
         //Verificar que los datos que me llegan están bien (de los obligatorios)
-        //No va a tener id todavía... el id se le asignará en la base de datos...
-        // int id = usuario.getId();
-         String nombre = usuario.getNombre();
-         String apellido1 = usuario.getApellido1();
-         String apellido2= usuario.getApellido2();
-         String email = usuario.getEmail();
-         int telefono = usuario.getTelefono();
-         String nombre_usuario = usuario.getUsuario();
-         String contrasenya = usuario.getContrasenya();
-         String tipo_usuario = usuario.getTipo_usuario();
-         int bloqueado = usuario.getBloqueado();
-
-        if (nombre.equals("") || apellido1.equals("") || email.equals("") || contrasenya.equals("") || nombre_usuario.equals("")){
-            return -1;
-        }
+        String email = usuario.getEmail();
+        String nombre_usuario = usuario.getUsuario();
 
         if (verificarExistenciaUsuario(email, nombre_usuario)){
             return -1; //Usuario ya existe
         }
 
-        //A partir de aqui, ya sabemos que el usuario NO existe en nuestra base de datos
-        if(apellido2.equals("")){
-            apellido1 = null;
-        }
-        /*if(foto.equals("")){
-            foto = null;
-        }
-        if(telefono == null){
-            telefono = null;
-        }*/
-        if(tipo_usuario.equals("")){
-            tipo_usuario = null;
-        }
-
-
-
-        String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)";
+        String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, foto, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
@@ -221,12 +192,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(2, apellido1);
             st.setString(3, apellido2);
             st.setString(4, email);
-            //está dando error porque la foto es un not null... Hay que meterle alguna foto....
-            //st.setString(5, foto);
-            st.setInt(5, telefono);
-            st.setString(6, contrasenya);
-            st.setString(7, nombre_usuario);
-            st.setString(8, tipo_usuario);
+            st.setBlob(5, new ByteArrayInputStream(usuario.getFoto()));
+            st.setInt(6, telefono);
+            st.setString(7, contrasenya);
+            st.setString(8, nombre_usuario);
+            st.setString(9, tipo_usuario);
 
             // execute select SQL stetement
             st.executeUpdate();
@@ -235,14 +205,15 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         return 1;
     }
 
+
      /**
-            Actualiza los datos de un usuario     *
+     * Actualiza los datos de un usuario
      * @param usuario
-     * @return 1 if correct, -1 if error (somefields not introduced)
+     * @return 1 if correct
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
 
-        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, telefono =?, contrasenya= ? WHERE  Usuarios.id = ?";
+        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, foto =?, telefono =?, contrasenya= ? WHERE  Usuarios.id = ?";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
 
@@ -250,9 +221,11 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
             st.setString(2, usuario.getApellido1());
             st.setString(3, usuario.getApellido2());
             st.setString(4, usuario.getEmail());
-            st.setInt(5, usuario.getTelefono());
-            st.setString(6, usuario.getContrasenya());
-            st.setInt(7,usuario.getId());
+            st.setBlob(5, new ByteArrayInputStream(usuario.getFoto()));
+            st.setInt(6, usuario.getTelefono());
+            st.setString(7, usuario.getContrasenya());
+            st.setInt(8,usuario.getId());
+
             // execute select SQL stetement
             st.executeUpdate();
         }

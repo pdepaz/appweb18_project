@@ -62,7 +62,7 @@ if(session.getAttribute("session_id") != null){
                     <div class="row-6 row-12-mobilep">
                     <h3><b>Portada</b></h3>
                         <%--<img src="<%=pelicula.getTitulo()%>.jpg" alt="<%=pelicula.getTitulo()%>" width="150"/>--%>
-                        <img src="imagen?id_pelicula=<%=pelicula.getId()%>" alt="<%=pelicula.getTitulo()%>" width="150"/>
+                        <img src="imagen?id_pelicula=<%=pelicula.getId()%>" alt="<%=pelicula.getTitulo()%>" width="180"/>
                     </div>
 
                     <br/>

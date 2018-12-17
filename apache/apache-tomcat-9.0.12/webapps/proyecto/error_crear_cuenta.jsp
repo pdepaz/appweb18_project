@@ -24,9 +24,15 @@
             <section id="main" class="container">
                 <header>
                     <h2>Se ha producido un error al crear su cuenta, vuelva a intentarlo</h2>
+                    <p>Algún error puede ser:</p>
+                    <ul>
+                        <li>Ya existe un usuario con el mismo email y/o nombre de usuario.</li>
+                        <li>Un número de teléfono no puede contener letras o caracteres no numéricos.</li>
+                        <li>Tea</li>
+                    </ul>
                     <br/>
-                    
-                    <%if(session.getAttribute("session_id") == null){ %>	
+
+                    <%if(session.getAttribute("session_id") == null){ %>
 						<ul class="actions special">
 							<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
 						</ul>
