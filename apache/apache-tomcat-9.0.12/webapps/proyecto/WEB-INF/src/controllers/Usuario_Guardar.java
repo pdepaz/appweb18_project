@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +14,21 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.MultipartConfig;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.apache.commons.io.IOUtils;
+
 /**
  * Guardara los datos del nuevo usuario generado
  *
  */
 @WebServlet("/usuario_guardar")
+@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
 public class Usuario_Guardar extends HttpServlet {
 
     /**
@@ -54,28 +59,31 @@ public class Usuario_Guardar extends HttpServlet {
 
 
             //FOTO
-            InputStream inputStream = null; //Input stream of the upload file
+            //Foto (not compulsory)
+            if(request.getPart("foto") != null){
+                InputStream inputStream = null; //Input stream of the upload file
 
-            //Now, obtain the upload file part in this multipart request
-            Part filePart = request.getPart("foto");
+                //Now, obtain the upload file part in this multipart request
+                Part filePart = request.getPart("foto");
 
-            if (filePart != null) {
-                //Obtains input stream of the upload file
-                //the InputStream will point to a stream that contains the contents of the file
-                inputStream = filePart.getInputStream();
-            }
+                if (filePart != null) {
+                    //Obtains input stream of the upload file
+                    //the InputStream will point to a stream that contains the contents of the file
+                    inputStream = filePart.getInputStream();
+                }
 
-            if (inputStream != null) {
-                //Files are treated as BLOB objects in database
-                byte[] foto_imagen = IOUtils.toByteArray(inputStream);
-                pelicula.setFoto(foto_imagen);
+                if (inputStream != null) {
+                    //Files are treated as BLOB objects in database
+                    byte[] foto_imagen = IOUtils.toByteArray(inputStream);
+                    user.setFoto(foto_imagen);
+                }
             }
 
             //Not compulsory
             if (!request.getParameter("telefono").equals("")){
                 user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
             } else {
-                user.setApellido2("[NO PROPORCIONADO]");
+                user.setTelefono(0);
             }
 
             String contrasenya1 = request.getParameter("contrasenya");
@@ -100,9 +108,9 @@ public class Usuario_Guardar extends HttpServlet {
             } else{
               throw new NamingException();
             }
+
             db.enviarConGMail(user.getEmail());
-            //response.sendRedirect("perfil");
-            //db.enviarConGMail(user.getEmail());
+
             request.getRequestDispatcher("perfil").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){

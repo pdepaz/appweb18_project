@@ -43,9 +43,9 @@ public class Home_Control extends HttpServlet {
             request.getRequestDispatcher("home.jsp").forward(request, response);
 
         } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
-            //response.sendRedirect("error");
+            //e.printStackTrace();
+            //response.sendError(500);
+            response.sendRedirect("error");
         }
     }
 }

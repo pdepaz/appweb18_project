@@ -2699,3 +2699,775 @@ Caused by: java.net.BindException: La dirección ya se está usando
 17-Dec-2018 16:06:19.794 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
 17-Dec-2018 16:06:19.802 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
 17-Dec-2018 16:06:19.809 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 2179 ms
+17-Dec-2018 17:11:04.218 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:11:04.231 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:11:04.232 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:11:04.561 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:11:04.572 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:11:04.579 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:11:06.605 INFORMACIÓN [Abandoned connection cleanup thread] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+ java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1329)
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1006)
+	at com.mysql.jdbc.AbandonedConnectionCleanupThread.checkContextClassLoaders(AbandonedConnectionCleanupThread.java:90)
+	at com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:11:44.743 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:11:45.066 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:11:45.083 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:11:45.089 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:12:15.211 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:12:15.599 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:12:15.619 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:12:15.627 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:12:25.660 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:12:26.140 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:12:26.149 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:12:26.154 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:13:16.510 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:13:16.772 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:13:16.782 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:13:16.788 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:14:57.533 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:14:57.946 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:14:57.955 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:14:57.961 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:15:10.643 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:15:10.644 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:15:10.696 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:15:10.747 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:15:10.764 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.io.UnixFileSystem.getBooleanAttributes0(Native Method)
+ java.io.UnixFileSystem.getBooleanAttributes(UnixFileSystem.java:242)
+ java.io.File.exists(File.java:819)
+ org.apache.catalina.webresources.FileResource.getURL(FileResource.java:259)
+ org.apache.catalina.webresources.CachedResource.getURL(CachedResource.java:317)
+ org.apache.catalina.loader.WebappClassLoaderBase.findResource(WebappClassLoaderBase.java:908)
+ org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1025)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.checkContextClassLoaders(AbandonedConnectionCleanupThread.java:90)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:63)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:15:10.787 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:15:10.788 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:15:10.804 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:15:10.806 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:15:10.808 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:15:10.809 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:15:11.607 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:15:11.610 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:15:11.611 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:15:11.612 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:15:11.612 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:15:11.612 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:15:11.612 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:15:11.613 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:15:11.614 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:15:11.614 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:15:11.832 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:15:11.870 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:15:11.881 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:15:11.883 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:15:11.887 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 871 ms
+17-Dec-2018 17:15:11.934 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:15:11.934 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:15:11.952 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:15:12.286 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [332] ms
+17-Dec-2018 17:15:12.286 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:15:12.569 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:15:12.596 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:15:12.603 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [317] ms
+17-Dec-2018 17:15:12.603 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:15:12.630 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [27] ms
+17-Dec-2018 17:15:12.630 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:15:13.087 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [456] ms
+17-Dec-2018 17:15:13.087 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:15:13.132 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [45] ms
+17-Dec-2018 17:15:13.133 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:15:13.173 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [40] ms
+17-Dec-2018 17:15:13.174 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:15:13.207 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [33] ms
+17-Dec-2018 17:15:13.208 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:15:13.598 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:15:13.615 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:15:13.639 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [430] ms
+17-Dec-2018 17:15:13.642 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:15:13.650 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:15:13.657 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1770 ms
+17-Dec-2018 17:15:34.624 INFORMACIÓN [http-nio-9190-exec-3] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:15:54.857 INFORMACIÓN [http-nio-9190-exec-9] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:20:22.329 INFORMACIÓN [http-nio-9190-exec-7] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:27:26.862 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:27:26.862 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:27:26.914 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:27:26.965 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:27:26.989 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.net.www.protocol.file.Handler.parseURL(Handler.java:67)
+ java.net.URL.<init>(URL.java:622)
+ java.net.URL.<init>(URL.java:490)
+ java.net.URL.<init>(URL.java:439)
+ java.net.URI.toURL(URI.java:1089)
+ org.apache.catalina.webresources.FileResource.getURL(FileResource.java:261)
+ org.apache.catalina.webresources.CachedResource.getURL(CachedResource.java:317)
+ org.apache.catalina.loader.WebappClassLoaderBase.findResource(WebappClassLoaderBase.java:908)
+ org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1025)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.checkContextClassLoaders(AbandonedConnectionCleanupThread.java:90)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:63)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:27:27.012 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:27:27.013 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:27:27.033 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:27:27.037 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:27:27.038 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:27:27.039 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:27:27.837 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:27:27.840 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:27:27.840 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:27:27.840 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:27:27.840 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:27:27.841 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:27:27.842 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:27:27.843 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:27:27.843 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:27:27.843 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:27:27.843 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:27:28.031 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:27:28.068 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:27:28.079 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:27:28.081 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:27:28.082 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 846 ms
+17-Dec-2018 17:27:28.128 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:27:28.128 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:27:28.146 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:27:28.510 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [363] ms
+17-Dec-2018 17:27:28.511 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:27:28.778 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:27:28.802 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:27:28.808 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [297] ms
+17-Dec-2018 17:27:28.809 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:27:28.837 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [28] ms
+17-Dec-2018 17:27:28.837 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:27:29.364 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [527] ms
+17-Dec-2018 17:27:29.364 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:27:29.407 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [43] ms
+17-Dec-2018 17:27:29.407 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:27:29.455 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [48] ms
+17-Dec-2018 17:27:29.455 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:27:29.485 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [30] ms
+17-Dec-2018 17:27:29.486 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:27:29.852 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:27:29.870 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:27:29.909 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [423] ms
+17-Dec-2018 17:27:29.916 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:27:29.943 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:27:29.947 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1864 ms
+17-Dec-2018 17:27:35.048 INFORMACIÓN [http-nio-9190-exec-8] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:28:50.359 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:28:50.361 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:28:50.413 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:28:50.464 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:28:50.489 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:28:50.519 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:28:50.519 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:28:50.543 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:28:50.545 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:28:50.548 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:28:50.549 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:28:51.296 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:28:51.298 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:28:51.298 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:28:51.298 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:28:51.298 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:28:51.299 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:28:51.300 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:28:51.301 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:28:51.301 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:28:51.301 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:28:51.482 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:28:51.512 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:28:51.521 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:28:51.523 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:28:51.524 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 780 ms
+17-Dec-2018 17:28:51.561 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:28:51.562 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:28:51.577 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:28:51.899 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [321] ms
+17-Dec-2018 17:28:51.900 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:28:52.192 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:28:52.215 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:28:52.222 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [323] ms
+17-Dec-2018 17:28:52.223 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:28:52.253 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [30] ms
+17-Dec-2018 17:28:52.254 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:28:52.692 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [438] ms
+17-Dec-2018 17:28:52.692 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:28:52.736 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [43] ms
+17-Dec-2018 17:28:52.736 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:28:52.775 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [39] ms
+17-Dec-2018 17:28:52.776 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:28:52.809 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [33] ms
+17-Dec-2018 17:28:52.810 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:28:53.320 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:28:53.336 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:28:53.363 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [553] ms
+17-Dec-2018 17:28:53.367 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:28:53.382 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:28:53.384 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1859 ms
+17-Dec-2018 17:28:55.821 INFORMACIÓN [http-nio-9190-exec-3] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:33:50.427 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:33:50.427 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:33:50.480 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:33:50.531 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:33:50.557 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:33:50.585 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:33:50.586 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:33:50.602 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:33:50.606 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:33:50.613 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:33:50.614 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:33:51.326 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:33:51.328 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:33:51.328 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:33:51.329 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:33:51.330 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:33:51.330 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:33:51.330 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:33:51.330 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:33:51.330 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:33:51.331 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:33:51.503 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:33:51.535 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:33:51.544 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:33:51.546 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:33:51.546 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 755 ms
+17-Dec-2018 17:33:51.580 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:33:51.580 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:33:51.593 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:33:51.931 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [336] ms
+17-Dec-2018 17:33:51.931 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:33:52.278 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:33:52.305 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:33:52.311 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [380] ms
+17-Dec-2018 17:33:52.312 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:33:52.338 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [26] ms
+17-Dec-2018 17:33:52.338 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:33:52.794 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [456] ms
+17-Dec-2018 17:33:52.794 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:33:52.842 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [47] ms
+17-Dec-2018 17:33:52.842 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:33:52.894 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [52] ms
+17-Dec-2018 17:33:52.895 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:33:52.928 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [32] ms
+17-Dec-2018 17:33:52.928 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:33:53.308 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:33:53.325 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:33:53.345 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [417] ms
+17-Dec-2018 17:33:53.348 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:33:53.357 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:33:53.359 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1812 ms
+17-Dec-2018 17:34:04.484 INFORMACIÓN [http-nio-9190-exec-8] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:37:10.912 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:37:10.913 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:37:10.965 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:37:11.016 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:37:11.040 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.String.indexOf(String.java:1503)
+ java.net.URI$Parser.scan(URI.java:2951)
+ java.net.URI$Parser.parse(URI.java:3043)
+ java.net.URI.<init>(URI.java:673)
+ java.net.URI.<init>(URI.java:774)
+ java.io.File.toURI(File.java:735)
+ org.apache.catalina.webresources.FileResource.getURL(FileResource.java:261)
+ org.apache.catalina.webresources.CachedResource.getURL(CachedResource.java:317)
+ org.apache.catalina.loader.WebappClassLoaderBase.findResource(WebappClassLoaderBase.java:908)
+ org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1025)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.checkContextClassLoaders(AbandonedConnectionCleanupThread.java:90)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:63)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:37:11.066 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:37:11.073 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:37:11.083 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:37:11.086 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:37:11.088 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:37:11.089 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:37:11.820 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:37:11.823 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:37:11.823 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:37:11.823 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:37:11.824 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:37:11.825 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:37:11.825 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:37:11.825 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:37:11.825 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:37:11.826 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:37:11.996 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:37:12.028 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:37:12.039 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:37:12.041 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:37:12.041 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 743 ms
+17-Dec-2018 17:37:12.078 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:37:12.078 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:37:12.094 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:37:12.525 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [430] ms
+17-Dec-2018 17:37:12.526 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:37:12.798 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:37:12.825 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:37:12.833 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [308] ms
+17-Dec-2018 17:37:12.834 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:37:12.867 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [33] ms
+17-Dec-2018 17:37:12.868 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:37:13.363 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [496] ms
+17-Dec-2018 17:37:13.363 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:37:13.413 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [50] ms
+17-Dec-2018 17:37:13.414 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:37:13.469 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [55] ms
+17-Dec-2018 17:37:13.470 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:37:13.508 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [37] ms
+17-Dec-2018 17:37:13.508 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:37:13.889 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:37:13.917 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:37:13.945 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [437] ms
+17-Dec-2018 17:37:13.948 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:37:13.959 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:37:13.962 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1920 ms
+17-Dec-2018 17:37:18.308 INFORMACIÓN [http-nio-9190-exec-5] org.apache.coyote.http11.Http11Processor.service Error analizando cabecera de requerimiento HTTP
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:38:34.642 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:38:34.658 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:38:34.659 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:38:34.850 INFORMACIÓN [46] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+ java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1329)
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1006)
+	at com.mysql.jdbc.AbandonedConnectionCleanupThread.checkContextClassLoaders(AbandonedConnectionCleanupThread.java:90)
+	at com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+17-Dec-2018 17:38:34.984 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:38:34.984 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:38:35.036 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:38:35.041 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:38:35.055 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:38:35.063 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:38:35.089 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:38:35.155 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:38:35.160 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:38:35.161 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:38:35.162 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:38:35.980 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:38:35.984 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:38:35.985 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:38:35.986 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:38:35.986 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:38:35.986 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:38:35.986 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:38:35.987 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:38:35.988 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:38:36.161 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:38:36.193 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:38:36.204 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:38:36.205 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:38:36.206 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 828 ms
+17-Dec-2018 17:38:36.251 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:38:36.251 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:38:36.268 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:38:36.647 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [378] ms
+17-Dec-2018 17:38:36.647 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:38:36.997 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:38:37.033 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:38:37.041 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [394] ms
+17-Dec-2018 17:38:37.041 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:38:37.067 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [26] ms
+17-Dec-2018 17:38:37.068 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:38:37.706 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [638] ms
+17-Dec-2018 17:38:37.706 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:38:37.755 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [48] ms
+17-Dec-2018 17:38:37.755 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:38:37.814 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [59] ms
+17-Dec-2018 17:38:37.814 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:38:37.858 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [44] ms
+17-Dec-2018 17:38:37.858 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:38:38.238 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:38:38.257 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:38:38.282 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [424] ms
+17-Dec-2018 17:38:38.285 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:38:38.295 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:38:38.302 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 2095 ms
+17-Dec-2018 17:40:55.425 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:40:55.427 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:40:55.479 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:40:55.530 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:40:55.551 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:40:55.583 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 17:40:55.583 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 17:40:55.597 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:40:55.599 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:40:55.601 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:40:55.602 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:40:56.398 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:40:56.401 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:40:56.402 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:40:56.403 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:40:56.404 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:40:56.582 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:40:56.620 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:40:56.632 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:40:56.633 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:40:56.645 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 858 ms
+17-Dec-2018 17:40:56.697 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:40:56.698 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:40:56.717 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:40:57.091 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [373] ms
+17-Dec-2018 17:40:57.092 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:40:57.406 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:40:57.432 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:40:57.439 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [347] ms
+17-Dec-2018 17:40:57.440 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:40:57.467 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [28] ms
+17-Dec-2018 17:40:57.468 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:40:57.968 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [500] ms
+17-Dec-2018 17:40:57.968 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:40:58.020 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [51] ms
+17-Dec-2018 17:40:58.020 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:40:58.081 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [61] ms
+17-Dec-2018 17:40:58.082 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:40:58.118 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [36] ms
+17-Dec-2018 17:40:58.119 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:40:58.482 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:40:58.498 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:40:58.756 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [638] ms
+17-Dec-2018 17:40:58.762 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:40:58.772 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:40:58.783 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 2136 ms
+17-Dec-2018 17:41:08.821 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/proyecto]
+17-Dec-2018 17:41:09.211 ADVERTENCIA [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:41:09.222 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:41:09.233 INFORMACIÓN [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+17-Dec-2018 17:41:10.033 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 17:41:10.034 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:41:10.088 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:41:10.089 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 17:41:10.147 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:41:10.149 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:41:10.152 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:41:10.153 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:41:11.011 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.12
+17-Dec-2018 17:41:11.013 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 4 2018 22:13:41 UTC
+17-Dec-2018 17:41:11.013 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.12.0
+17-Dec-2018 17:41:11.013 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Dec-2018 17:41:11.013 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.16.10
+17-Dec-2018 17:41:11.013 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Dec-2018 17:41:11.014 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/oracle-java8-jdk-amd64/jre
+17-Dec-2018 17:41:11.014 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_141-b15
+17-Dec-2018 17:41:11.014 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Dec-2018 17:41:11.014 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:41:11.014 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/conf/logging.properties
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Dec-2018 17:41:11.015 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:41:11.016 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12
+17-Dec-2018 17:41:11.016 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/lab/alum/0346795/appweb18_project/apache/apache-tomcat-9.0.12/temp
+17-Dec-2018 17:41:11.016 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+17-Dec-2018 17:41:11.202 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:41:11.235 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:41:11.248 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:41:11.250 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+17-Dec-2018 17:41:11.251 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 837 ms
+17-Dec-2018 17:41:11.286 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+17-Dec-2018 17:41:11.287 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.12
+17-Dec-2018 17:41:11.302 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] de la aplicación web
+17-Dec-2018 17:41:11.610 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/ROOT] has finished in [307] ms
+17-Dec-2018 17:41:11.611 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] de la aplicación web
+17-Dec-2018 17:41:11.878 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = Libros Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:41:11.904 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:41:11.911 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/bookshop] has finished in [301] ms
+17-Dec-2018 17:41:11.912 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] de la aplicación web
+17-Dec-2018 17:41:11.942 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/docs] has finished in [30] ms
+17-Dec-2018 17:41:11.942 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] de la aplicación web
+17-Dec-2018 17:41:12.428 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/examples] has finished in [486] ms
+17-Dec-2018 17:41:12.429 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] de la aplicación web
+17-Dec-2018 17:41:12.474 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/holamundo] has finished in [46] ms
+17-Dec-2018 17:41:12.475 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] de la aplicación web
+17-Dec-2018 17:41:12.514 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/host-manager] has finished in [39] ms
+17-Dec-2018 17:41:12.515 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] de la aplicación web
+17-Dec-2018 17:41:12.548 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/manager] has finished in [33] ms
+17-Dec-2018 17:41:12.548 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Despliegue del directorio [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] de la aplicación web
+17-Dec-2018 17:41:12.953 ADVERTENCIA [main] org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory.getObjectInstance Name = proyecto Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "8" for "maxActive" property, which is being ignored.
+17-Dec-2018 17:41:12.972 INFORMACIÓN [main] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+17-Dec-2018 17:41:12.995 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/home/lab/alum0/03/46/795/appweb18_project/apache/apache-tomcat-9.0.12/webapps/proyecto] has finished in [447] ms
+17-Dec-2018 17:41:12.999 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 17:41:13.009 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 17:41:13.020 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 1768 ms
+17-Dec-2018 18:06:16.627 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+17-Dec-2018 18:06:16.629 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 18:06:16.682 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 18:06:16.733 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+17-Dec-2018 18:06:16.754 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [bookshop] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 18:06:16.787 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [proyecto] registró el conductor JDBC [com.mysql.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+17-Dec-2018 18:06:16.788 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [proyecto] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:64)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+17-Dec-2018 18:06:16.798 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 18:06:16.799 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Dec-2018 18:06:16.801 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9190"]
+17-Dec-2018 18:06:16.801 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

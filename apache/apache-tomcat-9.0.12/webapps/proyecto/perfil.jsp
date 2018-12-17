@@ -30,6 +30,7 @@
 
         <div class="col-6 col-12-mobilep" >
             <ul class="alt">
+                <li><img src="foto?id_usuario=<%=mi_usuario.getId()%>" alt="<%=mi_usuario.getNombre()%>" width="100"/></li>
                 <li>Nombre: <%= mi_usuario.getNombre() %></li>
                 <li>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></li>
                 <li>Email: <%= mi_usuario.getEmail() %></li>
@@ -40,56 +41,62 @@
 
         <p>¿Quieres cambiar tus datos? Estás a un click hacerlo.<p>
         <button class="button special small" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Editar Perfil</button>
-        
+
+
         <%--FORMULARIO PARA CAMBIAR LOS DATOS--%>
-        
         <div id="id02" class="modal">
-            <form class="modal-content animate" method="post" autocomplete="off" action="perfil_actualizar">
+            <form class="modal-content animate" enctype="multipart/form-data" method="post" autocomplete="off" action="perfil_actualizar">
             <!--Aspa de cerrar y avatar usuario-->
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Cerrar">&times;</span>
                 <h3>Modifica tus datos</h3>
+                <p>Ten en cuenta que esta acción <strong>sobre-escribirá</strong> tus datos</p>
             </div>
 
-            <!--Form propiamente dicho-->					    
+            <!--Form propiamente dicho-->
             <div class="container">
-                
+
                 <div class="row gtr-uniform gtr-50">
-    
+
                     <div class="col-6 col-12-mobilep">
-                        <input type="text" placeholder="Nombre" id="nombre" name="nombre">
+                        <input type="text" placeholder="Nombre" id="nombre" name="nombre" required>
                     </div>
-    
+
                     <div class="col-6 col-12-mobilep">
-                        <input type="text" placeholder="Apellido" id="apellido1" name="apellido1">
+                        <input type="text" placeholder="Apellido" id="apellido1" name="apellido1" required>
                     </div>
                      <div class="col-6 col-12-mobilep">
                         <input type="text" placeholder="Segundo apellido" id="apellido2" name="apellido2">
                     </div>
-    
+
                     <div class="col-6 col-12-mobilep">
-                        <input type="email" placeholder="Dirección de email" autocomplete="off" id="email" name="email">
+                        <input type="email" placeholder="Dirección de email" autocomplete="off" id="email" name="email" required>
                     </div>
-    
+
                     <div class="col-6 col-12-mobilep">
                         <input type="text" placeholder="Número de telefono" id="telefono" name="telefono">
                     </div>
-                    
+
                     <div class="col-6 col-12-mobilep">
 
                     </div>
-    
+
                     <div class="col-6 col-12-mobilep">
-                        <input type="password" placeholder="Contraseña Actual" autocomplete="off" id="old_contrasenya" name="old_contrasenya">
+                        <input type="password" placeholder="Contraseña Actual" autocomplete="off" id="old_contrasenya" name="old_contrasenya" required>
                     </div>
-                    
+
                     <div class="col-6 col-12-mobilep">
-                        <input type="password" placeholder="Nueva Contraseña" autocomplete="off" id="new_contrasenya" name="new_contrasenya">
+                        <input type="password" placeholder="Nueva Contraseña" autocomplete="off" id="new_contrasenya" name="new_contrasenya" required>
                     </div>
-    
+
+                    <div class="col-6 col-12-mobilep">
+                        <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;" />
+                        <input style="background-color:#545252" type="button" value="Subir foto de perfil (PNG o JPEG)" onclick="document.getElementById('foto').click();" />
+                    </div>
+
                 <div class="col-12">
                     <ul class="actions">
-                        <li><input type="submit" class="submitbutton" value="Guardar cambios"></li>
+                        <li><input type="submit" class="submitbutton" value="Sobre-escribir datos"></li>
                         <li><button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbutton">Cancelar</button></li>
                     </ul>
                 </div>
@@ -98,12 +105,12 @@
             </form>
 
         </div>
-        
+
     </section>
-    
+
     <%@ include file='footer.jsp' %>
-    
-    <script type="text/javascript"> 
+
+    <script type="text/javascript">
         document.getElementById('nombre').value = '<%=mi_usuario.getNombre()%>';
         document.getElementById('apellido1').value = '<%=mi_usuario.getApellido1()%>';
         document.getElementById('apellido2').value = '<%=mi_usuario.getApellido2()%>';

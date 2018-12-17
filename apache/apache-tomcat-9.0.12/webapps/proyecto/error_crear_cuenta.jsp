@@ -28,7 +28,7 @@
                     <ul>
                         <li>Ya existe un usuario con el mismo email y/o nombre de usuario.</li>
                         <li>Un número de teléfono no puede contener letras o caracteres no numéricos.</li>
-                        <li>Tea</li>
+                        <li>La contraseña no se ha repetido correctamente en el formulario</li>
                     </ul>
                     <br/>
 

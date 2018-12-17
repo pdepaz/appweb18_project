@@ -56,6 +56,7 @@ if(session.getAttribute("session_id") != null){
 
         <div class="col-6 col-12-mobilep" >
             <ul class="alt">
+                <li><img src="foto?id_usuario=default" alt="<%=usuario.getNombre()%>" width="100"/></li>
                 <li>Nombre: <%= usuario.getNombre() %></li>
                 <li>Apellidos: <%= usuario.getApellido1() %> <%= usuario.getApellido2() %></li>
                 <li>Email: <%= usuario.getEmail() %></li>
@@ -63,7 +64,7 @@ if(session.getAttribute("session_id") != null){
         </div>
 
         <%@ include file='footer.jsp' %>
-        
+
 	</section>
 </body>
 </html>

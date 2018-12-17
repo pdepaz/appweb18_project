@@ -128,7 +128,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * Checkea si el usuario existe en la DB. por id
      *
      * @param id
-
      * @return true si existe, false si no existe
      */
     public boolean existeUsuarioId(int id) throws SQLException {
@@ -140,7 +139,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         try (PreparedStatement st = connection.prepareStatement(query)) {
         // Se insertan los valores en la consulta :
             st.setInt(1, id);
-            ;
+
             // execute select SQL stetement
             ResultSet rs = st.executeQuery();
 
@@ -152,22 +151,6 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         }
     }
 
-
-    /*public boolean buscarUsuario(String usuario)throws SQLException{
-        String query_user = "SELECT * FROM Usuarios WHERE nombre=?"
-        try (PreparedStatement st = connection.prepareStatement(query_user)) {
-        // Se insertan los valores en la consulta :
-            st.setString(1, usuario);
-            // execute select SQL stetement
-            ResultSet rs = st.executeQuery();
-
-            if (rs.next()) {
-                return true; //Doesn't exists
-            } else {
-                return false; //User exists
-            }
-        }
-    }*/
     /**
      * Create username in the DB. Compulsory fields to input by user shown below. By default, create a user "no bloqueado"
      *
@@ -187,16 +170,16 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
         String query = "INSERT INTO Usuarios (nombre, apellido1, apellido2, email, foto, telefono, contrasenya, usuario, tipo_usuario, bloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
-        // Se insertan los valores en la consulta :
-            st.setString(1, nombre);
-            st.setString(2, apellido1);
-            st.setString(3, apellido2);
+        // Se insertan los valores en la consulta
+            st.setString(1, usuario.getNombre());
+            st.setString(2, usuario.getApellido1());
+            st.setString(3, usuario.getApellido2());
             st.setString(4, email);
             st.setBlob(5, new ByteArrayInputStream(usuario.getFoto()));
-            st.setInt(6, telefono);
-            st.setString(7, contrasenya);
+            st.setInt(6, usuario.getTelefono());
+            st.setString(7, usuario.getContrasenya());
             st.setString(8, nombre_usuario);
-            st.setString(9, tipo_usuario);
+            st.setString(9, usuario.getTipo_usuario());
 
             // execute select SQL stetement
             st.executeUpdate();
@@ -814,6 +797,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                 user.setApellido1(rs.getString("apellido1"));
                 user.setApellido2(rs.getString("apellido2"));
                 user.setEmail(rs.getString("email"));
+                user.setFoto(rs.getBytes("foto"));
                 user.setTelefono(rs.getInt("telefono"));
                 user.setContrasenya(rs.getString("contrasenya"));
                 user.setUsuario(rs.getString("usuario"));
@@ -824,13 +808,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
         }
         return user;
     }
-/*
-*
-*       Creo una funcion que obtiene el usuario gracias al nombre de usuario
-*       Copio la de arriba pero modifico la secuencia sql
-*       Puede no funcionar
-*
-*/
+
 
     //Carga el usuario devolviendo true si lo consigue o false si no lo consigue
     public Usuario cargar_usuario_nombreusuario(String nombreusuario) throws SQLException {
@@ -846,6 +824,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
                 user.setApellido1(rs.getString("apellido1"));
                 user.setApellido2(rs.getString("apellido2"));
                 user.setEmail(rs.getString("email"));
+                user.setFoto(rs.getBytes("foto"));
                 user.setTelefono(rs.getInt("telefono"));
                 user.setContrasenya(rs.getString("contrasenya"));
                 user.setUsuario(rs.getString("usuario"));
