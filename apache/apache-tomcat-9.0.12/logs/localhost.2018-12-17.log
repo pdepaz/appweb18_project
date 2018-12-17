@@ -2282,3 +2282,6 @@ Stacktrace:] con causa raíz
 17-Dec-2018 17:27:38.618 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 17-Dec-2018 17:27:38.620 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3b6d844d')
 >>>>>>> 1d55e54f096ee492342ed9881d7ea819adc692fc
+17-Dec-2018 18:10:53.971 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+17-Dec-2018 18:10:53.971 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+17-Dec-2018 18:10:53.975 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@15d49048')
