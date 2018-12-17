@@ -33,7 +33,8 @@ public class Nueva_Pelicula extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         HttpSession session = request.getSession();
-
+        request.setCharacterEncoding("UTF-8");
+        
         try (DBManager db = new DBManager()){
 
             request.getRequestDispatcher("nueva_pelicula.jsp").forward(request, response);
@@ -41,6 +42,6 @@ public class Nueva_Pelicula extends HttpServlet {
         } catch (NamingException|SQLException|NumberFormatException e){ //
            // e.printStackTrace();
             response.sendRedirect("error");
-        } 
+        }
     }
 }

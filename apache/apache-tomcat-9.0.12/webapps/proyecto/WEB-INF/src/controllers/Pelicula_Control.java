@@ -33,9 +33,10 @@ public class Pelicula_Control extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         HttpSession session = request.getSession();
-
+        request.setCharacterEncoding("UTF-8");
+        
         int pelicula_id = 0;
- 
+
 
         try (DBManager db = new DBManager()){
 
@@ -51,7 +52,7 @@ public class Pelicula_Control extends HttpServlet {
             if(!db.existePelicula(pelicula_id)){
                 throw new SQLException(); //No existe la pelicula en la base de datos
             }
-            
+
 
             //Accede a la base de datos y coge sus datos para mostrarlos luego en la JSP
             Pelicula mi_pelicula = db.cargarPelicula(pelicula_id);
@@ -85,6 +86,6 @@ public class Pelicula_Control extends HttpServlet {
         } catch (NamingException|SQLException|NumberFormatException e){ //
            // e.printStackTrace();
             response.sendRedirect("error");
-        } 
+        }
     }
 }

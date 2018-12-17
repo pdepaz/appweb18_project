@@ -20,8 +20,8 @@
                         <section class="box">
                             <br/>
                             <b><h3>Cree una nueva película</h3></b>
-                                <%--<form method="post" enctype="multipart/form-data" action="pelicula_guardar">--%>
-                            <form method="post" action="pelicula_guardar">
+                            <form method="post" enctype="multipart/form-data" action="pelicula_guardar">
+                            <%--<form method="post" action="pelicula_guardar">--%>
                             <div class="row gtr-uniform gtr-50">
                                 <div class="col-6 col-12-mobilep">
                                     <select name="genero" >
@@ -67,10 +67,10 @@
                                 </div>
 
                             <div class="container">
-                                
+
                                 <input type="submit" value="Enviar" class="submitbutton">
                                 <input type="reset" value="Reset" class="cancelbutton">
-                                
+
                             </div>
                            </div>
                          </form>
@@ -79,7 +79,6 @@
                 </div>
 
             <%@ include file='footer.jsp' %>
-            
+
         </body>
 </html>
-

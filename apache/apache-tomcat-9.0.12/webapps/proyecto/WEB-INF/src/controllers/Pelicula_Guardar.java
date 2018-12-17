@@ -14,20 +14,21 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.MultipartConfig;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-//import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.IOUtils;
 
 /**
  * Guarda en SQL los datos de un usuario
  *
  */
 @WebServlet("/pelicula_guardar")
-//@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
+@MultipartConfig(maxFileSize = 16777215) //16MB maximum MEDIUMBLOB size
 public class Pelicula_Guardar extends HttpServlet {
 
     /**
@@ -51,7 +52,7 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setGenero(request.getParameter("genero"));
 
 
-            /*//PORTADA
+            //PORTADA
             InputStream inputStream = null; //Input stream of the upload file
 
             //Now, obtain the upload file part in this multipart request
@@ -67,9 +68,11 @@ public class Pelicula_Guardar extends HttpServlet {
                 //Files are treated as BLOB objects in database
                 byte[] portada_imagen = IOUtils.toByteArray(inputStream);
                 pelicula.setPortada(portada_imagen);
-            }*/
+            }
 
+            //Trailer
             if (!request.getParameter("trailer").equals("")){
+              //Se podría checkear si el enlace es de YouTube
                 pelicula.setTrailer(request.getParameter("trailer"));
             }
 

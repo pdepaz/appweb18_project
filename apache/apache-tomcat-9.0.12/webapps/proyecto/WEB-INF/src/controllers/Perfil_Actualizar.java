@@ -34,9 +34,10 @@ public class Perfil_Actualizar extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
-
+        request.setCharacterEncoding("UTF-8");
+        
         try (DBManager db = new DBManager()){
-            
+
             Usuario user = new Usuario();
             //DE AQUI HASTA TELEFONO (INCLUIDO), SE AUTORELLENA (asumimos que se mete algo)
             //Podemos hacer una prueba de que cuando se acceda a este servlet cree un usuario
@@ -48,11 +49,11 @@ public class Perfil_Actualizar extends HttpServlet {
             user.setEmail(request.getParameter("email"));
             user.setTelefono(Integer.parseInt((request.getParameter("telefono"))));
             String old_password = request.getParameter("old_contrasenya");
-            
+
             int session_id = (int) session.getAttribute("session_id");
             //Al iniciar sesión se está atribuyendo el id de usuario a la sesion????
             boolean result_check = db.check_cambio_password(session_id, old_password);
-            
+
             if(result_check){ //old_contrasenya es igual a la de la Base de Datos
                 user.setContrasenya(request.getParameter("new_contrasenya"));
                 int actualizado = db.actualizaUsuario(user);
@@ -62,7 +63,7 @@ public class Perfil_Actualizar extends HttpServlet {
                     //Probar a ver si almacenando el usuario en la sesion
                     session.setAttribute("mi_usuario", user);
                 }
-                
+
                 response.sendRedirect("perfil");
             } else {
                 response.sendRedirect("error");
