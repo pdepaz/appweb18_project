@@ -70,6 +70,7 @@ public class Usuario_Guardar extends HttpServlet {
             }
             db.enviarConGMail(user.getEmail());
             //response.sendRedirect("perfil");
+            //db.enviarConGMail(user.getEmail());
             request.getRequestDispatcher("perfil").forward(request, response);
 
         } catch (NamingException|SQLException|NumberFormatException e){
