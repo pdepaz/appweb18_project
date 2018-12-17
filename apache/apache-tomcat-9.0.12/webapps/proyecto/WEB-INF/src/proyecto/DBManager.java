@@ -20,13 +20,15 @@ import java.io.*;
 
 import java.nio.*;
 import java.net.*;
-/*
+
+import javax.mail.*;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
- */
+import java.util.Properties;
+
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
@@ -1267,33 +1269,34 @@ public int getIdByUsuario(String usuario) throws SQLException{
     }
     
 
-
-    /*//Prueba correo
-    public static void enviarConGMail(String destinatario) {
-    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-    String remitente = "prvebxs";  //Para la dirección nomcuenta@gmail.com
+  public static void enviarConGMail(String destinatario) {
+    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente tambiÃ©n.
+    String remitente = "manlooAW";  //Para la direcciÃ³n nomcuenta@gmail.com
     String asunto="Bienvenido a Manloo";
-    String cuerpo="Saludos Usuario, Bienvenido a manloo. Tenemos el orgullo placer y honor de darle un buen recibimiento";
-
-
-    Properties props = System.getProperties();
-    props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
-    props.put("mail.smtp.user", remitente);
-    props.put("mail.smtp.clave", "Miprueba1");    //La clave de la cuenta
-    props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
-    props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
-    props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+    String cuerpo="Saludos Usuario";
+    String clave = "manloo123";
+    try {
+    Properties props = new Properties();
+    props.setProperty("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+    props.setProperty("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
+    props.setProperty("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+    props.setProperty("mail.smtp.user", remitente);
+    //props.setProperty("mail.smtp.clave", clave);    //La clave de la cuenta
+    props.setProperty("mail.smtp.auth", "true");    //Usar autenticaciÃ³n mediante usuario y clave
+    
+  
 
     Session session = Session.getDefaultInstance(props);
     MimeMessage message = new MimeMessage(session);
 
-    try {
+   
         message.setFrom(new InternetAddress(remitente));
-        message.addRecipient(Message.RecipientType.TO, destinatario);   //Se podrían añadir varios de la misma manera
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));   //Se podrÃ­an aÃ±adir varios de la misma manera
         message.setSubject(asunto);
         message.setText(cuerpo);
+//         
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.gmail.com", remitente, clave);
+        transport.connect(remitente, clave);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
     }
@@ -1301,8 +1304,5 @@ public int getIdByUsuario(String usuario) throws SQLException{
         me.printStackTrace();   //Si se produce un error
     }
 }
-*/
-
-
 
 }
