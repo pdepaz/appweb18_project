@@ -21,7 +21,6 @@
                             <br/>
                             <b><h3>Cree una nueva película</h3></b>
                             <form method="post" enctype="multipart/form-data" action="pelicula_guardar">
-                            <%--<form method="post" action="pelicula_guardar">--%>
                             <div class="row gtr-uniform gtr-50">
                                 <div class="col-6 col-12-mobilep">
                                     <select name="genero" >
