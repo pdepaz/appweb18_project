@@ -52,16 +52,14 @@ public class Usuario_Guardar extends HttpServlet {
             if (!request.getParameter("apellido2").equals("")){
                 user.setApellido2(request.getParameter("apellido2"));
             } else {
-                user.setApellido2("[NO PROPORCIONADO]");
+                user.setApellido2(" ");
             }
 
             user.setEmail(request.getParameter("email"));
 
 
-            //FOTO
-            //Foto (not compulsory)
-            if(request.getPart("foto") != null){
-                InputStream inputStream = null; //Input stream of the upload file
+            //FOTO (compulsory)
+            InputStream inputStream = null; //Input stream of the upload file
 
                 //Now, obtain the upload file part in this multipart request
                 Part filePart = request.getPart("foto");
@@ -77,7 +75,7 @@ public class Usuario_Guardar extends HttpServlet {
                     byte[] foto_imagen = IOUtils.toByteArray(inputStream);
                     user.setFoto(foto_imagen);
                 }
-            }
+
 
             //Not compulsory
             if (!request.getParameter("telefono").equals("")){

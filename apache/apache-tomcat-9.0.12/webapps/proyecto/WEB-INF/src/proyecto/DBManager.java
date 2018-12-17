@@ -28,6 +28,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+import java.net.URLConnection;
+
 
 public class DBManager implements AutoCloseable { //Se llama a "close" automaticamente
 
@@ -196,7 +198,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      */
     public int actualizaUsuario(Usuario usuario) throws SQLException {
 
-        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email =?, foto =?, telefono =?, contrasenya= ? WHERE  Usuarios.id = ?";
+        String query = "UPDATE Usuarios SET nombre = ?, apellido1 =?, apellido2 = ?, email = ?, foto = ?, telefono = ?, contrasenya= ? WHERE  Usuarios.id = ?";
 
         try (PreparedStatement st = connection.prepareStatement(query)) {
 
@@ -1160,64 +1162,50 @@ public int getIdByUsuario(String usuario) throws SQLException{
 
 
     public static int GetImageFormat(int[] array){
-        //int[] bmp = Encoding.ASCII.GetBytes("BM");     // BMP
-        //int[] gif = Encoding.ASCII.GetBytes("GIF");    // GIF
         int[] png = new int[] { 137, 80, 78, 71 };    // PNG
-        int[] tiff = new int[] { 73, 73, 42 };         // TIFF
-        int[] tiff2 = new int[] { 77, 77, 42 };         // TIFF
+        //int[] tiff = new int[] { 73, 73, 42 };         // TIFF
+        //int[] tiff2 = new int[] { 77, 77, 42 };         // TIFF
         int[] jpeg = new int[] { 255, 216, 255, 224 }; // jpeg
         int[] jpeg2 = new int[] { 255, 216, 255, 225 }; // jpeg canon
 
-        int[] buffer = new int[4];
-
         for(int i = 0; i < 4; i++){
-            buffer[i] = array[i];
-        }
-
-
-        /*if (buffer == bmp)
-            return 1; //BMP
-
-        if (buffer == gif)
-            return 2; //GIF*/
-
-        for(int i = 0; i < 4; i++){
-            if(buffer[i] != png[i]){
+            if(array[i] != png[i]){
                 break;
             }
-            return 3; //PNG
+            if (i==3){
+              return 3; //PNG
+            }
         }
 
         for(int i = 0; i < 4; i++){
-            if(buffer[i] != tiff[i]){
+            if(array[i] != jpeg[i]){
                 break;
             }
-            return 4; //TIFF
+            if (i==3){
+              return 5; //JPEG
+            }
         }
 
         for(int i = 0; i < 4; i++){
-            if(buffer[i] != tiff2[i]){
+            if(array[i] != jpeg2[i]){
                 break;
             }
-            return 4; //TIFF
-        }
+            if (i==3){
+              return 5; //JPEG
+            }
 
-        for(int i = 0; i < 4; i++){
-            if(buffer[i] != jpeg[i]){
-                break;
-            }
-            return 5; //JPEG
-        }
-
-        for(int i = 0; i < 4; i++){
-            if(buffer[i] != jpeg2[i]){
-                break;
-            }
-            return 5; //JPEG
         }
 
         return 0; //UNKNOWN
     }
+
+
+    public String getMimeType(byte data[]) throws IOException {
+    		InputStream is = new BufferedInputStream(new ByteArrayInputStream(data));
+    		String mimeType = URLConnection.guessContentTypeFromStream(is);
+    		return mimeType;
+    }
+
 
 
   public static void enviarConGMail(String destinatario) {

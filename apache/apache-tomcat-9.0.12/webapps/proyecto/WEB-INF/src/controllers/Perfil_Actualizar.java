@@ -54,31 +54,29 @@ public class Perfil_Actualizar extends HttpServlet {
             if (!request.getParameter("apellido2").equals("")){
                 user.setApellido2(request.getParameter("apellido2"));
             } else {
-                user.setApellido2("[NO PROPORCIONADO]");
+                user.setApellido2(" ");
             }
 
             user.setEmail(request.getParameter("email"));
 
 
-            //Foto (not compulsory)
-            if(request.getPart("foto") != null){
-              InputStream inputStream = null; //Input stream of the upload file
+            //FOTO (compulsory)
+            InputStream inputStream = null; //Input stream of the upload file
 
-              //Now, obtain the upload file part in this multipart request
-              Part filePart = request.getPart("foto");
+                //Now, obtain the upload file part in this multipart request
+                Part filePart = request.getPart("foto");
 
-              if (filePart != null) {
-                  //Obtains input stream of the upload file
-                  //the InputStream will point to a stream that contains the contents of the file
-                  inputStream = filePart.getInputStream();
-              }
+                if (filePart != null) {
+                    //Obtains input stream of the upload file
+                    //the InputStream will point to a stream that contains the contents of the file
+                    inputStream = filePart.getInputStream();
+                }
 
-              if (inputStream != null) {
-                  //Files are treated as BLOB objects in database
-                  byte[] foto_imagen = IOUtils.toByteArray(inputStream);
-                  user.setFoto(foto_imagen);
-              }
-            }
+                if (inputStream != null) {
+                    //Files are treated as BLOB objects in database
+                    byte[] foto_imagen = IOUtils.toByteArray(inputStream);
+                    user.setFoto(foto_imagen);
+                }
 
 
             //Not compulsory

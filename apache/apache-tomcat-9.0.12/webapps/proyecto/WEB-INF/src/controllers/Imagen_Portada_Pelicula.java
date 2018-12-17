@@ -60,22 +60,14 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
 
             byte[] portada_img = mi_pelicula.getPortada();
 
-            //ByteArrayInputStream stream_portada_img = new ByteArrayInputStream(portada_img);
-
             if(portada_img == null){
                 throw new NamingException();
             }
 
-            //BYTE to INT
-            int int_portada_img[] = new int[portada_img.length / 4];
-            int offset = 0;
-            for (int i = 0; i < int_portada_img.length; i++) {
-                int_portada_img[i] = (portada_img[3 + offset] & 0xFF) | ((portada_img[2 + offset] & 0xFF) << 8) | ((portada_img[1 + offset] & 0xFF) << 16) | ((portada_img[0 + offset] & 0xFF) << 24);
-                offset += 4;
-            }
+            String image_type = db.getMimeType(portada_img);
+            response.setContentType(image_type);
 
-
-            //int result_type_image = db.GetImageFormat(int_portada_img); //DBManager line 1100
+            /*int result_type_image = db.GetImageFormat(int_portada_img);
             //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.
             int result_type_image = 3;
 
@@ -99,29 +91,23 @@ public class Imagen_Portada_Pelicula extends HttpServlet {
                         break;
                 default:response.sendRedirect("cerrar_sesion");
                         break;
-            }
+            }*/
 
             response.setHeader("Content-Length", String.valueOf(portada_img.length));
 
             //Write Image Data to Response.
             response.getOutputStream().write(portada_img);
 
-            //request.setAttribute("portada_img", portada_img);
-
-            //request.getRequestDispatcher("pelicula").forward(request, response);
-
-        } catch (SQLException|NumberFormatException e){
+        } catch (SQLException|NumberFormatException|IOException e){
             //e.printStackTrace();
-            response.sendRedirect("error");
             //response.sendError(500);
+            response.sendRedirect("error");
         } catch (NamingException e){
             //e.printStackTrace();
+            //response.sendError(500);
             response.setContentType("image/png");
             response.setHeader("Content-Type", "image/png");
-            //response.setHeader("Content-Length", String.valueOf(portada_img.length));
-            //response.getOutputStream().write(portada_img);
             response.sendRedirect("images/sin_portada.png");
-            //response.sendError(500);
         }
     }
 }

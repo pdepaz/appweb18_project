@@ -30,7 +30,7 @@
 
         <div class="col-6 col-12-mobilep" >
             <ul class="alt">
-                <li><img src="foto?id_usuario=<%=mi_usuario.getId()%>" alt="<%=mi_usuario.getNombre()%>" width="100"/></li>
+                <li><img src="foto?id_usuario=<%=mi_usuario.getId()%>" alt="<%=mi_usuario.getNombre()%>" width="120"/></li>
                 <li>Nombre: <%= mi_usuario.getNombre() %></li>
                 <li>Apellidos: <%= mi_usuario.getApellido1() %> <%= mi_usuario.getApellido2() %></li>
                 <li>Email: <%= mi_usuario.getEmail() %></li>
@@ -90,8 +90,8 @@
                     </div>
 
                     <div class="col-6 col-12-mobilep">
-                        <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;" />
-                        <input style="background-color:#545252" type="button" value="Subir foto de perfil (PNG o JPEG)" onclick="document.getElementById('foto').click();" />
+                        <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;"/>
+                        <input style="background-color:#545252" type="button" value="Subir foto (obligatorio)" onclick="document.getElementById('foto').click();"/>
                     </div>
 
                 <div class="col-12">

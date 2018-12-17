@@ -32,6 +32,7 @@ public class Usuario_Control extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
 
         int usuario_id = -1;
         int session_id = -1;
@@ -48,9 +49,9 @@ public class Usuario_Control extends HttpServlet {
                     if(session.getAttribute("session_id")!= null){
                         session_id = (int) session.getAttribute("session_id");
                     }
-                  
+
                 }
-                
+
                 //No existe el usuario al que intenta acceder modificando la url
                 if(!db.existeUsuarioId(usuario_id)){
                     throw new SQLException();

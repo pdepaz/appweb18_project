@@ -31,28 +31,27 @@ public class Perfil_Control extends HttpServlet {
      *
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-       
+
         HttpSession session = request.getSession();
 
         int mi_usuario_id = 0;
-        
+
         try (DBManager db = new DBManager()){
 
             if(session.getAttribute("session_id") == null){
                 //SI NO HAY SESION INCIADA, TE REDIRIGE A LA HOME DE PELICULAS
-                response.sendRedirect("home");            
+                response.sendRedirect("home");
             }else {
                 mi_usuario_id = (int) session.getAttribute("session_id");
 
                 Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
-                
+
                 session.setAttribute("mi_usuario", mi_usuario);
 
             }
 
-            //request.getRequestDispatcher("perfil.jsp").forward(request, response);
             response.sendRedirect("perfil.jsp");
-          
+
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
             response.sendRedirect("error");
@@ -64,28 +63,28 @@ public class Perfil_Control extends HttpServlet {
      *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-       
+
         HttpSession session = request.getSession();
 
         int mi_usuario_id = 0;
-        
+
         try (DBManager db = new DBManager()){
 
             if(session.getAttribute("session_id") == null){
                 //SI NO HAY SESION INCIADA, TE REDIRIGE A LA HOME DE PELICULAS
-                response.sendRedirect("home");            
+                response.sendRedirect("home");
             }else {
                 mi_usuario_id = (int) session.getAttribute("session_id");
 
                 Usuario mi_usuario = db.cargar_usuario(mi_usuario_id);
-                
+
                 session.setAttribute("mi_usuario", mi_usuario);
 
             }
 
             //request.getRequestDispatcher("perfil.jsp").forward(request, response);
             response.sendRedirect("perfil.jsp");
-          
+
         } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
             response.sendRedirect("error");

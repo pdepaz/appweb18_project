@@ -18,7 +18,7 @@
 		
 		<div id="page-wrapper">
 
-			<%@ include file='header.jsp' %>
+			<%@ include file='header_home.jsp' %>
 
 			<!-- Banner -->
 				<section id="banner">
