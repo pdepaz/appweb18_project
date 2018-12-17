@@ -41,7 +41,7 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             if(session.getAttribute("session_id") == null){
 
                 throw new SQLException();
-                
+
             }
 
             int session_id = (int) session.getAttribute("session_id");
@@ -61,7 +61,7 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             //java.text.SimpleDateFormat fecha = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             //String currentTime = fecha.format(dt);
             nuevo_comentario.setFecha_creacion(dt);
-            nuevo_comentario.setComentario_padre(0);
+            nuevo_comentario.setComentario_padre(Integer.parseInt(request.getParameter("comentario_id")));
             nuevo_comentario.setTipo_usuario(usuario.getTipo_usuario());
             nuevo_comentario.setBloqueado(0);
 
