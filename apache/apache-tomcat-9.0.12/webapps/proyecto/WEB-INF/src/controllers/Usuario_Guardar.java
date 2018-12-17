@@ -64,8 +64,10 @@ public class Usuario_Guardar extends HttpServlet {
                 Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());
                 //Almacenamos el id del usuario a través de uno auxiliar
                 session.setAttribute("session_id", aux.getId());
+            }else{
+              throw new NamingException();
             }
-
+            db.enviarConGMail(user.getEmail());
             //response.sendRedirect("perfil");
             //db.enviarConGMail(user.getEmail());
             request.getRequestDispatcher("perfil").forward(request, response);

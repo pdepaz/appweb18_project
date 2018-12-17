@@ -905,6 +905,7 @@ Stacktrace:
 17-Dec-2018 13:08:17.364 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
 17-Dec-2018 13:08:17.365 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 17-Dec-2018 13:08:17.366 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3b6d844d')
+<<<<<<< HEAD
 17-Dec-2018 13:09:35.944 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 17-Dec-2018 13:09:35.944 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
 17-Dec-2018 13:09:37.043 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
@@ -1419,6 +1420,22 @@ Stacktrace:
 	at java.lang.Integer.parseInt(Integer.java:542)
 	at java.lang.Integer.parseInt(Integer.java:615)
 	at proyecto.Comentario_Peli_Guardar.doPost(Comentario_Peli_Guardar.java:64)
+=======
+17-Dec-2018 13:30:17.600 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+17-Dec-2018 13:30:17.601 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+17-Dec-2018 13:30:17.605 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3b6d844d')
+17-Dec-2018 13:34:35.998 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+17-Dec-2018 13:34:35.998 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+17-Dec-2018 13:34:39.808 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+17-Dec-2018 13:34:39.808 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+17-Dec-2018 13:34:39.809 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3b6d844d')
+17-Dec-2018 13:35:29.880 GRAVE [http-nio-9190-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [proyecto.Pelicula_Guardar] lanzó excepción
+ java.lang.NumberFormatException: For input string: "a"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at proyecto.Pelicula_Guardar.doPost(Pelicula_Guardar.java:47)
+>>>>>>> 032d2d2f66fcde364efb40b05ef32e46359dcfeb
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
@@ -1444,5 +1461,18 @@ Stacktrace:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
+<<<<<<< HEAD
 17-Dec-2018 15:55:43.582 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 17-Dec-2018 15:55:43.583 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+=======
+17-Dec-2018 13:36:57.911 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+17-Dec-2018 13:36:57.911 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+17-Dec-2018 13:36:57.912 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4470fbd6')
+17-Dec-2018 13:36:58.250 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+17-Dec-2018 13:36:58.250 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+17-Dec-2018 13:37:06.232 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+17-Dec-2018 13:37:06.232 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+17-Dec-2018 13:37:09.869 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+17-Dec-2018 13:37:09.870 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+17-Dec-2018 13:37:09.871 INFORMACIÓN [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3b6d844d')
+>>>>>>> 032d2d2f66fcde364efb40b05ef32e46359dcfeb
