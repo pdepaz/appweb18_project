@@ -38,7 +38,7 @@ public class Pelicula_Guardar extends HttpServlet {
     throws IOException, ServletException
     {
         HttpSession session = request.getSession();
-        request.setCharacterEncoding("UTF-8"); 
+        request.setCharacterEncoding("UTF-8");
 
         try (DBManager db = new DBManager()){
 
@@ -49,26 +49,26 @@ public class Pelicula_Guardar extends HttpServlet {
             pelicula.setDescripcion(request.getParameter("descripcion"));
             pelicula.setDirector(request.getParameter("director"));
             pelicula.setGenero(request.getParameter("genero"));
-            
+
 
             /*//PORTADA
             InputStream inputStream = null; //Input stream of the upload file
-            
+
             //Now, obtain the upload file part in this multipart request
             Part filePart = request.getPart("portada");
-            
+
             if (filePart != null) {
                 //Obtains input stream of the upload file
                 //the InputStream will point to a stream that contains the contents of the file
                 inputStream = filePart.getInputStream();
-            }    
-            
+            }
+
             if (inputStream != null) {
                 //Files are treated as BLOB objects in database
                 byte[] portada_imagen = IOUtils.toByteArray(inputStream);
                 pelicula.setPortada(portada_imagen);
             }*/
-            
+
             if (!request.getParameter("trailer").equals("")){
                 pelicula.setTrailer(request.getParameter("trailer"));
             }
@@ -89,7 +89,7 @@ public class Pelicula_Guardar extends HttpServlet {
             String url = "pelicula?id=" + movie.getId();
             response.sendRedirect(url);
 
-        } catch (NamingException|SQLException e){
+        } catch (NamingException|SQLException|NumberFormatException e){
            // e.printStackTrace();
             response.sendRedirect("error");
         }

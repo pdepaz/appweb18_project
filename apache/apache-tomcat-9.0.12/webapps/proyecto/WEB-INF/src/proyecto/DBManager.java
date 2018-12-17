@@ -129,7 +129,7 @@ public class DBManager implements AutoCloseable { //Se llama a "close" automatic
      * Checkea si el usuario existe en la DB. por id
      *
      * @param id
-    
+
      * @return true si existe, false si no existe
      */
     public boolean existeUsuarioId(int id) throws SQLException {
@@ -1218,11 +1218,11 @@ public int getIdByUsuario(String usuario) throws SQLException{
         int[] jpeg2 = new int[] { 255, 216, 255, 225 }; // jpeg canon
 
         int[] buffer = new int[4];
-        
+
         for(int i = 0; i < 4; i++){
             buffer[i] = array[i];
         }
-            
+
 
         /*if (buffer == bmp)
             return 1; //BMP
@@ -1250,7 +1250,7 @@ public int getIdByUsuario(String usuario) throws SQLException{
             }
             return 4; //TIFF
         }
-            
+
         for(int i = 0; i < 4; i++){
             if(buffer[i] != jpeg[i]){
                 break;
@@ -1267,13 +1267,13 @@ public int getIdByUsuario(String usuario) throws SQLException{
 
         return 0; //UNKNOWN
     }
-    
+
 
   public static void enviarConGMail(String destinatario) {
     // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente tambiÃ©n.
     String remitente = "manlooAW";  //Para la direcciÃ³n nomcuenta@gmail.com
     String asunto="Bienvenido a Manloo";
-    String cuerpo="Saludos Usuario";
+    String cuerpo="Saludos Usuario, muchas gracias por registrarte en nuestra plataforma";
     String clave = "manloo123";
     try {
     Properties props = new Properties();
@@ -1283,18 +1283,18 @@ public int getIdByUsuario(String usuario) throws SQLException{
     props.setProperty("mail.smtp.user", remitente);
     //props.setProperty("mail.smtp.clave", clave);    //La clave de la cuenta
     props.setProperty("mail.smtp.auth", "true");    //Usar autenticaciÃ³n mediante usuario y clave
-    
-  
+
+
 
     Session session = Session.getDefaultInstance(props);
     MimeMessage message = new MimeMessage(session);
 
-   
+
         message.setFrom(new InternetAddress(remitente));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));   //Se podrÃ­an aÃ±adir varios de la misma manera
         message.setSubject(asunto);
         message.setText(cuerpo);
-//         
+//
         Transport transport = session.getTransport("smtp");
         transport.connect(remitente, clave);
         transport.sendMessage(message, message.getAllRecipients());

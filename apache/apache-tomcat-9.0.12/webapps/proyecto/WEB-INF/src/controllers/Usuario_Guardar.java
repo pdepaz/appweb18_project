@@ -20,7 +20,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * Guardara los datos del nuevo usuario generado 
+ * Guardara los datos del nuevo usuario generado
  *
  */
 @WebServlet("/usuario_guardar")
@@ -36,15 +36,15 @@ public class Usuario_Guardar extends HttpServlet {
         HttpSession session = request.getSession();
 
         try (DBManager db = new DBManager()){
-            
+
             Usuario user = new Usuario();
-            
+
             user.setNombre(request.getParameter("nombre"));
             user.setApellido1(request.getParameter("apellido1"));
             user.setApellido2(request.getParameter("apellido2"));
-            user.setEmail(request.getParameter("email")); 
+            user.setEmail(request.getParameter("email"));
             user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
-            
+
             String contrasenya1 = request.getParameter("contrasenya");
             String contrasenya2 = request.getParameter("contrasenya2");
 
@@ -53,19 +53,21 @@ public class Usuario_Guardar extends HttpServlet {
             } else{
                 throw new SQLException();
             }
-            
+
             user.setUsuario(request.getParameter("usuario"));
             user.setTipo_usuario("USUARIO");
             user.setBloqueado(0);
-            
-            int nuevo = db.crearUsuario(user); 
-            
+
+            int nuevo = db.crearUsuario(user);
+
             if (nuevo == 1){
-                Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());          
+                Usuario aux = db.cargar_usuario_nombreusuario(user.getUsuario());
                 //Almacenamos el id del usuario a través de uno auxiliar
                 session.setAttribute("session_id", aux.getId());
+            }else{
+              throw new NamingException();
             }
-
+            db.enviarConGMail(user.getEmail());
             //response.sendRedirect("perfil");
             request.getRequestDispatcher("perfil").forward(request, response);
 
