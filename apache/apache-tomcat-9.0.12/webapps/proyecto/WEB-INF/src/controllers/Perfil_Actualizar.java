@@ -112,8 +112,11 @@ public class Perfil_Actualizar extends HttpServlet {
             }
 
         } catch (NamingException|SQLException|NumberFormatException e){
+<<<<<<< HEAD
             //e.printStackTrace();
             //response.sendError(500);
+=======
+>>>>>>> 1d55e54f096ee492342ed9881d7ea819adc692fc
             response.sendRedirect("error");
         }
     }

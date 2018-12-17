@@ -35,21 +35,21 @@ public class Desbloquear_comentario extends HttpServlet {
     {
         boolean solucion = false;
         HttpSession session = request.getSession();
-        int comentario_id = Integer.parseInt(request.getParameter("comentario_id"));
-        //int pelicula_id = (int) request.getAttribute("pelii_id");
-
         try (DBManager db = new DBManager()){
+            int comentario_id = Integer.parseInt(request.getParameter("comentario_id"));
+            int pelicula_id = Integer.parseInt(request.getParameter("pelii_id"));
+
             solucion = db.desbloquear_comentario(comentario_id);
             if(solucion == false){
               //MANDAR ERROR
+              throw new SQLException();
             }
             else{
-              response.sendRedirect("home");
-              //response.sendRedirect("pelicula?id="+pelicula_id);
+              //response.sendRedirect("home");
+              response.sendRedirect("pelicula?id="+pelicula_id);
             }
-        } catch (NamingException|SQLException e){
-            e.printStackTrace();
-            response.sendError(500);
+        } catch (NamingException|SQLException|NumberFormatException e){
+            response.sendRedirect("error");
         }
     }
 }

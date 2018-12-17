@@ -34,10 +34,10 @@ public class Buscar_usuario extends HttpServlet {
     throws IOException, ServletException
     {
         int solucion = -1;
-        
+
         HttpSession session = request.getSession();
         String user = request.getParameter("nombre_usuario");
-        
+
         try (DBManager db = new DBManager()){
             solucion = db.getIdByUsuario(user);
             if(solucion != -1){

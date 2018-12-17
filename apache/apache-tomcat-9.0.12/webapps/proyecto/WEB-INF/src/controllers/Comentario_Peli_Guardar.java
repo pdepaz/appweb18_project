@@ -36,7 +36,7 @@ public class Comentario_Peli_Guardar extends HttpServlet {
     {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("UTF-8");
-        
+
         try (DBManager db = new DBManager()){
 
             if(session.getAttribute("session_id") == null){
@@ -71,7 +71,7 @@ public class Comentario_Peli_Guardar extends HttpServlet {
             String atributo = "pelicula?id=" + nuevo_comentario.getPelicula();
             response.sendRedirect(atributo);
 
-        } catch (NamingException|SQLException e){
+        } catch (NamingException|SQLException|NumberFormatException e){
             //e.printStackTrace();
             response.sendRedirect("error");
         }
