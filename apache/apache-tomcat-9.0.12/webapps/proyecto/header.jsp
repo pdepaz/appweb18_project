@@ -1,7 +1,7 @@
 <%@ page language='java' contentType='text/html;charset=utf-8'%>
 
 <!-- Header -->
-<header id="header" class="reveal"> <%--QUITAR "alt" EN LAS PAGINAS QUE NO SON Home Y PONER "reveal" --%>
+<header id="header" class="reveal">
 					<h1><a href="home">Manloo</h1>
 					<!-- BUSCADOR -->
 					<nav id="nav">
@@ -99,10 +99,11 @@
 			                                        <div class="col-6 col-12-mobilep">
 			                                            <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono">
 			                                        </div>
-																							<div class="col-6 col-12-mobilep">
-							                                    <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;" required/>
-							                                    <input style="background-color:#545252" type="button" value="Subir foto (obligatorio)" onclick="document.getElementById('foto').click();"/>
-							                                </div>
+														<div class="col-6 col-12-mobilep">
+															<p>Sube tu foto de perfil (no se podrá modificar)</p>
+							                                <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;" required/>
+							                                <input style="background-color:#545252" type="button" value="Subir foto (obligatorio)" onclick="document.getElementById('foto').click();"/>
+							                            </div>
 
 			                                    </div>
 

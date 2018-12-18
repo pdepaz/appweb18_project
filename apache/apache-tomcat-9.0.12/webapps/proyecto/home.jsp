@@ -25,19 +25,6 @@
 					<h2>Manloo</h2>
 					<p>Descubra la nueva manera de comentar películas, series y libros</p>
 
-					<%--<ul class="actions special" action="crear_cuenta.">
-						<li><a class="button primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
-					</ul>--%>
-
-					<%--<%if(session.getAttribute("session_id") == null){ %>
-							<form action = "crear_cuenta.jsp">
-								<div class = "boton">
-										<input type = "submit" value = "Crear Cuenta">
-								</div>
-							</div>
-						</form>
-				<%}%>--%>
-
 				<%if(session.getAttribute("session_id") == null){ %>	
 					<ul class="actions special">
 						<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>

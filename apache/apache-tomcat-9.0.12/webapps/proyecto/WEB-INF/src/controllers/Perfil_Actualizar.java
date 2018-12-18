@@ -59,26 +59,6 @@ public class Perfil_Actualizar extends HttpServlet {
 
             user.setEmail(request.getParameter("email"));
 
-
-            //FOTO (compulsory)
-            InputStream inputStream = null; //Input stream of the upload file
-
-                //Now, obtain the upload file part in this multipart request
-                Part filePart = request.getPart("foto");
-
-                if (filePart != null) {
-                    //Obtains input stream of the upload file
-                    //the InputStream will point to a stream that contains the contents of the file
-                    inputStream = filePart.getInputStream();
-                }
-
-                if (inputStream != null) {
-                    //Files are treated as BLOB objects in database
-                    byte[] foto_imagen = IOUtils.toByteArray(inputStream);
-                    user.setFoto(foto_imagen);
-                }
-
-
             //Not compulsory
             if (!request.getParameter("telefono").equals("")){
                 user.setTelefono(Integer.parseInt(request.getParameter("telefono")));
@@ -104,8 +84,7 @@ public class Perfil_Actualizar extends HttpServlet {
                     session.setAttribute("mi_usuario", user);
                 }
 
-                //response.sendRedirect("perfil");
-                request.getRequestDispatcher("perfil").forward(request, response);
+                response.sendRedirect("perfil");
             } else {
                 response.sendRedirect("error");
             }
