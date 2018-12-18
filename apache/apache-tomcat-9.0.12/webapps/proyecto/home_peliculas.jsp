@@ -25,6 +25,14 @@ if(session.getAttribute("session_id") != null){
 
         <%@ include file='header.jsp' %>
 
+        <h2>Busque su película favorita</h2>
+            <form id = "buscar_pelicula" action = "buscar_pelicula" method = "post">
+                <input type="text" name ="nombre_pelicula" size = "2">
+                    <div class = "boton">
+                        <input type = "submit" value = "Buscar">
+                    </div>
+            </form>
+
         <%--PELICULAS MAS NUEVAS --%>
         <section id="main" class="container">
             <h2><b>Peliculas más nuevas</b></h2>

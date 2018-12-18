@@ -486,6 +486,24 @@ public int getIdByUsuario(String usuario) throws SQLException{
     return id;
 }
 
+public int getIdByPelicula(String pelicula) throws SQLException{
+
+    int id = -1;
+
+    String query_peliculita = "SELECT * FROM Peliculas WHERE Peliculas.titulo=?";
+    try (PreparedStatement st = connection.prepareStatement(query_peliculita)) {
+    // Se insertan los valores en la consulta :
+        st.setString(1, pelicula);
+        // execute select SQL stetement
+        ResultSet rs = st.executeQuery();
+        //OK, SQL return something
+        while (rs.next()){ //OK, SQL return something
+          id = rs.getInt("id");
+        }
+    }
+    return id;
+}
+
     /*
     Crear Serie: Anade una serie a la base de datos
     @param un objeto serie
