@@ -25,11 +25,10 @@
                 <header>
                     <h2>Se ha producido un error al crear su cuenta, vuelva a intentarlo</h2>
                     <p>Algún error puede ser:</p>
-                    <ul>
-                        <li>Ya existe un usuario con el mismo email y/o nombre de usuario.</li>
-                        <li>Un número de teléfono no puede contener letras o caracteres no numéricos.</li>
-                        <li>La contraseña no se ha repetido correctamente en el formulario</li>
-                    </ul>
+                    <br/>
+                    <p><small>Ya existe un usuario con el mismo email y/o nombre de usuario.</small></p>
+                    <p><small>Un número de teléfono no puede contener letras o caracteres no numéricos.</small></p>
+                    <p><small>La contraseña no se ha repetido correctamente en el formulario.</small></p>
                     <br/>
 
                     <%if(session.getAttribute("session_id") == null){ %>
