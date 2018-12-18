@@ -85,11 +85,11 @@
 
 					<h2>Pregúntanos</h2>
 					<p>¿A qué estás esperando?</p>
-					<form action = "mailto:manlooAB@hotmail.com">
+					<form action = "mailto:manlooAB@hotmail.com?subject=Ayuda%20Manloo&body=Hola,">
 						<div class="row gtr-50 gtr-uniform">
-							<%--<div class="col-8 col-12-mobilep">
+							<div class="col-8 col-12-mobilep">
 								<input type="email" name="correo" id="correo" placeholder="Email">
-							</div>--%>
+							</div>
 							<div class="col-4 col-12-mobilep">
 								<input type="submit" value="Consultar" class="fit" />
 							</div>

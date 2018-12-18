@@ -61,20 +61,20 @@ public class Usuario_Guardar extends HttpServlet {
             //FOTO (compulsory)
             InputStream inputStream = null; //Input stream of the upload file
 
-                //Now, obtain the upload file part in this multipart request
-                Part filePart = request.getPart("foto");
+            //Now, obtain the upload file part in this multipart request
+            Part filePart = request.getPart("foto");
 
-                if (filePart != null) {
-                    //Obtains input stream of the upload file
-                    //the InputStream will point to a stream that contains the contents of the file
-                    inputStream = filePart.getInputStream();
-                }
+            if (filePart != null && !filePart.isEmpty()) {
+                //Obtains input stream of the upload file
+                //the InputStream will point to a stream that contains the contents of the file
+                inputStream = filePart.getInputStream();
 
                 if (inputStream != null) {
                     //Files are treated as BLOB objects in database
                     byte[] foto_imagen = IOUtils.toByteArray(inputStream);
                     user.setFoto(foto_imagen);
                 }
+            }
 
 
             //Not compulsory
