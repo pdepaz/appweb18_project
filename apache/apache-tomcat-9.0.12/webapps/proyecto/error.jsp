@@ -1,4 +1,4 @@
-<%@ page language='java' contentType='text/html;charset=utf-8' isErrorPage = "true"%>
+<%@ page language='java' contentType='text/html;charset=utf-8'%>
 
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
