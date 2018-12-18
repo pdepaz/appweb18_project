@@ -58,7 +58,7 @@ public class Usuario_Guardar extends HttpServlet {
             user.setEmail(request.getParameter("email"));
 
 
-            //FOTO (compulsory)
+            //FOTO
             InputStream inputStream = null; //Input stream of the upload file
 
                 //Now, obtain the upload file part in this multipart request
