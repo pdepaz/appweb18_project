@@ -3,6 +3,11 @@
 <%@ page import='proyecto.*'%>
 <%@ page import='java.util.List, java.io.*, java.util.*'%>
 
+<% 
+response.setStatus(301); 
+response.setHeader( “Location”, “home” ); 
+response.setHeader( “Connection”, “close” ); 
+%>
 
 <!DOCTYPE HTML>
 
