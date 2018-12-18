@@ -30,19 +30,6 @@ response.setHeader( “Connection”, “close” );
 					<h2>Manloo</h2>
 					<p>Descubra la nueva manera de comentar películas, series y libros</p>
 
-					<%--<ul class="actions special" action="crear_cuenta.">
-						<li><a class="button primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
-					</ul>--%>
-
-					<%--<%if(session.getAttribute("session_id") == null){ %>
-							<form action = "crear_cuenta.jsp">
-								<div class = "boton">
-										<input type = "submit" value = "Crear Cuenta">
-								</div>
-							</div>
-						</form>
-				<%}%>--%>
-
 				<%if(session.getAttribute("session_id") == null){ %>	
 					<ul class="actions special">
 						<li><a class="button primary" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Crear Cuenta</a></li>
@@ -61,8 +48,8 @@ response.setHeader( “Connection”, “close” );
 						<% if(session.getAttribute("session_id") != null){ %>
 							<h2>Busque usuarios</h2>
 									<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
-										<input type="text" name ="nombre_usuario" size = "2">
-											<div class = "boton">
+										<input type="text" name ="nombre_usuario">
+											<div class = "fit">
 													<input type = "submit" value = "Buscar">
 											</div>
 									</form>
@@ -103,10 +90,10 @@ response.setHeader( “Connection”, “close” );
 
 					<h2>Pregúntanos</h2>
 					<p>¿A qué estás esperando?</p>
-					<form action = "mailto:manlooAB@hotmail.com">
+					<form action = "mailto:manlooAB@hotmail.com?subject=Ayuda%20Manloo&body=Hola,">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-8 col-12-mobilep">
-								<input type="email" name="correo" id="correo" placeholder="Su email">
+								<input type="email" name="correo" id="correo" placeholder="Email">
 							</div>
 							<div class="col-4 col-12-mobilep">
 								<input type="submit" value="Consultar" class="fit" />
