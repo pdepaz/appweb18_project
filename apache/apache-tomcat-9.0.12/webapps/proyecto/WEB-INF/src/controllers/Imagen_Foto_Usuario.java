@@ -60,7 +60,7 @@ public class Imagen_Foto_Usuario extends HttpServlet {
 
             byte[] foto_img = mi_usuario.getFoto();
 
-            if(foto_img == null){
+            if(foto_img.length == 0){
                 response.setContentType("image/png");
                 response.setHeader("Content-Type", "image/png");
                 response.sendRedirect("images/default_user.png");
@@ -82,7 +82,7 @@ public class Imagen_Foto_Usuario extends HttpServlet {
             //Write Image Data to Response.
             response.getOutputStream().write(foto_img);
 
-        } catch (SQLException|NumberFormatException e){
+        } catch (SQLException|NumberFormatException|NullPointerException e){
             //e.printStackTrace();
             //response.sendError(500);
             response.sendRedirect("error");
