@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="col-6 col-12-mobilep">
-                        <p>Recuerda que la foto de perfil no se puede modificar</p>
+                        <p>La foto de perfil no se puede modificar</p>
                     </div>
 
                 <div class="col-12">

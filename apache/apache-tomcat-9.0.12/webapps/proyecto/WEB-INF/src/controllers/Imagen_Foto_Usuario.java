@@ -61,55 +61,32 @@ public class Imagen_Foto_Usuario extends HttpServlet {
             byte[] foto_img = mi_usuario.getFoto();
 
             if(foto_img == null){
-                throw new NamingException();
+                response.setContentType("image/png");
+                response.setHeader("Content-Type", "image/png");
+                response.sendRedirect("images/default_user.png");
+                return;
             }
 
-            //BYTE to INT
-            /*int int_foto_img[] = new int[foto_img.length / 4];
-            int offset = 0;
-            for (int i = 0; i < int_foto_img.length; i++) {
-                int_foto_img[i] = (foto_img[3 + offset] & 0xFF) | ((foto_img[2 + offset] & 0xFF) << 8) | ((foto_img[1 + offset] & 0xFF) << 16) | ((foto_img[0 + offset] & 0xFF) << 24);
-                offset += 4;
-            }*/
-
             String image_type = db.getMimeType(foto_img);
+
+            if(!image_type.equals("image/png") && !image_type.equals("image/jpeg")){
+                response.setContentType("image/png");
+                response.setHeader("Content-Type", "image/png");
+                response.sendRedirect("images/default_user.png");
+                return;
+            }
+
             response.setContentType(image_type);
-            //int result_type_image = db.GetImageFormat(int_foto_img);
-            //1: BMP.  2: GIF.  3: PNG.  4: TIFF.  5: JPEG.  0: unkwown.
-            //int result_type_image = 5;
-
-            /*switch (result_type_image) {
-                case 0: response.sendRedirect("cerrar_sesion");
-                        break;
-                case 1: response.setContentType("image/bmp");
-                        response.setHeader("Content-Type", "image/bmp");
-                        break;
-                case 2: response.setContentType("image/gif");
-                        response.setHeader("Content-Type", "image/gif");
-                        break;
-                case 3: response.setContentType("image/png");
-                        response.setHeader("Content-Type", "image/png");
-                        break;
-                case 4: response.setContentType("image/tiff");
-                        response.setHeader("Content-Type", "image/tiff");
-                        break;
-                case 5: response.setContentType("image/jpeg");
-                        response.setHeader("Content-Type", "image/jpeg");
-                        break;
-                default:response.sendRedirect("cerrar_sesion");
-                        break;
-            }*/
-
             response.setHeader("Content-Length", String.valueOf(foto_img.length));
 
             //Write Image Data to Response.
             response.getOutputStream().write(foto_img);
 
-        } catch (SQLException e){
+        } catch (SQLException|NumberFormatException e){
             //e.printStackTrace();
             //response.sendError(500);
             response.sendRedirect("error");
-        } catch (NamingException|NumberFormatException e){
+        } catch (NamingException e){
             //e.printStackTrace();
             //response.sendError(500);
             response.setContentType("image/png");
