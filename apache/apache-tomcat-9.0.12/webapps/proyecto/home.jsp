@@ -41,36 +41,17 @@
 						<header class="major">
 						</header>
 						<% if(session.getAttribute("session_id") != null){ %>
-							<div class="col-6 col-12-narrower">
-
-								<h2>Busque usuarios</h2>
+							<h2>Busque usuarios</h2>
 									<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
 										<input type="text" name ="nombre_usuario">
-											<div class = "boton">
+											<div class = "fit">
 													<input type = "submit" value = "Buscar">
 											</div>
 									</form>
-
-							</div>
-
-							<div class="col-6 col-12-narrower">
-
-								<h2>Busque su película favorita</h2>
-					            <form id = "buscar_pelicula" action = "buscar_pelicula" method = "post">
-					                <input type="text" name ="nombre_pelicula" size = "2">
-					                    <div class = "boton">
-					                        <input type = "submit" value = "Buscar">
-					                    </div>
-					            </form>
-
-							</div>
-							
-						<%} else{%>
-							<h3>La red social de la que todo el mundo está hablando</h3>
-						<%}%>
-
+							<%} else{%>
+								<h3>La red social de la que todo el mundo está hablando</h3>
+							<%}%>
 					</section>
-
 
 					<div class="row">
 						<div class="col-6 col-12-narrower">
