@@ -103,7 +103,7 @@
 															<p>Sube tu foto de perfil</p>
 															<p>(no se podrá modificar)</p>
 							                                <input type="file" id="foto" name="foto" accept="image/png,image/jpeg" class="button special icon fa-search" style="display: none;"/>
-							                                <input style="background-color:#545252" type="button" value="Subir foto (obligatorio)" onclick="document.getElementById('foto').click();"/>
+							                                <input style="background-color:#545252" type="button" value="Subir foto" onclick="document.getElementById('foto').click();"/>
 							                            </div>
 
 			                                    </div>
