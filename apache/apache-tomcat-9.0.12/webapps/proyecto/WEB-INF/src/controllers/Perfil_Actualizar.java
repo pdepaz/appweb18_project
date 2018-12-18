@@ -104,7 +104,8 @@ public class Perfil_Actualizar extends HttpServlet {
                     session.setAttribute("mi_usuario", user);
                 }
 
-                response.sendRedirect("perfil");
+                //response.sendRedirect("perfil");
+                request.getRequestDispatcher("perfil").forward(request, response);
             } else {
                 response.sendRedirect("error");
             }
