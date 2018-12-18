@@ -43,7 +43,7 @@
 						<% if(session.getAttribute("session_id") != null){ %>
 							<h2>Busque usuarios</h2>
 									<form id = "buscar_usuario" action = "buscar_usuario" method = "post">
-										<input type="text" name ="nombre_usuario" size = "2">
+										<input type="text" name ="nombre_usuario">
 											<div class = "boton">
 													<input type = "submit" value = "Buscar">
 											</div>
