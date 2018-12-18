@@ -20,7 +20,7 @@
                         <section class="box">
                             <br/>
                             <b><h3>Cree una nueva película</h3></b>
-                            <form method="post" enctype="multipart/form-data" action="pelicula_guardar">
+                            <form method="post" enctype="multipart/form-data" action="pelicula_guardar" autocomplete="off">
                             <div class="row gtr-uniform gtr-50">
                                 <div class="col-6 col-12-mobilep">
                                     <select name="genero" >
@@ -52,7 +52,7 @@
                                 </div>
 
                                 <div class="col-6 col-12-mobilep">
-                                    <input type="text" placeholder="YouTube Trailer" name="trailer" >
+                                    <input type="text" placeholder="YouTube Video ID" name="trailer" >
                                 </div>
 
                                 <div class="col-6 col-12-mobilep">
